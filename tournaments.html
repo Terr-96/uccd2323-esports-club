@@ -25,8 +25,8 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- ===== 强制固定导航栏，阻止滚动放大 ===== -->
     <style>
+        /* ===== 强制固定导航栏 ===== */
         .main_menu.single_page_menu .navbar-brand img {
             height: 50px !important;
             max-height: 50px !important;
@@ -42,173 +42,371 @@
             box-shadow: none !important;
         }
 
-        /* 以下是 tournaments 页面原有样式 */
-        :root{
-            --tourn-accent:#ff2e63;
-            --tourn-accent-2:#ff7849;
-            --tourn-bg:#0c0e14;
-            --tourn-card:#151824;
-            --tourn-card-2:#1b1f2e;
-            --tourn-border:rgba(255,46,99,.18);
-            --tourn-text-dim:#9aa0b4;
+        :root {
+            --tourn-accent: #ff2e63;
+            --tourn-accent-2: #ff7849;
+            --tourn-bg: #0c0e14;
+            --tourn-card: #151824;
+            --tourn-card-2: #1b1f2e;
+            --tourn-border: rgba(255,46,99,.18);
+            --tourn-text-dim: #9aa0b4;
         }
-        .tourn_wrap{
+
+        .tourn_wrap {
             background:
                 radial-gradient(circle at 10% 10%, rgba(255,46,99,.10), transparent 40%),
                 radial-gradient(circle at 92% 30%, rgba(255,120,73,.08), transparent 40%),
                 var(--tourn-bg);
-            position:relative;
+            position: relative;
         }
-        .tourn-stats{ margin:35px 0 10px; }
-        .tourn-stat{
-            text-align:center;
-            background:var(--tourn-card);
-            border:1px solid var(--tourn-border);
-            border-radius:12px;
-            padding:22px 10px;
-            margin-bottom:20px;
-            transition:.25s;
+
+        .tourn-stats { margin: 35px 0 10px; }
+        .tourn-stat {
+            text-align: center;
+            background: var(--tourn-card);
+            border: 1px solid var(--tourn-border);
+            border-radius: 12px;
+            padding: 22px 10px;
+            margin-bottom: 20px;
+            transition: .25s;
         }
-        .tourn-stat:hover{ transform:translateY(-4px); border-color:var(--tourn-accent); }
-        .tourn-stat i{ font-size:22px; color:var(--tourn-accent); margin-bottom:10px; display:inline-block; }
-        .tourn-stat h4{ color:#fff; font-size:22px; font-weight:700; margin:0 0 4px; }
-        .tourn-stat span{ color:var(--tourn-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
-        .live-dot{ position:relative; }
-        .live-dot::before{
-            content:''; display:inline-block; width:8px; height:8px; border-radius:50%;
-            background:#ff2e63; margin-right:6px; box-shadow:0 0 0 rgba(255,46,99,.6);
-            animation:tournPulse 1.6s infinite;
+        .tourn-stat:hover { transform: translateY(-4px); border-color: var(--tourn-accent); }
+        .tourn-stat i { font-size: 22px; color: var(--tourn-accent); margin-bottom: 10px; display: inline-block; }
+        .tourn-stat h4 { color: #fff; font-size: 22px; font-weight: 700; margin: 0 0 4px; }
+        .tourn-stat span { color: var(--tourn-text-dim); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+        .live-dot { position: relative; }
+        .live-dot::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff2e63;
+            margin-right: 6px;
+            box-shadow: 0 0 0 rgba(255,46,99,.6);
+            animation: tournPulse 1.6s infinite;
         }
-        @keyframes tournPulse{
-            0%{ box-shadow:0 0 0 0 rgba(255,46,99,.6); }
-            70%{ box-shadow:0 0 0 8px rgba(255,46,99,0); }
-            100%{ box-shadow:0 0 0 0 rgba(255,46,99,0); }
+        @keyframes tournPulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,46,99,.6); }
+            70% { box-shadow: 0 0 0 8px rgba(255,46,99,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,46,99,0); }
         }
-        .tourn-filters{
-            list-style:none; display:flex; justify-content:center; flex-wrap:wrap;
-            gap:10px; padding:0; margin:10px 0 40px;
+
+        .tourn-filters {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            margin: 10px 0 40px;
         }
-        .tourn-filters li{
-            cursor:pointer; padding:9px 24px; border-radius:30px;
-            border:1px solid var(--tourn-border); color:var(--tourn-text-dim);
-            font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
-            transition:.2s;
+        .tourn-filters li {
+            cursor: pointer;
+            padding: 9px 24px;
+            border-radius: 30px;
+            border: 1px solid var(--tourn-border);
+            color: var(--tourn-text-dim);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            transition: .2s;
         }
-        .tourn-filters li:hover{ color:#fff; border-color:var(--tourn-accent); }
-        .tourn-filters li.active{
-            background:linear-gradient(135deg,var(--tourn-accent),var(--tourn-accent-2));
-            color:#fff; border-color:transparent;
-            box-shadow:0 6px 18px rgba(255,46,99,.35);
+        .tourn-filters li:hover { color: #fff; border-color: var(--tourn-accent); }
+        .tourn-filters li.active {
+            background: linear-gradient(135deg, var(--tourn-accent), var(--tourn-accent-2));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 6px 18px rgba(255,46,99,.35);
         }
-        .tourn-spotlight{
-            position:relative; overflow:hidden;
-            background:linear-gradient(135deg,#1a0f18,#12121f 60%);
-            border:1px solid var(--tourn-border);
-            border-radius:18px;
-            padding:45px 40px;
-            margin-bottom:50px;
+
+        .tourn-spotlight {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a0f18, #12121f 60%);
+            border: 1px solid var(--tourn-border);
+            border-radius: 18px;
+            padding: 45px 40px;
+            margin-bottom: 50px;
         }
-        .tourn-spotlight__glow{
-            position:absolute; top:-80px; right:-80px; width:260px; height:260px;
-            background:radial-gradient(circle,rgba(255,46,99,.35),transparent 70%);
-            filter:blur(10px); pointer-events:none;
+        .tourn-spotlight__glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(255,46,99,.35), transparent 70%);
+            filter: blur(10px);
+            pointer-events: none;
         }
-        .tourn-spotlight__art{
-            position:absolute; top:0; right:0; width:52%; height:100%;
-            opacity:.9; pointer-events:none;
-            -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);
-            mask-image:linear-gradient(90deg,transparent,#000 30%);
+        .tourn-spotlight__art {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 52%;
+            height: 100%;
+            opacity: .9;
+            pointer-events: none;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%);
+            mask-image: linear-gradient(90deg, transparent, #000 30%);
         }
-        .tourn-spotlight > .row{ position:relative; z-index:1; }
-        .tourn-spotlight__tag{
-            display:inline-block; color:var(--tourn-accent); font-weight:700;
-            font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;
+        .tourn-spotlight>.row { position: relative; z-index: 1; }
+        .tourn-spotlight__tag {
+            display: inline-block;
+            color: var(--tourn-accent);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
         }
-        .tourn-spotlight__tag i{ margin-right:6px; }
-        .tourn-spotlight h3{ color:#fff; font-size:32px; font-weight:800; margin-bottom:10px; }
-        .tourn-spotlight p{ color:var(--tourn-text-dim); max-width:480px; margin-bottom:18px; }
-        .tourn-spotlight__meta{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:22px; margin-bottom:22px; }
-        .tourn-spotlight__meta li{ color:#dfe2ec; font-size:14px; }
-        .tourn-spotlight__meta i{ color:var(--tourn-accent); margin-right:8px; }
-        .tourn-progress{ background:#242637; border-radius:20px; height:8px; width:100%; max-width:480px; overflow:hidden; }
-        .tourn-progress__bar{ height:100%; border-radius:20px; background:linear-gradient(90deg,var(--tourn-accent),var(--tourn-accent-2)); }
-        .tourn-progress__label{ display:block; margin-top:8px; color:var(--tourn-text-dim); font-size:12px; }
-        .tourn-spotlight__prize{ margin-bottom:20px; }
-        .tourn-spotlight__prize span{ display:block; color:var(--tourn-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:1px; }
-        .tourn-spotlight__prize h2{ color:#fff; font-size:46px; font-weight:800; margin:2px 0 0; }
-        .tourn-grid{ margin-top:10px; }
-        .tourn-card{
-            position:relative;
-            background:linear-gradient(180deg,var(--tourn-card-2),var(--tourn-card));
-            border:1px solid var(--tourn-border);
-            border-radius:16px;
-            padding:0 0 28px;
-            text-align:left;
-            overflow:hidden;
-            transition:transform .25s, border-color .25s, box-shadow .25s;
+        .tourn-spotlight__tag i { margin-right: 6px; }
+        .tourn-spotlight h3 { color: #fff; font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+        .tourn-spotlight p { color: var(--tourn-text-dim); max-width: 480px; margin-bottom: 18px; }
+        .tourn-spotlight__meta {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-bottom: 22px;
         }
-        .tourn-card:hover{
-            transform:translateY(-6px);
-            border-color:var(--tourn-accent);
-            box-shadow:0 16px 34px rgba(0,0,0,.45);
+        .tourn-spotlight__meta li { color: #dfe2ec; font-size: 14px; }
+        .tourn-spotlight__meta i { color: var(--tourn-accent); margin-right: 8px; }
+        .tourn-progress { background: #242637; border-radius: 20px; height: 8px; width: 100%; max-width: 480px; overflow: hidden; }
+        .tourn-progress__bar { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--tourn-accent), var(--tourn-accent-2)); }
+        .tourn-progress__label { display: block; margin-top: 8px; color: var(--tourn-text-dim); font-size: 12px; }
+        .tourn-spotlight__prize { margin-bottom: 20px; }
+        .tourn-spotlight__prize span { display: block; color: var(--tourn-text-dim); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .tourn-spotlight__prize h2 { color: #fff; font-size: 46px; font-weight: 800; margin: 2px 0 0; }
+
+        .tourn-grid { margin-top: 10px; }
+        .tourn-item { margin-bottom: 30px; }
+
+        .tourn-card {
+            position: relative;
+            background: var(--tourn-card);
+            border: 1px solid var(--tourn-border);
+            border-radius: 16px;
+            padding: 0 0 28px;
+            text-align: left;
+            overflow: hidden;
+            transition: transform .25s, border-color .25s, box-shadow .25s;
         }
-        .tourn-card:hover .tourn-card__watermark{ transform:scale(1.12) rotate(-4deg); opacity:.22; }
-        .tourn-card__cover{
-            position:relative; height:128px; display:flex; align-items:flex-end;
-            padding:14px 18px; overflow:hidden;
-            background:linear-gradient(135deg,#2a2438,#1b1f2e);
+        .tourn-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--tourn-accent);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, .45);
         }
-        .tourn-card__cover::after{
-            content:''; position:absolute; inset:0;
-            background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);
+
+        .tourn-card__cover {
+            position: relative;
+            height: 160px;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px 20px;
+            overflow: hidden;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
         }
-        .tourn-card__watermark{
-            position:absolute; right:-10px; top:50%; transform:translateY(-50%);
-            font-size:110px; color:rgba(255,255,255,.1);
-            transition:transform .35s, opacity .35s;
+        .tourn-card__cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.15) 100%);
         }
-        .tourn-card__icon{
-            position:relative; z-index:1; width:38px; height:38px; border-radius:10px;
-            display:flex; align-items:center; justify-content:center; font-size:16px;
-            background:rgba(255,255,255,.14); color:#fff; margin-right:10px;
-            backdrop-filter:blur(2px);
+        .tourn-card__watermark {
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 90px;
+            color: rgba(255,255,255,.08);
+            transition: transform .35s, opacity .35s;
+            z-index: 1;
         }
-        .tourn-card__game{
-            position:relative; z-index:1; color:#fff; font-weight:700;
-            font-size:13px; text-transform:uppercase; letter-spacing:.6px;
+        .tourn-card:hover .tourn-card__watermark {
+            transform: translateY(-50%) scale(1.12) rotate(-4deg);
+            opacity: .15;
         }
-        .tourn-card--valorant .tourn-card__cover{ background:linear-gradient(135deg,#ff2e63,#7b1145); }
-        .tourn-card--csgo .tourn-card__cover{ background:linear-gradient(135deg,#3a3d52,#111319); }
-        .tourn-card--dota .tourn-card__cover{ background:linear-gradient(135deg,#7b1e1e,#2c0c0c); }
-        .tourn-card--lol .tourn-card__cover{ background:linear-gradient(135deg,#1d5c9c,#0c2033); }
-        .tourn-card--multi .tourn-card__cover{ background:linear-gradient(135deg,#ff7849,#7a2a12); }
-        .tourn-card--apex .tourn-card__cover{ background:linear-gradient(135deg,#b9791a,#3a2705); }
-        .tourn-card .tournament-badge{
-            display:inline-block; margin:20px 0 0 26px;
-            background:linear-gradient(135deg,var(--tourn-accent),var(--tourn-accent-2));
-            color:#fff; font-size:11px; font-weight:700; padding:5px 16px; border-radius:20px;
-            text-transform:uppercase; letter-spacing:.6px;
-            box-shadow:0 6px 14px rgba(255,46,99,.3);
+        .tourn-card__icon {
+            position: relative;
+            z-index: 2;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: rgba(0,0,0,.5);
+            color: #fff;
+            margin-right: 12px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,.15);
         }
-        .tourn-card .tournament-badge.upcoming{ background:linear-gradient(135deg,#00c2a8,#00e0c0); box-shadow:0 6px 14px rgba(0,194,168,.3); }
-        .tourn-card .tournament-badge.ended{ background:linear-gradient(135deg,#5b5f73,#7c8098); box-shadow:none; }
-        .tourn-card p{ color:var(--tourn-text-dim); font-size:13px; text-transform:uppercase; letter-spacing:.5px; margin:14px 26px 6px; }
-        .tourn-card h3{ color:#fff; font-size:26px; font-weight:800; margin:0 26px 18px; }
-        .tourn-card ul{ list-style:none; padding:0; margin:0 26px 24px; }
-        .tourn-card ul li{ font-size:14px; color:#dfe2ec; padding:6px 0; }
-        .tourn-card ul li i{ width:22px; color:var(--tourn-accent); }
-        .tourn-card .btn_2{
-            display:inline-block; margin-left:26px; padding:10px 26px; border-radius:30px;
-            border:1px solid var(--tourn-accent); color:#fff !important; font-size:13px;
-            font-weight:600; text-transform:uppercase; letter-spacing:.5px; transition:.2s;
+        .tourn-card__game {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,.6);
         }
-        .tourn-card .btn_2:hover{
-            background:linear-gradient(135deg,var(--tourn-accent),var(--tourn-accent-2));
-            border-color:transparent; text-decoration:none;
+        .tourn-card .tournament-badge {
+            display: inline-block;
+            margin: 20px 0 0 26px;
+            background: linear-gradient(135deg, var(--tourn-accent), var(--tourn-accent-2));
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            box-shadow: 0 6px 14px rgba(255,46,99,.3);
+            position: relative;
+            z-index: 2;
         }
-        .tourn-item{ margin-bottom:30px; }
-        .tourn-item[style*="display: none"]{ display:none; }
-        .tourn-empty p{ color:var(--tourn-text-dim); padding:40px 0; }
+        .tourn-card .tournament-badge.upcoming {
+            background: linear-gradient(135deg, #00c2a8, #00e0c0);
+            box-shadow: 0 6px 14px rgba(0,194,168,.3);
+        }
+        .tourn-card .tournament-badge.ended {
+            background: linear-gradient(135deg, #5b5f73, #7c8098);
+            box-shadow: none;
+        }
+        .tourn-card p {
+            color: var(--tourn-text-dim);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin: 14px 26px 6px;
+        }
+        .tourn-card h3 {
+            color: #fff;
+            font-size: 26px;
+            font-weight: 800;
+            margin: 0 26px 18px;
+        }
+        .tourn-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 26px 24px;
+        }
+        .tourn-card ul li {
+            font-size: 14px;
+            color: #dfe2ec;
+            padding: 6px 0;
+        }
+        .tourn-card ul li i {
+            width: 22px;
+            color: var(--tourn-accent);
+        }
+        .tourn-card .btn_2 {
+            display: inline-block;
+            margin-left: 26px;
+            padding: 10px 26px;
+            border-radius: 30px;
+            border: 1px solid var(--tourn-accent);
+            color: #fff !important;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            transition: .2s;
+            background: transparent;
+        }
+        .tourn-card .btn_2:hover {
+            background: linear-gradient(135deg, var(--tourn-accent), var(--tourn-accent-2));
+            border-color: transparent;
+            text-decoration: none;
+        }
+        .tourn-item[style*="display: none"] { display: none; }
+        .tourn-empty p { color: var(--tourn-text-dim); padding: 40px 0; }
+
+        .rank-api-section {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 35px;
+        }
+        .rank-api-section h3 {
+            color: #fff;
+            font-weight: 700;
+        }
+        .rank-api-section h3 i {
+            color: #ff2e63;
+            margin-right: 10px;
+        }
+        .rank-card {
+            background: #151824;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            transition: 0.25s;
+        }
+        .rank-card:hover {
+            border-color: #ff2e63;
+            transform: translateX(6px);
+        }
+        .rank-card .rank-num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ff2e63;
+            min-width: 40px;
+            text-align: center;
+        }
+        .rank-card .rank-info {
+            flex: 1;
+        }
+        .rank-card .rank-info .team-name {
+            color: #fff;
+            font-weight: 600;
+        }
+        .rank-card .rank-info .team-game {
+            color: #9aa0b4;
+            font-size: 0.8rem;
+        }
+        .rank-card .rank-score {
+            color: #ffc107;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .rank-loading {
+            color: #9aa0b4;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .rank-loading i {
+            color: #ff2e63;
+        }
+
+        @media (max-width: 767px) {
+            .tourn-spotlight {
+                padding: 25px 20px;
+            }
+            .tourn-spotlight h3 {
+                font-size: 24px;
+            }
+            .tourn-spotlight__prize h2 {
+                font-size: 32px;
+            }
+            .tourn-card__cover {
+                height: 130px;
+            }
+            .tourn-card__watermark {
+                font-size: 60px;
+            }
+        }
     </style>
 </head>
 
@@ -219,7 +417,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="img/logo.png" alt="logo">
+                        </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -292,13 +492,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="section_tittle text-center">
-                        <h2>Featured Tournaments</h2>
-                        <p>Check out our upcoming and ongoing gaming tournaments — pick your bracket and get in the arena.</p>
+                        <h2 style="color:#fff;">Featured Tournaments</h2>
+                        <p style="color:#9aa0b4;">Check out our upcoming and ongoing gaming tournaments — pick your bracket and get in the arena.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- stat strip -->
+            <!-- 统计栏 -->
             <div class="row tourn-stats justify-content-center">
                 <div class="col-6 col-md-3">
                     <div class="tourn-stat">
@@ -330,7 +530,7 @@
                 </div>
             </div>
 
-            <!-- filter tabs -->
+            <!-- 过滤器 -->
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <ul class="tourn-filters" id="tournFilters">
@@ -339,10 +539,15 @@
                         <li data-filter="upcoming">Upcoming</li>
                         <li data-filter="ended">Ended</li>
                     </ul>
+                    <p style="text-align:center; color:#6c7a92; font-size:0.8rem; margin-top:-20px; margin-bottom:20px;">
+                        <i class="fas fa-clock" style="color:#ff2e63;"></i>
+                        Your last view: <span id="tournStorageStatus" style="color:#fff; font-weight:600;">all</span>
+                        <span style="color:#6c7a92;">(sessionStorage)</span>
+                    </p>
                 </div>
             </div>
 
-            <!-- spotlight tournament -->
+            <!-- Spotlight 赛事 -->
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="tourn-spotlight">
@@ -422,13 +627,13 @@
                 </div>
             </div>
 
-            <!-- tournament grid -->
+            <!-- ===== 赛事卡片网格（真实游戏壁纸） ===== -->
             <div class="row justify-content-center tourn-grid" id="tournGrid">
 
-                <!-- Tournament 1 -->
+                <!-- 1. VALORANT -->
                 <div class="col-lg-4 col-sm-6 tourn-item" data-status="ongoing">
-                    <div class="single_pricing_part tourn-card tourn-card--valorant">
-                        <div class="tourn-card__cover">
+                    <div class="single_pricing_part tourn-card">
+                        <div class="tourn-card__cover" style="background: url('https://wallpapers.com/images/hd/valorant-1920-x-1080-wallpaper-42x1j7bqldo82aoh.jpg');">
                             <i class="fas fa-crosshairs tourn-card__watermark"></i>
                             <i class="fas fa-crosshairs tourn-card__icon"></i>
                             <span class="tourn-card__game">Valorant</span>
@@ -446,10 +651,10 @@
                     </div>
                 </div>
 
-                <!-- Tournament 2 -->
+                <!-- 2. CS:GO -->
                 <div class="col-lg-4 col-sm-6 tourn-item" data-status="upcoming">
-                    <div class="single_pricing_part tourn-card tourn-card--csgo">
-                        <div class="tourn-card__cover">
+                    <div class="single_pricing_part tourn-card">
+                        <div class="tourn-card__cover" style="background: url('https://wallpapers.com/images/hd/csgo-1920-x-1080-wallpaper-6yf6sya6mlvb2ahv.jpg');">
                             <i class="fas fa-bomb tourn-card__watermark"></i>
                             <i class="fas fa-bomb tourn-card__icon"></i>
                             <span class="tourn-card__game">CS:GO</span>
@@ -467,10 +672,10 @@
                     </div>
                 </div>
 
-                <!-- Tournament 3 -->
+                <!-- 3. DOTA 2 -->
                 <div class="col-lg-4 col-sm-6 tourn-item" data-status="ended">
-                    <div class="single_pricing_part tourn-card tourn-card--dota">
-                        <div class="tourn-card__cover">
+                    <div class="single_pricing_part tourn-card">
+                        <div class="tourn-card__cover" style="background: url('https://wallpapers.com/images/hd/dota-2-1920-x-1080-wallpaper-izjygvs7a56fc161.jpg');">
                             <i class="fas fa-shield-alt tourn-card__watermark"></i>
                             <i class="fas fa-shield-alt tourn-card__icon"></i>
                             <span class="tourn-card__game">Dota 2</span>
@@ -488,10 +693,10 @@
                     </div>
                 </div>
 
-                <!-- Tournament 4 -->
+                <!-- 4. LEAGUE OF LEGENDS -->
                 <div class="col-lg-4 col-sm-6 tourn-item" data-status="upcoming">
-                    <div class="single_pricing_part tourn-card tourn-card--lol">
-                        <div class="tourn-card__cover">
+                    <div class="single_pricing_part tourn-card">
+                        <div class="tourn-card__cover" style="background: url('https://wallpapers.com/images/hd/league-of-legends-1920-x-1080-wallpaper-3o1yj8d36bj02ypd.jpg');">
                             <i class="fas fa-chess-rook tourn-card__watermark"></i>
                             <i class="fas fa-chess-rook tourn-card__icon"></i>
                             <span class="tourn-card__game">League of Legends</span>
@@ -509,10 +714,10 @@
                     </div>
                 </div>
 
-                <!-- Tournament 5 -->
+                <!-- 5. MULTI-GAME -->
                 <div class="col-lg-4 col-sm-6 tourn-item" data-status="ongoing">
-                    <div class="single_pricing_part tourn-card tourn-card--multi">
-                        <div class="tourn-card__cover">
+                    <div class="single_pricing_part tourn-card">
+                        <div class="tourn-card__cover" style="background: url('https://wallpapers.com/images/hd/esports-tournament-stage-1920-x-1080-wallpaper-1vj5cb3exne62pp7.jpg');">
                             <i class="fas fa-globe-americas tourn-card__watermark"></i>
                             <i class="fas fa-globe-americas tourn-card__icon"></i>
                             <span class="tourn-card__game">Multi-Game</span>
@@ -530,10 +735,10 @@
                     </div>
                 </div>
 
-                <!-- Tournament 6 -->
+                <!-- 6. APEX LEGENDS -->
                 <div class="col-lg-4 col-sm-6 tourn-item" data-status="ended">
-                    <div class="single_pricing_part tourn-card tourn-card--apex">
-                        <div class="tourn-card__cover">
+                    <div class="single_pricing_part tourn-card">
+                        <div class="tourn-card__cover" style="background: url('https://wallpapers.com/images/hd/apex-legends-1920-x-1080-wallpaper-2cwfxckm723tb6a2.jpg');">
                             <i class="fas fa-parachute-box tourn-card__watermark"></i>
                             <i class="fas fa-parachute-box tourn-card__icon"></i>
                             <span class="tourn-card__game">Apex Legends</span>
@@ -556,6 +761,22 @@
             <div class="row">
                 <div class="col-12 text-center tourn-empty" id="tournEmpty" style="display:none;">
                     <p>No tournaments in this category right now — check back soon.</p>
+                </div>
+            </div>
+
+            <!-- ===== API: Team Rankings ===== -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="rank-api-section">
+                        <h3><i class="fas fa-ranking-star"></i> Global Team Rankings</h3>
+                        <p style="color:#6c7a92; font-size:0.9rem; margin-bottom:20px;">Powered by RESTful API — Live rankings</p>
+                        <div id="rankContainer">
+                            <div class="rank-loading">
+                                <i class="fas fa-spinner fa-pulse fa-2x"></i>
+                                <p style="margin-top:10px;">Loading rankings...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -679,21 +900,36 @@
     <script src="js/mail-script.js"></script>
     <script src="js/custom.js"></script>
 
-    <!-- Filter logic -->
+    <!-- Filter + sessionStorage + API 逻辑 -->
     <script>
-        (function () {
+        (function() {
             var filters = document.querySelectorAll('#tournFilters li');
             var items = document.querySelectorAll('#tournGrid .tourn-item');
             var empty = document.getElementById('tournEmpty');
+            var storageStatus = document.getElementById('tournStorageStatus');
 
-            filters.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    filters.forEach(function (b) { b.classList.remove('active'); });
+            var savedFilter = sessionStorage.getItem('tournFilter') || 'all';
+
+            filters.forEach(function(btn) {
+                var filterVal = btn.getAttribute('data-filter');
+                if (filterVal === savedFilter) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+
+                btn.addEventListener('click', function() {
+                    filters.forEach(function(b) { b.classList.remove('active'); });
                     btn.classList.add('active');
                     var filter = btn.getAttribute('data-filter');
                     var visibleCount = 0;
 
-                    items.forEach(function (item) {
+                    sessionStorage.setItem('tournFilter', filter);
+                    if (storageStatus) {
+                        storageStatus.textContent = filter;
+                    }
+
+                    items.forEach(function(item) {
                         var status = item.getAttribute('data-status');
                         var show = (filter === 'all' || filter === status);
                         item.style.display = show ? '' : 'none';
@@ -703,6 +939,60 @@
                     empty.style.display = visibleCount === 0 ? 'block' : 'none';
                 });
             });
+
+            if (storageStatus) {
+                storageStatus.textContent = savedFilter;
+            }
+
+            var rankContainer = document.getElementById('rankContainer');
+
+            function fetchRankings() {
+                var apiUrl = 'https://jsonplaceholder.typicode.com/users?_limit=8';
+
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    timeout: 8000,
+                    success: function(data) {
+                        if (data && data.length > 0) {
+                            var html = '';
+                            var games = ['Valorant', 'CS:GO', 'Dota 2', 'LoL', 'Apex', 'OW', 'R6', 'CoD'];
+                            data.forEach(function(user, index) {
+                                var rank = index + 1;
+                                var score = 1800 + Math.floor(Math.random() * 700);
+                                var game = games[index % games.length];
+                                var medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' :
+                                '#';
+                                html += `
+                                    <div class="rank-card">
+                                        <div class="rank-num">${medal} ${rank}</div>
+                                        <div class="rank-info">
+                                            <div class="team-name">${user.name}</div>
+                                            <div class="team-game"><i class="fas fa-gamepad" style="color:#ff2e63;"></i> ${game}</div>
+                                        </div>
+                                        <div class="rank-score">${score} pts</div>
+                                    </div>
+                                `;
+                            });
+                            rankContainer.innerHTML = html;
+                        } else {
+                            rankContainer.innerHTML =
+                                '<div class="text-center" style="color:#9aa0b4;"><p>No ranking data available.</p></div>';
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('API Error:', status, error);
+                        rankContainer.innerHTML = `
+                            <div class="text-center" style="color:#9aa0b4;">
+                                <p><i class="fas fa-exclamation-triangle" style="color:#ffc107;"></i> Unable to load rankings. Please try again later.</p>
+                            </div>
+                        `;
+                    }
+                });
+            }
+
+            fetchRankings();
         })();
     </script>
 </body>
