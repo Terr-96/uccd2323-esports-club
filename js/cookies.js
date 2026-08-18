@@ -1,3 +1,4 @@
+// --- Cookie 辅助函数 ---
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -14,61 +15,79 @@ function getCookie(cname) {
     return "";
 }
 
-
+// --- 刷新界面上的 Storage 显示状态 ---
 function renderStorageStatus() {
     let cookieVal = getCookie("user_role");
     let localVal = localStorage.getItem("preferred_theme");
     let sessionVal = sessionStorage.getItem("current_session_id");
 
-    $('#status-cookie').text(cookieVal ? cookieVal : "无数据");
-    $('#status-local').text(localVal ? localVal : "无数据");
-    $('#status-session').text(sessionVal ? sessionVal : "无数据");
+    $('#status-cookie').text(cookieVal ? cookieVal : "nondata");
+    $('#status-local').text(localVal ? localVal : "nondata");
+    $('#status-session').text(sessionVal ? sessionVal : "nondata");
 }
 
+// 原生 JS 监听注册表单提交
 document.addEventListener('DOMContentLoaded', function () {
     const registerForm = document.getElementById('registerForm');
     
     if (registerForm) {
         registerForm.addEventListener('submit', function (e) {
-            e.preventDefault(); 
+            e.preventDefault(); // 阻止表单跳转，消除 405 报错
             
-           
+            // 1. 获取表单数据（增加读取 password）
             const username = document.getElementById('username').value;
             const email = document.getElementById('userEmail').value;
+            const password = document.getElementById('password').value; // 👈 新增：读取密码
             
-        
-            console.log('register information：', username, email);
-            alert('register successful!');
+            // 2. 以相同方式保存到 Cookie（保存 7 天）
+            setCookie("username", username, 7);
+            setCookie("user_email", email, 7);
+            setCookie("user_password", password, 7); // 👈 新增：保存密码到 Cookie
+
+            console.log('register information：', username, email, password);
+            alert('register successful! Username, Email & Password saved.');
+
+            // 3. 清空表单
+            registerForm.reset();
+
+            // 4. 动态更新界面显示状态
+            if (typeof renderStorageStatus === 'function') {
+                renderStorageStatus();
+            }
         });
     }
 });
 
 $(document).ready(function () {
- 
+    // 页面加载完成后立即读取并渲染已存数据
     renderStorageStatus();
 
+    // 1. 点击按钮写入数据
     $('#btn-set-storage').click(function () {
-        setCookie("user_role", "Registered_Member", 7); 
-        localStorage.setItem("preferred_theme", "Dark_Mode"); 
-        sessionStorage.setItem("current_session_id", "SESS_" + Math.floor(Math.random() * 10000)); 
+        setCookie("user_role", "Registered_Member", 7); // Cookies 保存 7 天
+        localStorage.setItem("preferred_theme", "Dark_Mode"); // LocalStorage 永久保存
+        sessionStorage.setItem("current_session_id", "SESS_" + Math.floor(Math.random() * 10000)); // SessionStorage 单次会话
+
         renderStorageStatus();
         alert("所有 Storage data saved！");
     });
 
- 
+    // 2. 点击按钮清除数据
     $('#btn-clear-storage').click(function () {
         document.cookie = "user_role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "user_email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "user_password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         localStorage.removeItem("preferred_theme");
         sessionStorage.removeItem("current_session_id");
 
         renderStorageStatus();
     });
 
-    $('#subscribeForm').submit(function(e) {
-    $('form').not('#subscribeForm').submit(function(e) {
-        e.preventDefault(); 
+    // 3. 拦截主注册表单以外的表单提交
+    $('form').not('#subscribeForm, #registerForm').submit(function(e) {
+        e.preventDefault();
 
-       
         let inputVal = $(this).find('input[type="email"], input[type="text"]').first().val();
 
         if (inputVal) {
@@ -82,23 +101,30 @@ $(document).ready(function () {
         if (typeof renderStorageStatus === 'function') {
             renderStorageStatus();
         }
-    });
-        e.preventDefault(); 
 
-       
+        // 清空表单
+        this.reset();
+    });
+
+    // 4. 订阅 Newsletter 表单
+    $('#subscribeForm').submit(function(e) {
+        e.preventDefault();
+
         let emailValue = $('#subscribeEmail').val();
 
+        setCookie("user_email", emailValue, 7);
+        localStorage.setItem("subscribed_email", emailValue);
+        sessionStorage.setItem("user_action", "Subscribed");
 
-        setCookie("user_email", emailValue, 7);               
-        localStorage.setItem("subscribed_email", emailValue); 
-        sessionStorage.setItem("user_action", "Subscribed");  
-      
         alert("successful！Email saved at Cookie/LocalStorage：" + emailValue);
+        
+        // 清空输入框
         $('#subscribeEmail').val('');
 
         renderStorageStatus();
     });
 
+    // 5. jQuery 调用 RESTful API
     $('#btn-fetch-api').click(function () {
         $('#api-loading').show();
         $('#api-result').empty();
@@ -120,7 +146,7 @@ $(document).ready(function () {
             },
             error: function () {
                 $('#api-loading').hide();
-                $('#api-result').html('<span style="color:red;">API 请求失败，请检查网络设置。</span>');
+                $('#api-result').html('<span style="color:red;">API failed, please check your network settings.</span>');
             }
         });
     });
