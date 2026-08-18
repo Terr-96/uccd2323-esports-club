@@ -301,15 +301,39 @@
                                     <input type="password" class="form-control" placeholder="••••••••" required>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <label>Primary Game / Interest</label>
-                                    <select class="form-control">
-                                        <option value="">Select your main game...</option>
-                                        <option value="cs2">Counter-Strike 2</option>
-                                        <option value="dota2">Dota 2</option>
-                                        <option value="valorant">Valorant</option>
-                                        <option value="league">League of Legends</option>
-                                        <option value="other">Other Games</option>
-                                    </select>
+                                    <label>Primary Game / Interest </label>
+                                    <div class="col-md-12 form-group">
+    <div class="col-md-12 form-group">
+    <label style="margin-bottom: 15px; display: block;">Select Your Interests:</label>
+    
+    <div class="checkbox-list-wrapper">
+        <label class="checkbox-item">
+            <input type="checkbox" name="game" value="cs2">
+            <span class="checkbox-text">Counter-Strike 2</span>
+        </label>
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="game" value="dota2">
+            <span class="checkbox-text">Dota 2</span>
+        </label>
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="game" value="valorant">
+            <span class="checkbox-text">Valorant</span>
+        </label>
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="game" value="league">
+            <span class="checkbox-text">League of Legends</span>
+        </label>
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="game" value="other">
+            <span class="checkbox-text">Other Games</span>
+        </label>
+    </div>
+</div>
+</div>
                                 </div>
                                 <div class="col-md-12 form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
                                     <input type="checkbox" id="terms" required style="width: 18px; height: 18px; accent-color: var(--reg-accent);">
@@ -436,8 +460,4 @@
         });
     </script>
 </body>
-</html>
-    <script src="js/main.js"></script>
-</body>
-
 </html>
