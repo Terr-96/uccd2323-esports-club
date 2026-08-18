@@ -1,968 +1,5310 @@
 <!doctype html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>gaming – Schedules</title>
-    <link rel="icon" href="img/favicon.png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/all.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="css/slick.css">
-    <!-- style CSS (your main theme) -->
-    <link rel="stylesheet" href="css/style.css">
 
-    <!-- ===== 强制固定导航栏，阻止滚动放大 ===== -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+
+    <title>
+        LEAGUE ESPORTS – Schedules & Results
+    </title>
+
+    <link
+        rel="icon"
+        href="img/favicon.png"
+    >
+
+
+    <!-- =========================================
+         CSS FILES
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/bootstrap.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/animate.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/owl.carousel.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/all.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/flaticon.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/themify-icons.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/magnific-popup.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/slick.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
     <style>
-        .main_menu.single_page_menu .navbar-brand img {
-            height: 50px !important;
-            max-height: 50px !important;
-            width: auto !important;
-        }
-        .main_menu.single_page_menu {
-            padding-top: 5px !important;
-            padding-bottom: 5px !important;
-            transition: none !important;
-        }
-        .main_menu.single_page_menu.header_fixed {
-            background: #0c0e14 !important;
-            box-shadow: none !important;
+
+        :root {
+
+            --accent: #ff2e63;
+
+            --accent-2: #ff7849;
+
+            --bg: #0c0e14;
+
+            --card: #151824;
+
+            --card-2: #1b1f2e;
+
+            --border: rgba(255,46,99,.22);
+
+            --text: #ffffff;
+
+            --muted: #9aa0b4;
+
+            --live: #ffc107;
+
+            --success: #28a745;
+
+            --blue: #2487ff;
+
         }
 
-        .section_tittle h2,
-        .section_tittle p {
-            color: #ffffff !important;
+
+        html {
+
+            scroll-behavior: smooth;
+
         }
-        .sched-filter-group .btn {
-            color: #ffffff !important;
+
+
+        body {
+
+            background: var(--bg);
+
+            color: var(--text);
+
         }
-        .sched-filter-group .btn:hover {
-            color: #ffffff !important;
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        .main_menu.single_page_menu .navbar-brand img {
+
+            height: 50px !important;
+
+            max-height: 50px !important;
+
+            width: auto !important;
+
         }
+
+
+        .main_menu.single_page_menu {
+
+            padding-top: 5px !important;
+
+            padding-bottom: 5px !important;
+
+            transition: none !important;
+
+        }
+
+
+        .main_menu.single_page_menu.header_fixed {
+
+            background: var(--bg) !important;
+
+            box-shadow: none !important;
+
+        }
+
+
+        /* =========================================
+           MAIN PAGE
+        ========================================== */
 
         .sched-section {
-            background: #0c0e14;
-        }
-        .sched-day__label {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #fff;
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .sched-item {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem 1.5rem;
-            background: #151824;
-            border-radius: 12px;
-            padding: 0.8rem 1.5rem;
-            margin-bottom: 0.7rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.2s;
-        }
-        .sched-item:hover {
-            border-color: rgba(255, 46, 99, 0.3);
-            transform: translateX(4px);
-        }
-        .sched-item.is-live {
-            border-color: #ffc107;
-            box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.15);
-        }
-        .sched-item--final {
-            border-color: rgba(255, 120, 73, 0.4);
-            background: linear-gradient(90deg, rgba(255, 46, 99, 0.08), #151824 60%);
-        }
-        .sched-item__time {
-            flex: 0 0 80px;
-            text-align: center;
-            color: #fff;
-        }
-        .sched-item__time strong {
-            display: block;
-            font-size: 1.2rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        .sched-item__time span {
-            display: block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            color: #9aa0b4;
-            letter-spacing: 0.3px;
-        }
-        .sched-item__tourn {
-            flex: 0 0 140px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #ff2e63;
-        }
-        .sched-item__tourn i {
-            margin-right: 4px;
-            color: #ffcf5c;
-        }
-        .sched-item__match {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            font-weight: 600;
-            color: #fff;
-            min-width: 200px;
-            flex-wrap: wrap;
-        }
-        .sched-item__match .team {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-        }
-        .team-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
-        }
-        .sched-item__match .score {
-            font-weight: 700;
-            background: #20232f;
-            padding: 2px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            min-width: 50px;
-            text-align: center;
-        }
-        .score--vs {
-            background: transparent !important;
-            color: #9aa0b4;
-            font-weight: 600;
-            min-width: auto;
-        }
-        .sched-item__status {
-            flex: 0 0 110px;
-            text-align: right;
-        }
-        .badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 6px 14px;
-            border-radius: 20px;
-        }
-        .badge-finished {
-            background: #28a745;
-            color: #fff;
-        }
-        .badge-live {
-            background: #ffc107;
-            color: #212529;
-            display: inline-flex;
-            align-items: center;
-        }
-        .badge-upcoming {
-            background: #007bff;
-            color: #fff;
-        }
-        .badge-tbd {
-            background: #6c757d;
-            color: #fff;
-        }
-        .live-ping {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #212529;
-            border-radius: 50%;
-            margin-right: 6px;
-            animation: ping 1.2s infinite;
-        }
-        @keyframes ping {
-            0% { opacity: 1; }
-            50% { opacity: 0.2; }
-            100% { opacity: 1; }
-        }
-        .sched-filter-group .btn {
-            border-color: #4a4f5f;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            padding: 0.4rem 1.2rem;
-            transition: 0.2s;
-        }
-        .sched-filter-group .btn:hover {
-            border-color: #ff2e63;
-        }
-        .sched-filter-group .btn.active {
-            background: #ff2e63;
-            border-color: #ff2e63;
-            color: #fff;
-        }
-        .sched-filter-group .btn.active.btn-outline-warning {
-            background: #ffc107;
-            border-color: #ffc107;
-            color: #212529;
-        }
-        .sched-filter-group .btn.active.btn-outline-primary {
-            background: #007bff;
-            border-color: #007bff;
-            color: #fff;
-        }
-        .sched-filter-group .btn.active.btn-outline-success {
-            background: #28a745;
-            border-color: #28a745;
-            color: #fff;
-        }
-        .sched-filter-group .btn.active.btn-outline-secondary {
-            background: #6c757d;
-            border-color: #6c757d;
-            color: #fff;
-        }
-        .dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        .dot-live { background: #ffc107; }
-        .dot-upcoming { background: #007bff; }
-        .dot-finished { background: #28a745; }
-        .dot-tbd { background: #6c757d; }
 
-        /* ===== API 新闻卡片样式 ===== */
-        .api-news-section {
-            margin-top: 50px;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            padding-top: 40px;
+            background:
+
+                radial-gradient(
+                    circle at 12% 8%,
+                    rgba(255,46,99,.10),
+                    transparent 36%
+                ),
+
+                radial-gradient(
+                    circle at 88% 30%,
+                    rgba(255,120,73,.07),
+                    transparent 42%
+                ),
+
+                var(--bg);
+
+            min-height: 100vh;
+
         }
-        .api-news-section h3 {
-            color: #fff;
-            font-weight: 700;
-            margin-bottom: 20px;
+
+
+        .section_tittle h2 {
+
+            color: #ffffff !important;
+
         }
-        .api-news-section h3 i {
-            color: #ff2e63;
-            margin-right: 10px;
+
+
+        .section_tittle p {
+
+            color: var(--muted) !important;
+
         }
-        .news-card {
-            background: #151824;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 20px;
-            height: 100%;
-            transition: 0.25s;
+
+
+        /* =========================================
+           STATISTICS
+        ========================================== */
+
+        .schedule-stats {
+
+            margin: 30px 0 10px;
+
         }
-        .news-card:hover {
-            border-color: #ff2e63;
+
+
+        .schedule-stat {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #171a24,
+                    #11141c
+                );
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            border-radius: 14px;
+
+            padding: 20px 14px;
+
+            text-align: center;
+
+            margin-bottom: 18px;
+
+            transition: .25s;
+
+        }
+
+
+        .schedule-stat:hover {
+
             transform: translateY(-4px);
+
+            border-color: var(--border);
+
         }
-        .news-card .news-title {
-            color: #fff;
-            font-weight: 600;
-            font-size: 1rem;
+
+
+        .schedule-stat i {
+
+            color: var(--accent);
+
+            font-size: 20px;
+
             margin-bottom: 8px;
+
         }
-        .news-card .news-title a {
-            color: #fff;
-            text-decoration: none;
+
+
+        .schedule-stat strong {
+
+            display: block;
+
+            font-size: 23px;
+
+            color: #ffffff;
+
         }
-        .news-card .news-title a:hover {
-            color: #ff2e63;
-        }
-        .news-card .news-meta {
-            color: #9aa0b4;
-            font-size: 0.8rem;
-        }
-        .news-card .news-meta i {
-            color: #ff2e63;
-            margin-right: 4px;
-        }
-        .news-card .news-excerpt {
-            color: #bfc5d4;
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
-        .news-card .news-date {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 0.7rem;
-            color: #6c7a92;
+
+
+        .schedule-stat span {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .news-loading {
-            color: #9aa0b4;
-            text-align: center;
-            padding: 30px 0;
-        }
-        .news-loading i {
-            color: #ff2e63;
+
+            letter-spacing: .5px;
+
         }
 
-        .fb-page-container {
-            background: #151824;
-            border: 1px solid rgba(255,255,255,0.05);
+
+        /* =========================================
+           LIVE CENTER
+        ========================================== */
+
+        .live-center {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #17111a,
+                    #11141d 60%
+                );
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            margin: 28px 0 35px;
+
+        }
+
+
+        .live-center::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+
+            height: 260px;
+
+            right: -90px;
+
+            top: -100px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,46,99,.28),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .live-center__eyebrow {
+
+            color: var(--accent);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .live-center h3 {
+
+            color: #ffffff;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            margin: 8px 0;
+
+        }
+
+
+        .live-center p {
+
+            color: var(--muted);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .live-center__teams {
+
+            color: #ffffff;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            margin: 16px 0 18px;
+
+        }
+
+
+        .live-center__teams .vs {
+
+            color: var(--muted);
+
+            margin: 0 12px;
+
+        }
+
+
+        .live-clock-card {
+
+            background: #0c0e14;
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
             border-radius: 12px;
+
             padding: 20px;
-            margin-top: 30px;
-        }
-        .fb-page-container h4 {
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 15px;
+
+            position: relative;
+
+            z-index: 1;
+
         }
 
-        @media (max-width: 767px) {
-            .sched-item {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 1rem;
+
+        .live-clock-card small {
+
+            color: var(--muted);
+
+            text-transform: uppercase;
+
+            letter-spacing: .5px;
+
+        }
+
+
+        .live-clock-card .clock {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            margin-top: 3px;
+
+        }
+
+
+        .live-clock-card .date {
+
+            color: var(--accent);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================================
+           SAFE BUTTON
+           Removes white template overlay
+        ========================================== */
+
+        .safe-btn,
+        .safe-btn::before,
+        .safe-btn::after {
+
+            background-image: none !important;
+
+        }
+
+
+        .safe-btn::before,
+        .safe-btn::after {
+
+            content: none !important;
+
+            display: none !important;
+
+        }
+
+
+        .safe-btn {
+
+            display: inline-flex !important;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            border:
+                1px solid var(--accent) !important;
+
+            border-radius:
+                30px !important;
+
+            background:
+                #0c0e14 !important;
+
+            color:
+                #ffffff !important;
+
+            text-decoration:
+                none !important;
+
+            padding:
+                10px 18px !important;
+
+            font-size:
+                12px !important;
+
+            font-weight:
+                800 !important;
+
+            line-height:
+                1.2 !important;
+
+            cursor:
+                pointer;
+
+            transition:
+                .22s !important;
+
+            box-shadow:
+                none !important;
+
+        }
+
+
+        .safe-btn:hover {
+
+            background:
+                var(--accent) !important;
+
+            color:
+                #ffffff !important;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 7px 20px rgba(255,46,99,.25) !important;
+
+        }
+
+
+        .safe-btn.live {
+
+            border-color:
+                var(--live) !important;
+
+            color:
+                #111111 !important;
+
+            background:
+                var(--live) !important;
+
+        }
+
+
+        /* =========================================
+           FILTER
+        ========================================== */
+
+        .sched-filter-group {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            margin-bottom: 38px;
+
+        }
+
+
+        .sched-filter-group .filter-btn {
+
+            border:
+                1px solid #444a5a;
+
+            background:
+                #11141d;
+
+            color:
+                #ffffff;
+
+            border-radius:
+                28px;
+
+            padding:
+                8px 17px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .sched-filter-group .filter-btn:hover {
+
+            border-color:
+                var(--accent);
+
+        }
+
+
+        .sched-filter-group .filter-btn.active {
+
+            background:
+                var(--accent);
+
+            border-color:
+                var(--accent);
+
+        }
+
+
+        .dot {
+
+            display: inline-block;
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            margin-right: 6px;
+
+        }
+
+
+        .dot-live {
+
+            background:
+                var(--live);
+
+        }
+
+
+        .dot-upcoming {
+
+            background:
+                var(--blue);
+
+        }
+
+
+        .dot-finished {
+
+            background:
+                var(--success);
+
+        }
+
+
+        .dot-tbd {
+
+            background:
+                #6c757d;
+
+        }
+
+
+        /* =========================================
+           SCHEDULE
+        ========================================== */
+
+        .sched-day {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .sched-day__label {
+
+            color: #ffffff;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .6px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+            padding-bottom: 10px;
+
+            margin: 20px 0 14px;
+
+        }
+
+
+        .sched-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            background:
+                var(--card);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            border-radius:
+                14px;
+
+            padding:
+                17px 20px;
+
+            margin-bottom:
+                10px;
+
+            transition:
+                .22s;
+
+        }
+
+
+        .sched-item:hover {
+
+            border-color:
+                rgba(255,46,99,.35);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .sched-item.is-live {
+
+            border-color:
+                var(--live);
+
+            box-shadow:
+
+                0 0 0 1px rgba(255,193,7,.12),
+
+                0 8px 24px rgba(255,193,7,.05);
+
+        }
+
+
+        .sched-item__time {
+
+            width: 82px;
+
+            flex:
+                0 0 82px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .sched-item__time strong {
+
+            display:
+                block;
+
+            font-size:
+                20px;
+
+            color:
+                #ffffff;
+
+        }
+
+
+        .sched-item__time span {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .sched-item__tourn {
+
+            width:
+                145px;
+
+            flex:
+                0 0 145px;
+
+            color:
+                var(--accent);
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .sched-item__match {
+
+            flex:
+                1;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                12px;
+
+            color:
+                #ffffff;
+
+            font-weight:
+                700;
+
+            min-width:
+                220px;
+
+        }
+
+
+        .team {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+        }
+
+
+        .team-avatar {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border-radius:
+                50%;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            color:
+                #ffffff;
+
+            box-shadow:
+                0 0 0 2px rgba(255,255,255,.06);
+
+        }
+
+
+        .score {
+
+            background:
+                #20232f;
+
+            border-radius:
+                6px;
+
+            padding:
+                3px 10px;
+
+            min-width:
+                50px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .score--vs {
+
+            background:
+                transparent !important;
+
+            color:
+                var(--muted);
+
+            min-width:
+                auto;
+
+        }
+
+
+        .sched-item__status {
+
+            width:
+                125px;
+
+            flex:
+                0 0 125px;
+
+            text-align:
+                right;
+
+        }
+
+
+        /* =========================================
+           STATUS
+        ========================================== */
+
+        .status-badge {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            border-radius:
+                20px;
+
+            padding:
+                6px 12px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .status-live {
+
+            background:
+                var(--live);
+
+            color:
+                #1a1a1a;
+
+        }
+
+
+        .status-upcoming {
+
+            background:
+                var(--blue);
+
+            color:
+                #ffffff;
+
+        }
+
+
+        .status-finished {
+
+            background:
+                var(--success);
+
+            color:
+                #ffffff;
+
+        }
+
+
+        .status-tbd {
+
+            background:
+                #6c757d;
+
+            color:
+                #ffffff;
+
+        }
+
+
+        .live-ping {
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            border-radius:
+                50%;
+
+            background:
+                #7e6a00;
+
+            margin-right:
+                6px;
+
+            animation:
+                blink 1s infinite;
+
+        }
+
+
+        @keyframes blink {
+
+            50% {
+
+                opacity:
+                    .25;
+
             }
+
+        }
+
+
+        .watch-link {
+
+            margin-top:
+                7px;
+
+            display:
+                none !important;
+
+            width:
+                100%;
+
+            padding:
+                7px 10px !important;
+
+            font-size:
+                10px !important;
+
+        }
+
+
+        .sched-item.is-live .watch-link {
+
+            display:
+                inline-flex !important;
+
+        }
+
+
+        /* =========================================
+           SIDEBAR
+        ========================================== */
+
+        .side-box {
+
+            background:
+                var(--card);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            border-radius:
+                14px;
+
+            padding:
+                20px;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .side-box h4 {
+
+            color:
+                #ffffff;
+
+            font-size:
+                17px;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .side-box p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+        }
+
+
+        .stream-link {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            background:
+                #0c0e14;
+
+            border:
+                1px solid rgba(255,255,255,.05);
+
+            border-radius:
+                9px;
+
+            padding:
+                11px 12px;
+
+            margin-bottom:
+                8px;
+
+            color:
+                #ffffff !important;
+
+            text-decoration:
+                none !important;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .stream-link:hover {
+
+            border-color:
+                var(--accent);
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .stream-link i {
+
+            color:
+                var(--accent);
+
+            width:
+                20px;
+
+        }
+
+
+        .stream-link small {
+
+            color:
+                var(--muted);
+
+        }
+
+
+        /* =========================================
+           API
+        ========================================== */
+
+        .api-section {
+
+            margin-top:
+                48px;
+
+            padding-top:
+                35px;
+
+            border-top:
+                1px solid rgba(255,255,255,.06);
+
+        }
+
+
+        .api-section h3 {
+
+            color:
+                #ffffff;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .api-section h3 i {
+
+            color:
+                var(--accent);
+
+            margin-right:
+                8px;
+
+        }
+
+
+        .api-card {
+
+            background:
+                var(--card);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            border-radius:
+                12px;
+
+            padding:
+                18px;
+
+            height:
+                100%;
+
+            transition:
+                .22s;
+
+        }
+
+
+        .api-card:hover {
+
+            border-color:
+                var(--accent);
+
+            transform:
+                translateY(-4px);
+
+        }
+
+
+        .api-card .api-tag {
+
+            color:
+                var(--accent);
+
+            font-size:
+                10px;
+
+            text-transform:
+                uppercase;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .api-card h5 {
+
+            color:
+                #ffffff;
+
+            font-size:
+                15px;
+
+            line-height:
+                1.35;
+
+        }
+
+
+        .api-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                0;
+
+        }
+
+
+        /* =========================================
+           STORAGE CHIPS
+        ========================================== */
+
+        .tech-chip {
+
+            display:
+                inline-block;
+
+            border:
+                1px solid rgba(255,255,255,.10);
+
+            border-radius:
+                18px;
+
+            padding:
+                4px 9px;
+
+            margin:
+                3px 4px 3px 0;
+
+            color:
+                #d8dbe5;
+
+            font-size:
+                10px;
+
+        }
+
+
+        .tech-chip i {
+
+            color:
+                var(--accent);
+
+            margin-right:
+                4px;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width:991px) {
+
+            .sched-item {
+
+                flex-wrap:
+                    wrap;
+
+            }
+
+
+            .sched-item__match {
+
+                order:
+                    4;
+
+                width:
+                    100%;
+
+                flex-basis:
+                    100%;
+
+                justify-content:
+                    flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width:767px) {
+
+            .sched-item {
+
+                display:
+                    block;
+
+            }
+
+
             .sched-item__time,
             .sched-item__tourn,
             .sched-item__status {
-                flex: none;
-                text-align: left;
-                width: 100%;
+
+                width:
+                    100%;
+
+                text-align:
+                    left;
+
+                margin-bottom:
+                    9px;
+
             }
+
+
             .sched-item__match {
-                justify-content: flex-start;
-                flex-wrap: wrap;
+
+                justify-content:
+                    flex-start;
+
+                flex-wrap:
+                    wrap;
+
+                min-width:
+                    0;
+
             }
-            .sched-item__status {
-                text-align: left;
-                margin-top: 0.3rem;
+
+
+            .live-center {
+
+                padding:
+                    22px 18px;
+
             }
-            .sched-filter-group .btn {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.8rem;
+
+
+            .live-center h3 {
+
+                font-size:
+                    23px;
+
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
-    <!--::header part start::-->
-    <header class="main_menu single_page_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
-                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="main_menu single_page_menu">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-12">
+
+
+                <nav class="navbar navbar-expand-lg navbar-light">
+
+
+                    <a
+                        class="navbar-brand d-flex align-items-center"
+                        href="index.html"
+                    >
+
+                        <img
+                            src="img/logo.png"
+                            alt="logo"
+                        >
+
+                        <span
+                            style="
+                            color:#fff;
+                            font-weight:800;
+                            margin-left:10px;
+                            "
+                        >
+
+                            LEAGUE ESPORTS
+
+                        </span>
+
+                    </a>
+
+
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+
+                        <span class="menu_icon">
+
+                            <i class="fas fa-bars"></i>
+
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="collapse navbar-collapse main-menu-item"
+                        id="navbarSupportedContent"
+                    >
+
+                        <ul class="navbar-nav">
+
+
+                            <li class="nav-item">
+
+                                <a
+                                    class="nav-link"
+                                    href="index.html"
+                                >
+                                    Home
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item">
+
+                                <a
+                                    class="nav-link"
+                                    href="about.html"
+                                >
+                                    About Us
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navTournaments"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    Tournaments
+                                </a>
+
+
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="navTournaments"
+                                >
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="tournaments.html"
+                                    >
                                         Tournaments
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
-                                        <a class="dropdown-item" href="tournaments.html">Tournaments</a>
-                                        <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Teams
+
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="schedules.html"
+                                    >
+                                        Schedules & Results
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
-                                        <a class="dropdown-item" href="teams.html">Our Teams</a>
-                                        <a class="dropdown-item" href="players.html">Player Profiles</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Community
+
+                                </div>
+
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navTeams"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    Teams
+                                </a>
+
+
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="navTeams"
+                                >
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="teams.html"
+                                    >
+                                        Our Teams
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-                                        <a class="dropdown-item" href="news.html">News & Gallery</a>
-                                        <a class="dropdown-item" href="register.html">Join Us</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
-                    </nav>
-                </div>
+
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="players.html"
+                                    >
+                                        Player Profiles
+                                    </a>
+
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="leaderboard.html"
+                                    >
+                                        Leaderboard
+                                    </a>
+
+                                </div>
+
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navCommunity"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    Community
+                                </a>
+
+
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="navCommunity"
+                                >
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="news.html"
+                                    >
+                                        News & Gallery
+                                    </a>
+
+
+                                    <a
+                                        class="dropdown-item"
+                                        href="register.html"
+                                    >
+                                        Join Us
+                                    </a>
+
+                                </div>
+
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+
+                    <a
+                        href="register.html"
+                        class="btn_1 d-none d-sm-block"
+                    >
+                        Join Us
+                    </a>
+
+
+                </nav>
+
+
             </div>
+
         </div>
-    </header>
-    <!-- Header part end-->
 
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner text-center">
-                        <div class="breadcrumb_iner_item">
-                            <h2>Schedule & Results</h2>
-                        </div>
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     BREADCRUMB
+========================================== -->
+
+<section class="breadcrumb breadcrumb_bg">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="breadcrumb_iner text-center">
+
+                    <div class="breadcrumb_iner_item">
+
+                        <h2>
+
+                            Schedule & Results
+
+                        </h2>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
-    </section>
-    <!-- breadcrumb start-->
 
-    <!-- Schedule section start -->
-    <section class="blog_area section_padding sched-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="section_tittle text-center mb-4">
-                        <h2>Upcoming & Recent Matches</h2>
-                        <p>All times in your local timezone</p>
-                    </div>
+    </div>
 
-                    <!-- Filter Buttons -->
-                    <div class="text-center mb-5">
-                        <div class="btn-group sched-filter-group" role="group" aria-label="Filter matches">
-                            <button type="button" class="btn btn-outline-light active" data-filter="all">All Matches</button>
-                            <button type="button" class="btn btn-outline-warning" data-filter="live"><span class="dot dot-live"></span> Live</button>
-                            <button type="button" class="btn btn-outline-primary" data-filter="upcoming"><span class="dot dot-upcoming"></span> Upcoming</button>
-                            <button type="button" class="btn btn-outline-success" data-filter="finished"><span class="dot dot-finished"></span> Finished</button>
-                            <button type="button" class="btn btn-outline-secondary" data-filter="tbd"><span class="dot dot-tbd"></span> TBD</button>
-                        </div>
-                    </div>
+</section>
 
-                    <!-- Schedule items -->
-                    <div id="scheduleContainer">
-                        <!-- Day: Aug 18 -->
-                        <div class="sched-day" data-day="2026-08-18">
-                            <div class="sched-day__label">Tue, Aug 18 2026</div>
 
-                            <div class="sched-item" data-status="finished">
-                                <div class="sched-item__time">
-                                    <strong>15:00</strong>
-                                    <span>Aug 18</span>
-                                </div>
-                                <div class="sched-item__tourn">Summer Clash</div>
-                                <div class="sched-item__match">
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#ff2e63;">A</span>
-                                        Team A
-                                    </span>
-                                    <span class="score">2 – 1</span>
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#4d8dff;">B</span>
-                                        Team B
-                                    </span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-finished">Finished</span>
-                                </div>
-                            </div>
+<!-- =========================================
+     MAIN SECTION
+========================================== -->
 
-                            <div class="sched-item" data-status="finished">
-                                <div class="sched-item__time">
-                                    <strong>17:30</strong>
-                                    <span>Aug 18</span>
-                                </div>
-                                <div class="sched-item__tourn">Summer Clash</div>
-                                <div class="sched-item__match">
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#2ecf7a;">C</span>
-                                        Team C
-                                    </span>
-                                    <span class="score">0 – 3</span>
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#ffc107;">D</span>
-                                        Team D
-                                    </span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-finished">Finished</span>
-                                </div>
-                            </div>
-                        </div>
+<section class="section_padding sched-section">
 
-                        <!-- Day: Aug 19 -->
-                        <div class="sched-day" data-day="2026-08-19">
-                            <div class="sched-day__label">Wed, Aug 19 2026</div>
+<div class="container">
 
-                            <div class="sched-item is-live" data-status="live">
-                                <div class="sched-item__time">
-                                    <strong>14:00</strong>
-                                    <span>Aug 19</span>
-                                </div>
-                                <div class="sched-item__tourn">Summer Clash</div>
-                                <div class="sched-item__match">
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#ff7849;">E</span>
-                                        Team E
-                                    </span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#7b1e1e;">F</span>
-                                        Team F
-                                    </span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-live"><span class="live-ping"></span>Live</span>
-                                </div>
-                            </div>
 
-                            <div class="sched-item" data-status="upcoming">
-                                <div class="sched-item__time">
-                                    <strong>18:00</strong>
-                                    <span>Aug 19</span>
-                                </div>
-                                <div class="sched-item__tourn">Global Esports Cup</div>
-                                <div class="sched-item__match">
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#1d5c9c;">G</span>
-                                        Team G
-                                    </span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#b9791a;">H</span>
-                                        Team H
-                                    </span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-upcoming">Upcoming</span>
-                                </div>
-                            </div>
-                        </div>
+<div class="row justify-content-center">
 
-                        <!-- Day: Aug 20 -->
-                        <div class="sched-day" data-day="2026-08-20">
-                            <div class="sched-day__label">Thu, Aug 20 2026</div>
-                            <div class="sched-item" data-status="upcoming">
-                                <div class="sched-item__time">
-                                    <strong>16:00</strong>
-                                    <span>Aug 20</span>
-                                </div>
-                                <div class="sched-item__tourn">Global Esports Cup</div>
-                                <div class="sched-item__match">
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#ff7849;">I</span>
-                                        Team I
-                                    </span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">
-                                        <span class="team-avatar" style="background:#00c2a8;">J</span>
-                                        Team J
-                                    </span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-upcoming">Upcoming</span>
-                                </div>
-                            </div>
-                        </div>
+    <div class="col-lg-8">
 
-                        <!-- Day: Aug 21 -->
-                        <div class="sched-day" data-day="2026-08-21">
-                            <div class="sched-day__label">Fri, Aug 21 2026</div>
-                            <div class="sched-item" data-status="tbd">
-                                <div class="sched-item__time">
-                                    <strong>13:00</strong>
-                                    <span>Aug 21</span>
-                                </div>
-                                <div class="sched-item__tourn">Summer Clash</div>
-                                <div class="sched-item__match">
-                                    <span class="team">Semifinal #1</span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">Semifinal #2</span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-tbd">TBD</span>
-                                </div>
-                            </div>
-                            <div class="sched-item" data-status="tbd">
-                                <div class="sched-item__time">
-                                    <strong>15:30</strong>
-                                    <span>Aug 21</span>
-                                </div>
-                                <div class="sched-item__tourn">Summer Clash</div>
-                                <div class="sched-item__match">
-                                    <span class="team">Semifinal #3</span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">Semifinal #4</span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-tbd">TBD</span>
-                                </div>
-                            </div>
-                        </div>
+        <div class="section_tittle text-center">
 
-                        <!-- Day: Aug 22 -->
-                        <div class="sched-day" data-day="2026-08-22">
-                            <div class="sched-day__label">Sat, Aug 22 2026</div>
-                            <div class="sched-item sched-item--final" data-status="upcoming">
-                                <div class="sched-item__time">
-                                    <strong>18:00</strong>
-                                    <span>Aug 22</span>
-                                </div>
-                                <div class="sched-item__tourn"><i class="fas fa-trophy"></i> Summer Clash</div>
-                                <div class="sched-item__match">
-                                    <span class="team">Grand Final</span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">Grand Final</span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-upcoming">Upcoming</span>
-                                </div>
-                            </div>
-                        </div>
+            <h2>
 
-                        <!-- Day: Sep 05 -->
-                        <div class="sched-day" data-day="2026-09-05">
-                            <div class="sched-day__label">Sat, Sep 05 2026</div>
-                            <div class="sched-item" data-status="upcoming">
-                                <div class="sched-item__time">
-                                    <strong>12:00</strong>
-                                    <span>Sep 05</span>
-                                </div>
-                                <div class="sched-item__tourn">Pro League S7</div>
-                                <div class="sched-item__match">
-                                    <span class="team">Opening Match</span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">&nbsp;</span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-upcoming">Upcoming</span>
-                                </div>
-                            </div>
-                        </div>
+                Upcoming & Recent Matches
 
-                        <!-- Day: Sep 06 -->
-                        <div class="sched-day" data-day="2026-09-06">
-                            <div class="sched-day__label">Sun, Sep 06 2026</div>
-                            <div class="sched-item" data-status="upcoming">
-                                <div class="sched-item__time">
-                                    <strong>14:00</strong>
-                                    <span>Sep 06</span>
-                                </div>
-                                <div class="sched-item__tourn">Pro League S7</div>
-                                <div class="sched-item__match">
-                                    <span class="team">Group Stage</span>
-                                    <span class="score score--vs">vs</span>
-                                    <span class="team">&nbsp;</span>
-                                </div>
-                                <div class="sched-item__status">
-                                    <span class="badge badge-upcoming">Upcoming</span>
-                                </div>
-                            </div>
-                        </div>
+            </h2>
 
-                        <!-- Empty state -->
-                        <div class="text-center mt-4" id="emptyMessage" style="display:none;">
-                            <p class="text-muted">No matches found for this filter.</p>
-                        </div>
-                    </div>
 
-                    <div class="text-center mt-5">
-                        <a href="#" class="btn_1">View Full Schedule</a>
-                    </div>
-                </div>
+            <p>
 
-                <!-- ===== Sidebar: Facebook Social Plugin ===== -->
-                <div class="col-lg-4">
-                    <div class="fb-page-container">
-                        <h4><i class="fab fa-facebook-f" style="color:#4267B2;"></i> Follow Us</h4>
-                        <div id="fb-root"></div>
-                        <div class="fb-page" 
-                             data-href="https://www.facebook.com/facebook" 
-                             data-tabs="timeline" 
-                             data-width="300" 
-                             data-height="400" 
-                             data-small-header="true" 
-                             data-adapt-container-width="true" 
-                             data-hide-cover="false" 
-                             data-show-facepile="true">
-                        </div>
-                        <p style="color:#6c7a92; font-size:0.75rem; margin-top:10px;">Stay updated with our latest matches and events!</p>
-                    </div>
+                Live status, countdowns, filters and stream shortcuts
+                update automatically from the schedule.
 
-                    <!-- 显示当前存储状态 -->
-                    <div style="background:#151824; border-radius:12px; padding:15px; margin-top:20px; border:1px solid rgba(255,255,255,0.05);">
-                        <p style="color:#9aa0b4; font-size:0.8rem; margin:0;">
-                            <i class="fas fa-database" style="color:#ff2e63;"></i> 
-                            Current filter saved: <span id="storageStatus" style="color:#fff; font-weight:600;">all</span>
-                            <br><small style="color:#6c7a92;">(Using localStorage)</small>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            </p>
 
-            <!-- ===== API News Section ===== -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="api-news-section">
-                        <h3><i class="fas fa-newspaper"></i> Latest Esports News</h3>
-                        <p style="color:#6c7a92; font-size:0.9rem; margin-bottom:20px;">Powered by RESTful API — Steam News</p>
-                        <div id="newsContainer" class="row">
-                            <div class="col-12 news-loading">
-                                <i class="fas fa-spinner fa-pulse fa-2x"></i>
-                                <p style="margin-top:10px;">Loading latest news...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
-    <!-- Schedule section end -->
 
-    <!--::footer_part start::-->
-    <footer class="footer_part black">
-        <div class="footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="single_footer_part">
-                            <a href="index.html" class="footer_logo_iner"> <img src="img/logo.png" alt="#"> </a>
-                            <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="single_footer_part">
-                            <h4>Contact Info</h4>
-                            <p>Address : Your address goes here, your demo address. Bangladesh.</p>
-                            <p>Phone : +8880 44338899</p>
-                            <p>Email : info@colorlib.com</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="single_footer_part">
-                            <h4>Important Link</h4>
-                            <ul class="list-unstyled">
-                                <li><a href=""> WHMCS-bridge</a></li>
-                                <li><a href="">Search Domain</a></li>
-                                <li><a href="">My Account</a></li>
-                                <li><a href="">Shopping Cart</a></li>
-                                <li><a href="">Our Shop</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="single_footer_part">
-                            <h4>Newsletter</h4>
-                            <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
-                            <div id="mc_embed_signup">
-                                <form target="_blank"
-                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                    method="get" class="subscribe_form relative mail_part">
-                                    <input type="email" name="email" id="newsletter-form-email"
-                                        placeholder="Email Address" class="placeholder hide-on-focus"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
-                                    <button type="submit" name="submit" id="newsletter-submit"
-                                        class="email_icon newsletter-submit button-contactForm"><i
-                                            class="far fa-paper-plane"></i></button>
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     STATS
+========================================== -->
+
+<div class="row schedule-stats">
+
+
+<div class="col-6 col-md-3">
+
+    <div class="schedule-stat">
+
+        <i class="fas fa-calendar-check"></i>
+
+        <strong id="statTotal">
+
+            0
+
+        </strong>
+
+        <span>
+
+            Total Matches
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+    <div class="schedule-stat">
+
+        <i class="fas fa-broadcast-tower"></i>
+
+        <strong id="statLive">
+
+            0
+
+        </strong>
+
+        <span>
+
+            Live Now
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+    <div class="schedule-stat">
+
+        <i class="fas fa-hourglass-half"></i>
+
+        <strong id="statUpcoming">
+
+            0
+
+        </strong>
+
+        <span>
+
+            Upcoming
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="col-6 col-md-3">
+
+    <div class="schedule-stat">
+
+        <i class="fas fa-check-circle"></i>
+
+        <strong id="statFinished">
+
+            0
+
+        </strong>
+
+        <span>
+
+            Finished
+
+        </span>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================
+     LIVE CENTER
+========================================== -->
+
+<div class="live-center">
+
+<div class="row align-items-center">
+
+
+<div class="col-lg-8">
+
+    <div class="live-center__eyebrow">
+
+        <i class="fas fa-satellite-dish"></i>
+
+        Live Match Center
+
+    </div>
+
+
+    <h3 id="liveCenterTitle">
+
+        Checking current schedule…
+
+    </h3>
+
+
+    <p id="liveCenterGame">
+
+        Match status is calculated automatically
+        using Malaysia time (UTC+8).
+
+    </p>
+
+
+    <div
+        class="live-center__teams"
+        id="liveCenterTeams"
+    >
+
+        Please wait…
+
+    </div>
+
+
+    <div id="liveCenterAction">
+
+    </div>
+
+
+</div>
+
+
+<div class="col-lg-4 mt-4 mt-lg-0">
+
+    <div class="live-clock-card">
+
+        <small>
+
+            Malaysia Time (UTC+8)
+
+        </small>
+
+
+        <div
+            class="clock"
+            id="clockTime"
+        >
+
+            --:--:--
+
         </div>
-        <div class="copygight_text">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <div class="copyright_text">
-                            <P>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></P>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer_icon social_icon">
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+        <div
+            class="date"
+            id="clockDate"
+        >
+
+            --
+
         </div>
-    </footer>
-    <!--::footer_part end::-->
 
-    <!-- scripts -->
-    <script src="js/jquery-1.12.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/masonry.pkgd.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
-    <script src="js/custom.js"></script>
 
-    <!-- Facebook SDK -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="abc123"></script>
+        <div
+            style="
+            color:var(--muted);
+            font-size:11px;
+            margin-top:10px;
+            "
+        >
 
-    <!-- Filter + localStorage + API 逻辑 -->
-    <script>
-        (function() {
-            // ===== 1. FILTER + localStorage =====
-            var filterButtons = document.querySelectorAll('.sched-filter-group .btn');
-            var items = document.querySelectorAll('.sched-item');
-            var days = document.querySelectorAll('.sched-day');
-            var emptyMsg = document.getElementById('emptyMessage');
-            var storageStatus = document.getElementById('storageStatus');
+            Last status refresh:
 
-            // 从 localStorage 恢复上次选择的过滤器
-            var savedFilter = localStorage.getItem('schedFilter') || 'all';
+            <span id="lastRefresh">
 
-            filterButtons.forEach(function(btn) {
-                var filterVal = btn.getAttribute('data-filter');
-                if (filterVal === savedFilter) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
+                --
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+
+<!-- =========================================
+     LEFT SIDE
+========================================== -->
+
+<div class="col-lg-8">
+
+
+<!-- FILTER -->
+
+<div
+    class="sched-filter-group"
+    id="filterGroup"
+>
+
+
+<button
+    class="filter-btn active"
+    data-filter="all"
+>
+
+    All Matches
+
+</button>
+
+
+<button
+    class="filter-btn"
+    data-filter="live"
+>
+
+    <span class="dot dot-live"></span>
+
+    Live
+
+</button>
+
+
+<button
+    class="filter-btn"
+    data-filter="upcoming"
+>
+
+    <span class="dot dot-upcoming"></span>
+
+    Upcoming
+
+</button>
+
+
+<button
+    class="filter-btn"
+    data-filter="finished"
+>
+
+    <span class="dot dot-finished"></span>
+
+    Finished
+
+</button>
+
+
+<button
+    class="filter-btn"
+    data-filter="tbd"
+>
+
+    <span class="dot dot-tbd"></span>
+
+    TBD
+
+</button>
+
+
+</div>
+
+
+<!-- =========================================
+     SCHEDULE CONTAINER
+========================================== -->
+
+<div id="scheduleContainer">
+
+
+<!-- AUG 18 -->
+
+<div
+    class="sched-day"
+    data-day="2026-08-18"
+>
+
+
+<div class="sched-day__label">
+
+    Tue, Aug 18 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-08-18T15:00:00+08:00"
+
+    data-end="2026-08-18T17:00:00+08:00"
+
+    data-game="VALORANT"
+
+    data-stream="https://www.twitch.tv/valorant"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        15:00
+
+    </strong>
+
+    <span>
+
+        Aug 18
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Summer Clash
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#ff2e63;"
+    >
+
+        A
+
+    </span>
+
+    Team A
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#4d8dff;"
+    >
+
+        B
+
+    </span>
+
+    Team B
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/valorant"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-08-18T17:30:00+08:00"
+
+    data-end="2026-08-18T19:30:00+08:00"
+
+    data-game="VALORANT"
+
+    data-stream="https://www.twitch.tv/valorant"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        17:30
+
+    </strong>
+
+    <span>
+
+        Aug 18
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Summer Clash
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#2ecf7a;"
+    >
+
+        C
+
+    </span>
+
+    Team C
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#b78a12;"
+    >
+
+        D
+
+    </span>
+
+    Team D
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/valorant"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- AUG 19 -->
+
+<div
+    class="sched-day"
+    data-day="2026-08-19"
+>
+
+
+<div class="sched-day__label">
+
+    Wed, Aug 19 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-08-19T14:00:00+08:00"
+
+    data-end="2026-08-19T16:30:00+08:00"
+
+    data-game="VALORANT"
+
+    data-stream="https://www.twitch.tv/valorant"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        14:00
+
+    </strong>
+
+    <span>
+
+        Aug 19
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Summer Clash
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#ff7849;"
+    >
+
+        E
+
+    </span>
+
+    Team E
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#8e2626;"
+    >
+
+        F
+
+    </span>
+
+    Team F
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/valorant"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-08-19T18:00:00+08:00"
+
+    data-end="2026-08-19T21:00:00+08:00"
+
+    data-game="Multi-Game"
+
+    data-stream="https://www.twitch.tv/esl"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        18:00
+
+    </strong>
+
+    <span>
+
+        Aug 19
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Global Esports Cup
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#315f9c;"
+    >
+
+        G
+
+    </span>
+
+    Team G
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#ba7617;"
+    >
+
+        H
+
+    </span>
+
+    Team H
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/esl"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- AUG 20 -->
+
+<div
+    class="sched-day"
+    data-day="2026-08-20"
+>
+
+
+<div class="sched-day__label">
+
+    Thu, Aug 20 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-08-20T16:00:00+08:00"
+
+    data-end="2026-08-20T19:00:00+08:00"
+
+    data-game="Counter-Strike 2"
+
+    data-stream="https://www.twitch.tv/eslcs"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        16:00
+
+    </strong>
+
+    <span>
+
+        Aug 20
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Global Esports Cup
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#e1583d;"
+    >
+
+        I
+
+    </span>
+
+    Team I
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    <span
+        class="team-avatar"
+        style="background:#00a990;"
+    >
+
+        J
+
+    </span>
+
+    Team J
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/eslcs"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- AUG 21 -->
+
+<div
+    class="sched-day"
+    data-day="2026-08-21"
+>
+
+
+<div class="sched-day__label">
+
+    Fri, Aug 21 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-manual-status="tbd"
+
+    data-game="VALORANT"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        13:00
+
+    </strong>
+
+    <span>
+
+        Aug 21
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Summer Clash
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    Semifinal #1
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    Semifinal #2
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge status-tbd">
+
+        TBD
+
+    </span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- AUG 22 -->
+
+<div
+    class="sched-day"
+    data-day="2026-08-22"
+>
+
+
+<div class="sched-day__label">
+
+    Sat, Aug 22 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-08-22T18:00:00+08:00"
+
+    data-end="2026-08-22T21:00:00+08:00"
+
+    data-game="VALORANT"
+
+    data-stream="https://www.twitch.tv/valorant"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        18:00
+
+    </strong>
+
+    <span>
+
+        Aug 22
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    <i
+        class="fas fa-trophy"
+        style="color:#ffcf5c;"
+    ></i>
+
+    Summer Clash
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    Grand Finalist A
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    Grand Finalist B
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/valorant"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================
+     EXTRA SCHEDULE
+========================================== -->
+
+<div
+    class="extra-schedule"
+    id="extraSchedule"
+    style="display:none;"
+>
+
+
+<!-- SEP 05 -->
+
+<div
+    class="sched-day"
+    data-day="2026-09-05"
+>
+
+
+<div class="sched-day__label">
+
+    Sat, Sep 05 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-09-05T12:00:00+08:00"
+
+    data-end="2026-09-05T15:00:00+08:00"
+
+    data-game="Counter-Strike 2"
+
+    data-stream="https://www.twitch.tv/eslcs"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        12:00
+
+    </strong>
+
+    <span>
+
+        Sep 05
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Pro League S7
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    Team Alpha
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    Team Bravo
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.twitch.tv/eslcs"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- OCT 02 -->
+
+<div
+    class="sched-day"
+    data-day="2026-10-02"
+>
+
+
+<div class="sched-day__label">
+
+    Fri, Oct 02 2026
+
+</div>
+
+
+<div
+    class="sched-item"
+
+    data-start="2026-10-02T11:00:00+08:00"
+
+    data-end="2026-10-02T14:00:00+08:00"
+
+    data-game="League of Legends"
+
+    data-stream="https://www.youtube.com/@lolesports/live"
+>
+
+
+<div class="sched-item__time">
+
+    <strong>
+
+        11:00
+
+    </strong>
+
+    <span>
+
+        Oct 02
+
+    </span>
+
+</div>
+
+
+<div class="sched-item__tourn">
+
+    Rookie Cup 2026
+
+</div>
+
+
+<div class="sched-item__match">
+
+
+<span class="team">
+
+    Rookie Team 1
+
+</span>
+
+
+<span class="score score--vs">
+
+    VS
+
+</span>
+
+
+<span class="team">
+
+    Rookie Team 2
+
+</span>
+
+
+</div>
+
+
+<div class="sched-item__status">
+
+    <span class="status-badge">
+
+        Checking
+
+    </span>
+
+
+    <br>
+
+
+    <a
+        class="safe-btn watch-link"
+
+        href="https://www.youtube.com/@lolesports/live"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <i class="fas fa-play"></i>
+
+        Watch Live
+
+    </a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- EMPTY -->
+
+<div
+    id="emptyMessage"
+    class="text-center"
+    style="
+    display:none;
+    padding:25px;
+    color:var(--muted);
+    "
+>
+
+    No matches found for this filter.
+
+</div>
+
+
+</div>
+
+
+<!-- VIEW FULL SCHEDULE -->
+
+<div class="text-center mt-4">
+
+    <button
+        class="safe-btn"
+        id="fullScheduleBtn"
+        type="button"
+    >
+
+        <i class="far fa-calendar-alt"></i>
+
+        <span id="fullScheduleText">
+
+            View Full Schedule
+
+        </span>
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================
+     RIGHT SIDE
+========================================== -->
+
+<div class="col-lg-4 mt-4 mt-lg-0">
+
+
+<!-- STREAM HUB -->
+
+<div class="side-box">
+
+    <h4>
+
+        <i
+            class="fas fa-play-circle"
+            style="color:var(--accent);"
+        ></i>
+
+        Stream Hub
+
+    </h4>
+
+
+    <p>
+
+        These links open major official or established esports
+        stream channels. The fictional assignment matches themselves
+        may not have a real broadcast.
+
+    </p>
+
+
+    <a
+        class="stream-link"
+
+        href="https://www.twitch.tv/valorant"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <div>
+
+            <i class="fab fa-twitch"></i>
+
+            VALORANT
+
+        </div>
+
+        <small>
+
+            Open
+
+        </small>
+
+    </a>
+
+
+    <a
+        class="stream-link"
+
+        href="https://www.twitch.tv/eslcs"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <div>
+
+            <i class="fab fa-twitch"></i>
+
+            Counter-Strike
+
+        </div>
+
+        <small>
+
+            Open
+
+        </small>
+
+    </a>
+
+
+    <a
+        class="stream-link"
+
+        href="https://www.twitch.tv/dota2ti"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <div>
+
+            <i class="fab fa-twitch"></i>
+
+            Dota 2
+
+        </div>
+
+        <small>
+
+            Open
+
+        </small>
+
+    </a>
+
+
+    <a
+        class="stream-link"
+
+        href="https://www.youtube.com/@lolesports/live"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <div>
+
+            <i class="fab fa-youtube"></i>
+
+            League of Legends
+
+        </div>
+
+        <small>
+
+            Open
+
+        </small>
+
+    </a>
+
+
+    <a
+        class="stream-link"
+
+        href="https://www.twitch.tv/playapex"
+
+        target="_blank"
+
+        rel="noopener"
+    >
+
+        <div>
+
+            <i class="fab fa-twitch"></i>
+
+            Apex Legends
+
+        </div>
+
+        <small>
+
+            Open
+
+        </small>
+
+    </a>
+
+
+</div>
+
+
+<!-- STORAGE -->
+
+<div class="side-box">
+
+    <h4>
+
+        <i
+            class="fas fa-database"
+            style="color:var(--accent);"
+        ></i>
+
+        Storage Technologies
+
+    </h4>
+
+
+    <p>
+
+        This page intentionally demonstrates all three storage
+        technologies required by the coursework.
+
+    </p>
+
+
+    <div class="tech-chip">
+
+        <i class="fas fa-save"></i>
+
+        localStorage: filter
+
+    </div>
+
+
+    <div class="tech-chip">
+
+        <i class="fas fa-layer-group"></i>
+
+        sessionStorage: expanded schedule
+
+    </div>
+
+
+    <div class="tech-chip">
+
+        <i class="fas fa-cookie-bite"></i>
+
+        Cookie: visit count
+
+    </div>
+
+
+    <p
+        style="
+        margin-top:12px;
+        margin-bottom:0;
+        "
+    >
+
+        Saved filter:
+
+        <strong
+            id="storageFilter"
+            style="color:#fff;"
+        >
+
+            all
+
+        </strong>
+
+
+        <br>
+
+
+        Visits on this browser:
+
+        <strong
+            id="visitCount"
+            style="color:#fff;"
+        >
+
+            1
+
+        </strong>
+
+
+    </p>
+
+
+</div>
+
+
+<!-- FACEBOOK -->
+
+<div class="side-box">
+
+    <h4>
+
+        <i
+            class="fab fa-facebook"
+            style="color:#4267B2;"
+        ></i>
+
+        Social Media Plugin
+
+    </h4>
+
+
+    <div id="fb-root"></div>
+
+
+    <div
+        class="fb-page"
+
+        data-href="https://www.facebook.com/facebook"
+
+        data-tabs="timeline"
+
+        data-width="300"
+
+        data-height="320"
+
+        data-small-header="true"
+
+        data-adapt-container-width="true"
+
+        data-hide-cover="false"
+
+        data-show-facepile="true"
+    >
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================
+     REST API SECTION
+========================================== -->
+
+<div class="api-section">
+
+
+<h3>
+
+    <i class="fas fa-code"></i>
+
+    RESTful API – Community Updates
+
+</h3>
+
+
+<p
+    style="
+    color:var(--muted);
+    font-size:13px;
+    "
+>
+
+    Loaded dynamically with
+
+    <strong style="color:#fff;">
+
+        jQuery $.ajax()
+
+    </strong>
+
+    from JSONPlaceholder.
+
+    This section is intentionally labelled as API demo content,
+    not real esports news.
+
+</p>
+
+
+<div
+    class="row"
+    id="apiContainer"
+>
+
+
+<div
+    class="col-12 text-center"
+    style="
+    padding:28px;
+    color:var(--muted);
+    "
+>
+
+    <i class="fas fa-spinner fa-spin"></i>
+
+    Loading API data…
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer class="footer_part black">
+
+
+<div class="footer_top">
+
+<div class="container">
+
+<div class="row">
+
+
+<div class="col-sm-6 col-lg-3">
+
+<div class="single_footer_part">
+
+
+<a
+    href="index.html"
+    class="footer_logo_iner"
+>
+
+    <img
+        src="img/logo.png"
+        alt="LEAGUE ESPORTS"
+    >
+
+</a>
+
+
+<p>
+
+    Competitive tournaments,
+    player communities and esports events.
+
+</p>
+
+
+</div>
+
+</div>
+
+
+<div class="col-sm-6 col-lg-3">
+
+<div class="single_footer_part">
+
+
+<h4>
+
+    Quick Links
+
+</h4>
+
+
+<ul class="list-unstyled">
+
+
+<li>
+
+    <a href="index.html">
+
+        Home
+
+    </a>
+
+</li>
+
+
+<li>
+
+    <a href="tournaments.html">
+
+        Tournaments
+
+    </a>
+
+</li>
+
+
+<li>
+
+    <a href="schedules.html">
+
+        Schedules
+
+    </a>
+
+</li>
+
+
+<li>
+
+    <a href="players.html">
+
+        Players
+
+    </a>
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+</div>
+
+
+<div class="col-sm-6 col-lg-3">
+
+<div class="single_footer_part">
+
+
+<h4>
+
+    Community
+
+</h4>
+
+
+<ul class="list-unstyled">
+
+
+<li>
+
+    <a href="news.html">
+
+        News & Gallery
+
+    </a>
+
+</li>
+
+
+<li>
+
+    <a href="leaderboard.html">
+
+        Leaderboard
+
+    </a>
+
+</li>
+
+
+<li>
+
+    <a href="register.html">
+
+        Join Us
+
+    </a>
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+</div>
+
+
+<div class="col-sm-6 col-lg-3">
+
+<div class="single_footer_part">
+
+
+<h4>
+
+    LEAGUE ESPORTS
+
+</h4>
+
+
+<p>
+
+    Malaysia
+
+</p>
+
+
+<p>
+
+    Email: leagueesports@example.com
+
+</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="copygight_text">
+
+<div class="container">
+
+<div class="row">
+
+
+<div class="col-lg-12 text-center">
+
+
+<p>
+
+Copyright &copy;
+
+<script>
+
+document.write(
+    new Date().getFullYear()
+);
+
+</script>
+
+LEAGUE ESPORTS.
+
+All rights reserved.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+</footer>
+
+
+<!-- =========================================
+     JS FILES
+========================================== -->
+
+<script src="js/jquery-1.12.1.min.js"></script>
+
+<script src="js/popper.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/jquery.magnific-popup.js"></script>
+
+<script src="js/swiper.min.js"></script>
+
+<script src="js/masonry.pkgd.js"></script>
+
+<script src="js/owl.carousel.min.js"></script>
+
+<script src="js/jquery.nice-select.min.js"></script>
+
+<script src="js/slick.min.js"></script>
+
+<script src="js/jquery.counterup.min.js"></script>
+
+<script src="js/waypoints.min.js"></script>
+
+<script src="js/custom.js"></script>
+
+
+<!-- =========================================
+     FACEBOOK SOCIAL MEDIA PLUGIN
+========================================== -->
+
+<script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
+>
+</script>
+
+
+<!-- =========================================
+     STORAGE + REAL-TIME MATCH FUNCTIONS
+========================================== -->
+
+<script>
+
+(function () {
+
+
+    var matches =
+        Array.prototype.slice.call(
+            document.querySelectorAll(
+                '.sched-item'
+            )
+        );
+
+
+    var filterButtons =
+        Array.prototype.slice.call(
+            document.querySelectorAll(
+                '.filter-btn'
+            )
+        );
+
+
+    var extraSchedule =
+        document.getElementById(
+            'extraSchedule'
+        );
+
+
+    var fullScheduleBtn =
+        document.getElementById(
+            'fullScheduleBtn'
+        );
+
+
+    var fullScheduleText =
+        document.getElementById(
+            'fullScheduleText'
+        );
+
+
+    var emptyMessage =
+        document.getElementById(
+            'emptyMessage'
+        );
+
+
+    var currentFilter =
+        localStorage.getItem(
+            'schedFilter'
+        )
+        ||
+        'all';
+
+
+    /* =========================================
+       COOKIE
+    ========================================== */
+
+    function setCookie(
+        name,
+        value,
+        days
+    )
+    {
+
+        var expires =
+            '';
+
+
+        if (days)
+        {
+
+            var d =
+                new Date();
+
+
+            d.setTime(
+                d.getTime()
+                +
+                days
+                *
+                24
+                *
+                60
+                *
+                60
+                *
+                1000
+            );
+
+
+            expires =
+                '; expires='
+                +
+                d.toUTCString();
+
+        }
+
+
+        document.cookie =
+            name
+            +
+            '='
+            +
+            encodeURIComponent(
+                value
+            )
+            +
+            expires
+            +
+            '; path=/; SameSite=Lax';
+
+    }
+
+
+    function getCookie(
+        name
+    )
+    {
+
+        var key =
+            name
+            +
+            '=';
+
+
+        var parts =
+            document.cookie.split(
+                ';'
+            );
+
+
+        for (
+            var i = 0;
+            i < parts.length;
+            i++
+        )
+        {
+
+            var c =
+                parts[i].trim();
+
+
+            if (
+                c.indexOf(
+                    key
+                )
+                ===
+                0
+            )
+            {
+
+                return decodeURIComponent(
+                    c.substring(
+                        key.length
+                    )
+                );
+
+            }
+
+        }
+
+
+        return null;
+
+    }
+
+
+    var visits =
+        parseInt(
+            getCookie(
+                'leagueScheduleVisits'
+            )
+            ||
+            '0',
+            10
+        )
+        +
+        1;
+
+
+    setCookie(
+        'leagueScheduleVisits',
+        visits,
+        30
+    );
+
+
+    document.getElementById(
+        'visitCount'
+    ).textContent =
+        visits;
+
+
+    /* =========================================
+       SESSION STORAGE
+    ========================================== */
+
+    var expanded =
+        sessionStorage.getItem(
+            'scheduleExpanded'
+        )
+        ===
+        '1';
+
+
+    extraSchedule.style.display =
+        expanded
+        ?
+        'block'
+        :
+        'none';
+
+
+    fullScheduleText.textContent =
+        expanded
+        ?
+        'Show Less'
+        :
+        'View Full Schedule';
+
+
+    /* =========================================
+       MALAYSIA TIME
+    ========================================== */
+
+    function malaysiaNow()
+    {
+
+        return new Date(
+
+            new Date()
+            .toLocaleString(
+                'en-US',
+                {
+                    timeZone:
+                        'Asia/Kuala_Lumpur'
+                }
+            )
+
+        );
+
+    }
+
+
+    function updateClock()
+    {
+
+        var now =
+            malaysiaNow();
+
+
+        document.getElementById(
+            'clockTime'
+        ).textContent =
+            now.toLocaleTimeString(
+                'en-GB',
+                {
+                    hour:
+                        '2-digit',
+
+                    minute:
+                        '2-digit',
+
+                    second:
+                        '2-digit'
+                }
+            );
+
+
+        document.getElementById(
+            'clockDate'
+        ).textContent =
+            now.toLocaleDateString(
+                'en-US',
+                {
+                    weekday:
+                        'long',
+
+                    year:
+                        'numeric',
+
+                    month:
+                        'long',
+
+                    day:
+                        'numeric'
+                }
+            );
+
+    }
+
+
+    /* =========================================
+       GET TEAM NAMES
+    ========================================== */
+
+    function teamNames(
+        match
+    )
+    {
+
+        var teams =
+            match.querySelectorAll(
+                '.team'
+            );
+
+
+        return [
+
+            teams[0]
+            ?
+            teams[0].textContent.trim()
+            :
+            'Team A',
+
+            teams[1]
+            ?
+            teams[1].textContent.trim()
+            :
+            'Team B'
+
+        ];
+
+    }
+
+
+    /* =========================================
+       CHANGE MATCH STATUS
+    ========================================== */
+
+    function setStatus(
+        match,
+        status
+    )
+    {
+
+        match.setAttribute(
+            'data-status',
+            status
+        );
+
+
+        match.classList.toggle(
+            'is-live',
+            status === 'live'
+        );
+
+
+        var badge =
+            match.querySelector(
+                '.status-badge'
+            );
+
+
+        if (!badge)
+        {
+
+            return;
+
+        }
+
+
+        if (
+            status === 'live'
+        )
+        {
+
+            badge.className =
+                'status-badge status-live';
+
+
+            badge.innerHTML =
+                '<span class="live-ping"></span>LIVE';
+
+        }
+
+
+        else if (
+            status === 'upcoming'
+        )
+        {
+
+            badge.className =
+                'status-badge status-upcoming';
+
+
+            badge.textContent =
+                'Upcoming';
+
+        }
+
+
+        else if (
+            status === 'finished'
+        )
+        {
+
+            badge.className =
+                'status-badge status-finished';
+
+
+            badge.textContent =
+                'Finished';
+
+        }
+
+
+        else
+        {
+
+            badge.className =
+                'status-badge status-tbd';
+
+
+            badge.textContent =
+                'TBD';
+
+        }
+
+    }
+
+
+    /* =========================================
+       UPDATE ALL MATCHES
+    ========================================== */
+
+    function updateStatuses()
+    {
+
+        var now =
+            malaysiaNow();
+
+
+        var liveMatch =
+            null;
+
+
+        var counts =
+        {
+
+            live:
+                0,
+
+            upcoming:
+                0,
+
+            finished:
+                0,
+
+            tbd:
+                0
+
+        };
+
+
+        matches.forEach(
+            function (
+                match
+            )
+            {
+
+                var manual =
+                    match.getAttribute(
+                        'data-manual-status'
+                    );
+
+
+                if (
+                    manual === 'tbd'
+                )
+                {
+
+                    setStatus(
+                        match,
+                        'tbd'
+                    );
+
+
+                    counts.tbd++;
+
+
+                    return;
+
                 }
 
-                btn.addEventListener('click', function() {
-                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
-                    btn.classList.add('active');
 
-                    var filter = btn.getAttribute('data-filter');
-                    var visibleCount = 0;
+                var start =
+                    new Date(
+                        match.getAttribute(
+                            'data-start'
+                        )
+                    );
 
-                    // ===== 使用 localStorage 保存过滤器状态 =====
-                    localStorage.setItem('schedFilter', filter);
-                    if (storageStatus) {
-                        storageStatus.textContent = filter;
+
+                var end =
+                    new Date(
+                        match.getAttribute(
+                            'data-end'
+                        )
+                    );
+
+
+                var status =
+                    now < start
+                    ?
+                    'upcoming'
+                    :
+                    (
+                        now <= end
+                        ?
+                        'live'
+                        :
+                        'finished'
+                    );
+
+
+                setStatus(
+                    match,
+                    status
+                );
+
+
+                counts[status]++;
+
+
+                if (
+                    status === 'live'
+                    &&
+                    !liveMatch
+                )
+                {
+
+                    liveMatch =
+                        match;
+
+                }
+
+            }
+        );
+
+
+        document.getElementById(
+            'statTotal'
+        ).textContent =
+            matches.length;
+
+
+        document.getElementById(
+            'statLive'
+        ).textContent =
+            counts.live;
+
+
+        document.getElementById(
+            'statUpcoming'
+        ).textContent =
+            counts.upcoming;
+
+
+        document.getElementById(
+            'statFinished'
+        ).textContent =
+            counts.finished;
+
+
+        document.getElementById(
+            'lastRefresh'
+        ).textContent =
+            now.toLocaleTimeString(
+                'en-GB',
+                {
+                    hour:
+                        '2-digit',
+
+                    minute:
+                        '2-digit',
+
+                    second:
+                        '2-digit'
+                }
+            );
+
+
+        updateLiveCenter(
+            liveMatch,
+            now
+        );
+
+
+        applyFilter(
+            currentFilter
+        );
+
+    }
+
+
+    /* =========================================
+       LIVE CENTER
+    ========================================== */
+
+    function updateLiveCenter(
+        liveMatch,
+        now
+    )
+    {
+
+        var title =
+            document.getElementById(
+                'liveCenterTitle'
+            );
+
+
+        var game =
+            document.getElementById(
+                'liveCenterGame'
+            );
+
+
+        var teams =
+            document.getElementById(
+                'liveCenterTeams'
+            );
+
+
+        var action =
+            document.getElementById(
+                'liveCenterAction'
+            );
+
+
+        if (
+            liveMatch
+        )
+        {
+
+            var names =
+                teamNames(
+                    liveMatch
+                );
+
+
+            title.textContent =
+                'LIVE NOW';
+
+
+            game.textContent =
+                liveMatch.getAttribute(
+                    'data-game'
+                )
+                +
+                ' • '
+                +
+                liveMatch
+                .querySelector(
+                    '.sched-item__tourn'
+                )
+                .textContent
+                .trim();
+
+
+            teams.innerHTML =
+                '<span>'
+                +
+                names[0]
+                +
+                '</span>'
+                +
+                '<span class="vs">VS</span>'
+                +
+                '<span>'
+                +
+                names[1]
+                +
+                '</span>';
+
+
+            var stream =
+                liveMatch.getAttribute(
+                    'data-stream'
+                );
+
+
+            action.innerHTML =
+                stream
+                ?
+                '<a class="safe-btn live" target="_blank" rel="noopener" href="'
+                +
+                stream
+                +
+                '"><i class="fas fa-play"></i> Watch Live Channel</a>'
+                :
+                '';
+
+
+            return;
+
+        }
+
+
+        var upcoming =
+            matches
+
+            .filter(
+                function(m)
+                {
+
+                    return (
+                        m.getAttribute(
+                            'data-status'
+                        )
+                        ===
+                        'upcoming'
+                    );
+
+                }
+            )
+
+            .sort(
+                function(
+                    a,
+                    b
+                )
+                {
+
+                    return (
+
+                        new Date(
+                            a.getAttribute(
+                                'data-start'
+                            )
+                        )
+
+                        -
+
+                        new Date(
+                            b.getAttribute(
+                                'data-start'
+                            )
+                        )
+
+                    );
+
+                }
+            );
+
+
+        if (
+            upcoming.length
+        )
+        {
+
+            var next =
+                upcoming[0];
+
+
+            var names2 =
+                teamNames(
+                    next
+                );
+
+
+            var start =
+                new Date(
+                    next.getAttribute(
+                        'data-start'
+                    )
+                );
+
+
+            var diff =
+                Math.max(
+                    0,
+                    start - now
+                );
+
+
+            var hours =
+                Math.floor(
+                    diff
+                    /
+                    3600000
+                );
+
+
+            var mins =
+                Math.floor(
+
+                    (
+                        diff
+                        %
+                        3600000
+                    )
+
+                    /
+
+                    60000
+
+                );
+
+
+            title.textContent =
+                'Next Match';
+
+
+            game.textContent =
+                next.getAttribute(
+                    'data-game'
+                )
+                +
+                ' • starts in '
+                +
+                hours
+                +
+                'h '
+                +
+                mins
+                +
+                'm';
+
+
+            teams.innerHTML =
+                '<span>'
+                +
+                names2[0]
+                +
+                '</span>'
+                +
+                '<span class="vs">VS</span>'
+                +
+                '<span>'
+                +
+                names2[1]
+                +
+                '</span>';
+
+
+            action.innerHTML =
+                '<button type="button" class="safe-btn" id="jumpNext">'
+                +
+                '<i class="fas fa-arrow-down"></i>'
+                +
+                ' Jump to Match'
+                +
+                '</button>';
+
+
+            setTimeout(
+                function()
+                {
+
+                    var b =
+                        document.getElementById(
+                            'jumpNext'
+                        );
+
+
+                    if (b)
+                    {
+
+                        b.onclick =
+                            function()
+                            {
+
+                                next.scrollIntoView(
+                                    {
+
+                                        behavior:
+                                            'smooth',
+
+                                        block:
+                                            'center'
+
+                                    }
+                                );
+
+                            };
+
                     }
 
-                    items.forEach(function(item) {
-                        var status = item.getAttribute('data-status');
-                        if (filter === 'all' || status === filter) {
-                            item.style.display = '';
-                            visibleCount++;
-                        } else {
-                            item.style.display = 'none';
+                },
+                0
+            );
+
+        }
+
+
+        else
+        {
+
+            title.textContent =
+                'No Live Match';
+
+
+            game.textContent =
+                'All currently listed scheduled matches are complete.';
+
+
+            teams.textContent =
+                'Check the Stream Hub for official esports channels.';
+
+
+            action.innerHTML =
+                '';
+
+        }
+
+    }
+
+
+    /* =========================================
+       FILTER
+    ========================================== */
+
+    function applyFilter(
+        filter
+    )
+    {
+
+        currentFilter =
+            filter;
+
+
+        localStorage.setItem(
+            'schedFilter',
+            filter
+        );
+
+
+        document.getElementById(
+            'storageFilter'
+        ).textContent =
+            filter;
+
+
+        filterButtons.forEach(
+            function(
+                btn
+            )
+            {
+
+                btn.classList.toggle(
+                    'active',
+
+                    btn.getAttribute(
+                        'data-filter'
+                    )
+                    ===
+                    filter
+                );
+
+            }
+        );
+
+
+        var visible =
+            0;
+
+
+        matches.forEach(
+            function(
+                match
+            )
+            {
+
+                var inExtra =
+                    !!match.closest(
+                        '#extraSchedule'
+                    );
+
+
+                var extraOpen =
+                    extraSchedule.style.display
+                    ===
+                    'block';
+
+
+                var status =
+                    match.getAttribute(
+                        'data-status'
+                    );
+
+
+                var show =
+                    (
+                        filter === 'all'
+                        ||
+                        filter === status
+                    )
+                    &&
+                    (
+                        !inExtra
+                        ||
+                        extraOpen
+                    );
+
+
+                match.style.display =
+                    show
+                    ?
+                    ''
+                    :
+                    'none';
+
+
+                if (show)
+                {
+
+                    visible++;
+
+                }
+
+            }
+        );
+
+
+        document
+        .querySelectorAll(
+            '.sched-day'
+        )
+        .forEach(
+            function(
+                day
+            )
+            {
+
+                var shown =
+                    Array.prototype
+                    .slice
+                    .call(
+                        day.querySelectorAll(
+                            '.sched-item'
+                        )
+                    )
+                    .some(
+                        function(
+                            m
+                        )
+                        {
+
+                            return (
+                                m.style.display
+                                !==
+                                'none'
+                            );
+
                         }
-                    });
+                    );
 
-                    days.forEach(function(day) {
-                        var visibleInDay = day.querySelectorAll('.sched-item:not([style*="display: none"])').length;
-                        day.style.display = visibleInDay === 0 ? 'none' : '';
-                    });
 
-                    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
-                });
-            });
+                day.style.display =
+                    shown
+                    ?
+                    ''
+                    :
+                    'none';
 
-            // 显示当前存储状态
-            if (storageStatus) {
-                storageStatus.textContent = savedFilter;
+            }
+        );
+
+
+        emptyMessage.style.display =
+            visible
+            ?
+            'none'
+            :
+            'block';
+
+    }
+
+
+    /* =========================================
+       FILTER BUTTON EVENTS
+    ========================================== */
+
+    filterButtons.forEach(
+        function(
+            btn
+        )
+        {
+
+            btn.addEventListener(
+                'click',
+                function()
+                {
+
+                    applyFilter(
+                        btn.getAttribute(
+                            'data-filter'
+                        )
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       VIEW FULL SCHEDULE
+    ========================================== */
+
+    fullScheduleBtn.addEventListener(
+        'click',
+        function()
+        {
+
+            expanded =
+                !expanded;
+
+
+            sessionStorage.setItem(
+                'scheduleExpanded',
+                expanded
+                ?
+                '1'
+                :
+                '0'
+            );
+
+
+            extraSchedule.style.display =
+                expanded
+                ?
+                'block'
+                :
+                'none';
+
+
+            fullScheduleText.textContent =
+                expanded
+                ?
+                'Show Less'
+                :
+                'View Full Schedule';
+
+
+            applyFilter(
+                currentFilter
+            );
+
+
+            if (
+                expanded
+            )
+            {
+
+                extraSchedule.scrollIntoView(
+                    {
+
+                        behavior:
+                            'smooth',
+
+                        block:
+                            'start'
+
+                    }
+                );
+
             }
 
-            // ===== 2. RESTful API 调用 (Steam News API) =====
-            var newsContainer = document.getElementById('newsContainer');
+        }
+    );
 
-            function fetchEsportsNews() {
-                // 使用 Steam 新闻 API (免费，无需 API Key)
-                // 730 = CS:GO, 570 = Dota 2, 252490 = Rust (示例)
-                var appId = 730; // CS:GO
-                var apiUrl = 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=' + appId + '&count=6&maxlength=200&format=json';
 
-                $.ajax({
-                    url: apiUrl,
-                    method: 'GET',
-                    dataType: 'json',
-                    timeout: 10000,
-                    success: function(data) {
-                        if (data && data.appnews && data.appnews.newsitems) {
-                            var newsItems = data.appnews.newsitems;
-                            var html = '';
-                            newsItems.forEach(function(item) {
-                                var date = new Date(item.date * 1000);
-                                var formattedDate = date.toLocaleDateString('en-US', {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric'
-                                });
-                                // 清理内容（去除HTML标签）
-                                var excerpt = item.contents ? item.contents.replace(/<[^>]*>/g, '').substring(0, 120) + '...' : '';
-                                html += `
-                                    <div class="col-md-4 col-sm-6 mb-3">
-                                        <div class="news-card">
-                                            <div class="news-title">
-                                                <a href="${item.url}" target="_blank">${item.title}</a>
-                                            </div>
-                                            <div class="news-meta">
-                                                <i class="fas fa-tag"></i> ${item.feedlabel || 'Esports'}
-                                            </div>
-                                            <div class="news-excerpt">${excerpt}</div>
-                                            <div class="news-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
-                                        </div>
-                                    </div>
-                                `;
-                            });
-                            newsContainer.innerHTML = html;
-                        } else {
-                            newsContainer.innerHTML = '<div class="col-12 text-center" style="color:#9aa0b4;"><p>No news available at the moment.</p></div>';
-                        }
+    /* =========================================
+       INITIALISE
+    ========================================== */
+
+    updateClock();
+
+
+    updateStatuses();
+
+
+    setInterval(
+        updateClock,
+        1000
+    );
+
+
+    setInterval(
+        updateStatuses,
+        30000
+    );
+
+
+})();
+
+</script>
+
+
+<!-- =========================================
+     RESTFUL API WITH JQUERY
+========================================== -->
+
+<script>
+
+$(document).ready(
+    function()
+    {
+
+
+        $.ajax(
+            {
+
+                url:
+                    'https://jsonplaceholder.typicode.com/posts?_limit=6',
+
+
+                method:
+                    'GET',
+
+
+                dataType:
+                    'json',
+
+
+                timeout:
+                    8000,
+
+
+                success:
+                    function(
+                        data
+                    )
+                    {
+
+
+                        var labels =
+                        [
+
+                            'VALORANT',
+
+                            'COUNTER-STRIKE',
+
+                            'DOTA 2',
+
+                            'LEAGUE OF LEGENDS',
+
+                            'APEX LEGENDS',
+
+                            'ESPORTS CLUB'
+
+                        ];
+
+
+                        var html =
+                            '';
+
+
+                        $.each(
+                            data,
+                            function(
+                                index,
+                                item
+                            )
+                            {
+
+
+                                html +=
+
+                                    '<div class="col-md-4 col-sm-6 mb-3">'
+
+                                    +
+
+                                    '<div class="api-card">'
+
+                                    +
+
+                                    '<div class="api-tag">'
+
+                                    +
+
+                                    '<i class="fas fa-plug"></i> '
+
+                                    +
+
+                                    labels[index]
+
+                                    +
+
+                                    '</div>'
+
+                                    +
+
+                                    '<h5>'
+
+                                    +
+
+                                    $('<div>')
+                                    .text(
+                                        item.title
+                                    )
+                                    .html()
+
+                                    +
+
+                                    '</h5>'
+
+                                    +
+
+                                    '<p>'
+
+                                    +
+
+                                    $('<div>')
+                                    .text(
+                                        item.body.substring(
+                                            0,
+                                            110
+                                        )
+                                        +
+                                        '…'
+                                    )
+                                    .html()
+
+                                    +
+
+                                    '</p>'
+
+                                    +
+
+                                    '</div>'
+
+                                    +
+
+                                    '</div>';
+
+                            }
+                        );
+
+
+                        $('#apiContainer')
+                        .html(
+                            html
+                        );
+
                     },
-                    error: function(xhr, status, error) {
-                        console.error('API Error:', status, error);
-                        newsContainer.innerHTML = `
-                            <div class="col-12 text-center" style="color:#9aa0b4;">
-                                <p><i class="fas fa-exclamation-triangle" style="color:#ffc107;"></i> Unable to load news. Please try again later.</p>
-                                <p style="font-size:0.8rem; color:#6c7a92;">(API may be rate-limited or unavailable)</p>
-                            </div>
-                        `;
-                    }
-                });
-            }
 
-            // 页面加载后调用 API
-            fetchEsportsNews();
-        })();
-    </script>
+
+                error:
+                    function()
+                    {
+
+
+                        $('#apiContainer')
+                        .html(
+
+                            '<div class="col-12">'
+
+                            +
+
+                            '<div class="api-card">'
+
+                            +
+
+                            '<div class="api-tag">'
+
+                            +
+
+                            'API STATUS'
+
+                            +
+
+                            '</div>'
+
+                            +
+
+                            '<h5>'
+
+                            +
+
+                            'REST API temporarily unavailable'
+
+                            +
+
+                            '</h5>'
+
+                            +
+
+                            '<p>'
+
+                            +
+
+                            'The page still demonstrates the jQuery AJAX implementation in the source code. Check internet access and try again.'
+
+                            +
+
+                            '</p>'
+
+                            +
+
+                            '</div>'
+
+                            +
+
+                            '</div>'
+
+                        );
+
+                    }
+
+
+            }
+        );
+
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
