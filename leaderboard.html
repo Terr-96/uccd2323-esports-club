@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Leaderboard – LEAGUE ESPORTS</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="body_bg">
+        <!-- Header -->
+        <header class="main_menu single_page_menu">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                                <img src="img/logo.png" alt="logo" style="height:50px;width:auto;margin-right:10px;">
+                                <span style="color:#fff;font-weight:800;font-size:20px;letter-spacing:1px;">LEAGUE ESPORTS</span>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Tournaments
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
+                                            <a class="dropdown-item" href="tournaments.html">Tournaments</a>
+                                            <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Teams
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
+                                            <a class="dropdown-item" href="teams.html">Our Teams</a>
+                                            <a class="dropdown-item" href="players.html">Player Profiles</a>
+                                            <a class="dropdown-item" href="leaderboard.html">Leaderboards</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Community
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
+                                            <a class="dropdown-item" href="news.html">News & Gallery</a>
+                                            <a class="dropdown-item" href="register.html">Join Us</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="register.html" class="btn_1 d-none d-sm-block">Join Us</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <section class="breadcrumb breadcrumb_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb_iner text-center">
+                            <div class="breadcrumb_iner_item">
+                                <h2>Leaderboard</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section class="section_padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section_tittle text-center">
+                            <h2>Top Global 50 Players</h2>
+                            <p>Rankings based on total gaming points this season</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-6">
+                        <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="🔍 Search by Game ID or Team..." style="background:#1b1f2e;color:#fff;border:1px solid #ff2e63;">
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover" id="leaderboardTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Game ID</th>
+                                        <th>Esports Team</th>
+                                        <th>Points</th>
+                                        <th>Matches</th>
+                                        <th>Win Rate</th>
+                                        <th>K/D Ratio</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    <!-- 50 rows will be rendered from the hardcoded array -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer_part">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="single_footer_part">
+                                <a href="index.html" class="footer_logo_iner"> <img src="img/logo.png" alt="#"> </a>
+                                <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="single_footer_part">
+                                <h4>Contact Info</h4>
+                                <p>Address : Your address goes here, your demo address. Bangladesh.</p>
+                                <p>Phone : +8880 44338899</p>
+                                <p>Email : info@colorlib.com</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="single_footer_part">
+                                <h4>Important Link</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href=""> WHMCS-bridge</a></li>
+                                    <li><a href="">Search Domain</a></li>
+                                    <li><a href="">My Account</a></li>
+                                    <li><a href="">Shopping Cart</a></li>
+                                    <li><a href="">Our Shop</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="single_footer_part">
+                                <h4>Newsletter</h4>
+                                <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
+                                <div id="mc_embed_signup">
+                                    <form target="_blank"
+                                        action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                        method="get" class="subscribe_form relative mail_part">
+                                        <input type="email" name="email" id="newsletter-form-email"
+                                            placeholder="Email Address" class="placeholder hide-on-focus"
+                                            onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                        <button type="submit" name="submit" id="newsletter-submit"
+                                            class="email_icon newsletter-submit button-contactForm"><i
+                                                class="far fa-paper-plane"></i></button>
+                                        <div class="mt-10 info"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copygight_text">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="copyright_text">
+                                <P>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></P>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="footer_icon social_icon">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
+                                    <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        const leaderboardData = [
+            { rank: 1, gameId: "LEAGUE f0rsaken", team: "League Esport", points: 3120, matches: 142, winRate: 78, kd: "2.45" },
+            { rank: 2, gameId: "FURY Hunter", team: "Fury Gaming", points: 2985, matches: 130, winRate: 74, kd: "2.12" },
+            { rank: 3, gameId: "NOVA Jaww", team: "Nova Esports", points: 2870, matches: 125, winRate: 71, kd: "1.98" },
+            { rank: 4, gameId: "LEAGUE Chovy", team: "League Esport", points: 2750, matches: 130, winRate: 73, kd: "2.21" },
+            { rank: 5, gameId: "SHADOW Risss", team: "Shadow Legion", points: 2680, matches: 110, winRate: 69, kd: "1.87" },
+            { rank: 6, gameId: "PHNX Bonggo", team: "Phoenix Rising", points: 2550, matches: 105, winRate: 65, kd: "1.76" },
+            { rank: 7, gameId: "THND Elevenz", team: "Thunder Squad", points: 2420, matches: 98, winRate: 62, kd: "1.54" },
+            { rank: 8, gameId: "CRYS Neon", team: "Crystal Clan", points: 2380, matches: 95, winRate: 70, kd: "1.92" },
+            { rank: 9, gameId: "IRON Malp", team: "Iron Guard", points: 2250, matches: 88, winRate: 58, kd: "1.43" },
+            { rank: 10, gameId: "LEAGUE Zmjjkk", team: "Eclipse Unit", points: 2180, matches: 82, winRate: 67, kd: "1.68" },
+            { rank: 11, gameId: "APEX Phantom", team: "Team Apex", points: 2100, matches: 82, winRate: 64, kd: "1.55" },
+            { rank: 12, gameId: "BLAZE Inferno", team: "Fury Gaming", points: 2050, matches: 80, winRate: 61, kd: "1.49" },
+            { rank: 13, gameId: "STORM Raven", team: "Nova Esports", points: 1980, matches: 78, winRate: 59, kd: "1.38" },
+            { rank: 14, gameId: "VORTEX Potter", team: "Dark Wolves", points: 1920, matches: 75, winRate: 63, kd: "1.52" },
+            { rank: 15, gameId: "TITAN Froster", team: "Shadow Legion", points: 1880, matches: 72, winRate: 57, kd: "1.34" },
+            { rank: 16, gameId: "NEMESIS Night", team: "Phoenix Rising", points: 1820, matches: 70, winRate: 55, kd: "1.27" },
+            { rank: 17, gameId: "LEGEND RaiRai", team: "Thunder Squad", points: 1780, matches: 68, winRate: 62, kd: "1.44" },
+            { rank: 18, gameId: "INFERNO Watch", team: "Crystal Clan", points: 1720, matches: 65, winRate: 56, kd: "1.33" },
+            { rank: 19, gameId: "ZENITH Blaze", team: "Iron Guard", points: 1680, matches: 62, winRate: 60, kd: "1.41" },
+            { rank: 20, gameId: "LEAGUE S1mple", team: "Eclipse Unit", points: 1650, matches: 78, winRate: 58, kd: "1.29" },
+            { rank: 21, gameId: "TEXX Axe", team: "Team Apex", points: 1620, matches: 58, winRate: 54, kd: "1.22" },
+            { rank: 22, gameId: "FURY Titan", team: "Fury Gaming", points: 1580, matches: 56, winRate: 52, kd: "1.18" },
+            { rank: 23, gameId: "NOVA Nasty", team: "Nova Esports", points: 1550, matches: 55, winRate: 56, kd: "1.25" },
+            { rank: 24, gameId: "DARK JJ", team: "Dark Wolves", points: 1520, matches: 53, winRate: 55, kd: "1.20" },
+            { rank: 25, gameId: "SHADOW Viper", team: "Shadow Legion", points: 1490, matches: 52, winRate: 51, kd: "1.12" },
+            { rank: 26, gameId: "PHNX Frost", team: "Phoenix Rising", points: 1460, matches: 50, winRate: 53, kd: "1.15" },
+            { rank: 27, gameId: "THND Blaze", team: "Thunder Squad", points: 1430, matches: 48, winRate: 50, kd: "1.08" },
+            { rank: 28, gameId: "CRYS EZZ", team: "Crystal Clan", points: 1400, matches: 46, winRate: 52, kd: "1.11" },
+            { rank: 29, gameId: "IRON Shadow", team: "Iron Guard", points: 1370, matches: 45, winRate: 49, kd: "1.05" },
+            { rank: 30, gameId: "LEAGUE Sh1ro", team: "League Esport", points: 1340, matches: 43, winRate: 48, kd: "1.02" },
+            { rank: 31, gameId: "APEX Moorwing", team: "Team Apex", points: 1310, matches: 42, winRate: 47, kd: "0.98" },
+            { rank: 32, gameId: "BLAZE Raven", team: "Fury Gaming", points: 1280, matches: 40, winRate: 46, kd: "0.95" },
+            { rank: 33, gameId: "STORM Batman", team: "Nova Esports", points: 1260, matches: 39, winRate: 48, kd: "1.01" },
+            { rank: 34, gameId: "VORTEX Boost", team: "Dark Wolves", points: 1240, matches: 38, winRate: 45, kd: "0.92" },
+            { rank: 35, gameId: "TITAN Flick", team: "Shadow Legion", points: 1220, matches: 37, winRate: 44, kd: "0.88" },
+            { rank: 36, gameId: "NEMESIS Dan", team: "Phoenix Rising", points: 1200, matches: 36, winRate: 43, kd: "0.85" },
+            { rank: 37, gameId: "LEGEND C0m", team: "Thunder Squad", points: 1180, matches: 35, winRate: 46, kd: "0.91" },
+            { rank: 38, gameId: "INFERNO LOne", team: "Crystal Clan", points: 1160, matches: 34, winRate: 42, kd: "0.82" },
+            { rank: 39, gameId: "ZENITH Phoenix", team: "Iron Guard", points: 1140, matches: 33, winRate: 41, kd: "0.79" },
+            { rank: 40, gameId: "RADIANT Som", team: "Eclipse Unit", points: 1120, matches: 32, winRate: 40, kd: "0.76" },
+            { rank: 41, gameId: "TEXX Titan", team: "Team Apex", points: 1100, matches: 31, winRate: 42, kd: "0.81" },
+            { rank: 42, gameId: "FURY Night", team: "Fury Gaming", points: 1080, matches: 30, winRate: 39, kd: "0.73" },
+            { rank: 43, gameId: "NOVA Draven", team: "Nova Esports", points: 1060, matches: 29, winRate: 38, kd: "0.70" },
+            { rank: 44, gameId: "DARK Nozz", team: "Dark Wolves", points: 1040, matches: 28, winRate: 37, kd: "0.68" },
+            { rank: 45, gameId: "SHADOW Darius", team: "Shadow Legion", points: 1020, matches: 27, winRate: 36, kd: "0.65" },
+            { rank: 46, gameId: "PHNX Laker", team: "Phoenix Rising", points: 1000, matches: 26, winRate: 35, kd: "0.62" },
+            { rank: 47, gameId: "THND Bloww", team: "Thunder Squad", points: 980, matches: 25, winRate: 34, kd: "0.59" },
+            { rank: 48, gameId: "CRYS Gas", team: "Crystal Clan", points: 960, matches: 24, winRate: 33, kd: "0.56" },
+            { rank: 49, gameId: "IRON Sayonara", team: "Iron Guard", points: 940, matches: 23, winRate: 32, kd: "0.53" },
+            { rank: 50, gameId: "ECLP Sun", team: "Eclipse Unit", points: 920, matches: 22, winRate: 31, kd: "0.50" }
+        ];
+
+        // Render the table
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            let html = '';
+            data.forEach(p => {
+                html += `
+                    <tr>
+                        <td>${p.rank}</td>
+                        <td><strong style="color:#ff2e63;">${p.gameId}</strong></td>
+                        <td>${p.team}</td>
+                        <td><span class="badge badge-warning">${p.points}</span></td>
+                        <td>${p.matches}</td>
+                        <td>${p.winRate}%</td>
+                        <td>${p.kd}</td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+        }
+
+        // Initial render
+        renderTable(leaderboardData);
+
+        // 🔍 Search bar – filters by Game ID or Team
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            const query = this.value.toLowerCase().trim();
+            const filtered = leaderboardData.filter(p => 
+                p.gameId.toLowerCase().includes(query) || 
+                p.team.toLowerCase().includes(query)
+            );
+            renderTable(filtered);
+        });
+    </script>
+</body>
+</html>
