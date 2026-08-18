@@ -1,4 +1,5 @@
 <!doctype html>
+<<<<<<< HEAD
 <html class="no-js" lang="en">
 
 <head>
@@ -68,11 +69,372 @@
                         </div>
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
+=======
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>gaming – News & Gallery</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .client_logo {
+            background-color: #0c0e14 !important; 
+        }
+        .client_logo h2, 
+        .client_logo p, 
+        .client_logo span {
+            color: #6c757d !important; 
+        }
+        .main_menu.single_page_menu .navbar-brand img {
+            height: 50px !important;
+            max-height: 50px !important;
+            width: auto !important;
+        }
+        .main_menu.single_page_menu {
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            transition: none !important;
+        }
+        .main_menu.single_page_menu.header_fixed {
+            background: #0c0e14 !important;
+            box-shadow: none !important;
+        }
+
+        /* 以下是 news 页面独有样式（基于 tournaments 风格改造） */
+        :root{
+            --news-accent:#ff2e63;
+            --news-accent-2:#ff7849;
+            --news-bg:#0c0e14;
+            --news-card:#151824;
+            --news-card-2:#1b1f2e;
+            --news-border:rgba(255,46,99,.18);
+            --news-text-dim:#9aa0b4;
+        }
+        .news_wrap{
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255,46,99,.10), transparent 40%),
+                radial-gradient(circle at 92% 30%, rgba(255,120,73,.08), transparent 40%),
+                var(--news-bg);
+            position:relative;
+        }
+        .news-stats{ margin:35px 0 10px; }
+        .news-stat{
+            text-align:center;
+            background:var(--news-card);
+            border:1px solid var(--news-border);
+            border-radius:12px;
+            padding:22px 10px;
+            margin-bottom:20px;
+            transition:.25s;
+        }
+        .news-stat:hover{ transform:translateY(-4px); border-color:var(--news-accent); }
+        .news-stat i{ font-size:22px; color:var(--news-accent); margin-bottom:10px; display:inline-block; }
+        .news-stat h4{ color:#fff; font-size:22px; font-weight:700; margin:0 0 4px; }
+        .news-stat span{ color:var(--news-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+        .live-dot{ position:relative; }
+        .live-dot::before{
+            content:''; display:inline-block; width:8px; height:8px; border-radius:50%;
+            background:#ff2e63; margin-right:6px; box-shadow:0 0 0 rgba(255,46,99,.6);
+            animation:newsPulse 1.6s infinite;
+        }
+        @keyframes newsPulse{
+            0%{ box-shadow:0 0 0 0 rgba(255,46,99,.6); }
+            70%{ box-shadow:0 0 0 8px rgba(255,46,99,0); }
+            100%{ box-shadow:0 0 0 0 rgba(255,46,99,0); }
+        }
+        .news-filters{
+            list-style:none; display:flex; justify-content:center; flex-wrap:wrap;
+            gap:10px; padding:0; margin:10px 0 40px;
+        }
+        .news-filters li{
+            cursor:pointer; padding:9px 24px; border-radius:30px;
+            border:1px solid var(--news-border); color:var(--news-text-dim);
+            font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
+            transition:.2s;
+        }
+        .news-filters li:hover{ color:#fff; border-color:var(--news-accent); }
+        .news-filters li.active{
+            background:linear-gradient(135deg,var(--news-accent),var(--news-accent-2));
+            color:#fff; border-color:transparent;
+            box-shadow:0 6px 18px rgba(255,46,99,.35);
+        }
+        .news-grid{ margin-top:10px; }
+        .news-card{
+            position:relative;
+            background:linear-gradient(180deg,var(--news-card-2),var(--news-card));
+            border:1px solid var(--news-border);
+            border-radius:16px;
+            padding:0 0 28px;
+            text-align:left;
+            overflow:hidden;
+            transition:transform .25s, border-color .25s, box-shadow .25s;
+        }
+        .news-card:hover{
+            transform:translateY(-6px);
+            border-color:var(--news-accent);
+            box-shadow:0 16px 34px rgba(0,0,0,.45);
+        }
+        .news-card:hover .news-card__watermark{ transform:scale(1.12) rotate(-4deg); opacity:.22; }
+        .news-card__cover{
+            position:relative; height:160px; display:flex; align-items:flex-start;
+            padding:20px; overflow:hidden;
+            background:linear-gradient(135deg,#2a2438,#1b1f2e);
+        }
+        .news-card__cover::after{
+            content:''; position:absolute; inset:0;
+            background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);
+        }
+        .news-card__watermark{
+            position:absolute; right:-10px; bottom:-20px; 
+            font-size:130px; color:rgba(255,255,255,.08);
+            transition:transform .35s, opacity .35s;
+            pointer-events: none;
+        }
+        .news-card__category{
+            position:relative; z-index:1; background:rgba(0,0,0,.4); color:#fff; font-weight:700;
+            font-size:11px; text-transform:uppercase; letter-spacing:.8px; padding:6px 14px; border-radius:20px;
+            backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,.1);
+        }
+        .news-card--esports .news-card__cover{ background:linear-gradient(135deg,#ff2e63,#7b1145); }
+        .news-card--update .news-card__cover{ background:linear-gradient(135deg,#1d5c9c,#0c2033); }
+        .news-card--interview .news-card__cover{ background:linear-gradient(135deg,#b9791a,#3a2705); }
+        .news-card--gallery .news-card__cover{ background:linear-gradient(135deg,#5e239d,#260c45); }
+        
+        .news-badge {
+            display:inline-block; margin:20px 0 0 26px;
+            color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:4px;
+            text-transform:uppercase; letter-spacing:.6px;
+        }
+        .news-badge.breaking { background:linear-gradient(135deg,var(--news-accent),var(--news-accent-2)); box-shadow:0 4px 10px rgba(255,46,99,.3); }
+        .news-badge.new { background:linear-gradient(135deg,#00c2a8,#00e0c0); box-shadow:0 4px 10px rgba(0,194,168,.3); }
+        .news-badge.hot { background:linear-gradient(135deg,#ff4b2b,#ff416c); box-shadow:0 4px 10px rgba(255,65,108,.3); }
+        .news-badge.regular { background:transparent; border:1px solid #5b5f73; color:var(--news-text-dim); margin-left:26px;}
+
+        .news-card .news-meta{ color:var(--news-text-dim); font-size:12px; margin:14px 26px 8px; display:flex; gap:15px; }
+        .news-card .news-meta i { color:var(--news-accent); margin-right:5px;}
+        .news-card h3{ color:#fff; font-size:22px; font-weight:800; margin:0 26px 12px; line-height:1.4; }
+        .news-card p.excerpt { color:var(--news-text-dim); font-size:14px; margin:0 26px 24px; line-height:1.6; }
+        
+        .news-card .btn_2{
+            display:inline-block; margin-left:26px; padding:10px 26px; border-radius:30px;
+            border:1px solid var(--news-accent); color:#fff !important; font-size:13px;
+            font-weight:600; text-transform:uppercase; letter-spacing:.5px; transition:.2s;
+        }
+        .news-card .btn_2:hover{
+            background:linear-gradient(135deg,var(--news-accent),var(--news-accent-2));
+            border-color:transparent; text-decoration:none;
+        }
+        .news-item{ margin-bottom:30px; }
+        .news-empty p{ color:var(--news-text-dim); padding:40px 0; }
+
+        /* ===== 赞助商轮播区及底部样式 ===== */
+        .custom-sponsors-section {
+            background-color: #0c0e14;
+            padding: 65px 0 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .custom-sponsors-title {
+            color: #8b92a5;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 45px;
+        }
+        /* 调整图片轮播单项的样式，使其与原版模板完美融合 */
+        .client_logo_slider .single_client_logo {
+            text-align: center;
+            padding: 0 15px;
+        }
+        .client_logo_slider .single_client_logo img {
+            max-height: 45px;
+            width: auto !important;
+            display: inline-block !important;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .client_logo_slider .single_client_logo img:hover {
+            opacity: 1;
+        }
+
+        .footer-area-custom {
+            background-color: #0c0e14;
+            color: #8b92a5;
+            padding: 70px 0 30px;
+        }
+        .footer-container-custom {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-col-custom {
+            flex: 1;
+            min-width: 220px;
+        }
+        .footer-col-custom img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .footer-col-custom p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #8b92a5;
+            margin-bottom: 15px;
+        }
+        .footer-col-custom h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+        .footer-col-custom ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col-custom ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col-custom ul li a {
+            color: #8b92a5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-col-custom ul li a:hover {
+            color: #ff2e63;
+        }
+        .footer-newsletter-box {
+            display: flex;
+            margin-top: 15px;
+            background: #151824;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .footer-newsletter-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+        .footer-newsletter-box input::placeholder {
+            color: #5c6275;
+        }
+        .footer-newsletter-box button {
+            background: #ff2e63;
+            border: none;
+            color: #ffffff;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .footer-newsletter-box button:hover {
+            background: #e01b50;
+        }
+        .footer-bottom-bar {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            margin-top: 60px;
+            padding-top: 25px;
+            font-size: 13px;
+            color: #6c7284;
+        }
+        .footer-bottom-bar i.fa-heart {
+            color: #ff2e63;
+            margin: 0 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main_menu single_page_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Tournaments
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
+                                        <a class="dropdown-item" href="tournaments.html">Tournaments</a>
+                                        <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Teams
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
+                                        <a class="dropdown-item" href="teams.html">Our Teams</a>
+                                        <a class="dropdown-item" href="players.html">Player Profiles</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Community
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
+                                        <a class="dropdown-item" href="news.html">News & Gallery</a>
+                                        <a class="dropdown-item" href="register.html">Join Us</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>News & Gallery</h2>
+>>>>>>> 9626bb2a6e39e736bc786fee039035fa35cbd73f
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </header>
     <!-- header-end -->
 
@@ -340,13 +702,204 @@
                                     type="submit">Subscribe</button>
                             </form>
                         </aside>
+=======
+    </section>
+    <section class="pricing_part news_wrap section_padding">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section_tittle text-center">
+                        <h2>Latest Updates</h2>
+                        <p>Stay connected with breaking esports news, game updates, exclusive interviews, and epic photo galleries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row news-stats justify-content-center">
+                <div class="col-6 col-md-3">
+                    <div class="news-stat">
+                        <i class="far fa-newspaper"></i>
+                        <h4>150+</h4>
+                        <span>Total Articles</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="news-stat">
+                        <i class="fas fa-camera-retro"></i>
+                        <h4>45</h4>
+                        <span>Photo Galleries</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="news-stat">
+                        <i class="fas fa-video"></i>
+                        <h4>30+</h4>
+                        <span>Video Interviews</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="news-stat">
+                        <i class="fas fa-fire"></i>
+                        <h4 class="live-dot">Hot</h4>
+                        <span>Trending Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <ul class="news-filters" id="newsFilters">
+                        <li class="active" data-filter="all">All</li>
+                        <li data-filter="esports">Esports</li>
+                        <li data-filter="updates">Patch Notes</li>
+                        <li data-filter="interviews">Interviews</li>
+                        <li data-filter="gallery">Gallery</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row justify-content-center news-grid" id="newsGrid">
+
+                <div class="col-lg-4 col-sm-6 news-item" data-category="esports">
+                    <div class="single_pricing_part news-card news-card--esports">
+                        <div class="news-card__cover">
+                            <i class="fas fa-trophy news-card__watermark"></i>
+                            <span class="news-card__category">Esports</span>
+                        </div>
+                        <div class="news-badge breaking">Breaking</div>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> Aug 17, 2026</span>
+                            <span><i class="fas fa-user"></i> Admin</span>
+                        </div>
+                        <h3>Team Apex Secures the Summer Clash Victory</h3>
+                        <p class="excerpt">In a stunning 3-2 reverse sweep, Team Apex took down NOVA to claim the 2026 championship title.</p>
+                        <a href="#" class="btn_2">Read Article</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 news-item" data-category="updates">
+                    <div class="single_pricing_part news-card news-card--update">
+                        <div class="news-card__cover">
+                            <i class="fas fa-cogs news-card__watermark"></i>
+                            <span class="news-card__category">Patch Notes</span>
+                        </div>
+                        <div class="news-badge new">New Update</div>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> Aug 15, 2026</span>
+                            <span><i class="fas fa-user"></i> Dev Team</span>
+                        </div>
+                        <h3>Season 14 Overview & Balance Changes</h3>
+                        <p class="excerpt">Check out the comprehensive list of buffs, nerfs, and map adjustments coming in the next massive update.</p>
+                        <a href="#" class="btn_2">View Notes</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 news-item" data-category="interviews">
+                    <div class="single_pricing_part news-card news-card--interview">
+                        <div class="news-card__cover">
+                            <i class="fas fa-microphone-alt news-card__watermark"></i>
+                            <span class="news-card__category">Interview</span>
+                        </div>
+                        <div class="news-badge hot">Exclusive</div>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> Aug 12, 2026</span>
+                            <span><i class="fas fa-user"></i> Sarah Lee</span>
+                        </div>
+                        <h3>Pro Player Insights: A Chat with "Faker"</h3>
+                        <p class="excerpt">The legendary mid-laner discusses his mindset, training regimen, and his expectations for the World Finals.</p>
+                        <a href="#" class="btn_2">Read Interview</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 news-item" data-category="gallery">
+                    <div class="single_pricing_part news-card news-card--gallery">
+                        <div class="news-card__cover">
+                            <i class="fas fa-images news-card__watermark"></i>
+                            <span class="news-card__category">Gallery</span>
+                        </div>
+                        <div class="news-badge regular">25 Photos</div>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> Aug 10, 2026</span>
+                            <span><i class="fas fa-camera"></i> Media Team</span>
+                        </div>
+                        <h3>Behind the Scenes: Pro League Season 7</h3>
+                        <p class="excerpt">A backstage look at the players, the setup, and the crowd energy during the intense opening weekend.</p>
+                        <a href="#" class="btn_2">View Gallery</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 news-item" data-category="esports">
+                    <div class="single_pricing_part news-card news-card--esports">
+                        <div class="news-card__cover">
+                            <i class="fas fa-gamepad news-card__watermark"></i>
+                            <span class="news-card__category">Esports</span>
+                        </div>
+                        <div class="news-badge regular">Opinion</div>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> Aug 08, 2026</span>
+                            <span><i class="fas fa-user"></i> Krypton</span>
+                        </div>
+                        <h3>Rookie Cup Predictions: Who Will Rise?</h3>
+                        <p class="excerpt">Breaking down the top 8 emerging teams and predicting who has the potential to shock the veterans.</p>
+                        <a href="#" class="btn_2">Read Article</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 news-item" data-category="updates">
+                    <div class="single_pricing_part news-card news-card--update">
+                        <div class="news-card__cover">
+                            <i class="fas fa-desktop news-card__watermark"></i>
+                            <span class="news-card__category">Hardware</span>
+                        </div>
+                        <div class="news-badge regular">Review</div>
+                        <div class="news-meta">
+                            <span><i class="far fa-calendar-alt"></i> Aug 05, 2026</span>
+                            <span><i class="fas fa-user"></i> Tech Guru</span>
+                        </div>
+                        <h3>Next-Gen Gaming Monitors Reviewed</h3>
+                        <p class="excerpt">Are 360Hz displays really worth the upgrade for competitive gaming? We put the latest models to the test.</p>
+                        <a href="#" class="btn_2">Read Review</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center news-empty" id="newsEmpty" style="display:none;">
+                    <p>No posts found in this category right now — check back soon.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="client_logo dark-sponsors">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center mb-4">
+                    <span style="color:var(--reg-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Official Tournament Partners & Sponsors</span>
+                </div>
+                <div class="col-lg-12">
+                    <div class="client_logo_slider owl-carousel d-flex justify-content-between align-items-center">
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_1.png" alt="Sponsor 1"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_2.png" alt="Sponsor 2"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_3.png" alt="Sponsor 3"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_4.png" alt="Sponsor 4"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_5.png" alt="Sponsor 5"></div>
+>>>>>>> 9626bb2a6e39e736bc786fee039035fa35cbd73f
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--================Blog Area =================-->
+    <footer class="footer-area-custom">
+        <div class="footer-container-custom">
+            <div class="footer-col-custom">
+                <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+                <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
+            </div>
 
+<<<<<<< HEAD
     <!-- footer_start  -->
     <footer class="footer">
         <div class="footer_top">
@@ -465,4 +1018,82 @@
     </script>
 </body>
 
+=======
+            <div class="footer-col-custom">
+                <h3>Contact Info</h3>
+                <p>Address : Your address goes here, your demo address. Bangladesh.</p>
+                <p>Phone : +8880 44338899</p>
+                <p>Email : info@colorlib.com</p>
+            </div>
+
+            <div class="footer-col-custom">
+                <h3>Important Link</h3>
+                <ul>
+                    <li><a href="#">WHMCS-bridge</a></li>
+                    <li><a href="#">Search Domain</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Shopping Cart</a></li>
+                    <li><a href="#">Our Shop</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-custom">
+                <h3>Newsletter</h3>
+                <p>Heaven fruitful doesn't over lesser days. Appear creeping seasons deve behold bearing days open</p>
+                <div class="footer-newsletter-box">
+                    <input type="email" placeholder="Email Address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" style="color:#ff2e63; text-decoration:none;">Colorlib</a></p>
+        </div>
+    </footer>
+
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filters = document.querySelectorAll('#newsFilters li');
+            const items = document.querySelectorAll('.news-item');
+            const emptyState = document.getElementById('newsEmpty');
+
+            filters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    filters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-filter');
+                    let visibleCount = 0;
+
+                    items.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                            visibleCount++;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    if (visibleCount === 0) {
+                        emptyState.style.display = 'block';
+                    } else {
+                        emptyState.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+>>>>>>> 9626bb2a6e39e736bc786fee039035fa35cbd73f
 </html>
