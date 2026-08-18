@@ -1,635 +1,709 @@
 <!doctype html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <title>Join the Game</title>
-   <link rel="icon" href="img/favicon.png">  
-   <!-- Bootstrap CSS -->   
-   <link rel="stylesheet" href="css/bootstrap.min.css">
-   <!-- animate CSS -->
-   <link rel="stylesheet" href="css/animate.css">
-   <!-- owl carousel CSS -->
-   <link rel="stylesheet" href="css/owl.carousel.min.css">
-   <!-- font awesome CSS -->
-   <link rel="stylesheet" href="css/all.css">
-   <!-- flaticon CSS -->
-   <link rel="stylesheet" href="css/flaticon.css">
-   <link rel="stylesheet" href="css/themify-icons.css">
-   <!-- font awesome CSS -->
-   <link rel="stylesheet" href="css/magnific-popup.css">
-   <!-- swiper CSS -->
-   <link rel="stylesheet" href="css/slick.css">
-   <!-- style CSS -->
-   <link rel="stylesheet" href="css/style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>gaming – Tournaments</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ===== 强制固定导航栏，阻止滚动放大 ===== -->
+    <style>
+        .main_menu.single_page_menu .navbar-brand img {
+            height: 50px !important;
+            max-height: 50px !important;
+            width: auto !important;
+        }
+        .main_menu.single_page_menu {
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            transition: none !important;
+        }
+        .main_menu.single_page_menu.header_fixed {
+            background: #0c0e14 !important;
+            box-shadow: none !important;
+        }
+
+        /* 以下是 tournaments 页面原有样式 */
+        :root{
+            --tourn-accent:#ff2e63;
+            --tourn-accent-2:#ff7849;
+            --tourn-bg:#0c0e14;
+            --tourn-card:#151824;
+            --tourn-card-2:#1b1f2e;
+            --tourn-border:rgba(255,46,99,.18);
+            --tourn-text-dim:#9aa0b4;
+        }
+        .tourn_wrap{
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255,46,99,.10), transparent 40%),
+                radial-gradient(circle at 92% 30%, rgba(255,120,73,.08), transparent 40%),
+                var(--tourn-bg);
+            position:relative;
+        }
+        .tourn-stats{ margin:35px 0 10px; }
+        .tourn-stat{
+            text-align:center;
+            background:var(--tourn-card);
+            border:1px solid var(--tourn-border);
+            border-radius:12px;
+            padding:22px 10px;
+            margin-bottom:20px;
+            transition:.25s;
+        }
+        .tourn-stat:hover{ transform:translateY(-4px); border-color:var(--tourn-accent); }
+        .tourn-stat i{ font-size:22px; color:var(--tourn-accent); margin-bottom:10px; display:inline-block; }
+        .tourn-stat h4{ color:#fff; font-size:22px; font-weight:700; margin:0 0 4px; }
+        .tourn-stat span{ color:var(--tourn-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+        .live-dot{ position:relative; }
+        .live-dot::before{
+            content:''; display:inline-block; width:8px; height:8px; border-radius:50%;
+            background:#ff2e63; margin-right:6px; box-shadow:0 0 0 rgba(255,46,99,.6);
+            animation:tournPulse 1.6s infinite;
+        }
+        @keyframes tournPulse{
+            0%{ box-shadow:0 0 0 0 rgba(255,46,99,.6); }
+            70%{ box-shadow:0 0 0 8px rgba(255,46,99,0); }
+            100%{ box-shadow:0 0 0 0 rgba(255,46,99,0); }
+        }
+        .tourn-filters{
+            list-style:none; display:flex; justify-content:center; flex-wrap:wrap;
+            gap:10px; padding:0; margin:10px 0 40px;
+        }
+        .tourn-filters li{
+            cursor:pointer; padding:9px 24px; border-radius:30px;
+            border:1px solid var(--tourn-border); color:var(--tourn-text-dim);
+            font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
+            transition:.2s;
+        }
+        .tourn-filters li:hover{ color:#fff; border-color:var(--tourn-accent); }
+        .tourn-filters li.active{
+            background:linear-gradient(135deg,var(--tourn-accent),var(--tourn-accent-2));
+            color:#fff; border-color:transparent;
+            box-shadow:0 6px 18px rgba(255,46,99,.35);
+        }
+        .tourn-spotlight{
+            position:relative; overflow:hidden;
+            background:linear-gradient(135deg,#1a0f18,#12121f 60%);
+            border:1px solid var(--tourn-border);
+            border-radius:18px;
+            padding:45px 40px;
+            margin-bottom:50px;
+        }
+        .tourn-spotlight__glow{
+            position:absolute; top:-80px; right:-80px; width:260px; height:260px;
+            background:radial-gradient(circle,rgba(255,46,99,.35),transparent 70%);
+            filter:blur(10px); pointer-events:none;
+        }
+        .tourn-spotlight__art{
+            position:absolute; top:0; right:0; width:52%; height:100%;
+            opacity:.9; pointer-events:none;
+            -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);
+            mask-image:linear-gradient(90deg,transparent,#000 30%);
+        }
+        .tourn-spotlight > .row{ position:relative; z-index:1; }
+        .tourn-spotlight__tag{
+            display:inline-block; color:var(--tourn-accent); font-weight:700;
+            font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;
+        }
+        .tourn-spotlight__tag i{ margin-right:6px; }
+        .tourn-spotlight h3{ color:#fff; font-size:32px; font-weight:800; margin-bottom:10px; }
+        .tourn-spotlight p{ color:var(--tourn-text-dim); max-width:480px; margin-bottom:18px; }
+        .tourn-spotlight__meta{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:22px; margin-bottom:22px; }
+        .tourn-spotlight__meta li{ color:#dfe2ec; font-size:14px; }
+        .tourn-spotlight__meta i{ color:var(--tourn-accent); margin-right:8px; }
+        .tourn-progress{ background:#242637; border-radius:20px; height:8px; width:100%; max-width:480px; overflow:hidden; }
+        .tourn-progress__bar{ height:100%; border-radius:20px; background:linear-gradient(90deg,var(--tourn-accent),var(--tourn-accent-2)); }
+        .tourn-progress__label{ display:block; margin-top:8px; color:var(--tourn-text-dim); font-size:12px; }
+        .tourn-spotlight__prize{ margin-bottom:20px; }
+        .tourn-spotlight__prize span{ display:block; color:var(--tourn-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+        .tourn-spotlight__prize h2{ color:#fff; font-size:46px; font-weight:800; margin:2px 0 0; }
+        .tourn-grid{ margin-top:10px; }
+        .tourn-card{
+            position:relative;
+            background:linear-gradient(180deg,var(--tourn-card-2),var(--tourn-card));
+            border:1px solid var(--tourn-border);
+            border-radius:16px;
+            padding:0 0 28px;
+            text-align:left;
+            overflow:hidden;
+            transition:transform .25s, border-color .25s, box-shadow .25s;
+        }
+        .tourn-card:hover{
+            transform:translateY(-6px);
+            border-color:var(--tourn-accent);
+            box-shadow:0 16px 34px rgba(0,0,0,.45);
+        }
+        .tourn-card:hover .tourn-card__watermark{ transform:scale(1.12) rotate(-4deg); opacity:.22; }
+        .tourn-card__cover{
+            position:relative; height:128px; display:flex; align-items:flex-end;
+            padding:14px 18px; overflow:hidden;
+            background:linear-gradient(135deg,#2a2438,#1b1f2e);
+        }
+        .tourn-card__cover::after{
+            content:''; position:absolute; inset:0;
+            background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px);
+        }
+        .tourn-card__watermark{
+            position:absolute; right:-10px; top:50%; transform:translateY(-50%);
+            font-size:110px; color:rgba(255,255,255,.1);
+            transition:transform .35s, opacity .35s;
+        }
+        .tourn-card__icon{
+            position:relative; z-index:1; width:38px; height:38px; border-radius:10px;
+            display:flex; align-items:center; justify-content:center; font-size:16px;
+            background:rgba(255,255,255,.14); color:#fff; margin-right:10px;
+            backdrop-filter:blur(2px);
+        }
+        .tourn-card__game{
+            position:relative; z-index:1; color:#fff; font-weight:700;
+            font-size:13px; text-transform:uppercase; letter-spacing:.6px;
+        }
+        .tourn-card--valorant .tourn-card__cover{ background:linear-gradient(135deg,#ff2e63,#7b1145); }
+        .tourn-card--csgo .tourn-card__cover{ background:linear-gradient(135deg,#3a3d52,#111319); }
+        .tourn-card--dota .tourn-card__cover{ background:linear-gradient(135deg,#7b1e1e,#2c0c0c); }
+        .tourn-card--lol .tourn-card__cover{ background:linear-gradient(135deg,#1d5c9c,#0c2033); }
+        .tourn-card--multi .tourn-card__cover{ background:linear-gradient(135deg,#ff7849,#7a2a12); }
+        .tourn-card--apex .tourn-card__cover{ background:linear-gradient(135deg,#b9791a,#3a2705); }
+        .tourn-card .tournament-badge{
+            display:inline-block; margin:20px 0 0 26px;
+            background:linear-gradient(135deg,var(--tourn-accent),var(--tourn-accent-2));
+            color:#fff; font-size:11px; font-weight:700; padding:5px 16px; border-radius:20px;
+            text-transform:uppercase; letter-spacing:.6px;
+            box-shadow:0 6px 14px rgba(255,46,99,.3);
+        }
+        .tourn-card .tournament-badge.upcoming{ background:linear-gradient(135deg,#00c2a8,#00e0c0); box-shadow:0 6px 14px rgba(0,194,168,.3); }
+        .tourn-card .tournament-badge.ended{ background:linear-gradient(135deg,#5b5f73,#7c8098); box-shadow:none; }
+        .tourn-card p{ color:var(--tourn-text-dim); font-size:13px; text-transform:uppercase; letter-spacing:.5px; margin:14px 26px 6px; }
+        .tourn-card h3{ color:#fff; font-size:26px; font-weight:800; margin:0 26px 18px; }
+        .tourn-card ul{ list-style:none; padding:0; margin:0 26px 24px; }
+        .tourn-card ul li{ font-size:14px; color:#dfe2ec; padding:6px 0; }
+        .tourn-card ul li i{ width:22px; color:var(--tourn-accent); }
+        .tourn-card .btn_2{
+            display:inline-block; margin-left:26px; padding:10px 26px; border-radius:30px;
+            border:1px solid var(--tourn-accent); color:#fff !important; font-size:13px;
+            font-weight:600; text-transform:uppercase; letter-spacing:.5px; transition:.2s;
+        }
+        .tourn-card .btn_2:hover{
+            background:linear-gradient(135deg,var(--tourn-accent),var(--tourn-accent-2));
+            border-color:transparent; text-decoration:none;
+        }
+        .tourn-item{ margin-bottom:30px; }
+        .tourn-item[style*="display: none"]{ display:none; }
+        .tourn-empty p{ color:var(--tourn-text-dim); padding:40px 0; }
+    </style>
 </head>
 
 <body>
-   <!--::header part start::-->
-   <header class="main_menu single_page_menu">
-      <div class="container">
-         <div class="row align-items-center">
-            <div class="col-lg-12">
-               <nav class="navbar navbar-expand-lg navbar-light">
-                  <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <img src="img/logo.png" alt="logo" style="height: 50px; width: auto; margin-right: 10px;">
-    <span style="color: #ffffff; font-weight: 800; font-size: 20px; letter-spacing: 1px;">LEAGUE ESPORTS</span>
-</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse"
-                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                     aria-label="Toggle navigation">
-                     <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                  </button>
-                  <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                      <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Tournaments
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
-                <a class="dropdown-item" href="tournaments.html">Tournaments</a>
-                <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Teams
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
-                <a class="dropdown-item" href="teams.html">Our Teams</a>
-                <a class="dropdown-item" href="players.html">Player Profiles</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Community
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-                <a class="dropdown-item" href="news.html">News & Gallery</a>
-                <a class="dropdown-item" href="register.html">Join Us</a>
-            </div>
-        </li>
-    </ul>
-                  </div>
-                  <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </header>
-   <!-- Header part end-->
-
-   <!-- breadcrumb start-->
-   <section class="breadcrumb breadcrumb_bg">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12">
-               <div class="breadcrumb_iner text-center">
-                  <div class="breadcrumb_iner_item">
-                     <h2>blog details</h2>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- breadcrumb start-->
-
-   <!--================Blog Area =================-->
-   <section class="blog_area single-post-area section_padding">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-8 posts-list">
-               <div class="single-post">
-                  <div class="feature-img">
-                     <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
-                  </div>
-                  <div class="blog_details">
-                     <h2>Second divided from form fish beast made every of seas
-                        all gathered us saying he our
-                     </h2>
-                     <ul class="blog-info-link mt-3 mb-4">
-                        <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                     </ul>
-                     <p class="excert">
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training. who has the willpower to actually
-                     </p>
-                     <div class="quote-wrapper">
-                        <div class="quotes">
-                           MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                           should have to spend money on boot camp when you can get the MCSE study materials yourself at
-                           a fraction of the camp price. However, who has the willpower to actually sit through a
-                           self-imposed MCSE training.
-                        </div>
-                     </div>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training. who has the willpower to actually
-                     </p>
-                  </div>
-               </div>
-               <div class="navigation-top">
-                  <div class="d-sm-flex justify-content-between text-center">
-                     <p class="like-info"><span class="align-middle"><i class="far fa-heart"></i></span> Lily and 4
-                        people like this</p>
-                     <div class="col-sm-4 text-center my-2 my-sm-0">
-                        <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
-                     </div>
-                     <ul class="social-icons">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="navigation-area">
-                     <div class="row">
-                        <div
-                           class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="img/post/preview.png" alt="">
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-left"></span>
-                              </a>
-                           </div>
-                           <div class="detials">
-                              <p>Prev Post</p>
-                              <a href="#">
-                                 <h4>Space The Final Frontier</h4>
-                              </a>
-                           </div>
-                        </div>
-                        <div
-                           class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                           <div class="detials">
-                              <p>Next Post</p>
-                              <a href="#">
-                                 <h4>Telescopes 101</h4>
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-right"></span>
-                              </a>
-                           </div>
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="img/post/next.png" alt="">
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="blog-author">
-                  <div class="media align-items-center">
-                     <img src="img/blog/author.png" alt="">
-                     <div class="media-body">
-                        <a href="#">
-                           <h4>Harvard milan</h4>
-                        </a>
-                        <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
-                           our dominion twon Second divided from</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="comments-area">
-                  <h4>05 Comments</h4>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="img/comment/comment_1.png" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="img/comment/comment_2.png" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="img/comment/comment_3.png" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="comment-form">
-                  <h4>Leave a Reply</h4>
-                  <form class="form-contact comment_form" action="#" id="commentForm">
-                     <div class="row">
-                        <div class="col-12">
-                           <div class="form-group">
-                              <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                 placeholder="Write Comment"></textarea>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                           </div>
-                        </div>
-                     </div>
-                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm btn_1">Send Message <i
-                              class="flaticon-right-arrow"></i> </button>
-                     </div>
-                  </form>
-               </div>
-            </div>
-            <div class="col-lg-4">
-               <div class="blog_right_sidebar">
-                  <aside class="single_sidebar_widget search_widget">
-                     <form action="#">
-                        <div class="form-group">
-                           <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder='Search Keyword'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                              <div class="input-group-append">
-                                 <button class="btn" type="button"><i class="ti-search"></i></button>
-                              </div>
-                           </div>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit">Search</button>
-                     </form>
-                  </aside>
-                  <aside class="single_sidebar_widget post_category_widget">
-                     <h4 class="widget_title">Category</h4>
-                     <ul class="list cat-list">
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Resaurant food</p>
-                              <p>(37)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Travel news</p>
-                              <p>(10)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Modern technology</p>
-                              <p>(03)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Product</p>
-                              <p>(11)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Inspiration</p>
-                              <p>(21)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Health Care</p>
-                              <p>(21)</p>
-                           </a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget popular_post_widget">
-                     <h3 class="widget_title">Recent Post</h3>
-                     <div class="media post_item">
-                        <img src="img/post/post_1.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>From life was you fish...</h3>
-                           </a>
-                           <p>January 12, 2019</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_2.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>The Amazing Hubble</h3>
-                           </a>
-                           <p>02 Hours ago</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_3.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>Astronomy Or Astrology</h3>
-                           </a>
-                           <p>03 Hours ago</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_4.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>Asteroids telescope</h3>
-                           </a>
-                           <p>01 Hours ago</p>
-                        </div>
-                     </div>
-                  </aside>
-                  <aside class="single_sidebar_widget tag_cloud_widget">
-                     <h4 class="widget_title">Tag Clouds</h4>
-                     <ul class="list">
-                        <li>
-                           <a href="#">project</a>
-                        </li>
-                        <li>
-                           <a href="#">love</a>
-                        </li>
-                        <li>
-                           <a href="#">technology</a>
-                        </li>
-                        <li>
-                           <a href="#">travel</a>
-                        </li>
-                        <li>
-                           <a href="#">restaurant</a>
-                        </li>
-                        <li>
-                           <a href="#">life style</a>
-                        </li>
-                        <li>
-                           <a href="#">design</a>
-                        </li>
-                        <li>
-                           <a href="#">illustration</a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget instagram_feeds">
-                     <h4 class="widget_title">Instagram Feeds</h4>
-                     <ul class="instagram_row flex-wrap">
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_5.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_6.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_7.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_8.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_9.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_10.png" alt="">
-                           </a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget newsletter_widget">
-                     <h4 class="widget_title">Newsletter</h4>
-                     <form action="#">
-                        <div class="form-group">
-                           <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                              onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1"
-                           type="submit">Subscribe</button>
-                     </form>
-                  </aside>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!--================Blog Area end =================-->
-
-   <!--::footer_part start::-->
-   <footer class="footer_part black">
-      <div class="footer_top">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <a href="index.html" class="footer_logo_iner"> <img src="img/logo.png" alt="#"> </a>
-                     <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing
-                        days
-                        open
-                     </p>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <h4>Contact Info</h4>
-                     <p>Address : Your address goes
-                        here, your demo address.
-                        Bangladesh.</p>
-                     <p>Phone : +8880 44338899</p>
-                     <p>Email : info@colorlib.com</p>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <h4>Important Link</h4>
-                     <ul class="list-unstyled">
-                        <li><a href=""> WHMCS-bridge</a></li>
-                        <li><a href="">Search Domain</a></li>
-                        <li><a href="">My Account</a></li>
-                        <li><a href="">Shopping Cart</a></li>
-                        <li><a href="">Our Shop</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <h4>Newsletter</h4>
-                     <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold
-                        bearing
-                        days
-                        open
-                     </p>
-                     <div id="mc_embed_signup">
-                        <form target="_blank"
-                           action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                           method="get" class="subscribe_form relative mail_part">
-                           <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                              class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                              onblur="this.placeholder = ' Email Address '">
-                           <button type="submit" name="submit" id="newsletter-submit"
-                              class="email_icon newsletter-submit button-contactForm"><i
-                                 class="far fa-paper-plane"></i></button>
-                           <div class="mt-10 info"></div>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="copygight_text">
-         <div class="container">
+    <!--::header part start::-->
+    <header class="main_menu single_page_menu">
+        <div class="container">
             <div class="row align-items-center">
-               <div class="col-lg-8">
-                  <div class="copyright_text">
-                     <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="footer_icon social_icon">
-                     <ul class="list-unstyled">
-                        <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                        <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
-                     </ul>
-                  </div>
-               </div>
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Tournaments
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
+                                        <a class="dropdown-item" href="tournaments.html">Tournaments</a>
+                                        <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Teams
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
+                                        <a class="dropdown-item" href="teams.html">Our Teams</a>
+                                        <a class="dropdown-item" href="players.html">Player Profiles</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Community
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
+                                        <a class="dropdown-item" href="news.html">News & Gallery</a>
+                                        <a class="dropdown-item" href="register.html">Join Us</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
+                    </nav>
+                </div>
             </div>
-         </div>
-      </div>
-   </footer>
-   <!--::footer_part end::-->
-   <!-- jquery plugins here-->
-   <script src="js/jquery-1.12.1.min.js"></script>
-   <!-- popper js -->
-   <script src="js/popper.min.js"></script>
-   <!-- bootstrap js -->
-   <script src="js/bootstrap.min.js"></script>
-   <!-- easing js -->
-   <script src="js/jquery.magnific-popup.js"></script>
-   <!-- swiper js -->
-   <script src="js/swiper.min.js"></script>
-   <!-- swiper js -->
-   <script src="js/masonry.pkgd.js"></script>
-   <!-- particles js -->
-   <script src="js/owl.carousel.min.js"></script>
-   <script src="js/jquery.nice-select.min.js"></script>
-   <!-- slick js -->
-   <script src="js/slick.min.js"></script>
-   <script src="js/jquery.counterup.min.js"></script>
-   <script src="js/waypoints.min.js"></script>
-   <script src="js/contact.js"></script>
-   <script src="js/jquery.ajaxchimp.min.js"></script>
-   <script src="js/jquery.form.js"></script>
-   <script src="js/jquery.validate.min.js"></script>
-   <script src="js/mail-script.js"></script>
-   <!-- custom js -->
-   <script src="js/custom.js"></script>
-</body>
+        </div>
+    </header>
+    <!-- Header part end-->
 
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Tournaments</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+    <!-- Tournaments section start -->
+    <section class="pricing_part tourn_wrap section_padding">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section_tittle text-center">
+                        <h2>Featured Tournaments</h2>
+                        <p>Check out our upcoming and ongoing gaming tournaments — pick your bracket and get in the arena.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- stat strip -->
+            <div class="row tourn-stats justify-content-center">
+                <div class="col-6 col-md-3">
+                    <div class="tourn-stat">
+                        <i class="fas fa-coins"></i>
+                        <h4>$54,200+</h4>
+                        <span>Total Prize Pool</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="tourn-stat">
+                        <i class="fas fa-trophy"></i>
+                        <h4>6</h4>
+                        <span>Tournaments</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="tourn-stat">
+                        <i class="fas fa-users"></i>
+                        <h4>110+</h4>
+                        <span>Teams Competing</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="tourn-stat">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h4 class="live-dot">2 Live</h4>
+                        <span>Happening Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- filter tabs -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <ul class="tourn-filters" id="tournFilters">
+                        <li class="active" data-filter="all">All</li>
+                        <li data-filter="ongoing">Ongoing</li>
+                        <li data-filter="upcoming">Upcoming</li>
+                        <li data-filter="ended">Ended</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- spotlight tournament -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="tourn-spotlight">
+                        <div class="tourn-spotlight__glow"></div>
+                        <svg class="tourn-spotlight__art" viewBox="0 0 500 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="stageLight" cx="50%" cy="0%" r="75%">
+                                    <stop offset="0%" stop-color="#ff2e63" stop-opacity="0.55"/>
+                                    <stop offset="100%" stop-color="#ff2e63" stop-opacity="0"/>
+                                </radialGradient>
+                                <linearGradient id="crowdFade" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#1b1f2e" stop-opacity="0"/>
+                                    <stop offset="100%" stop-color="#0c0e14" stop-opacity="1"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="500" height="300" fill="url(#stageLight)"/>
+                            <g opacity="0.55">
+                                <circle cx="60" cy="230" r="6" fill="#ff7849"/>
+                                <circle cx="90" cy="245" r="6" fill="#4d8dff"/>
+                                <circle cx="120" cy="225" r="6" fill="#ff2e63"/>
+                                <circle cx="150" cy="248" r="6" fill="#2ecf7a"/>
+                                <circle cx="180" cy="228" r="6" fill="#ffc107"/>
+                                <circle cx="210" cy="246" r="6" fill="#ff7849"/>
+                                <circle cx="240" cy="224" r="6" fill="#4d8dff"/>
+                                <circle cx="270" cy="249" r="6" fill="#ff2e63"/>
+                                <circle cx="300" cy="227" r="6" fill="#2ecf7a"/>
+                                <circle cx="330" cy="244" r="6" fill="#ffc107"/>
+                                <circle cx="360" cy="229" r="6" fill="#ff7849"/>
+                                <circle cx="390" cy="247" r="6" fill="#4d8dff"/>
+                                <circle cx="420" cy="226" r="6" fill="#ff2e63"/>
+                                <circle cx="450" cy="245" r="6" fill="#2ecf7a"/>
+                                <circle cx="75" cy="265" r="6" fill="#ff2e63"/>
+                                <circle cx="105" cy="278" r="6" fill="#ffc107"/>
+                                <circle cx="135" cy="262" r="6" fill="#4d8dff"/>
+                                <circle cx="165" cy="280" r="6" fill="#ff7849"/>
+                                <circle cx="195" cy="264" r="6" fill="#2ecf7a"/>
+                                <circle cx="225" cy="279" r="6" fill="#ff2e63"/>
+                                <circle cx="255" cy="263" r="6" fill="#4d8dff"/>
+                                <circle cx="285" cy="281" r="6" fill="#ffc107"/>
+                                <circle cx="315" cy="265" r="6" fill="#ff7849"/>
+                                <circle cx="345" cy="277" r="6" fill="#2ecf7a"/>
+                                <circle cx="375" cy="263" r="6" fill="#ff2e63"/>
+                                <circle cx="405" cy="280" r="6" fill="#4d8dff"/>
+                                <circle cx="435" cy="266" r="6" fill="#ffc107"/>
+                            </g>
+                            <path d="M0,140 L120,80 L260,60 L400,90 L500,140 L500,300 L0,300 Z" fill="#161927" opacity="0.85"/>
+                            <path d="M60,300 L150,120 L190,120 L120,300 Z" fill="#20232f" opacity="0.9"/>
+                            <path d="M310,300 L370,110 L410,110 L370,300 Z" fill="#20232f" opacity="0.9"/>
+                            <rect x="205" y="150" width="90" height="150" rx="4" fill="#262a3a"/>
+                            <rect x="215" y="165" width="70" height="42" rx="2" fill="#ff2e63" opacity="0.85"/>
+                            <rect width="500" height="300" fill="url(#crowdFade)"/>
+                        </svg>
+                        <div class="tourn-spotlight__tag"><i class="fas fa-bolt"></i> World Finals · Live Now</div>
+                        <div class="row align-items-center">
+                            <div class="col-lg-7">
+                                <h3>Global Esports Cup</h3>
+                                <p>The biggest multi-game showdown of the year. 32 teams. One World Champion.</p>
+                                <ul class="tourn-spotlight__meta">
+                                    <li><i class="far fa-calendar-alt"></i> Aug 10 – Sep 01, 2026</li>
+                                    <li><i class="fas fa-gamepad"></i> Multi-Game</li>
+                                    <li><i class="fas fa-users"></i> 32 Teams</li>
+                                </ul>
+                                <div class="tourn-progress">
+                                    <div class="tourn-progress__bar" style="width:65%;"></div>
+                                </div>
+                                <span class="tourn-progress__label">Day 15 of 23 — Playoffs underway</span>
+                            </div>
+                            <div class="col-lg-5 text-lg-right">
+                                <div class="tourn-spotlight__prize">
+                                    <span>Prize Pool</span>
+                                    <h2>$25,000</h2>
+                                </div>
+                                <a href="#" class="btn_1">View Bracket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- tournament grid -->
+            <div class="row justify-content-center tourn-grid" id="tournGrid">
+
+                <!-- Tournament 1 -->
+                <div class="col-lg-4 col-sm-6 tourn-item" data-status="ongoing">
+                    <div class="single_pricing_part tourn-card tourn-card--valorant">
+                        <div class="tourn-card__cover">
+                            <i class="fas fa-crosshairs tourn-card__watermark"></i>
+                            <i class="fas fa-crosshairs tourn-card__icon"></i>
+                            <span class="tourn-card__game">Valorant</span>
+                        </div>
+                        <div class="tournament-badge">Ongoing</div>
+                        <p>Summer Clash 2026</p>
+                        <h3>Prize $5,000</h3>
+                        <ul>
+                            <li><i class="far fa-calendar-alt"></i> Aug 18 - 22, 2026</li>
+                            <li><i class="fas fa-users"></i> 16 Teams</li>
+                            <li><i class="fas fa-gamepad"></i> Valorant</li>
+                            <li><i class="fas fa-trophy"></i> Grand Finals</li>
+                        </ul>
+                        <a href="#" class="btn_2">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Tournament 2 -->
+                <div class="col-lg-4 col-sm-6 tourn-item" data-status="upcoming">
+                    <div class="single_pricing_part tourn-card tourn-card--csgo">
+                        <div class="tourn-card__cover">
+                            <i class="fas fa-bomb tourn-card__watermark"></i>
+                            <i class="fas fa-bomb tourn-card__icon"></i>
+                            <span class="tourn-card__game">CS:GO</span>
+                        </div>
+                        <div class="tournament-badge upcoming">Upcoming</div>
+                        <p>Pro League Season 7</p>
+                        <h3>Prize $12,000</h3>
+                        <ul>
+                            <li><i class="far fa-calendar-alt"></i> Sep 05 - 18, 2026</li>
+                            <li><i class="fas fa-users"></i> 24 Teams</li>
+                            <li><i class="fas fa-gamepad"></i> CS:GO</li>
+                            <li><i class="fas fa-trophy"></i> League Format</li>
+                        </ul>
+                        <a href="#" class="btn_2">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Tournament 3 -->
+                <div class="col-lg-4 col-sm-6 tourn-item" data-status="ended">
+                    <div class="single_pricing_part tourn-card tourn-card--dota">
+                        <div class="tourn-card__cover">
+                            <i class="fas fa-shield-alt tourn-card__watermark"></i>
+                            <i class="fas fa-shield-alt tourn-card__icon"></i>
+                            <span class="tourn-card__game">Dota 2</span>
+                        </div>
+                        <div class="tournament-badge ended">Ended</div>
+                        <p>Winter Showdown</p>
+                        <h3>Prize $3,200</h3>
+                        <ul>
+                            <li><i class="far fa-calendar-alt"></i> Jul 10 - 14, 2026</li>
+                            <li><i class="fas fa-users"></i> 12 Teams</li>
+                            <li><i class="fas fa-gamepad"></i> Dota 2</li>
+                            <li><i class="fas fa-trophy"></i> Winner: Team Apex</li>
+                        </ul>
+                        <a href="#" class="btn_2">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Tournament 4 -->
+                <div class="col-lg-4 col-sm-6 tourn-item" data-status="upcoming">
+                    <div class="single_pricing_part tourn-card tourn-card--lol">
+                        <div class="tourn-card__cover">
+                            <i class="fas fa-chess-rook tourn-card__watermark"></i>
+                            <i class="fas fa-chess-rook tourn-card__icon"></i>
+                            <span class="tourn-card__game">League of Legends</span>
+                        </div>
+                        <div class="tournament-badge upcoming">Upcoming</div>
+                        <p>Rookie Cup 2026</p>
+                        <h3>Prize $1,500</h3>
+                        <ul>
+                            <li><i class="far fa-calendar-alt"></i> Oct 02 - 04, 2026</li>
+                            <li><i class="fas fa-users"></i> 8 Teams</li>
+                            <li><i class="fas fa-gamepad"></i> League of Legends</li>
+                            <li><i class="fas fa-trophy"></i> Rookie Only</li>
+                        </ul>
+                        <a href="#" class="btn_2">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Tournament 5 -->
+                <div class="col-lg-4 col-sm-6 tourn-item" data-status="ongoing">
+                    <div class="single_pricing_part tourn-card tourn-card--multi">
+                        <div class="tourn-card__cover">
+                            <i class="fas fa-globe-americas tourn-card__watermark"></i>
+                            <i class="fas fa-globe-americas tourn-card__icon"></i>
+                            <span class="tourn-card__game">Multi-Game</span>
+                        </div>
+                        <div class="tournament-badge">Ongoing</div>
+                        <p>Global Esports Cup</p>
+                        <h3>Prize $25,000</h3>
+                        <ul>
+                            <li><i class="far fa-calendar-alt"></i> Aug 10 - Sep 01, 2026</li>
+                            <li><i class="fas fa-users"></i> 32 Teams</li>
+                            <li><i class="fas fa-gamepad"></i> Multi-Game</li>
+                            <li><i class="fas fa-trophy"></i> World Finals</li>
+                        </ul>
+                        <a href="#" class="btn_2">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Tournament 6 -->
+                <div class="col-lg-4 col-sm-6 tourn-item" data-status="ended">
+                    <div class="single_pricing_part tourn-card tourn-card--apex">
+                        <div class="tourn-card__cover">
+                            <i class="fas fa-parachute-box tourn-card__watermark"></i>
+                            <i class="fas fa-parachute-box tourn-card__icon"></i>
+                            <span class="tourn-card__game">Apex Legends</span>
+                        </div>
+                        <div class="tournament-badge ended">Ended</div>
+                        <p>Spring Masters</p>
+                        <h3>Prize $7,500</h3>
+                        <ul>
+                            <li><i class="far fa-calendar-alt"></i> Jun 05 - 12, 2026</li>
+                            <li><i class="fas fa-users"></i> 18 Teams</li>
+                            <li><i class="fas fa-gamepad"></i> Apex Legends</li>
+                            <li><i class="fas fa-trophy"></i> Winner: NOVA</li>
+                        </ul>
+                        <a href="#" class="btn_2">View Details</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center tourn-empty" id="tournEmpty" style="display:none;">
+                    <p>No tournaments in this category right now — check back soon.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Tournaments section end -->
+
+    <!--::client logo part start::-->
+    <section class="client_logo">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="client_logo_slider owl-carousel d-flex justify-content-between">
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_1.png" alt=""></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_2.png" alt=""></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_3.png" alt=""></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_4.png" alt=""></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_5.png" alt=""></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_1.png" alt=""></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_2.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::client logo part end::-->
+
+    <!--::footer_part start::-->
+    <footer class="footer_part black">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <a href="index.html" class="footer_logo_iner"> <img src="img/logo.png" alt="#"> </a>
+                            <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <h4>Contact Info</h4>
+                            <p>Address : Your address goes here, your demo address. Bangladesh.</p>
+                            <p>Phone : +8880 44338899</p>
+                            <p>Email : info@colorlib.com</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <h4>Important Link</h4>
+                            <ul class="list-unstyled">
+                                <li><a href=""> WHMCS-bridge</a></li>
+                                <li><a href="">Search Domain</a></li>
+                                <li><a href="">My Account</a></li>
+                                <li><a href="">Shopping Cart</a></li>
+                                <li><a href="">Our Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <h4>Newsletter</h4>
+                            <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
+                            <div id="mc_embed_signup">
+                                <form target="_blank"
+                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                    method="get" class="subscribe_form relative mail_part">
+                                    <input type="email" name="email" id="newsletter-form-email"
+                                        placeholder="Email Address" class="placeholder hide-on-focus"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                    <button type="submit" name="submit" id="newsletter-submit"
+                                        class="email_icon newsletter-submit button-contactForm"><i
+                                            class="far fa-paper-plane"></i></button>
+                                    <div class="mt-10 info"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copygight_text">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="copyright_text">
+                            <P>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></P>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer_icon social_icon">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--::footer_part end::-->
+
+    <!-- scripts -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/custom.js"></script>
+
+    <!-- Filter logic -->
+    <script>
+        (function () {
+            var filters = document.querySelectorAll('#tournFilters li');
+            var items = document.querySelectorAll('#tournGrid .tourn-item');
+            var empty = document.getElementById('tournEmpty');
+
+            filters.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filters.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    var filter = btn.getAttribute('data-filter');
+                    var visibleCount = 0;
+
+                    items.forEach(function (item) {
+                        var status = item.getAttribute('data-status');
+                        var show = (filter === 'all' || filter === status);
+                        item.style.display = show ? '' : 'none';
+                        if (show) visibleCount++;
+                    });
+
+                    empty.style.display = visibleCount === 0 ? 'block' : 'none';
+                });
+            });
+        })();
+    </script>
+</body>
 </html>

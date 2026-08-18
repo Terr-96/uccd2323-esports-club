@@ -1,635 +1,759 @@
 <!doctype html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-   <!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <title>Join the Game</title>
-   <link rel="icon" href="img/favicon.png">  
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
-   <!-- animate CSS -->
-   <link rel="stylesheet" href="css/animate.css">
-   <!-- owl carousel CSS -->
-   <link rel="stylesheet" href="css/owl.carousel.min.css">
-   <!-- font awesome CSS -->
-   <link rel="stylesheet" href="css/all.css">
-   <!-- flaticon CSS -->
-   <link rel="stylesheet" href="css/flaticon.css">
-   <link rel="stylesheet" href="css/themify-icons.css">
-   <!-- font awesome CSS -->
-   <link rel="stylesheet" href="css/magnific-popup.css">
-   <!-- swiper CSS -->
-   <link rel="stylesheet" href="css/slick.css">
-   <!-- style CSS -->
-   <link rel="stylesheet" href="css/style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>gaming – Schedules</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS (your main theme) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ===== 强制固定导航栏，阻止滚动放大 ===== -->
+    <style>
+    /* 固定 logo 高度 */
+    .main_menu.single_page_menu .navbar-brand img {
+        height: 50px !important;
+        max-height: 50px !important;
+        width: auto !important;
+    }
+    /* 固定导航栏内边距 */
+    .main_menu.single_page_menu {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        transition: none !important;
+    }
+    /* 阻止滚动时添加背景或阴影 */
+    .main_menu.single_page_menu.header_fixed {
+        background: #0c0e14 !important;
+        box-shadow: none !important;
+    }
+
+    /* ====== 新增：标题和描述文字变白 ====== */
+    .section_tittle h2,
+    .section_tittle p {
+        color: #ffffff !important;
+    }
+    /* ====== 新增：过滤按钮文字变白 ====== */
+    .sched-filter-group .btn {
+        color: #ffffff !important;
+    }
+    .sched-filter-group .btn:hover {
+        color: #ffffff !important;
+    }
+
+    /* 以下是 schedules 页面原有样式 */
+    .sched-section {
+        background: #0c0e14;
+    }
+    .sched-day__label {
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #fff;
+        margin: 2rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .sched-item {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+        background: #151824;
+        border-radius: 12px;
+        padding: 0.8rem 1.5rem;
+        margin-bottom: 0.7rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: 0.2s;
+    }
+    .sched-item:hover {
+        border-color: rgba(255, 46, 99, 0.3);
+        transform: translateX(4px);
+    }
+    .sched-item.is-live {
+        border-color: #ffc107;
+        box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.15);
+    }
+    .sched-item--final {
+        border-color: rgba(255, 120, 73, 0.4);
+        background: linear-gradient(90deg, rgba(255, 46, 99, 0.08), #151824 60%);
+    }
+    .sched-item__time {
+        flex: 0 0 80px;
+        text-align: center;
+        color: #fff;
+    }
+    .sched-item__time strong {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .sched-item__time span {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: #9aa0b4;
+        letter-spacing: 0.3px;
+    }
+    .sched-item__tourn {
+        flex: 0 0 140px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #ff2e63;
+    }
+    .sched-item__tourn i {
+        margin-right: 4px;
+        color: #ffcf5c;
+    }
+    .sched-item__match {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-weight: 600;
+        color: #fff;
+        min-width: 200px;
+        flex-wrap: wrap;
+    }
+    .sched-item__match .team {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+    }
+    .team-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+    }
+    .sched-item__match .score {
+        font-weight: 700;
+        background: #20232f;
+        padding: 2px 12px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        min-width: 50px;
+        text-align: center;
+    }
+    .score--vs {
+        background: transparent !important;
+        color: #9aa0b4;
+        font-weight: 600;
+        min-width: auto;
+    }
+    .sched-item__status {
+        flex: 0 0 110px;
+        text-align: right;
+    }
+    .badge {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 6px 14px;
+        border-radius: 20px;
+    }
+    .badge-finished {
+        background: #28a745;
+        color: #fff;
+    }
+    .badge-live {
+        background: #ffc107;
+        color: #212529;
+        display: inline-flex;
+        align-items: center;
+    }
+    .badge-upcoming {
+        background: #007bff;
+        color: #fff;
+    }
+    .badge-tbd {
+        background: #6c757d;
+        color: #fff;
+    }
+    .live-ping {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: #212529;
+        border-radius: 50%;
+        margin-right: 6px;
+        animation: ping 1.2s infinite;
+    }
+    @keyframes ping {
+        0% { opacity: 1; }
+        50% { opacity: 0.2; }
+        100% { opacity: 1; }
+    }
+    .sched-filter-group .btn {
+        border-color: #4a4f5f;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        padding: 0.4rem 1.2rem;
+        transition: 0.2s;
+    }
+    .sched-filter-group .btn:hover {
+        color: #fff;
+        border-color: #ff2e63;
+    }
+    .sched-filter-group .btn.active {
+        background: #ff2e63;
+        border-color: #ff2e63;
+        color: #fff;
+    }
+    .sched-filter-group .btn.active.btn-outline-warning {
+        background: #ffc107;
+        border-color: #ffc107;
+        color: #212529;
+    }
+    .sched-filter-group .btn.active.btn-outline-primary {
+        background: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+    .sched-filter-group .btn.active.btn-outline-success {
+        background: #28a745;
+        border-color: #28a745;
+        color: #fff;
+    }
+    .sched-filter-group .btn.active.btn-outline-secondary {
+        background: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+    }
+    .dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 6px;
+    }
+    .dot-live { background: #ffc107; }
+    .dot-upcoming { background: #007bff; }
+    .dot-finished { background: #28a745; }
+    .dot-tbd { background: #6c757d; }
+    @media (max-width: 767px) {
+        .sched-item {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 1rem;
+        }
+        .sched-item__time,
+        .sched-item__tourn,
+        .sched-item__status {
+            flex: none;
+            text-align: left;
+            width: 100%;
+        }
+        .sched-item__match {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        .sched-item__status {
+            text-align: left;
+            margin-top: 0.3rem;
+        }
+        .sched-filter-group .btn {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+        }
+    }
+</style>
 </head>
 
 <body>
-   <!--::header part start::-->
-   <header class="main_menu single_page_menu">
-      <div class="container">
-         <div class="row align-items-center">
-            <div class="col-lg-12">
-               <nav class="navbar navbar-expand-lg navbar-light">
-                  <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <img src="img/logo.png" alt="logo" style="height: 50px; width: auto; margin-right: 10px;">
-    <span style="color: #ffffff; font-weight: 800; font-size: 20px; letter-spacing: 1px;">LEAGUE ESPORTS</span>
-</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse"
-                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                     aria-label="Toggle navigation">
-                     <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                  </button>
-                  <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                      <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Tournaments
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
-                <a class="dropdown-item" href="tournaments.html">Tournaments</a>
-                <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Teams
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
-                <a class="dropdown-item" href="teams.html">Our Teams</a>
-                <a class="dropdown-item" href="players.html">Player Profiles</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Community
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-                <a class="dropdown-item" href="news.html">News & Gallery</a>
-                <a class="dropdown-item" href="register.html">Join Us</a>
-            </div>
-        </li>
-    </ul>
-                  </div>
-                  <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </header>
-   <!-- Header part end-->
-
-   <!-- breadcrumb start-->
-   <section class="breadcrumb breadcrumb_bg">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12">
-               <div class="breadcrumb_iner text-center">
-                  <div class="breadcrumb_iner_item">
-                     <h2>blog details</h2>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- breadcrumb start-->
-
-   <!--================Blog Area =================-->
-   <section class="blog_area single-post-area section_padding">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-8 posts-list">
-               <div class="single-post">
-                  <div class="feature-img">
-                     <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
-                  </div>
-                  <div class="blog_details">
-                     <h2>Second divided from form fish beast made every of seas
-                        all gathered us saying he our
-                     </h2>
-                     <ul class="blog-info-link mt-3 mb-4">
-                        <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                     </ul>
-                     <p class="excert">
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training. who has the willpower to actually
-                     </p>
-                     <div class="quote-wrapper">
-                        <div class="quotes">
-                           MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                           should have to spend money on boot camp when you can get the MCSE study materials yourself at
-                           a fraction of the camp price. However, who has the willpower to actually sit through a
-                           self-imposed MCSE training.
-                        </div>
-                     </div>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                     </p>
-                     <p>
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower to actually sit through a
-                        self-imposed MCSE training. who has the willpower to actually
-                     </p>
-                  </div>
-               </div>
-               <div class="navigation-top">
-                  <div class="d-sm-flex justify-content-between text-center">
-                     <p class="like-info"><span class="align-middle"><i class="far fa-heart"></i></span> Lily and 4
-                        people like this</p>
-                     <div class="col-sm-4 text-center my-2 my-sm-0">
-                        <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
-                     </div>
-                     <ul class="social-icons">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="navigation-area">
-                     <div class="row">
-                        <div
-                           class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="img/post/preview.png" alt="">
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-left"></span>
-                              </a>
-                           </div>
-                           <div class="detials">
-                              <p>Prev Post</p>
-                              <a href="#">
-                                 <h4>Space The Final Frontier</h4>
-                              </a>
-                           </div>
-                        </div>
-                        <div
-                           class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                           <div class="detials">
-                              <p>Next Post</p>
-                              <a href="#">
-                                 <h4>Telescopes 101</h4>
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-right"></span>
-                              </a>
-                           </div>
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="img/post/next.png" alt="">
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="blog-author">
-                  <div class="media align-items-center">
-                     <img src="img/blog/author.png" alt="">
-                     <div class="media-body">
-                        <a href="#">
-                           <h4>Harvard milan</h4>
-                        </a>
-                        <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
-                           our dominion twon Second divided from</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="comments-area">
-                  <h4>05 Comments</h4>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="img/comment/comment_1.png" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="img/comment/comment_2.png" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="img/comment/comment_3.png" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="comment-form">
-                  <h4>Leave a Reply</h4>
-                  <form class="form-contact comment_form" action="#" id="commentForm">
-                     <div class="row">
-                        <div class="col-12">
-                           <div class="form-group">
-                              <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                 placeholder="Write Comment"></textarea>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                           </div>
-                        </div>
-                     </div>
-                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm btn_1">Send Message <i
-                              class="flaticon-right-arrow"></i> </button>
-                     </div>
-                  </form>
-               </div>
-            </div>
-            <div class="col-lg-4">
-               <div class="blog_right_sidebar">
-                  <aside class="single_sidebar_widget search_widget">
-                     <form action="#">
-                        <div class="form-group">
-                           <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder='Search Keyword'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                              <div class="input-group-append">
-                                 <button class="btn" type="button"><i class="ti-search"></i></button>
-                              </div>
-                           </div>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit">Search</button>
-                     </form>
-                  </aside>
-                  <aside class="single_sidebar_widget post_category_widget">
-                     <h4 class="widget_title">Category</h4>
-                     <ul class="list cat-list">
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Resaurant food</p>
-                              <p>(37)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Travel news</p>
-                              <p>(10)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Modern technology</p>
-                              <p>(03)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Product</p>
-                              <p>(11)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Inspiration</p>
-                              <p>(21)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Health Care</p>
-                              <p>(21)</p>
-                           </a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget popular_post_widget">
-                     <h3 class="widget_title">Recent Post</h3>
-                     <div class="media post_item">
-                        <img src="img/post/post_1.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>From life was you fish...</h3>
-                           </a>
-                           <p>January 12, 2019</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_2.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>The Amazing Hubble</h3>
-                           </a>
-                           <p>02 Hours ago</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_3.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>Astronomy Or Astrology</h3>
-                           </a>
-                           <p>03 Hours ago</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_4.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>Asteroids telescope</h3>
-                           </a>
-                           <p>01 Hours ago</p>
-                        </div>
-                     </div>
-                  </aside>
-                  <aside class="single_sidebar_widget tag_cloud_widget">
-                     <h4 class="widget_title">Tag Clouds</h4>
-                     <ul class="list">
-                        <li>
-                           <a href="#">project</a>
-                        </li>
-                        <li>
-                           <a href="#">love</a>
-                        </li>
-                        <li>
-                           <a href="#">technology</a>
-                        </li>
-                        <li>
-                           <a href="#">travel</a>
-                        </li>
-                        <li>
-                           <a href="#">restaurant</a>
-                        </li>
-                        <li>
-                           <a href="#">life style</a>
-                        </li>
-                        <li>
-                           <a href="#">design</a>
-                        </li>
-                        <li>
-                           <a href="#">illustration</a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget instagram_feeds">
-                     <h4 class="widget_title">Instagram Feeds</h4>
-                     <ul class="instagram_row flex-wrap">
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_5.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_6.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_7.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_8.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_9.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_10.png" alt="">
-                           </a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget newsletter_widget">
-                     <h4 class="widget_title">Newsletter</h4>
-                     <form action="#">
-                        <div class="form-group">
-                           <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                              onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1"
-                           type="submit">Subscribe</button>
-                     </form>
-                  </aside>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!--================Blog Area end =================-->
-
-   <!--::footer_part start::-->
-   <footer class="footer_part black">
-      <div class="footer_top">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <a href="index.html" class="footer_logo_iner"> <img src="img/logo.png" alt="#"> </a>
-                     <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing
-                        days
-                        open
-                     </p>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <h4>Contact Info</h4>
-                     <p>Address : Your address goes
-                        here, your demo address.
-                        Bangladesh.</p>
-                     <p>Phone : +8880 44338899</p>
-                     <p>Email : info@colorlib.com</p>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <h4>Important Link</h4>
-                     <ul class="list-unstyled">
-                        <li><a href=""> WHMCS-bridge</a></li>
-                        <li><a href="">Search Domain</a></li>
-                        <li><a href="">My Account</a></li>
-                        <li><a href="">Shopping Cart</a></li>
-                        <li><a href="">Our Shop</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <div class="single_footer_part">
-                     <h4>Newsletter</h4>
-                     <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold
-                        bearing
-                        days
-                        open
-                     </p>
-                     <div id="mc_embed_signup">
-                        <form target="_blank"
-                           action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                           method="get" class="subscribe_form relative mail_part">
-                           <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                              class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                              onblur="this.placeholder = ' Email Address '">
-                           <button type="submit" name="submit" id="newsletter-submit"
-                              class="email_icon newsletter-submit button-contactForm"><i
-                                 class="far fa-paper-plane"></i></button>
-                           <div class="mt-10 info"></div>
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="copygight_text">
-         <div class="container">
+    <!--::header part start::-->
+    <header class="main_menu single_page_menu">
+        <div class="container">
             <div class="row align-items-center">
-               <div class="col-lg-8">
-                  <div class="copyright_text">
-                     <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
-                  </div>
-               </div>
-               <div class="col-lg-4">
-                  <div class="footer_icon social_icon">
-                     <ul class="list-unstyled">
-                        <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
-                        <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
-                     </ul>
-                  </div>
-               </div>
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Tournaments
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
+                                        <a class="dropdown-item" href="tournaments.html">Tournaments</a>
+                                        <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Teams
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
+                                        <a class="dropdown-item" href="teams.html">Our Teams</a>
+                                        <a class="dropdown-item" href="players.html">Player Profiles</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Community
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
+                                        <a class="dropdown-item" href="news.html">News & Gallery</a>
+                                        <a class="dropdown-item" href="register.html">Join Us</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
+                    </nav>
+                </div>
             </div>
-         </div>
-      </div>
-   </footer>
-   <!--::footer_part end::-->
-   <!-- jquery plugins here-->
-   <script src="js/jquery-1.12.1.min.js"></script>
-   <!-- popper js -->
-   <script src="js/popper.min.js"></script>
-   <!-- bootstrap js -->
-   <script src="js/bootstrap.min.js"></script>
-   <!-- easing js -->
-   <script src="js/jquery.magnific-popup.js"></script>
-   <!-- swiper js -->
-   <script src="js/swiper.min.js"></script>
-   <!-- swiper js -->
-   <script src="js/masonry.pkgd.js"></script>
-   <!-- particles js -->
-   <script src="js/owl.carousel.min.js"></script>
-   <script src="js/jquery.nice-select.min.js"></script>
-   <!-- slick js -->
-   <script src="js/slick.min.js"></script>
-   <script src="js/jquery.counterup.min.js"></script>
-   <script src="js/waypoints.min.js"></script>
-   <script src="js/contact.js"></script>
-   <script src="js/jquery.ajaxchimp.min.js"></script>
-   <script src="js/jquery.form.js"></script>
-   <script src="js/jquery.validate.min.js"></script>
-   <script src="js/mail-script.js"></script>
-   <!-- custom js -->
-   <script src="js/custom.js"></script>
-</body>
+        </div>
+    </header>
+    <!-- Header part end-->
 
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Schedule & Results</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+    <!-- Schedule section start -->
+    <section class="blog_area section_padding sched-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_tittle text-center mb-4">
+                        <h2>Upcoming & Recent Matches</h2>
+                        <p>All times in your local timezone</p>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="text-center mb-5">
+                        <div class="btn-group sched-filter-group" role="group" aria-label="Filter matches">
+                            <button type="button" class="btn btn-outline-light active" data-filter="all">All Matches</button>
+                            <button type="button" class="btn btn-outline-warning" data-filter="live"><span class="dot dot-live"></span> Live</button>
+                            <button type="button" class="btn btn-outline-primary" data-filter="upcoming"><span class="dot dot-upcoming"></span> Upcoming</button>
+                            <button type="button" class="btn btn-outline-success" data-filter="finished"><span class="dot dot-finished"></span> Finished</button>
+                            <button type="button" class="btn btn-outline-secondary" data-filter="tbd"><span class="dot dot-tbd"></span> TBD</button>
+                        </div>
+                    </div>
+
+                    <!-- Schedule items -->
+                    <div id="scheduleContainer">
+                        <!-- Day: Aug 18 -->
+                        <div class="sched-day" data-day="2026-08-18">
+                            <div class="sched-day__label">Tue, Aug 18 2026</div>
+
+                            <div class="sched-item" data-status="finished">
+                                <div class="sched-item__time">
+                                    <strong>15:00</strong>
+                                    <span>Aug 18</span>
+                                </div>
+                                <div class="sched-item__tourn">Summer Clash</div>
+                                <div class="sched-item__match">
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#ff2e63;">A</span>
+                                        Team A
+                                    </span>
+                                    <span class="score">2 – 1</span>
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#4d8dff;">B</span>
+                                        Team B
+                                    </span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-finished">Finished</span>
+                                </div>
+                            </div>
+
+                            <div class="sched-item" data-status="finished">
+                                <div class="sched-item__time">
+                                    <strong>17:30</strong>
+                                    <span>Aug 18</span>
+                                </div>
+                                <div class="sched-item__tourn">Summer Clash</div>
+                                <div class="sched-item__match">
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#2ecf7a;">C</span>
+                                        Team C
+                                    </span>
+                                    <span class="score">0 – 3</span>
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#ffc107;">D</span>
+                                        Team D
+                                    </span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-finished">Finished</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day: Aug 19 -->
+                        <div class="sched-day" data-day="2026-08-19">
+                            <div class="sched-day__label">Wed, Aug 19 2026</div>
+
+                            <div class="sched-item is-live" data-status="live">
+                                <div class="sched-item__time">
+                                    <strong>14:00</strong>
+                                    <span>Aug 19</span>
+                                </div>
+                                <div class="sched-item__tourn">Summer Clash</div>
+                                <div class="sched-item__match">
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#ff7849;">E</span>
+                                        Team E
+                                    </span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#7b1e1e;">F</span>
+                                        Team F
+                                    </span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-live"><span class="live-ping"></span>Live</span>
+                                </div>
+                            </div>
+
+                            <div class="sched-item" data-status="upcoming">
+                                <div class="sched-item__time">
+                                    <strong>18:00</strong>
+                                    <span>Aug 19</span>
+                                </div>
+                                <div class="sched-item__tourn">Global Esports Cup</div>
+                                <div class="sched-item__match">
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#1d5c9c;">G</span>
+                                        Team G
+                                    </span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#b9791a;">H</span>
+                                        Team H
+                                    </span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day: Aug 20 -->
+                        <div class="sched-day" data-day="2026-08-20">
+                            <div class="sched-day__label">Thu, Aug 20 2026</div>
+                            <div class="sched-item" data-status="upcoming">
+                                <div class="sched-item__time">
+                                    <strong>16:00</strong>
+                                    <span>Aug 20</span>
+                                </div>
+                                <div class="sched-item__tourn">Global Esports Cup</div>
+                                <div class="sched-item__match">
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#ff7849;">I</span>
+                                        Team I
+                                    </span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">
+                                        <span class="team-avatar" style="background:#00c2a8;">J</span>
+                                        Team J
+                                    </span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day: Aug 21 -->
+                        <div class="sched-day" data-day="2026-08-21">
+                            <div class="sched-day__label">Fri, Aug 21 2026</div>
+                            <div class="sched-item" data-status="tbd">
+                                <div class="sched-item__time">
+                                    <strong>13:00</strong>
+                                    <span>Aug 21</span>
+                                </div>
+                                <div class="sched-item__tourn">Summer Clash</div>
+                                <div class="sched-item__match">
+                                    <span class="team">Semifinal #1</span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">Semifinal #2</span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-tbd">TBD</span>
+                                </div>
+                            </div>
+                            <div class="sched-item" data-status="tbd">
+                                <div class="sched-item__time">
+                                    <strong>15:30</strong>
+                                    <span>Aug 21</span>
+                                </div>
+                                <div class="sched-item__tourn">Summer Clash</div>
+                                <div class="sched-item__match">
+                                    <span class="team">Semifinal #3</span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">Semifinal #4</span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-tbd">TBD</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day: Aug 22 -->
+                        <div class="sched-day" data-day="2026-08-22">
+                            <div class="sched-day__label">Sat, Aug 22 2026</div>
+                            <div class="sched-item sched-item--final" data-status="upcoming">
+                                <div class="sched-item__time">
+                                    <strong>18:00</strong>
+                                    <span>Aug 22</span>
+                                </div>
+                                <div class="sched-item__tourn"><i class="fas fa-trophy"></i> Summer Clash</div>
+                                <div class="sched-item__match">
+                                    <span class="team">Grand Final</span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">Grand Final</span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day: Sep 05 -->
+                        <div class="sched-day" data-day="2026-09-05">
+                            <div class="sched-day__label">Sat, Sep 05 2026</div>
+                            <div class="sched-item" data-status="upcoming">
+                                <div class="sched-item__time">
+                                    <strong>12:00</strong>
+                                    <span>Sep 05</span>
+                                </div>
+                                <div class="sched-item__tourn">Pro League S7</div>
+                                <div class="sched-item__match">
+                                    <span class="team">Opening Match</span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">&nbsp;</span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day: Sep 06 -->
+                        <div class="sched-day" data-day="2026-09-06">
+                            <div class="sched-day__label">Sun, Sep 06 2026</div>
+                            <div class="sched-item" data-status="upcoming">
+                                <div class="sched-item__time">
+                                    <strong>14:00</strong>
+                                    <span>Sep 06</span>
+                                </div>
+                                <div class="sched-item__tourn">Pro League S7</div>
+                                <div class="sched-item__match">
+                                    <span class="team">Group Stage</span>
+                                    <span class="score score--vs">vs</span>
+                                    <span class="team">&nbsp;</span>
+                                </div>
+                                <div class="sched-item__status">
+                                    <span class="badge badge-upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Empty state -->
+                        <div class="text-center mt-4" id="emptyMessage" style="display:none;">
+                            <p class="text-muted">No matches found for this filter.</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn_1">View Full Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Schedule section end -->
+
+    <!--::footer_part start::-->
+    <footer class="footer_part black">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <a href="index.html" class="footer_logo_iner"> <img src="img/logo.png" alt="#"> </a>
+                            <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <h4>Contact Info</h4>
+                            <p>Address : Your address goes here, your demo address. Bangladesh.</p>
+                            <p>Phone : +8880 44338899</p>
+                            <p>Email : info@colorlib.com</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <h4>Important Link</h4>
+                            <ul class="list-unstyled">
+                                <li><a href=""> WHMCS-bridge</a></li>
+                                <li><a href="">Search Domain</a></li>
+                                <li><a href="">My Account</a></li>
+                                <li><a href="">Shopping Cart</a></li>
+                                <li><a href="">Our Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_footer_part">
+                            <h4>Newsletter</h4>
+                            <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
+                            <div id="mc_embed_signup">
+                                <form target="_blank"
+                                    action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                    method="get" class="subscribe_form relative mail_part">
+                                    <input type="email" name="email" id="newsletter-form-email"
+                                        placeholder="Email Address" class="placeholder hide-on-focus"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                    <button type="submit" name="submit" id="newsletter-submit"
+                                        class="email_icon newsletter-submit button-contactForm"><i
+                                            class="far fa-paper-plane"></i></button>
+                                    <div class="mt-10 info"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copygight_text">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="copyright_text">
+                            <P>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></P>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer_icon social_icon">
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="single_social_icon"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fas fa-globe"></i></a></li>
+                                <li><a href="#" class="single_social_icon"><i class="fab fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--::footer_part end::-->
+
+    <!-- scripts -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/custom.js"></script>
+
+    <!-- Filter logic -->
+    <script>
+        (function() {
+            var filterButtons = document.querySelectorAll('.sched-filter-group .btn');
+            var items = document.querySelectorAll('.sched-item');
+            var days = document.querySelectorAll('.sched-day');
+            var emptyMsg = document.getElementById('emptyMessage');
+
+            filterButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    var filter = btn.getAttribute('data-filter');
+                    var visibleCount = 0;
+
+                    items.forEach(function(item) {
+                        var status = item.getAttribute('data-status');
+                        if (filter === 'all' || status === filter) {
+                            item.style.display = '';
+                            visibleCount++;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    days.forEach(function(day) {
+                        var visibleInDay = day.querySelectorAll('.sched-item:not([style*="display: none"])').length;
+                        day.style.display = visibleInDay === 0 ? 'none' : '';
+                    });
+
+                    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+                });
+            });
+        })();
+    </script>
+</body>
 </html>
