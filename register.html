@@ -1,254 +1,442 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="zxx">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Register - LEAGUE ESPORTS</title>
-    <meta name="description" content="Create an account on LEAGUE ESPORTS to join tournaments and community events.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-
-    <!-- CSS here -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>gaming – Create Account</title>
+    <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
     <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* 顶栏默认与滚动固定样式 */
+        .main_menu {
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+            transition: all 0.3s ease;
+            background: transparent;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
+        .main_menu.header_fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #ff0000 !important; /* 滚动时保持与 news.html 一致的红色顶栏背景 */
+            box-shadow: 0 5px 15px rgba(0,0,0,.3) !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+        .main_menu .navbar-brand img {
+            height: 50px !important;
+            max-height: 50px !important;
+            width: auto !important;
+        }
+
+        /* Register 页面专属电竞暗黑风格样式 */
+        :root{
+            --reg-accent:#ff2e63;
+            --reg-accent-2:#ff7849;
+            --reg-bg:#0c0e14;
+            --reg-card:#151824;
+            --reg-card-2:#1b1f2e;
+            --reg-border:rgba(255,46,99,.18);
+            --reg-text-dim:#9aa0b4;
+        }
+        .register_wrap{
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255,46,99,.10), transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(255,120,73,.08), transparent 45%),
+                var(--reg-bg);
+            position:relative;
+        }
+        .register-form-box{
+            background:linear-gradient(180deg,var(--reg-card-2),var(--reg-card));
+            border:1px solid var(--reg-border);
+            border-radius:20px;
+            padding:50px 45px;
+            box-shadow:0 20px 40px rgba(0,0,0,.5);
+            margin-bottom:40px;
+        }
+        .register-form-box h3{
+            color:#fff; font-size:26px; font-weight:800; margin-bottom:10px;
+        }
+        .register-form-box p.form-desc{
+            color:var(--reg-text-dim); font-size:14px; margin-bottom:35px;
+        }
+        .form-group label{
+            color:#fff; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; display:block;
+        }
+        .form-control{
+            background:#0c0e14 !important;
+            border:1px solid var(--reg-border) !important;
+            color:#fff !important;
+            border-radius:10px !important;
+            padding:14px 18px !important;
+            height:auto !important;
+            font-size:14px;
+            transition:.2s;
+        }
+        .form-control:focus{
+            border-color:var(--reg-accent) !important;
+            box-shadow:0 0 10px rgba(255,46,99,.25) !important;
+        }
+        select.form-control option{
+            background:#151824; color:#fff;
+        }
+        .reg-submit-btn{
+            background:linear-gradient(135deg,var(--reg-accent),var(--reg-accent-2));
+            border:none; color:#fff; font-weight:700; text-transform:uppercase;
+            letter-spacing:1px; padding:15px 35px; border-radius:30px; width:100%;
+            cursor:pointer; transition:.25s; box-shadow:0 6px 20px rgba(255,46,99,.35);
+            margin-top:15px;
+        }
+        .reg-submit-btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 10px 25px rgba(255,46,99,.5);
+        }
+
+        .form-footer-text{
+            text-align:center; margin-top:20px; color:var(--reg-text-dim); font-size:13px;
+        }
+        .form-footer-text a{
+            color:var(--reg-accent); font-weight:600; text-decoration:none;
+        }
+        .form-footer-text a:hover{
+            text-decoration:underline;
+        }
+
+        /* 底部赞助商专区深色优化 */
+        .client_logo.dark-sponsors{
+            background: #08090d;
+            border-top: 1px solid var(--reg-border);
+            padding: 40px 0;
+        }
+        .single_client_logo img{
+            filter: grayscale(100%) brightness(1.5);
+            opacity: 0.6;
+            transition: .3s;
+        }
+        .single_client_logo img:hover{
+            filter: grayscale(0%) brightness(1);
+            opacity: 1;
+        }
+
+        /* 底部标准 Footer 暗黑风格适配 */
+        .footer-area {
+            background: #06070a;
+            color: var(--reg-text-dim);
+            padding: 70px 0 30px 0;
+            border-top: 1px solid rgba(255,255,255,.05);
+        }
+        .footer-area h3, .footer-area h4 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        .footer-area p, .footer-area li a {
+            color: var(--reg-text-dim);
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+            transition: .3s;
+        }
+        .footer-area li a:hover {
+            color: var(--reg-accent);
+            padding-left: 5px;
+        }
+        .footer-area ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-area ul li {
+            margin-bottom: 10px;
+        }
+        .footer-logo-box img {
+            max-width: 160px;
+            margin-bottom: 15px;
+        }
+        .footer-newsletter-form .form-control {
+            background: #151824 !important;
+            border: 1px solid var(--reg-border) !important;
+            border-radius: 5px 0 0 5px !important;
+            color: #fff !important;
+            height: 45px !important;
+        }
+        .footer-newsletter-btn {
+            background: var(--reg-accent);
+            border: none;
+            color: #fff;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: .2s;
+        }
+        .footer-newsletter-btn:hover {
+            background: var(--reg-accent-2);
+        }
+        .copyright-text {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,.05);
+            margin-top: 50px;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #6c7288;
+        }
+    </style>
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-    <!-- header-start -->
-    <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-2">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="img/logo.png" alt="LEAGUE ESPORTS">
-                                </a>
-                            </div>
+    <header class="main_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTournaments"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Tournaments
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTournaments">
+                                        <a class="dropdown-item" href="tournaments.html">Tournaments</a>
+                                        <a class="dropdown-item" href="schedules.html">Schedules & Results</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Teams
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
+                                        <a class="dropdown-item" href="teams.html">Our Teams</a>
+                                        <a class="dropdown-item" href="players.html">Player Profiles</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Community
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
+                                        <a class="dropdown-item" href="news.html">News & Gallery</a>
+                                        <a class="dropdown-item" href="register.html">Join Us</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-xl-6 col-lg-7">
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="tournaments.html">Tournaments</a></li>
-                                        <li><a href="teams.html">Teams</a></li>
-                                        <li><a href="news.html">News & Gallery</a></li>
-                                        <li><a href="community.html">Community</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                            <div class="Appointment">
-                                <div class="book_btn d-none d-lg-block">
-                                    <a href="#">Install Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
+                        <a href="#" class="btn_1 d-none d-sm-block">Install Now</a>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
-    <!-- header-end -->
-
-    <!-- bradcam_area_start -->
-    <div class="bradcam_area breadcam_bg_overlay">
+    <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text">
-                        <h3>Create Account</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- bradcam_area_end -->
-
-    <!--================ Register Area =================-->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8">
-                    <div class="login_form_inner card p-4 shadow-sm border-0">
-                        <h3 class="text-center mb-4">Join LEAGUE ESPORTS</h3>
-                        
-                        <form action="#" method="post" id="registerForm">
-                            <div class="form-group mb-3">
-                                <label for="username" class="form-label">Gamer ID / Username</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your Gamer Tag" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="confirm_password" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="game_preference" class="form-label">Primary Game Category</label>
-                                <select class="form-control wide" id="game_preference" name="game_preference">
-                                    <option value="moba">MOBA (League of Legends, Dota 2, etc.)</option>
-                                    <option value="fps">FPS (VALORANT, CS:GO, Apex, etc.)</option>
-                                    <option value="battle_royale">Battle Royale (PUBG, Fortnite, etc.)</option>
-                                    <option value="other">Other Esports Titles</option>
-                                </select>
-                            </div>
-
-                            <div class="form-check mb-4 mt-3">
-                                <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
-                                <label class="form-check-label" for="termsCheck">
-                                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-                                </label>
-                            </div>
-
-                            <button type="submit" class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn">
-                                Register Account
-                            </button>
-                        </form>
-
-                        <div class="text-center mt-4">
-                            <p>Already have an account? <a href="login.html" class="text-primary">Sign In here</a></p>
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Create User Account</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--================ Register Area =================-->
+    <section class="pricing_part register_wrap section_padding">
+        <div class="container">
 
-    <!-- footer_start  -->
-    <footer class="footer">
-        <div class="footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="footer_widget">
-                            <div class="footer_logo">
-                                <a href="#">
-                                    <img src="img/logo.png" alt="LEAGUE ESPORTS">
-                                </a>
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section_tittle text-center">
+                        <h2>Join The Community</h2>
+                        <p>Create your free gaming profile to track your stats, join community tournaments, and connect with players worldwide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-2">
+                <div class="col-lg-7">
+                    <div class="register-form-box">
+                        <h3>Create Your Profile</h3>
+                        <p class="form-desc">Enter your personal details to get started with your new gaming account.</p>
+                        
+                        <form action="#" method="POST">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Username / GamerTag *</label>
+                                    <input type="text" class="form-control" placeholder="e.g. CyberNinja99" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Email Address *</label>
+                                    <input type="email" class="form-control" placeholder="yourname@example.com" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Password *</label>
+                                    <input type="password" class="form-control" placeholder="••••••••" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Confirm Password *</label>
+                                    <input type="password" class="form-control" placeholder="••••••••" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label>Primary Game / Interest</label>
+                                    <select class="form-control">
+                                        <option value="">Select your main game...</option>
+                                        <option value="cs2">Counter-Strike 2</option>
+                                        <option value="dota2">Dota 2</option>
+                                        <option value="valorant">Valorant</option>
+                                        <option value="league">League of Legends</option>
+                                        <option value="other">Other Games</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                                    <input type="checkbox" id="terms" required style="width: 18px; height: 18px; accent-color: var(--reg-accent);">
+                                    <label for="terms" style="margin: 0; font-size: 12px; color: var(--reg-text-dim); text-transform: none; cursor: pointer;">
+                                        I agree to the <a href="#" style="color: var(--reg-accent);">Terms of Service</a> and <a href="#" style="color: var(--reg-accent);">Privacy Policy</a>.
+                                    </label>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="reg-submit-btn">Create Account</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-footer-text">
+                                        Already have an account? <a href="#">Log in here</a>
+                                    </div>
+                                </div>
                             </div>
-                            <p>
-                                LEAGUE ESPORTS is dedicated to delivering top-tier esports coverage, official tournament updates, and an engaging platform for gamers worldwide.
-                            </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">Quick Links</h3>
-                            <ul>
-                                <li><a href="#">Tournaments</a></li>
-                                <li><a href="#">Pro Teams</a></li>
-                                <li><a href="#">Patch Notes</a></li>
-                                <li><a href="#">Leaderboards</a></li>
-                            </ul>
-                        </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="client_logo dark-sponsors">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center mb-4">
+                    <span style="color:var(--reg-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Official Tournament Partners & Sponsors</span>
+                </div>
+                <div class="col-lg-12">
+                    <div class="client_logo_slider owl-carousel d-flex justify-content-between align-items-center">
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_1.png" alt="Sponsor 1"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_2.png" alt="Sponsor 2"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_3.png" alt="Sponsor 3"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_4.png" alt="Sponsor 4"></div>
+                        <div class="single_client_logo"><img src="img/client_logo/client_logo_5.png" alt="Sponsor 5"></div>
                     </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">Contact Us</h3>
-                            <p>
-                                Support: support@leagueesports.com <br>
-                                Business: biz@leagueesports.com <br>
-                                Hotline: +10 367 467 8934
-                            </p>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="single_footer_part footer-logo-box">
+                        <img src="img/logo.png" alt="logo">
+                        <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
                     </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">Newsletter</h3>
-                            <p class="newsletter_text">Subscribe to receive the latest tournament reports and exclusive rewards.</p>
-                            <form action="#" class="newsletter_form">
-                                <input type="text" placeholder="Enter email address">
-                                <button type="submit"><i class="ti-arrow-right"></i></button>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="single_footer_part">
+                        <h4>Contact Info</h4>
+                        <p>Address : Your address goes here, your demo address. Bangladesh.</p>
+                        <p>Phone : +8880 44338899</p>
+                        <p>Email : info@colorlib.com</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="single_footer_part">
+                        <h4>Important Link</h4>
+                        <ul>
+                            <li><a href="#">WHMCS-bridge</a></li>
+                            <li><a href="#">Search Domain</a></li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Shopping Cart</a></li>
+                            <li><a href="#">Our Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="single_footer_part">
+                        <h4>Newsletter</h4>
+                        <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
+                        <div class="footer-newsletter-form">
+                            <form action="#" class="subscribe_form relative mail_part">
+                                <div class="input-group d-flex">
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                    <button class="btn footer-newsletter-btn" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | LEAGUE ESPORTS
-                        </p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p>© <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fas fa-heart" style="color:var(--reg-accent);"></i> by Colorlib</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- footer_end  -->
 
-    <!-- JS here -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- JS 脚本 -->
+    <script src="js/jquery-1.12.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/ajax-form.js"></script>
-    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/scrollIt.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/gijgo.min.js"></script>
-
-    <!--contact js-->
+    <script src="js/waypoints.min.js"></script>
     <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/custom.js"></script>
 
+    <!-- 滚动时固定顶部导航栏脚本 -->
+    <script>
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 100) {
+                $(".main_menu").addClass("header_fixed");
+            } else {
+                $(".main_menu").removeClass("header_fixed");
+            }
+        });
+    </script>
+</body>
+</html>
     <script src="js/main.js"></script>
 </body>
 
