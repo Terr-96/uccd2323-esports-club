@@ -31,7 +31,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: #ff0000 !important; /* 滚动时保持与 news.html 一致的红色顶栏背景 */
+            background: #ff0000 !important;
             box-shadow: 0 5px 15px rgba(0,0,0,.3) !important;
             padding-top: 10px !important;
             padding-bottom: 10px !important;
@@ -251,6 +251,7 @@
             </div>
         </div>
     </header>
+
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row">
@@ -264,9 +265,9 @@
             </div>
         </div>
     </section>
+
     <section class="pricing_part register_wrap section_padding">
         <div class="container">
-
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="section_tittle text-center">
@@ -282,61 +283,51 @@
                         <h3>Create Your Profile</h3>
                         <p class="form-desc">Enter your personal details to get started with your new gaming account.</p>
                         
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" id="registerForm">
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <label>Username / GamerTag *</label>
-                                    <input type="text" class="form-control" placeholder="e.g. CyberNinja99" required>
+                                    <label for="username">Username / GamerTag *</label>
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="e.g. CyberNinja99" required>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label>Email Address *</label>
-                                    <input type="email" class="form-control" placeholder="yourname@example.com" required>
+                                    <label for="userEmail">Email Address *</label>
+                                    <input type="email" id="userEmail" name="email" class="form-control" placeholder="yourname@example.com" required>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label>Password *</label>
-                                    <input type="password" class="form-control" placeholder="••••••••" required>
+                                    <label for="password">Password *</label>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label>Confirm Password *</label>
-                                    <input type="password" class="form-control" placeholder="••••••••" required>
+                                    <label for="confirmPassword">Confirm Password *</label>
+                                    <input type="password" id="confirmPassword" name="confirm_password" class="form-control" placeholder="••••••••" required>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <label>Primary Game / Interest </label>
-                                    <div class="col-md-12 form-group">
-    <div class="col-md-12 form-group">
-    <label style="margin-bottom: 15px; display: block;">Select Your Interests:</label>
-    
-    <div class="checkbox-list-wrapper">
-        <label class="checkbox-item">
-            <input type="checkbox" name="game" value="cs2">
-            <span class="checkbox-text">Counter-Strike 2</span>
-        </label>
-        
-        <label class="checkbox-item">
-            <input type="checkbox" name="game" value="dota2">
-            <span class="checkbox-text">Dota 2</span>
-        </label>
-        
-        <label class="checkbox-item">
-            <input type="checkbox" name="game" value="valorant">
-            <span class="checkbox-text">Valorant</span>
-        </label>
-        
-        <label class="checkbox-item">
-            <input type="checkbox" name="game" value="league">
-            <span class="checkbox-text">League of Legends</span>
-        </label>
-        
-        <label class="checkbox-item">
-            <input type="checkbox" name="game" value="other">
-            <span class="checkbox-text">Other Games</span>
-        </label>
-    </div>
-</div>
-</div>
+                                    <label style="margin-bottom: 15px; display: block;">Select Your Interests:</label>
+                                    <div class="checkbox-list-wrapper">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="game" value="cs2">
+                                            <span class="checkbox-text">Counter-Strike 2</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="game" value="dota2">
+                                            <span class="checkbox-text">Dota 2</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="game" value="valorant">
+                                            <span class="checkbox-text">Valorant</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="game" value="league">
+                                            <span class="checkbox-text">League of Legends</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" name="game" value="other">
+                                            <span class="checkbox-text">Other Games</span>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="col-md-12 form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
-                                    <input type="checkbox" id="terms" required style="width: 18px; height: 18px; accent-color: var(--reg-accent);">
+                                    <input type="checkbox" id="terms" name="terms" required style="width: 18px; height: 18px; accent-color: var(--reg-accent);">
                                     <label for="terms" style="margin: 0; font-size: 12px; color: var(--reg-text-dim); text-transform: none; cursor: pointer;">
                                         I agree to the <a href="#" style="color: var(--reg-accent);">Terms of Service</a> and <a href="#" style="color: var(--reg-accent);">Privacy Policy</a>.
                                     </label>
@@ -354,9 +345,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
+
     <section class="client_logo dark-sponsors">
         <div class="container">
             <div class="row align-items-center">
@@ -375,6 +366,7 @@
             </div>
         </div>
     </section>
+
     <footer class="footer-area">
         <div class="container">
             <div class="row justify-content-between">
@@ -409,12 +401,12 @@
                         <h4>Newsletter</h4>
                         <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
                         <div class="footer-newsletter-form">
-                            <form action="#" class="subscribe_form relative mail_part">
+                            <form action="#" id="subscribeForm" class="subscribe_form relative mail_part">
                                 <div class="input-group d-flex">
-                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                    <input type="email" id="subscribeEmail" class="form-control" placeholder="Email Address" required>
                                     <button class="btn footer-newsletter-btn" type="submit"><i class="fas fa-paper-plane"></i></button>
                                 </div>
-                            </form>
+                            </form> 
                         </div>
                     </div>
                 </div>
@@ -430,7 +422,10 @@
     </footer>
 
     <!-- JS 脚本 -->
-    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="js/cookies.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -443,7 +438,6 @@
     <script src="js/waypoints.min.js"></script>
     <script src="js/contact.js"></script>
     <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/custom.js"></script>
