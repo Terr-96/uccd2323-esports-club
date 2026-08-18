@@ -27,270 +27,347 @@
 
     <!-- ===== 强制固定导航栏，阻止滚动放大 ===== -->
     <style>
-    /* 固定 logo 高度 */
-    .main_menu.single_page_menu .navbar-brand img {
-        height: 50px !important;
-        max-height: 50px !important;
-        width: auto !important;
-    }
-    /* 固定导航栏内边距 */
-    .main_menu.single_page_menu {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-        transition: none !important;
-    }
-    /* 阻止滚动时添加背景或阴影 */
-    .main_menu.single_page_menu.header_fixed {
-        background: #0c0e14 !important;
-        box-shadow: none !important;
-    }
+        .main_menu.single_page_menu .navbar-brand img {
+            height: 50px !important;
+            max-height: 50px !important;
+            width: auto !important;
+        }
+        .main_menu.single_page_menu {
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            transition: none !important;
+        }
+        .main_menu.single_page_menu.header_fixed {
+            background: #0c0e14 !important;
+            box-shadow: none !important;
+        }
 
-    /* ====== 新增：标题和描述文字变白 ====== */
-    .section_tittle h2,
-    .section_tittle p {
-        color: #ffffff !important;
-    }
-    /* ====== 新增：过滤按钮文字变白 ====== */
-    .sched-filter-group .btn {
-        color: #ffffff !important;
-    }
-    .sched-filter-group .btn:hover {
-        color: #ffffff !important;
-    }
-
-    /* 以下是 schedules 页面原有样式 */
-    .sched-section {
-        background: #0c0e14;
-    }
-    .sched-day__label {
-        font-size: 1.1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #fff;
-        margin: 2rem 0 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .sched-item {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem 1.5rem;
-        background: #151824;
-        border-radius: 12px;
-        padding: 0.8rem 1.5rem;
-        margin-bottom: 0.7rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: 0.2s;
-    }
-    .sched-item:hover {
-        border-color: rgba(255, 46, 99, 0.3);
-        transform: translateX(4px);
-    }
-    .sched-item.is-live {
-        border-color: #ffc107;
-        box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.15);
-    }
-    .sched-item--final {
-        border-color: rgba(255, 120, 73, 0.4);
-        background: linear-gradient(90deg, rgba(255, 46, 99, 0.08), #151824 60%);
-    }
-    .sched-item__time {
-        flex: 0 0 80px;
-        text-align: center;
-        color: #fff;
-    }
-    .sched-item__time strong {
-        display: block;
-        font-size: 1.2rem;
-        font-weight: 700;
-        line-height: 1.2;
-    }
-    .sched-item__time span {
-        display: block;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        color: #9aa0b4;
-        letter-spacing: 0.3px;
-    }
-    .sched-item__tourn {
-        flex: 0 0 140px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #ff2e63;
-    }
-    .sched-item__tourn i {
-        margin-right: 4px;
-        color: #ffcf5c;
-    }
-    .sched-item__match {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        font-weight: 600;
-        color: #fff;
-        min-width: 200px;
-        flex-wrap: wrap;
-    }
-    .sched-item__match .team {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-    }
-    .team-avatar {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 0.7rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
-    }
-    .sched-item__match .score {
-        font-weight: 700;
-        background: #20232f;
-        padding: 2px 12px;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        min-width: 50px;
-        text-align: center;
-    }
-    .score--vs {
-        background: transparent !important;
-        color: #9aa0b4;
-        font-weight: 600;
-        min-width: auto;
-    }
-    .sched-item__status {
-        flex: 0 0 110px;
-        text-align: right;
-    }
-    .badge {
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        padding: 6px 14px;
-        border-radius: 20px;
-    }
-    .badge-finished {
-        background: #28a745;
-        color: #fff;
-    }
-    .badge-live {
-        background: #ffc107;
-        color: #212529;
-        display: inline-flex;
-        align-items: center;
-    }
-    .badge-upcoming {
-        background: #007bff;
-        color: #fff;
-    }
-    .badge-tbd {
-        background: #6c757d;
-        color: #fff;
-    }
-    .live-ping {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        background: #212529;
-        border-radius: 50%;
-        margin-right: 6px;
-        animation: ping 1.2s infinite;
-    }
-    @keyframes ping {
-        0% { opacity: 1; }
-        50% { opacity: 0.2; }
-        100% { opacity: 1; }
-    }
-    .sched-filter-group .btn {
-        border-color: #4a4f5f;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-        padding: 0.4rem 1.2rem;
-        transition: 0.2s;
-    }
-    .sched-filter-group .btn:hover {
-        color: #fff;
-        border-color: #ff2e63;
-    }
-    .sched-filter-group .btn.active {
-        background: #ff2e63;
-        border-color: #ff2e63;
-        color: #fff;
-    }
-    .sched-filter-group .btn.active.btn-outline-warning {
-        background: #ffc107;
-        border-color: #ffc107;
-        color: #212529;
-    }
-    .sched-filter-group .btn.active.btn-outline-primary {
-        background: #007bff;
-        border-color: #007bff;
-        color: #fff;
-    }
-    .sched-filter-group .btn.active.btn-outline-success {
-        background: #28a745;
-        border-color: #28a745;
-        color: #fff;
-    }
-    .sched-filter-group .btn.active.btn-outline-secondary {
-        background: #6c757d;
-        border-color: #6c757d;
-        color: #fff;
-    }
-    .dot {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        margin-right: 6px;
-    }
-    .dot-live { background: #ffc107; }
-    .dot-upcoming { background: #007bff; }
-    .dot-finished { background: #28a745; }
-    .dot-tbd { background: #6c757d; }
-    @media (max-width: 767px) {
-        .sched-item {
-            flex-direction: column;
-            align-items: stretch;
-            padding: 1rem;
-        }
-        .sched-item__time,
-        .sched-item__tourn,
-        .sched-item__status {
-            flex: none;
-            text-align: left;
-            width: 100%;
-        }
-        .sched-item__match {
-            justify-content: flex-start;
-            flex-wrap: wrap;
-        }
-        .sched-item__status {
-            text-align: left;
-            margin-top: 0.3rem;
+        .section_tittle h2,
+        .section_tittle p {
+            color: #ffffff !important;
         }
         .sched-filter-group .btn {
-            font-size: 0.7rem;
-            padding: 0.3rem 0.8rem;
+            color: #ffffff !important;
         }
-    }
-</style>
+        .sched-filter-group .btn:hover {
+            color: #ffffff !important;
+        }
+
+        .sched-section {
+            background: #0c0e14;
+        }
+        .sched-day__label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #fff;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .sched-item {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            background: #151824;
+            border-radius: 12px;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.2s;
+        }
+        .sched-item:hover {
+            border-color: rgba(255, 46, 99, 0.3);
+            transform: translateX(4px);
+        }
+        .sched-item.is-live {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 1px rgba(255, 193, 7, 0.15);
+        }
+        .sched-item--final {
+            border-color: rgba(255, 120, 73, 0.4);
+            background: linear-gradient(90deg, rgba(255, 46, 99, 0.08), #151824 60%);
+        }
+        .sched-item__time {
+            flex: 0 0 80px;
+            text-align: center;
+            color: #fff;
+        }
+        .sched-item__time strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .sched-item__time span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #9aa0b4;
+            letter-spacing: 0.3px;
+        }
+        .sched-item__tourn {
+            flex: 0 0 140px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ff2e63;
+        }
+        .sched-item__tourn i {
+            margin-right: 4px;
+            color: #ffcf5c;
+        }
+        .sched-item__match {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-weight: 600;
+            color: #fff;
+            min-width: 200px;
+            flex-wrap: wrap;
+        }
+        .sched-item__match .team {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        .team-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+        }
+        .sched-item__match .score {
+            font-weight: 700;
+            background: #20232f;
+            padding: 2px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            min-width: 50px;
+            text-align: center;
+        }
+        .score--vs {
+            background: transparent !important;
+            color: #9aa0b4;
+            font-weight: 600;
+            min-width: auto;
+        }
+        .sched-item__status {
+            flex: 0 0 110px;
+            text-align: right;
+        }
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+        .badge-finished {
+            background: #28a745;
+            color: #fff;
+        }
+        .badge-live {
+            background: #ffc107;
+            color: #212529;
+            display: inline-flex;
+            align-items: center;
+        }
+        .badge-upcoming {
+            background: #007bff;
+            color: #fff;
+        }
+        .badge-tbd {
+            background: #6c757d;
+            color: #fff;
+        }
+        .live-ping {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #212529;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: ping 1.2s infinite;
+        }
+        @keyframes ping {
+            0% { opacity: 1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+        .sched-filter-group .btn {
+            border-color: #4a4f5f;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 0.4rem 1.2rem;
+            transition: 0.2s;
+        }
+        .sched-filter-group .btn:hover {
+            border-color: #ff2e63;
+        }
+        .sched-filter-group .btn.active {
+            background: #ff2e63;
+            border-color: #ff2e63;
+            color: #fff;
+        }
+        .sched-filter-group .btn.active.btn-outline-warning {
+            background: #ffc107;
+            border-color: #ffc107;
+            color: #212529;
+        }
+        .sched-filter-group .btn.active.btn-outline-primary {
+            background: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
+        .sched-filter-group .btn.active.btn-outline-success {
+            background: #28a745;
+            border-color: #28a745;
+            color: #fff;
+        }
+        .sched-filter-group .btn.active.btn-outline-secondary {
+            background: #6c757d;
+            border-color: #6c757d;
+            color: #fff;
+        }
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .dot-live { background: #ffc107; }
+        .dot-upcoming { background: #007bff; }
+        .dot-finished { background: #28a745; }
+        .dot-tbd { background: #6c757d; }
+
+        /* ===== API 新闻卡片样式 ===== */
+        .api-news-section {
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 40px;
+        }
+        .api-news-section h3 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .api-news-section h3 i {
+            color: #ff2e63;
+            margin-right: 10px;
+        }
+        .news-card {
+            background: #151824;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
+            transition: 0.25s;
+        }
+        .news-card:hover {
+            border-color: #ff2e63;
+            transform: translateY(-4px);
+        }
+        .news-card .news-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .news-card .news-title a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .news-card .news-title a:hover {
+            color: #ff2e63;
+        }
+        .news-card .news-meta {
+            color: #9aa0b4;
+            font-size: 0.8rem;
+        }
+        .news-card .news-meta i {
+            color: #ff2e63;
+            margin-right: 4px;
+        }
+        .news-card .news-excerpt {
+            color: #bfc5d4;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        .news-card .news-date {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            color: #6c7a92;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .news-loading {
+            color: #9aa0b4;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .news-loading i {
+            color: #ff2e63;
+        }
+
+        .fb-page-container {
+            background: #151824;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .fb-page-container h4 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .sched-item {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem;
+            }
+            .sched-item__time,
+            .sched-item__tourn,
+            .sched-item__status {
+                flex: none;
+                text-align: left;
+                width: 100%;
+            }
+            .sched-item__match {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+            .sched-item__status {
+                text-align: left;
+                margin-top: 0.3rem;
+            }
+            .sched-filter-group .btn {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -370,7 +447,7 @@
     <section class="blog_area section_padding sched-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="section_tittle text-center mb-4">
                         <h2>Upcoming & Recent Matches</h2>
                         <p>All times in your local timezone</p>
@@ -618,6 +695,50 @@
                         <a href="#" class="btn_1">View Full Schedule</a>
                     </div>
                 </div>
+
+                <!-- ===== Sidebar: Facebook Social Plugin ===== -->
+                <div class="col-lg-4">
+                    <div class="fb-page-container">
+                        <h4><i class="fab fa-facebook-f" style="color:#4267B2;"></i> Follow Us</h4>
+                        <div id="fb-root"></div>
+                        <div class="fb-page" 
+                             data-href="https://www.facebook.com/facebook" 
+                             data-tabs="timeline" 
+                             data-width="300" 
+                             data-height="400" 
+                             data-small-header="true" 
+                             data-adapt-container-width="true" 
+                             data-hide-cover="false" 
+                             data-show-facepile="true">
+                        </div>
+                        <p style="color:#6c7a92; font-size:0.75rem; margin-top:10px;">Stay updated with our latest matches and events!</p>
+                    </div>
+
+                    <!-- 显示当前存储状态 -->
+                    <div style="background:#151824; border-radius:12px; padding:15px; margin-top:20px; border:1px solid rgba(255,255,255,0.05);">
+                        <p style="color:#9aa0b4; font-size:0.8rem; margin:0;">
+                            <i class="fas fa-database" style="color:#ff2e63;"></i> 
+                            Current filter saved: <span id="storageStatus" style="color:#fff; font-weight:600;">all</span>
+                            <br><small style="color:#6c7a92;">(Using localStorage)</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== API News Section ===== -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="api-news-section">
+                        <h3><i class="fas fa-newspaper"></i> Latest Esports News</h3>
+                        <p style="color:#6c7a92; font-size:0.9rem; margin-bottom:20px;">Powered by RESTful API — Steam News</p>
+                        <div id="newsContainer" class="row">
+                            <div class="col-12 news-loading">
+                                <i class="fas fa-spinner fa-pulse fa-2x"></i>
+                                <p style="margin-top:10px;">Loading latest news...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -719,21 +840,42 @@
     <script src="js/mail-script.js"></script>
     <script src="js/custom.js"></script>
 
-    <!-- Filter logic -->
+    <!-- Facebook SDK -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="abc123"></script>
+
+    <!-- Filter + localStorage + API 逻辑 -->
     <script>
         (function() {
+            // ===== 1. FILTER + localStorage =====
             var filterButtons = document.querySelectorAll('.sched-filter-group .btn');
             var items = document.querySelectorAll('.sched-item');
             var days = document.querySelectorAll('.sched-day');
             var emptyMsg = document.getElementById('emptyMessage');
+            var storageStatus = document.getElementById('storageStatus');
+
+            // 从 localStorage 恢复上次选择的过滤器
+            var savedFilter = localStorage.getItem('schedFilter') || 'all';
 
             filterButtons.forEach(function(btn) {
+                var filterVal = btn.getAttribute('data-filter');
+                if (filterVal === savedFilter) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+
                 btn.addEventListener('click', function() {
                     filterButtons.forEach(function(b) { b.classList.remove('active'); });
                     btn.classList.add('active');
 
                     var filter = btn.getAttribute('data-filter');
                     var visibleCount = 0;
+
+                    // ===== 使用 localStorage 保存过滤器状态 =====
+                    localStorage.setItem('schedFilter', filter);
+                    if (storageStatus) {
+                        storageStatus.textContent = filter;
+                    }
 
                     items.forEach(function(item) {
                         var status = item.getAttribute('data-status');
@@ -753,6 +895,73 @@
                     emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
                 });
             });
+
+            // 显示当前存储状态
+            if (storageStatus) {
+                storageStatus.textContent = savedFilter;
+            }
+
+            // ===== 2. RESTful API 调用 (Steam News API) =====
+            var newsContainer = document.getElementById('newsContainer');
+
+            function fetchEsportsNews() {
+                // 使用 Steam 新闻 API (免费，无需 API Key)
+                // 730 = CS:GO, 570 = Dota 2, 252490 = Rust (示例)
+                var appId = 730; // CS:GO
+                var apiUrl = 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=' + appId + '&count=6&maxlength=200&format=json';
+
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    timeout: 10000,
+                    success: function(data) {
+                        if (data && data.appnews && data.appnews.newsitems) {
+                            var newsItems = data.appnews.newsitems;
+                            var html = '';
+                            newsItems.forEach(function(item) {
+                                var date = new Date(item.date * 1000);
+                                var formattedDate = date.toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric'
+                                });
+                                // 清理内容（去除HTML标签）
+                                var excerpt = item.contents ? item.contents.replace(/<[^>]*>/g, '').substring(0, 120) + '...' : '';
+                                html += `
+                                    <div class="col-md-4 col-sm-6 mb-3">
+                                        <div class="news-card">
+                                            <div class="news-title">
+                                                <a href="${item.url}" target="_blank">${item.title}</a>
+                                            </div>
+                                            <div class="news-meta">
+                                                <i class="fas fa-tag"></i> ${item.feedlabel || 'Esports'}
+                                            </div>
+                                            <div class="news-excerpt">${excerpt}</div>
+                                            <div class="news-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                            newsContainer.innerHTML = html;
+                        } else {
+                            newsContainer.innerHTML = '<div class="col-12 text-center" style="color:#9aa0b4;"><p>No news available at the moment.</p></div>';
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('API Error:', status, error);
+                        newsContainer.innerHTML = `
+                            <div class="col-12 text-center" style="color:#9aa0b4;">
+                                <p><i class="fas fa-exclamation-triangle" style="color:#ffc107;"></i> Unable to load news. Please try again later.</p>
+                                <p style="font-size:0.8rem; color:#6c7a92;">(API may be rate-limited or unavailable)</p>
+                            </div>
+                        `;
+                    }
+                });
+            }
+
+            // 页面加载后调用 API
+            fetchEsportsNews();
         })();
     </script>
 </body>
