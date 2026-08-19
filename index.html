@@ -724,6 +724,43 @@
         <script src="js/mail-script.js"></script>
         <!-- custom js -->
         <script src="js/custom.js"></script>
+        <!-- Real Website Authentication State Tracker -->
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const activeSession = sessionStorage.getItem('activeSession');
+        const currentUser = sessionStorage.getItem('loggedInUser');
+
+        if (activeSession === 'true' && currentUser) {
+            const installBtn = document.querySelector('.btn_1');
+            const joinUsLink = document.querySelector('a[href="register.html"]');
+
+            // 1. 改变右上角按钮，显示用户名
+            if (installBtn) {
+                installBtn.innerText = `Hi, ${currentUser}`;
+                installBtn.href = "javascript:void(0)"; 
+                installBtn.style.background = "#ff2e63"; 
+                installBtn.style.color = "#fff";
+                installBtn.style.boxShadow = "0 0 15px rgba(255,46,99,.4)";
+            }
+
+            // 2. 将导航栏的 Join Us 变成 Logout 按钮
+            if (joinUsLink) {
+                joinUsLink.innerText = "Logout";
+                joinUsLink.href = "javascript:void(0)";
+                
+                // 绑定完美的登出逻辑（清除三种存储）
+                joinUsLink.addEventListener('click', function() {
+                    sessionStorage.removeItem('activeSession');
+                    sessionStorage.removeItem('loggedInUser');
+                    document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    
+                    alert("You have been successfully logged out.");
+                    window.location.reload(); // 刷新页面，恢复未登录状态
+                });
+            }
+        }
+    });
+</script>
 </body>
 
 </html>

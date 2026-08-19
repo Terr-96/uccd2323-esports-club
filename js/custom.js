@@ -2,7 +2,7 @@
   "use strict";
 
   $(document).ready(function () {
-    $('select').niceSelect();
+    //$('select').niceSelect();
   });
   // menu fixed js code
   $(window).scroll(function () {
@@ -13,11 +13,17 @@
       $('.main_menu').removeClass('menu_fixed animated fadeInDown');
     }
   });
-  $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true
-  });
+ // $('.grid').masonry({
+    //itemSelector: '.grid-item',
+   // columnWidth: '.grid-sizer',
+   // percentPosition: true
+  //});
+  if ($.fn.masonry) {
+    $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 1
+    });
+}
 
   var client_logo = $('.client_logo_slider')
   if (client_logo.length) {
@@ -148,7 +154,7 @@
   function mailChimp() {
     $('#mc_embed_signup').find('form').ajaxChimp();
   }
-  mailChimp();
+  //mailChimp();
 
 
 }(jQuery));

@@ -21,9 +21,9 @@ function renderStorageStatus() {
     let localVal = localStorage.getItem("preferred_theme");
     let sessionVal = sessionStorage.getItem("current_session_id");
 
-    $('#status-cookie').text(cookieVal ? cookieVal : "无数据");
-    $('#status-local').text(localVal ? localVal : "无数据");
-    $('#status-session').text(sessionVal ? sessionVal : "无数据");
+    $('#status-cookie').text(cookieVal ? cookieVal : "nondata");
+    $('#status-local').text(localVal ? localVal : "nondata");
+    $('#status-session').text(sessionVal ? sessionVal : "nondata");
 }
 
 // 原生 JS 监听注册表单提交
@@ -146,7 +146,7 @@ $(document).ready(function () {
             },
             error: function () {
                 $('#api-loading').hide();
-                $('#api-result').html('<span style="color:red;">API 请求失败，请检查网络设置。</span>');
+                $('#api-result').html('<span style="color:red;">API failed，please check your network settings.</span>');
             }
         });
     });

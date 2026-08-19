@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>gaming – Create Account</title>
+    <title>gaming – Create Account & Login</title>
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* 顶栏默认与滚动固定样式 */
+        /* Top Navigation Styles */
         .main_menu {
             position: absolute;
             width: 100%;
@@ -42,7 +42,7 @@
             width: auto !important;
         }
 
-        /* Register 页面专属电竞暗黑风格样式 */
+        /* E-Sports Dark Theme Styles */
         :root{
             --reg-accent:#ff2e63;
             --reg-accent-2:#ff7849;
@@ -109,13 +109,13 @@
             text-align:center; margin-top:20px; color:var(--reg-text-dim); font-size:13px;
         }
         .form-footer-text a{
-            color:var(--reg-accent); font-weight:600; text-decoration:none;
+            color:var(--reg-accent); font-weight:600; text-decoration:none; cursor: pointer;
         }
         .form-footer-text a:hover{
             text-decoration:underline;
         }
 
-        /* 底部赞助商专区深色优化 */
+        /* Dark Sponsor Area */
         .client_logo.dark-sponsors{
             background: #08090d;
             border-top: 1px solid var(--reg-border);
@@ -131,7 +131,7 @@
             opacity: 1;
         }
 
-        /* 底部标准 Footer 暗黑风格适配 */
+        /* Footer Styles */
         .footer-area {
             background: #06070a;
             color: var(--reg-text-dim);
@@ -193,6 +193,11 @@
             padding-top: 20px;
             font-size: 13px;
             color: #6c7288;
+        }
+
+        /* Helper for authentication toggling */
+        .auth-hidden {
+            display: none !important;
         }
     </style>
 </head>
@@ -258,7 +263,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner text-center">
                         <div class="breadcrumb_iner_item">
-                            <h2>Create User Account</h2>
+                            <h2 id="bannerTitle">Account Portal</h2>
                         </div>
                     </div>
                 </div>
@@ -280,28 +285,30 @@
             <div class="row justify-content-center mt-2">
                 <div class="col-lg-7">
                     <div class="register-form-box">
-                        <h3>Create Your Profile</h3>
-                        <p class="form-desc">Enter your personal details to get started with your new gaming account.</p>
+                        <h3 id="formTitle">Create Your Profile</h3>
+                        <p class="form-desc" id="formDesc">Enter your personal details to get started with your new gaming account.</p>
                         
-                        <form action="#" method="POST" id="registerForm">
+                        <!-- Combined Authentication Form -->
+                        <form action="#" method="POST" id="authForm">
                             <div class="row">
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group reg-only">
                                     <label for="username">Username / GamerTag *</label>
                                     <input type="text" id="username" name="username" class="form-control" placeholder="e.g. CyberNinja99" required>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group" id="emailWrapper">
                                     <label for="userEmail">Email Address *</label>
                                     <input type="email" id="userEmail" name="email" class="form-control" placeholder="yourname@example.com" required>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group" id="passWrapper">
                                     <label for="password">Password *</label>
                                     <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group reg-only">
                                     <label for="confirmPassword">Confirm Password *</label>
                                     <input type="password" id="confirmPassword" name="confirm_password" class="form-control" placeholder="••••••••" required>
                                 </div>
-                                <div class="col-md-12 form-group">
+                                
+                                <div class="col-md-12 form-group reg-only">
                                     <label style="margin-bottom: 15px; display: block;">Select Your Interests:</label>
                                     <div class="checkbox-list-wrapper">
                                         <label class="checkbox-item">
@@ -320,24 +327,20 @@
                                             <input type="checkbox" name="game" value="league">
                                             <span class="checkbox-text">League of Legends</span>
                                         </label>
-                                        <label class="checkbox-item">
-                                            <input type="checkbox" name="game" value="other">
-                                            <span class="checkbox-text">Other Games</span>
-                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-md-12 form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                                <div class="col-md-12 form-group reg-only" style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
                                     <input type="checkbox" id="terms" name="terms" required style="width: 18px; height: 18px; accent-color: var(--reg-accent);">
                                     <label for="terms" style="margin: 0; font-size: 12px; color: var(--reg-text-dim); text-transform: none; cursor: pointer;">
                                         I agree to the <a href="#" style="color: var(--reg-accent);">Terms of Service</a> and <a href="#" style="color: var(--reg-accent);">Privacy Policy</a>.
                                     </label>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="reg-submit-btn">Create Account</button>
+                                    <button type="submit" id="submitBtn" class="reg-submit-btn">Create Account</button>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-footer-text">
-                                        Already have an account? <a href="#">Log in here</a>
+                                    <div class="form-footer-text" id="toggleFooter">
+                                        Already have an account? <a id="toggleAuthBtn">Log in here</a>
                                     </div>
                                 </div>
                             </div>
@@ -421,28 +424,18 @@
         </div>
     </footer>
 
-    <!-- JS 脚本 -->
+    <!-- JS Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-3.4.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-    <script src="js/cookies.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script src="js/masonry.pkgd.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/mail-script.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/custom.js"></script>
 
-    <!-- 滚动时固定顶部导航栏脚本 -->
+    <!-- Top Navigation Fixed Script -->
     <script>
         $(window).scroll(function() {
             var scroll = $(window).scrollTop();
@@ -453,5 +446,115 @@
             }
         });
     </script>
+
+    <!-- Authentication Logic (Cookies, Local Storage, Session Storage) -->
+    <!-- Authentication Logic (Cookies, Local Storage, Session Storage) -->
+<!-- Authentication Logic (Cookies, Local Storage, Session Storage) -->
+<!-- Authentication Logic (Cookies, Local Storage, Session Storage) -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const authForm = document.getElementById('authForm');
+        const regOnlyElements = document.querySelectorAll('.reg-only');
+        const submitBtn = document.getElementById('submitBtn');
+        const formTitle = document.getElementById('formTitle');
+        const formDesc = document.getElementById('formDesc');
+        const toggleFooter = document.getElementById('toggleFooter');
+
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('userEmail');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const termsInput = document.getElementById('terms');
+
+        let isLoginMode = false;
+
+        // 统一更新 UI 状态
+        function updateUI() {
+            if (isLoginMode) {
+                regOnlyElements.forEach(el => el.classList.add('auth-hidden'));
+                usernameInput.required = false;
+                confirmPasswordInput.required = false;
+                termsInput.required = false;
+
+                formTitle.innerText = "Welcome Back";
+                formDesc.innerText = "Enter your credentials to access your account.";
+                submitBtn.innerText = "Log In";
+                toggleFooter.innerHTML = 'Don\'t have an account? <a id="toggleAuthBtn" href="#">Register here</a>';
+            } else {
+                regOnlyElements.forEach(el => el.classList.remove('auth-hidden'));
+                usernameInput.required = true;
+                confirmPasswordInput.required = true;
+                termsInput.required = true;
+
+                formTitle.innerText = "Create Your Profile";
+                formDesc.innerText = "Enter your personal details to get started with your new gaming account.";
+                submitBtn.innerText = "Create Account";
+                toggleFooter.innerHTML = 'Already have an account? <a id="toggleAuthBtn" href="#">Log in here</a>';
+            }
+        }
+
+        // 使用事件委托处理登录/注册切换（彻底避免事件绑定丢失）
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.id === 'toggleAuthBtn') {
+                e.preventDefault();
+                isLoginMode = !isLoginMode;
+                updateUI();
+            }
+        });
+
+        // 检查是否是刚注册完刷新过来的
+        if (sessionStorage.getItem('showLoginAfterRefresh') === 'true') {
+            sessionStorage.removeItem('showLoginAfterRefresh');
+            isLoginMode = true;
+            updateUI();
+        }
+
+        // 表单提交核心逻辑
+        authForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const usersDB = JSON.parse(localStorage.getItem('gamingCommunityUsers')) || {};
+
+            if (isLoginMode) {
+                // LOGIN 逻辑
+                if (usersDB[email] && usersDB[email].password === password) {
+                    sessionStorage.setItem('activeSession', 'true');
+                    sessionStorage.setItem('loggedInUser', usersDB[email].username);
+                    document.cookie = `loggedInUser=${encodeURIComponent(usersDB[email].username)}; path=/; max-age=3600; SameSite=Strict`;
+                    
+                    alert(`Login successful! Welcome back, ${usersDB[email].username}.`);
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Invalid email or password. Please try again.');
+                }
+            } else {
+                // REGISTER 逻辑
+                const username = usernameInput.value.trim();
+                const confirmPass = confirmPasswordInput.value;
+
+                if (password !== confirmPass) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+
+                if (usersDB[email]) {
+                    alert('This email is already registered. Please log in.');
+                    return;
+                }
+
+                // 写入数据
+                usersDB[email] = { username: username, password: password };
+                localStorage.setItem('gamingCommunityUsers', JSON.stringify(usersDB));
+
+                // 存储自动切换标记并执行真实页面刷新
+                sessionStorage.setItem('showLoginAfterRefresh', 'true');
+                alert('Registration complete! The page will now refresh.');
+                window.location.reload(); 
+            }
+        });
+    });
+</script>
 </body>
 </html>

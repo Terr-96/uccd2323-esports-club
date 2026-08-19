@@ -40,7 +40,6 @@
             box-shadow: none !important;
         }
 
-        /* 以下是 news 页面独有样式（基于 tournaments 风格改造） */
         :root{
             --news-accent:#ff2e63;
             --news-accent-2:#ff7849;
@@ -159,6 +158,7 @@
             display:inline-block; margin-left:26px; padding:10px 26px; border-radius:30px;
             border:1px solid var(--news-accent); color:#fff !important; font-size:13px;
             font-weight:600; text-transform:uppercase; letter-spacing:.5px; transition:.2s;
+            cursor: pointer;
         }
         .news-card .btn_2:hover{
             background:linear-gradient(135deg,var(--news-accent),var(--news-accent-2));
@@ -167,34 +167,22 @@
         .news-item{ margin-bottom:30px; }
         .news-empty p{ color:var(--news-text-dim); padding:40px 0; }
 
-        /* ===== 赞助商轮播区及底部样式 ===== */
-        .custom-sponsors-section {
-            background-color: #0c0e14;
-            padding: 65px 0 50px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+        /* Modal 暗色系自定义 */
+        .modal-content.dark-modal {
+            background-color: #151824;
+            border: 1px solid var(--news-border);
+            color: #fff;
+            border-radius: 12px;
         }
-        .custom-sponsors-title {
-            color: #8b92a5;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 45px;
+        .modal-content.dark-modal .modal-header {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        /* 调整图片轮播单项的样式，使其与原版模板完美融合 */
-        .client_logo_slider .single_client_logo {
-            text-align: center;
-            padding: 0 15px;
+        .modal-content.dark-modal .modal-footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
-        .client_logo_slider .single_client_logo img {
-            max-height: 45px;
-            width: auto !important;
-            display: inline-block !important;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-        .client_logo_slider .single_client_logo img:hover {
-            opacity: 1;
+        .modal-content.dark-modal .close {
+            color: #fff;
+            opacity: 0.8;
         }
 
         .footer-area-custom {
@@ -350,6 +338,7 @@
             </div>
         </div>
     </header>
+
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row">
@@ -363,6 +352,7 @@
             </div>
         </div>
     </section>
+
     <section class="pricing_part news_wrap section_padding">
         <div class="container">
 
@@ -433,7 +423,10 @@
                         </div>
                         <h3>Team Apex Secures the Summer Clash Victory</h3>
                         <p class="excerpt">In a stunning 3-2 reverse sweep, Team Apex took down NOVA to claim the 2026 championship title.</p>
-                        <a href="#" class="btn_2">Read Article</a>
+                        <a href="javascript:void(0);" class="btn_2 btn-read-more" 
+                           data-title="Team Apex Secures the Summer Clash Victory"
+                           data-meta="Aug 17, 2026 | By Admin"
+                           data-content="In a thrilling 5-game grand finals series, Team Apex completed a historic reverse sweep against defending champions NOVA to win the 2026 Summer Clash. With stellar MVP performances in games 3 through 5, Team Apex proved their strategic adaptability and high-pressure composure. The team takes home the top cash prize and guarantees their seed for the World Finals.">Read Article</a>
                     </div>
                 </div>
 
@@ -450,7 +443,10 @@
                         </div>
                         <h3>Season 14 Overview & Balance Changes</h3>
                         <p class="excerpt">Check out the comprehensive list of buffs, nerfs, and map adjustments coming in the next massive update.</p>
-                        <a href="#" class="btn_2">View Notes</a>
+                        <a href="javascript:void(0);" class="btn_2 btn-read-more"
+                           data-title="Season 14 Overview & Balance Changes"
+                           data-meta="Aug 15, 2026 | By Dev Team"
+                           data-content="Season 14 introduces sweeping meta changes! Key updates include:<br><br>• <b>Hero Adjustments:</b> Nerfs to over-performing mobile duelists, buffs to front-line tanks.<br>• <b>Map Reworks:</b> Neon City layout expanded with new flank paths.<br>• <b>Matchmaking:</b> Improved skill-rating algorithm and reduced queue times for competitive mode.">View Notes</a>
                     </div>
                 </div>
 
@@ -467,7 +463,10 @@
                         </div>
                         <h3>Pro Player Insights: A Chat with "Faker"</h3>
                         <p class="excerpt">The legendary mid-laner discusses his mindset, training regimen, and his expectations for the World Finals.</p>
-                        <a href="#" class="btn_2">Read Interview</a>
+                        <a href="javascript:void(0);" class="btn_2 btn-read-more"
+                           data-title="Pro Player Insights: A Chat with 'Faker'"
+                           data-meta="Aug 12, 2026 | By Sarah Lee"
+                           data-content="We sat down with the legendary esports icon to discuss longevity in professional gaming, managing burnout, and preparing for the upcoming international tournament.<br><br><i>'Consistency comes from respecting the process rather than chasing quick wins,'</i> he shared during our exclusive session.">Read Interview</a>
                     </div>
                 </div>
 
@@ -484,7 +483,10 @@
                         </div>
                         <h3>Behind the Scenes: Pro League Season 7</h3>
                         <p class="excerpt">A backstage look at the players, the setup, and the crowd energy during the intense opening weekend.</p>
-                        <a href="#" class="btn_2">View Gallery</a>
+                        <a href="javascript:void(0);" class="btn_2 btn-read-more"
+                           data-title="Behind the Scenes: Pro League Season 7"
+                           data-meta="Aug 10, 2026 | By Media Team"
+                           data-content="Explore high-resolution backstage photography capturing player warmups, stage light setups, fan reactions, and trophy celebrations from the opening weekend of Pro League Season 7.">View Gallery</a>
                     </div>
                 </div>
 
@@ -501,7 +503,10 @@
                         </div>
                         <h3>Rookie Cup Predictions: Who Will Rise?</h3>
                         <p class="excerpt">Breaking down the top 8 emerging teams and predicting who has the potential to shock the veterans.</p>
-                        <a href="#" class="btn_2">Read Article</a>
+                        <a href="javascript:void(0);" class="btn_2 btn-read-more"
+                           data-title="Rookie Cup Predictions: Who Will Rise?"
+                           data-meta="Aug 08, 2026 | By Krypton"
+                           data-content="An in-depth tactical analysis of the upcoming Rookie Cup contender roster, highlighting key playmakers and draft strategies that could upset established tournament favourites.">Read Article</a>
                     </div>
                 </div>
 
@@ -518,7 +523,10 @@
                         </div>
                         <h3>Next-Gen Gaming Monitors Reviewed</h3>
                         <p class="excerpt">Are 360Hz displays really worth the upgrade for competitive gaming? We put the latest models to the test.</p>
-                        <a href="#" class="btn_2">Read Review</a>
+                        <a href="javascript:void(0);" class="btn_2 btn-read-more"
+                           data-title="Next-Gen Gaming Monitors Reviewed"
+                           data-meta="Aug 05, 2026 | By Tech Guru"
+                           data-content="Our hardware laboratory benchmarked five flagship 360Hz esports displays on motion clarity, latency reduction, and color calibration. Find out if upgrading fits your competitive needs.">Read Review</a>
                     </div>
                 </div>
 
@@ -532,11 +540,33 @@
 
         </div>
     </section>
+
+    <!-- 文章详情预览弹窗 (Bootstrap Modal) -->
+    <div class="modal fade" id="articleModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content dark-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalArticleTitle" style="color: #fff; font-weight: 800;">Article Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalArticleMeta" style="color: var(--news-accent); font-size: 13px; font-weight: 600; margin-bottom: 15px;"></p>
+                    <div id="modalArticleContent" style="color: #c2c7d6; line-height: 1.8; font-size: 15px;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 20px; padding: 6px 20px; font-size: 13px;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="client_logo dark-sponsors">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 text-center mb-4">
-                    <span style="color:var(--reg-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Official Tournament Partners & Sponsors</span>
+                    <span style="color:var(--news-text-dim); font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Official Tournament Partners & Sponsors</span>
                 </div>
                 <div class="col-lg-12">
                     <div class="client_logo_slider owl-carousel d-flex justify-content-between align-items-center">
@@ -550,6 +580,7 @@
             </div>
         </div>
     </section>
+
     <footer class="footer-area-custom">
         <div class="footer-container-custom">
             <div class="footer-col-custom">
@@ -602,6 +633,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 分类筛选逻辑
             const filters = document.querySelectorAll('#newsFilters li');
             const items = document.querySelectorAll('.news-item');
             const emptyState = document.getElementById('newsEmpty');
@@ -623,12 +655,21 @@
                         }
                     });
 
-                    if (visibleCount === 0) {
-                        emptyState.style.display = 'block';
-                    } else {
-                        emptyState.style.display = 'none';
-                    }
+                    emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
                 });
+            });
+
+            // 点击卡片按钮弹出 Modal
+            $('.btn-read-more').on('click', function() {
+                const title = $(this).attr('data-title');
+                const meta = $(this).attr('data-meta');
+                const content = $(this).attr('data-content');
+
+                $('#modalArticleTitle').html(title);
+                $('#modalArticleMeta').html(meta);
+                $('#modalArticleContent').html(content);
+
+                $('#articleModal').modal('show');
             });
         });
     </script>
