@@ -541,7 +541,6 @@
         </div>
     </section>
 
-    <!-- 文章详情预览弹窗 (Bootstrap Modal) -->
     <div class="modal fade" id="articleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content dark-modal">
@@ -633,7 +632,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 分类筛选逻辑
             const filters = document.querySelectorAll('#newsFilters li');
             const items = document.querySelectorAll('.news-item');
             const emptyState = document.getElementById('newsEmpty');
@@ -659,7 +657,6 @@
                 });
             });
 
-            // 点击卡片按钮弹出 Modal
             $('.btn-read-more').on('click', function() {
                 const title = $(this).attr('data-title');
                 const meta = $(this).attr('data-meta');
