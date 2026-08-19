@@ -17,6 +17,65 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Make cards clickable */
+        .player-card {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .player-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(255, 46, 99, 0.3) !important;
+            border-color: #ff2e63 !important;
+        }
+        /* Modal dark theme */
+        .modal-content {
+            background: #0c0e14 !important;
+            border: 1px solid #ff2e63;
+            border-radius: 16px;
+        }
+        .modal-header {
+            border-bottom: 1px solid rgba(255, 46, 99, 0.3);
+        }
+        .modal-footer {
+            border-top: 1px solid rgba(255, 46, 99, 0.3);
+        }
+        .modal-avatar {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ff2e63;
+        }
+        .stat-box {
+            background: #151824;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .stat-box .number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ff2e63;
+        }
+        .stat-box .label {
+            font-size: 12px;
+            color: #9aa0b4;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .close-modal-btn {
+            color: #fff;
+            opacity: 0.7;
+            font-size: 28px;
+        }
+        .close-modal-btn:hover {
+            color: #fff;
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -99,7 +158,7 @@
                     <div class="col-lg-8">
                         <div class="section_tittle text-center">
                             <h2>Meet Our Players</h2>
-                            <p>Get to know the top competitors of LEAGUE ESPORTS</p>
+                            <p>Click on any player to view their full profile</p>
                         </div>
                     </div>
                 </div>
@@ -187,6 +246,67 @@
         </footer>
     </div>
 
+    <div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="playerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title text-white" id="playerModalLabel">Player Profile</h5>
+                    <button type="button" class="close close-modal-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Left: Avatar & Basic Info -->
+                        <div class="col-md-4 text-center">
+                            <img id="modalAvatar" src="" alt="Player Avatar" class="modal-avatar mb-3">
+                            <h4 id="modalGameId" class="text-white" style="color:#ff2e63 !important; font-weight:700;">Game ID</h4>
+                            <p id="modalFullName" class="text-muted">Full Name</p>
+                            <p id="modalTeam" class="text-light"><strong>Team:</strong> <span id="modalTeamName"></span></p>
+                        </div>
+                        <!-- Right: Stats -->
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="stat-box">
+                                        <div class="number" id="modalPoints">-</div>
+                                        <div class="label">Points</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-box">
+                                        <div class="number" id="modalMatches">-</div>
+                                        <div class="label">Matches</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <div class="stat-box">
+                                        <div class="number" id="modalWinRate">-</div>
+                                        <div class="label">Win Rate</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <div class="stat-box">
+                                        <div class="number" id="modalKills">-</div>
+                                        <div class="label">Total Kills</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Game & Role -->
+                            <div class="mt-4 p-3" style="background:#151824; border-radius:10px; border:1px solid rgba(255,255,255,0.05);">
+                                <p class="text-light mb-1"><strong>Game:</strong> <span id="modalGame" class="text-white"></span></p>
+                                <p class="text-light mb-0"><strong>Role:</strong> <span id="modalRole" class="text-white"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn_1" data-dismiss="modal">Close Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="js/jquery-1.12.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -207,7 +327,6 @@
     <script src="js/custom.js"></script>
 
     <script>
-
         const players = [
             {
                 fullName: "Jason Lish",
@@ -218,7 +337,8 @@
                 winRate: "68%",
                 kills: 245,
                 matches: 142,
-                image: "img/players/jason.png"   
+                points: 3120,
+                image: "img/players/jason.png"
             },
             {
                 fullName: "Michael Tan",
@@ -229,6 +349,7 @@
                 winRate: "72%",
                 kills: 312,
                 matches: 110,
+                points: 2985,
                 image: "img/players/michael.png"
             },
             {
@@ -240,6 +361,7 @@
                 winRate: "61%",
                 kills: 180,
                 matches: 75,
+                points: 2870,
                 image: "img/players/daniel.png"
             },
             {
@@ -251,6 +373,7 @@
                 winRate: "74%",
                 kills: 410,
                 matches: 130,
+                points: 2750,
                 image: "img/players/calvin.png"
             },
             {
@@ -262,6 +385,7 @@
                 winRate: "65%",
                 kills: 199,
                 matches: 82,
+                points: 2680,
                 image: "img/players/kevin.png"
             },
             {
@@ -273,6 +397,7 @@
                 winRate: "69%",
                 kills: 278,
                 matches: 95,
+                points: 2550,
                 image: "img/players/ryan.png"
             },
             {
@@ -284,6 +409,7 @@
                 winRate: "58%",
                 kills: 155,
                 matches: 68,
+                points: 2420,
                 image: "img/players/thomas.png"
             },
             {
@@ -295,6 +421,7 @@
                 winRate: "71%",
                 kills: 134,
                 matches: 43,
+                points: 2380,
                 image: "img/players/natalie.png"
             },
             {
@@ -306,6 +433,7 @@
                 winRate: "63%",
                 kills: 220,
                 matches: 78,
+                points: 2250,
                 image: "img/players/omar.png"
             },
             {
@@ -317,9 +445,9 @@
                 winRate: "75%",
                 kills: 289,
                 matches: 102,
+                points: 2180,
                 image: "img/players/rina.png"
             },
-            
             {
                 fullName: "Wei Zhang",
                 gameId: "LEAGUE Storm",
@@ -329,6 +457,7 @@
                 winRate: "66%",
                 kills: 201,
                 matches: 88,
+                points: 2100,
                 image: "img/players/wei.png"
             },
             {
@@ -340,6 +469,7 @@
                 winRate: "70%",
                 kills: 254,
                 matches: 97,
+                points: 2050,
                 image: "img/players/elena.png"
             }
         ];
@@ -347,14 +477,16 @@
         function renderPlayers() {
             const grid = document.getElementById('playerGrid');
             let html = '';
-            players.forEach(p => {
-                
-                const avatar = p.image
-                    ? p.image
-                    : `https://ui-avatars.com/api/?name=${encodeURIComponent(p.fullName)}&background=ff2e63&color=fff&size=128`;
+            players.forEach((p, index) => {
+                const avatar = p.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(p.fullName)}&background=ff2e63&color=fff&size=128`;
                 html += `
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <div class="card h-100 bg-dark text-light border-0 shadow" style="background:#151824 !important;">
+                        <div class="card h-100 bg-dark text-light border-0 shadow player-card" 
+                             style="background:#151824 !important; border:1px solid transparent; border-radius:12px;"
+                             data-index="${index}"
+                             data-toggle="modal" 
+                             data-target="#playerModal"
+                             onclick="openPlayerModal(${index})">
                             <img src="${avatar}" 
                                  class="card-img-top rounded-circle mx-auto mt-3" 
                                  style="width:120px;height:120px;object-fit:cover;" 
@@ -362,7 +494,7 @@
                                  onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.fullName)}&background=ff2e63&color=fff&size=128'">
                             <div class="card-body text-center">
                                 <!-- Game ID (Prominent) -->
-                                <h5 class="card-title text-white" style="font-size:1.2rem; font-weight:700; letter-spacing:0.5px; color:#ff2e63 !important;">${p.gameId}</h5>
+                                <h5 class="card-title" style="font-size:1.2rem; font-weight:700; letter-spacing:0.5px; color:#ff2e63 !important;">${p.gameId}</h5>
                                 <!-- Real Name -->
                                 <p class="text-muted small mb-2">${p.fullName}</p>
                                 <!-- Team -->
@@ -375,6 +507,7 @@
                                     <div class="col-4"><span class="badge badge-danger">Kills</span><br><span class="text-white">${p.kills}</span></div>
                                     <div class="col-4"><span class="badge badge-info">Matches</span><br><span class="text-white">${p.matches}</span></div>
                                 </div>
+                                <span class="badge badge-secondary mt-2" style="font-size:10px; text-transform:uppercase; letter-spacing:0.5px;">Click for details</span>
                             </div>
                         </div>
                     </div>
@@ -383,7 +516,28 @@
             grid.innerHTML = html;
         }
 
+        function openPlayerModal(index) {
+            const p = players[index];
+            if (!p) return;
+
+            // Set modal content
+            document.getElementById('modalAvatar').src = p.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(p.fullName)}&background=ff2e63&color=fff&size=150`;
+            document.getElementById('modalAvatar').onerror = function() {
+                this.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(p.fullName)}&background=ff2e63&color=fff&size=150`;
+            };
+            document.getElementById('modalGameId').textContent = p.gameId;
+            document.getElementById('modalFullName').textContent = p.fullName;
+            document.getElementById('modalTeamName').textContent = p.team;
+            document.getElementById('modalPoints').textContent = p.points || '-';
+            document.getElementById('modalMatches').textContent = p.matches;
+            document.getElementById('modalWinRate').textContent = p.winRate;
+            document.getElementById('modalKills').textContent = p.kills;
+            document.getElementById('modalGame').textContent = p.game;
+            document.getElementById('modalRole').textContent = p.role;
+        }
+
         document.addEventListener('DOMContentLoaded', renderPlayers);
     </script>
+
 </body>
 </html>
