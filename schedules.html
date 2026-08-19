@@ -1,5310 +1,1662 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    >
-
-    <title>
-        LEAGUE ESPORTS – Schedules & Results
-    </title>
-
-    <link
-        rel="icon"
-        href="img/favicon.png"
-    >
-
-
-    <!-- =========================================
-         CSS FILES
-    ========================================== -->
-
-    <link
-        rel="stylesheet"
-        href="css/bootstrap.min.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/animate.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/owl.carousel.min.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/all.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/flaticon.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/themify-icons.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/magnific-popup.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/slick.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
-
-    <style>
-
-        :root {
-
-            --accent: #ff2e63;
-
-            --accent-2: #ff7849;
-
-            --bg: #0c0e14;
-
-            --card: #151824;
-
-            --card-2: #1b1f2e;
-
-            --border: rgba(255,46,99,.22);
-
-            --text: #ffffff;
-
-            --muted: #9aa0b4;
-
-            --live: #ffc107;
-
-            --success: #28a745;
-
-            --blue: #2487ff;
-
-        }
-
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-
-        body {
-
-            background: var(--bg);
-
-            color: var(--text);
-
-        }
-
-
-        /* =========================================
-           HEADER
-        ========================================== */
-
-        .main_menu.single_page_menu .navbar-brand img {
-
-            height: 50px !important;
-
-            max-height: 50px !important;
-
-            width: auto !important;
-
-        }
-
-
-        .main_menu.single_page_menu {
-
-            padding-top: 5px !important;
-
-            padding-bottom: 5px !important;
-
-            transition: none !important;
-
-        }
-
-
-        .main_menu.single_page_menu.header_fixed {
-
-            background: var(--bg) !important;
-
-            box-shadow: none !important;
-
-        }
-
-
-        /* =========================================
-           MAIN PAGE
-        ========================================== */
-
-        .sched-section {
-
-            background:
-
-                radial-gradient(
-                    circle at 12% 8%,
-                    rgba(255,46,99,.10),
-                    transparent 36%
-                ),
-
-                radial-gradient(
-                    circle at 88% 30%,
-                    rgba(255,120,73,.07),
-                    transparent 42%
-                ),
-
-                var(--bg);
-
-            min-height: 100vh;
-
-        }
-
-
-        .section_tittle h2 {
-
-            color: #ffffff !important;
-
-        }
-
-
-        .section_tittle p {
-
-            color: var(--muted) !important;
-
-        }
-
-
-        /* =========================================
-           STATISTICS
-        ========================================== */
-
-        .schedule-stats {
-
-            margin: 30px 0 10px;
-
-        }
-
-
-        .schedule-stat {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #171a24,
-                    #11141c
-                );
-
-            border:
-                1px solid rgba(255,255,255,.06);
-
-            border-radius: 14px;
-
-            padding: 20px 14px;
-
-            text-align: center;
-
-            margin-bottom: 18px;
-
-            transition: .25s;
-
-        }
-
-
-        .schedule-stat:hover {
-
-            transform: translateY(-4px);
-
-            border-color: var(--border);
-
-        }
-
-
-        .schedule-stat i {
-
-            color: var(--accent);
-
-            font-size: 20px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .schedule-stat strong {
-
-            display: block;
-
-            font-size: 23px;
-
-            color: #ffffff;
-
-        }
-
-
-        .schedule-stat span {
-
-            color: var(--muted);
-
-            font-size: 11px;
-
-            text-transform: uppercase;
-
-            letter-spacing: .5px;
-
-        }
-
-
-        /* =========================================
-           LIVE CENTER
-        ========================================== */
-
-        .live-center {
-
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #17111a,
-                    #11141d 60%
-                );
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 18px;
-
-            padding: 28px;
-
-            margin: 28px 0 35px;
-
-        }
-
-
-        .live-center::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 260px;
-
-            height: 260px;
-
-            right: -90px;
-
-            top: -100px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255,46,99,.28),
-                    transparent 68%
-                );
-
-            pointer-events: none;
-
-        }
-
-
-        .live-center__eyebrow {
-
-            color: var(--accent);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-
-        }
-
-
-        .live-center h3 {
-
-            color: #ffffff;
-
-            font-size: 28px;
-
-            font-weight: 800;
-
-            margin: 8px 0;
-
-        }
-
-
-        .live-center p {
-
-            color: var(--muted);
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .live-center__teams {
-
-            color: #ffffff;
-
-            font-size: 20px;
-
-            font-weight: 700;
-
-            margin: 16px 0 18px;
-
-        }
-
-
-        .live-center__teams .vs {
-
-            color: var(--muted);
-
-            margin: 0 12px;
-
-        }
-
-
-        .live-clock-card {
-
-            background: #0c0e14;
-
-            border:
-                1px solid rgba(255,255,255,.06);
-
-            border-radius: 12px;
-
-            padding: 20px;
-
-            position: relative;
-
-            z-index: 1;
-
-        }
-
-
-        .live-clock-card small {
-
-            color: var(--muted);
-
-            text-transform: uppercase;
-
-            letter-spacing: .5px;
-
-        }
-
-
-        .live-clock-card .clock {
-
-            font-size: 28px;
-
-            font-weight: 800;
-
-            margin-top: 3px;
-
-        }
-
-
-        .live-clock-card .date {
-
-            color: var(--accent);
-
-            font-size: 13px;
-
-        }
-
-
-        /* =========================================
-           SAFE BUTTON
-           Removes white template overlay
-        ========================================== */
-
-        .safe-btn,
-        .safe-btn::before,
-        .safe-btn::after {
-
-            background-image: none !important;
-
-        }
-
-
-        .safe-btn::before,
-        .safe-btn::after {
-
-            content: none !important;
-
-            display: none !important;
-
-        }
-
-
-        .safe-btn {
-
-            display: inline-flex !important;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 7px;
-
-            border:
-                1px solid var(--accent) !important;
-
-            border-radius:
-                30px !important;
-
-            background:
-                #0c0e14 !important;
-
-            color:
-                #ffffff !important;
-
-            text-decoration:
-                none !important;
-
-            padding:
-                10px 18px !important;
-
-            font-size:
-                12px !important;
-
-            font-weight:
-                800 !important;
-
-            line-height:
-                1.2 !important;
-
-            cursor:
-                pointer;
-
-            transition:
-                .22s !important;
-
-            box-shadow:
-                none !important;
-
-        }
-
-
-        .safe-btn:hover {
-
-            background:
-                var(--accent) !important;
-
-            color:
-                #ffffff !important;
-
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 7px 20px rgba(255,46,99,.25) !important;
-
-        }
-
-
-        .safe-btn.live {
-
-            border-color:
-                var(--live) !important;
-
-            color:
-                #111111 !important;
-
-            background:
-                var(--live) !important;
-
-        }
-
-
-        /* =========================================
-           FILTER
-        ========================================== */
-
-        .sched-filter-group {
-
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 9px;
-
-            margin-bottom: 38px;
-
-        }
-
-
-        .sched-filter-group .filter-btn {
-
-            border:
-                1px solid #444a5a;
-
-            background:
-                #11141d;
-
-            color:
-                #ffffff;
-
-            border-radius:
-                28px;
-
-            padding:
-                8px 17px;
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
-
-        }
-
-
-        .sched-filter-group .filter-btn:hover {
-
-            border-color:
-                var(--accent);
-
-        }
-
-
-        .sched-filter-group .filter-btn.active {
-
-            background:
-                var(--accent);
-
-            border-color:
-                var(--accent);
-
-        }
-
-
-        .dot {
-
-            display: inline-block;
-
-            width: 8px;
-
-            height: 8px;
-
-            border-radius: 50%;
-
-            margin-right: 6px;
-
-        }
-
-
-        .dot-live {
-
-            background:
-                var(--live);
-
-        }
-
-
-        .dot-upcoming {
-
-            background:
-                var(--blue);
-
-        }
-
-
-        .dot-finished {
-
-            background:
-                var(--success);
-
-        }
-
-
-        .dot-tbd {
-
-            background:
-                #6c757d;
-
-        }
-
-
-        /* =========================================
-           SCHEDULE
-        ========================================== */
-
-        .sched-day {
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .sched-day__label {
-
-            color: #ffffff;
-
-            font-size: 17px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: .6px;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-
-            padding-bottom: 10px;
-
-            margin: 20px 0 14px;
-
-        }
-
-
-        .sched-item {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 18px;
-
-            background:
-                var(--card);
-
-            border:
-                1px solid rgba(255,255,255,.06);
-
-            border-radius:
-                14px;
-
-            padding:
-                17px 20px;
-
-            margin-bottom:
-                10px;
-
-            transition:
-                .22s;
-
-        }
-
-
-        .sched-item:hover {
-
-            border-color:
-                rgba(255,46,99,.35);
-
-            transform:
-                translateX(4px);
-
-        }
-
-
-        .sched-item.is-live {
-
-            border-color:
-                var(--live);
-
-            box-shadow:
-
-                0 0 0 1px rgba(255,193,7,.12),
-
-                0 8px 24px rgba(255,193,7,.05);
-
-        }
-
-
-        .sched-item__time {
-
-            width: 82px;
-
-            flex:
-                0 0 82px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .sched-item__time strong {
-
-            display:
-                block;
-
-            font-size:
-                20px;
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .sched-item__time span {
-
-            color:
-                var(--muted);
-
-            font-size:
-                10px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .sched-item__tourn {
-
-            width:
-                145px;
-
-            flex:
-                0 0 145px;
-
-            color:
-                var(--accent);
-
-            font-size:
-                12px;
-
-            font-weight:
-                800;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .sched-item__match {
-
-            flex:
-                1;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            gap:
-                12px;
-
-            color:
-                #ffffff;
-
-            font-weight:
-                700;
-
-            min-width:
-                220px;
-
-        }
-
-
-        .team {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
-
-        }
-
-
-        .team-avatar {
-
-            width:
-                34px;
-
-            height:
-                34px;
-
-            border-radius:
-                50%;
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                11px;
-
-            font-weight:
-                800;
-
-            color:
-                #ffffff;
-
-            box-shadow:
-                0 0 0 2px rgba(255,255,255,.06);
-
-        }
-
-
-        .score {
-
-            background:
-                #20232f;
-
-            border-radius:
-                6px;
-
-            padding:
-                3px 10px;
-
-            min-width:
-                50px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .score--vs {
-
-            background:
-                transparent !important;
-
-            color:
-                var(--muted);
-
-            min-width:
-                auto;
-
-        }
-
-
-        .sched-item__status {
-
-            width:
-                125px;
-
-            flex:
-                0 0 125px;
-
-            text-align:
-                right;
-
-        }
-
-
-        /* =========================================
-           STATUS
-        ========================================== */
-
-        .status-badge {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            border-radius:
-                20px;
-
-            padding:
-                6px 12px;
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .status-live {
-
-            background:
-                var(--live);
-
-            color:
-                #1a1a1a;
-
-        }
-
-
-        .status-upcoming {
-
-            background:
-                var(--blue);
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .status-finished {
-
-            background:
-                var(--success);
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .status-tbd {
-
-            background:
-                #6c757d;
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .live-ping {
-
-            width:
-                7px;
-
-            height:
-                7px;
-
-            border-radius:
-                50%;
-
-            background:
-                #7e6a00;
-
-            margin-right:
-                6px;
-
-            animation:
-                blink 1s infinite;
-
-        }
-
-
-        @keyframes blink {
-
-            50% {
-
-                opacity:
-                    .25;
-
-            }
-
-        }
-
-
-        .watch-link {
-
-            margin-top:
-                7px;
-
-            display:
-                none !important;
-
-            width:
-                100%;
-
-            padding:
-                7px 10px !important;
-
-            font-size:
-                10px !important;
-
-        }
-
-
-        .sched-item.is-live .watch-link {
-
-            display:
-                inline-flex !important;
-
-        }
-
-
-        /* =========================================
-           SIDEBAR
-        ========================================== */
-
-        .side-box {
-
-            background:
-                var(--card);
-
-            border:
-                1px solid rgba(255,255,255,.06);
-
-            border-radius:
-                14px;
-
-            padding:
-                20px;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .side-box h4 {
-
-            color:
-                #ffffff;
-
-            font-size:
-                17px;
-
-            font-weight:
-                800;
-
-            margin-bottom:
-                12px;
-
-        }
-
-
-        .side-box p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-        }
-
-
-        .stream-link {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            background:
-                #0c0e14;
-
-            border:
-                1px solid rgba(255,255,255,.05);
-
-            border-radius:
-                9px;
-
-            padding:
-                11px 12px;
-
-            margin-bottom:
-                8px;
-
-            color:
-                #ffffff !important;
-
-            text-decoration:
-                none !important;
-
-            transition:
-                .2s;
-
-        }
-
-
-        .stream-link:hover {
-
-            border-color:
-                var(--accent);
-
-            transform:
-                translateX(3px);
-
-        }
-
-
-        .stream-link i {
-
-            color:
-                var(--accent);
-
-            width:
-                20px;
-
-        }
-
-
-        .stream-link small {
-
-            color:
-                var(--muted);
-
-        }
-
-
-        /* =========================================
-           API
-        ========================================== */
-
-        .api-section {
-
-            margin-top:
-                48px;
-
-            padding-top:
-                35px;
-
-            border-top:
-                1px solid rgba(255,255,255,.06);
-
-        }
-
-
-        .api-section h3 {
-
-            color:
-                #ffffff;
-
-            font-weight:
-                800;
-
-        }
-
-
-        .api-section h3 i {
-
-            color:
-                var(--accent);
-
-            margin-right:
-                8px;
-
-        }
-
-
-        .api-card {
-
-            background:
-                var(--card);
-
-            border:
-                1px solid rgba(255,255,255,.06);
-
-            border-radius:
-                12px;
-
-            padding:
-                18px;
-
-            height:
-                100%;
-
-            transition:
-                .22s;
-
-        }
-
-
-        .api-card:hover {
-
-            border-color:
-                var(--accent);
-
-            transform:
-                translateY(-4px);
-
-        }
-
-
-        .api-card .api-tag {
-
-            color:
-                var(--accent);
-
-            font-size:
-                10px;
-
-            text-transform:
-                uppercase;
-
-            font-weight:
-                800;
-
-            margin-bottom:
-                7px;
-
-        }
-
-
-        .api-card h5 {
-
-            color:
-                #ffffff;
-
-            font-size:
-                15px;
-
-            line-height:
-                1.35;
-
-        }
-
-
-        .api-card p {
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-            margin-bottom:
-                0;
-
-        }
-
-
-        /* =========================================
-           STORAGE CHIPS
-        ========================================== */
-
-        .tech-chip {
-
-            display:
-                inline-block;
-
-            border:
-                1px solid rgba(255,255,255,.10);
-
-            border-radius:
-                18px;
-
-            padding:
-                4px 9px;
-
-            margin:
-                3px 4px 3px 0;
-
-            color:
-                #d8dbe5;
-
-            font-size:
-                10px;
-
-        }
-
-
-        .tech-chip i {
-
-            color:
-                var(--accent);
-
-            margin-right:
-                4px;
-
-        }
-
-
-        /* =========================================
-           RESPONSIVE
-        ========================================== */
-
-        @media (max-width:991px) {
-
-            .sched-item {
-
-                flex-wrap:
-                    wrap;
-
-            }
-
-
-            .sched-item__match {
-
-                order:
-                    4;
-
-                width:
-                    100%;
-
-                flex-basis:
-                    100%;
-
-                justify-content:
-                    flex-start;
-
-            }
-
-        }
-
-
-        @media (max-width:767px) {
-
-            .sched-item {
-
-                display:
-                    block;
-
-            }
-
-
-            .sched-item__time,
-            .sched-item__tourn,
-            .sched-item__status {
-
-                width:
-                    100%;
-
-                text-align:
-                    left;
-
-                margin-bottom:
-                    9px;
-
-            }
-
-
-            .sched-item__match {
-
-                justify-content:
-                    flex-start;
-
-                flex-wrap:
-                    wrap;
-
-                min-width:
-                    0;
-
-            }
-
-
-            .live-center {
-
-                padding:
-                    22px 18px;
-
-            }
-
-
-            .live-center h3 {
-
-                font-size:
-                    23px;
-
-            }
-
-        }
-
-    </style>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+<title>LEAGUE ESPORTS – Schedules & Results</title>
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/all.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/themify-icons.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--accent:#ff2e63;--accent-2:#ff7849;--bg:#0c0e14;--card:#151824;--card-2:#1b1f2e;--border:rgba(255,46,99,.22);--text:#ffffff;--muted:#9aa0b4;--live:#ffc107;--success:#28a745;--blue:#2487ff;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);}
+.main_menu.single_page_menu .navbar-brand img{height:50px !important;max-height:50px !important;width:auto !important;}
+.main_menu.single_page_menu{padding-top:5px !important;padding-bottom:5px !important;transition:none !important;}
+.main_menu.single_page_menu.header_fixed{background:var(--bg) !important;box-shadow:none !important;}
+.sched-section{background:radial-gradient( circle at 12% 8%,rgba(255,46,99,.10),transparent 36% ),radial-gradient( circle at 88% 30%,rgba(255,120,73,.07),transparent 42% ),var(--bg);min-height:100vh;}
+.section_tittle h2{color:#ffffff !important;}
+.section_tittle p{color:var(--muted) !important;}
+.schedule-stats{margin:30px 0 10px;}
+.schedule-stat{background:linear-gradient( 180deg,#171a24,#11141c );border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px 14px;text-align:center;margin-bottom:18px;transition:.25s;}
+.schedule-stat:hover{transform:translateY(-4px);border-color:var(--border);}
+.schedule-stat i{color:var(--accent);font-size:20px;margin-bottom:8px;}
+.schedule-stat strong{display:block;color:#ffffff;font-size:23px;}
+.schedule-stat span{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;}
+.live-center{position:relative;overflow:hidden;background:linear-gradient( 135deg,#17111a,#11141d 60% );border:1px solid var(--border);border-radius:18px;padding:28px;margin:28px 0 35px;}
+.live-center::after{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-100px;border-radius:50%;background:radial-gradient( circle,rgba(255,46,99,.28),transparent 68% );pointer-events:none;}
+.live-center__eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;}
+.live-center h3{color:#ffffff;font-size:28px;font-weight:800;margin:8px 0;}
+.live-center p{color:var(--muted);margin-bottom:12px;}
+.live-center__teams{color:#ffffff;font-size:20px;font-weight:700;margin:16px 0 18px;}
+.live-center__teams .vs{color:var(--muted);margin:0 12px;}
+.live-clock-card{position:relative;z-index:2;background:#0c0e14;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;}
+.live-clock-card small{color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.live-clock-card .clock{color:#ffffff;font-size:28px;font-weight:800;margin-top:3px;}
+.live-clock-card .date{color:var(--accent);font-size:13px;}
+.safe-btn,.safe-btn::before,.safe-btn::after{background-image:none !important;}
+.safe-btn::before,.safe-btn::after{content:none !important;display:none !important;}
+.safe-btn{display:inline-flex !important;align-items:center;justify-content:center;gap:7px;border:1px solid var(--accent) !important;border-radius:30px !important;background:#0c0e14 !important;color:#ffffff !important;text-decoration:none !important;padding:10px 18px !important;font-size:12px !important;font-weight:800 !important;line-height:1.2 !important;cursor:pointer;transition:.22s !important;box-shadow:none !important;}
+.safe-btn:hover{background:var(--accent) !important;color:#ffffff !important;transform:translateY(-2px);box-shadow:0 7px 20px rgba(255,46,99,.25) !important;}
+.safe-btn.live{background:var(--live) !important;border-color:var(--live) !important;color:#111111 !important;}
+.sched-filter-group{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-bottom:38px;}
+.filter-btn{border:1px solid #444a5a;background:#11141d;color:#ffffff;border-radius:28px;padding:8px 17px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;}
+.filter-btn:hover{border-color:var(--accent);}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#ffffff;}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;}
+.dot-live{background:var(--live);}
+.dot-upcoming{background:var(--blue);}
+.dot-finished{background:var(--success);}
+.dot-tbd{background:#6c757d;}
+.sched-day{margin-bottom:25px;}
+.sched-day__label{color:#ffffff;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:10px;margin:20px 0 14px;}
+.sched-item{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:17px 20px;margin-bottom:10px;transition:.22s;}
+.sched-item:hover{border-color:rgba(255,46,99,.35);transform:translateX(4px);}
+.sched-item.is-live{border-color:var(--live);box-shadow:0 0 0 1px rgba(255,193,7,.12),0 8px 24px rgba(255,193,7,.05);}
+.sched-item__time{width:82px;flex:0 0 82px;text-align:center;}
+.sched-item__time strong{display:block;color:#ffffff;font-size:20px;}
+.sched-item__time span{color:var(--muted);font-size:10px;text-transform:uppercase;}
+.sched-item__tourn{width:145px;flex:0 0 145px;color:var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;}
+.sched-item__match{flex:1;display:flex;align-items:center;justify-content:center;gap:12px;color:#ffffff;font-weight:700;min-width:220px;}
+.team{display:inline-flex;align-items:center;gap:8px;}
+.team-avatar{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#ffffff;font-size:11px;font-weight:800;box-shadow:0 0 0 2px rgba(255,255,255,.06);}
+.score{background:#20232f;border-radius:6px;padding:3px 10px;min-width:50px;text-align:center;}
+.score--vs{background:transparent !important;color:var(--muted);min-width:auto;}
+.sched-item__status{width:125px;flex:0 0 125px;text-align:right;}
+.status-badge{display:inline-flex;align-items:center;border-radius:20px;padding:6px 12px;font-size:10px;font-weight:800;text-transform:uppercase;}
+.status-live{background:var(--live);color:#1a1a1a;}
+.status-upcoming{background:var(--blue);color:#ffffff;}
+.status-finished{background:var(--success);color:#ffffff;}
+.status-tbd{background:#6c757d;color:#ffffff;}
+.live-ping{width:7px;height:7px;border-radius:50%;background:#7e6a00;margin-right:6px;animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:.25;}
+}
+.watch-link{display:none !important;width:100%;margin-top:7px;padding:7px 10px !important;font-size:10px !important;}
+.sched-item.is-live .watch-link{display:inline-flex !important;}
+.side-box{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;margin-bottom:18px;}
+.side-box h4{color:#ffffff;font-size:17px;font-weight:800;margin-bottom:12px;}
+.side-box p{color:var(--muted);font-size:12px;}
+.stream-link{display:flex;align-items:center;justify-content:space-between;background:#0c0e14;border:1px solid rgba(255,255,255,.05);border-radius:9px;padding:11px 12px;margin-bottom:8px;color:#ffffff !important;text-decoration:none !important;transition:.2s;}
+.stream-link:hover{border-color:var(--accent);transform:translateX(3px);}
+.stream-link i{color:var(--accent);width:20px;}
+.stream-link small{color:var(--muted);}
+.api-section{margin-top:48px;padding-top:35px;border-top:1px solid rgba(255,255,255,.06);}
+.api-section h3{color:#ffffff;font-weight:800;}
+.api-section h3 i{color:var(--accent);margin-right:8px;}
+.api-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:18px;height:100%;transition:.22s;}
+.region-card{cursor:pointer;}
+.region-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.25);}
+.api-tag{color:var(--accent);font-size:10px;text-transform:uppercase;font-weight:800;margin-bottom:7px;}
+.api-card h5{color:#ffffff;font-size:17px;font-weight:700;}
+.api-card p{color:var(--muted);font-size:12px;margin-bottom:0;}
+.region-flag{width:100%;height:145px;object-fit:cover;border-radius:9px;margin-bottom:14px;border:1px solid rgba(255,255,255,.08);background:#0c0e14;}
+.region-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.region-meta span{display:inline-flex;align-items:center;gap:5px;background:#0c0e14;border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:5px 9px;color:#d6d8e1;font-size:10px;}
+.region-meta i{color:var(--accent);}
+.region-modal-content{background:#151824;border:1px solid rgba(255,46,99,.28);border-radius:16px;color:#ffffff;overflow:hidden;}
+.region-modal-content .modal-header{border-bottom:1px solid rgba(255,255,255,.08);}
+.region-modal-content .modal-footer{border-top:1px solid rgba(255,255,255,.08);}
+.region-modal-content .close{color:#ffffff;opacity:1;text-shadow:none;}
+.region-modal-flag{width:100%;height:190px;object-fit:cover;border-radius:10px;margin-bottom:18px;border:1px solid rgba(255,255,255,.08);}
+.region-detail{background:#0c0e14;border:1px solid rgba(255,255,255,.05);padding:12px 15px;border-radius:9px;margin-bottom:9px;color:#d7dae3;}
+.region-detail strong{color:var(--accent);margin-right:5px;}
+.tech-chip{display:inline-block;border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:4px 9px;margin:3px 4px 3px 0;color:#d8dbe5;font-size:10px;}
+.tech-chip i{color:var(--accent);margin-right:4px;}
+@media (max-width:991px){.sched-item{flex-wrap:wrap;}
+.sched-item__match{order:4;width:100%;flex-basis:100%;justify-content:flex-start;}
+}
+@media (max-width:767px){.sched-item{display:block;}
+.sched-item__time,.sched-item__tourn,.sched-item__status{width:100%;text-align:left;margin-bottom:9px;}
+.sched-item__match{justify-content:flex-start;flex-wrap:wrap;min-width:0;}
+.live-center{padding:22px 18px;}
+.live-center h3{font-size:23px;}
+.region-flag{height:130px;}
+}
+</style>
 </head>
-
-
 <body>
-
-
-<!-- =========================================
-     HEADER
-========================================== -->
-
 <header class="main_menu single_page_menu">
-
-    <div class="container">
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-12">
-
-
-                <nav class="navbar navbar-expand-lg navbar-light">
-
-
-                    <a
-                        class="navbar-brand d-flex align-items-center"
-                        href="index.html"
-                    >
-
-                        <img
-                            src="img/logo.png"
-                            alt="logo"
-                        >
-
-                        <span
-                            style="
-                            color:#fff;
-                            font-weight:800;
-                            margin-left:10px;
-                            "
-                        >
-
-                            LEAGUE ESPORTS
-
-                        </span>
-
-                    </a>
-
-
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-
-                        <span class="menu_icon">
-
-                            <i class="fas fa-bars"></i>
-
-                        </span>
-
-                    </button>
-
-
-                    <div
-                        class="collapse navbar-collapse main-menu-item"
-                        id="navbarSupportedContent"
-                    >
-
-                        <ul class="navbar-nav">
-
-
-                            <li class="nav-item">
-
-                                <a
-                                    class="nav-link"
-                                    href="index.html"
-                                >
-                                    Home
-                                </a>
-
-                            </li>
-
-
-                            <li class="nav-item">
-
-                                <a
-                                    class="nav-link"
-                                    href="about.html"
-                                >
-                                    About Us
-                                </a>
-
-                            </li>
-
-
-                            <li class="nav-item dropdown">
-
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="navTournaments"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    Tournaments
-                                </a>
-
-
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="navTournaments"
-                                >
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="tournaments.html"
-                                    >
-                                        Tournaments
-                                    </a>
-
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="schedules.html"
-                                    >
-                                        Schedules & Results
-                                    </a>
-
-                                </div>
-
-                            </li>
-
-
-                            <li class="nav-item dropdown">
-
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="navTeams"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    Teams
-                                </a>
-
-
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="navTeams"
-                                >
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="teams.html"
-                                    >
-                                        Our Teams
-                                    </a>
-
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="players.html"
-                                    >
-                                        Player Profiles
-                                    </a>
-
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="leaderboard.html"
-                                    >
-                                        Leaderboard
-                                    </a>
-
-                                </div>
-
-                            </li>
-
-
-                            <li class="nav-item dropdown">
-
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="navCommunity"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    Community
-                                </a>
-
-
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="navCommunity"
-                                >
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="news.html"
-                                    >
-                                        News & Gallery
-                                    </a>
-
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="register.html"
-                                    >
-                                        Join Us
-                                    </a>
-
-                                </div>
-
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-
-                    <a
-                        href="register.html"
-                        class="btn_1 d-none d-sm-block"
-                    >
-                        Join Us
-                    </a>
-
-
-                </nav>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================
-     BREADCRUMB
-========================================== -->
-
-<section class="breadcrumb breadcrumb_bg">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-12">
-
-                <div class="breadcrumb_iner text-center">
-
-                    <div class="breadcrumb_iner_item">
-
-                        <h2>
-
-                            Schedule & Results
-
-                        </h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     MAIN SECTION
-========================================== -->
-
-<section class="section_padding sched-section">
-
 <div class="container">
-
-
-<div class="row justify-content-center">
-
-    <div class="col-lg-8">
-
-        <div class="section_tittle text-center">
-
-            <h2>
-
-                Upcoming & Recent Matches
-
-            </h2>
-
-
-            <p>
-
-                Live status, countdowns, filters and stream shortcuts
-                update automatically from the schedule.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================
-     STATS
-========================================== -->
-
-<div class="row schedule-stats">
-
-
-<div class="col-6 col-md-3">
-
-    <div class="schedule-stat">
-
-        <i class="fas fa-calendar-check"></i>
-
-        <strong id="statTotal">
-
-            0
-
-        </strong>
-
-        <span>
-
-            Total Matches
-
-        </span>
-
-    </div>
-
-</div>
-
-
-<div class="col-6 col-md-3">
-
-    <div class="schedule-stat">
-
-        <i class="fas fa-broadcast-tower"></i>
-
-        <strong id="statLive">
-
-            0
-
-        </strong>
-
-        <span>
-
-            Live Now
-
-        </span>
-
-    </div>
-
-</div>
-
-
-<div class="col-6 col-md-3">
-
-    <div class="schedule-stat">
-
-        <i class="fas fa-hourglass-half"></i>
-
-        <strong id="statUpcoming">
-
-            0
-
-        </strong>
-
-        <span>
-
-            Upcoming
-
-        </span>
-
-    </div>
-
-</div>
-
-
-<div class="col-6 col-md-3">
-
-    <div class="schedule-stat">
-
-        <i class="fas fa-check-circle"></i>
-
-        <strong id="statFinished">
-
-            0
-
-        </strong>
-
-        <span>
-
-            Finished
-
-        </span>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<!-- =========================================
-     LIVE CENTER
-========================================== -->
-
-<div class="live-center">
-
 <div class="row align-items-center">
-
-
-<div class="col-lg-8">
-
-    <div class="live-center__eyebrow">
-
-        <i class="fas fa-satellite-dish"></i>
-
-        Live Match Center
-
-    </div>
-
-
-    <h3 id="liveCenterTitle">
-
-        Checking current schedule…
-
-    </h3>
-
-
-    <p id="liveCenterGame">
-
-        Match status is calculated automatically
-        using Malaysia time (UTC+8).
-
-    </p>
-
-
-    <div
-        class="live-center__teams"
-        id="liveCenterTeams"
-    >
-
-        Please wait…
-
-    </div>
-
-
-    <div id="liveCenterAction">
-
-    </div>
-
-
-</div>
-
-
-<div class="col-lg-4 mt-4 mt-lg-0">
-
-    <div class="live-clock-card">
-
-        <small>
-
-            Malaysia Time (UTC+8)
-
-        </small>
-
-
-        <div
-            class="clock"
-            id="clockTime"
-        >
-
-            --:--:--
-
-        </div>
-
-
-        <div
-            class="date"
-            id="clockDate"
-        >
-
-            --
-
-        </div>
-
-
-        <div
-            style="
-            color:var(--muted);
-            font-size:11px;
-            margin-top:10px;
-            "
-        >
-
-            Last status refresh:
-
-            <span id="lastRefresh">
-
-                --
-
-            </span>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<div class="row">
-
-
-<!-- =========================================
-     LEFT SIDE
-========================================== -->
-
-<div class="col-lg-8">
-
-
-<!-- FILTER -->
-
-<div
-    class="sched-filter-group"
-    id="filterGroup"
->
-
-
-<button
-    class="filter-btn active"
-    data-filter="all"
->
-
-    All Matches
-
-</button>
-
-
-<button
-    class="filter-btn"
-    data-filter="live"
->
-
-    <span class="dot dot-live"></span>
-
-    Live
-
-</button>
-
-
-<button
-    class="filter-btn"
-    data-filter="upcoming"
->
-
-    <span class="dot dot-upcoming"></span>
-
-    Upcoming
-
-</button>
-
-
-<button
-    class="filter-btn"
-    data-filter="finished"
->
-
-    <span class="dot dot-finished"></span>
-
-    Finished
-
-</button>
-
-
-<button
-    class="filter-btn"
-    data-filter="tbd"
->
-
-    <span class="dot dot-tbd"></span>
-
-    TBD
-
-</button>
-
-
-</div>
-
-
-<!-- =========================================
-     SCHEDULE CONTAINER
-========================================== -->
-
-<div id="scheduleContainer">
-
-
-<!-- AUG 18 -->
-
-<div
-    class="sched-day"
-    data-day="2026-08-18"
->
-
-
-<div class="sched-day__label">
-
-    Tue, Aug 18 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-08-18T15:00:00+08:00"
-
-    data-end="2026-08-18T17:00:00+08:00"
-
-    data-game="VALORANT"
-
-    data-stream="https://www.twitch.tv/valorant"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        15:00
-
-    </strong>
-
-    <span>
-
-        Aug 18
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Summer Clash
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#ff2e63;"
-    >
-
-        A
-
-    </span>
-
-    Team A
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#4d8dff;"
-    >
-
-        B
-
-    </span>
-
-    Team B
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/valorant"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-08-18T17:30:00+08:00"
-
-    data-end="2026-08-18T19:30:00+08:00"
-
-    data-game="VALORANT"
-
-    data-stream="https://www.twitch.tv/valorant"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        17:30
-
-    </strong>
-
-    <span>
-
-        Aug 18
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Summer Clash
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#2ecf7a;"
-    >
-
-        C
-
-    </span>
-
-    Team C
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#b78a12;"
-    >
-
-        D
-
-    </span>
-
-    Team D
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/valorant"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- AUG 19 -->
-
-<div
-    class="sched-day"
-    data-day="2026-08-19"
->
-
-
-<div class="sched-day__label">
-
-    Wed, Aug 19 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-08-19T14:00:00+08:00"
-
-    data-end="2026-08-19T16:30:00+08:00"
-
-    data-game="VALORANT"
-
-    data-stream="https://www.twitch.tv/valorant"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        14:00
-
-    </strong>
-
-    <span>
-
-        Aug 19
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Summer Clash
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#ff7849;"
-    >
-
-        E
-
-    </span>
-
-    Team E
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#8e2626;"
-    >
-
-        F
-
-    </span>
-
-    Team F
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/valorant"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-08-19T18:00:00+08:00"
-
-    data-end="2026-08-19T21:00:00+08:00"
-
-    data-game="Multi-Game"
-
-    data-stream="https://www.twitch.tv/esl"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        18:00
-
-    </strong>
-
-    <span>
-
-        Aug 19
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Global Esports Cup
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#315f9c;"
-    >
-
-        G
-
-    </span>
-
-    Team G
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#ba7617;"
-    >
-
-        H
-
-    </span>
-
-    Team H
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/esl"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- AUG 20 -->
-
-<div
-    class="sched-day"
-    data-day="2026-08-20"
->
-
-
-<div class="sched-day__label">
-
-    Thu, Aug 20 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-08-20T16:00:00+08:00"
-
-    data-end="2026-08-20T19:00:00+08:00"
-
-    data-game="Counter-Strike 2"
-
-    data-stream="https://www.twitch.tv/eslcs"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        16:00
-
-    </strong>
-
-    <span>
-
-        Aug 20
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Global Esports Cup
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#e1583d;"
-    >
-
-        I
-
-    </span>
-
-    Team I
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    <span
-        class="team-avatar"
-        style="background:#00a990;"
-    >
-
-        J
-
-    </span>
-
-    Team J
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/eslcs"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- AUG 21 -->
-
-<div
-    class="sched-day"
-    data-day="2026-08-21"
->
-
-
-<div class="sched-day__label">
-
-    Fri, Aug 21 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-manual-status="tbd"
-
-    data-game="VALORANT"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        13:00
-
-    </strong>
-
-    <span>
-
-        Aug 21
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Summer Clash
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    Semifinal #1
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    Semifinal #2
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge status-tbd">
-
-        TBD
-
-    </span>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- AUG 22 -->
-
-<div
-    class="sched-day"
-    data-day="2026-08-22"
->
-
-
-<div class="sched-day__label">
-
-    Sat, Aug 22 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-08-22T18:00:00+08:00"
-
-    data-end="2026-08-22T21:00:00+08:00"
-
-    data-game="VALORANT"
-
-    data-stream="https://www.twitch.tv/valorant"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        18:00
-
-    </strong>
-
-    <span>
-
-        Aug 22
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    <i
-        class="fas fa-trophy"
-        style="color:#ffcf5c;"
-    ></i>
-
-    Summer Clash
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    Grand Finalist A
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    Grand Finalist B
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/valorant"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- =========================================
-     EXTRA SCHEDULE
-========================================== -->
-
-<div
-    class="extra-schedule"
-    id="extraSchedule"
-    style="display:none;"
->
-
-
-<!-- SEP 05 -->
-
-<div
-    class="sched-day"
-    data-day="2026-09-05"
->
-
-
-<div class="sched-day__label">
-
-    Sat, Sep 05 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-09-05T12:00:00+08:00"
-
-    data-end="2026-09-05T15:00:00+08:00"
-
-    data-game="Counter-Strike 2"
-
-    data-stream="https://www.twitch.tv/eslcs"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        12:00
-
-    </strong>
-
-    <span>
-
-        Sep 05
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Pro League S7
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    Team Alpha
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    Team Bravo
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.twitch.tv/eslcs"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- OCT 02 -->
-
-<div
-    class="sched-day"
-    data-day="2026-10-02"
->
-
-
-<div class="sched-day__label">
-
-    Fri, Oct 02 2026
-
-</div>
-
-
-<div
-    class="sched-item"
-
-    data-start="2026-10-02T11:00:00+08:00"
-
-    data-end="2026-10-02T14:00:00+08:00"
-
-    data-game="League of Legends"
-
-    data-stream="https://www.youtube.com/@lolesports/live"
->
-
-
-<div class="sched-item__time">
-
-    <strong>
-
-        11:00
-
-    </strong>
-
-    <span>
-
-        Oct 02
-
-    </span>
-
-</div>
-
-
-<div class="sched-item__tourn">
-
-    Rookie Cup 2026
-
-</div>
-
-
-<div class="sched-item__match">
-
-
-<span class="team">
-
-    Rookie Team 1
-
-</span>
-
-
-<span class="score score--vs">
-
-    VS
-
-</span>
-
-
-<span class="team">
-
-    Rookie Team 2
-
-</span>
-
-
-</div>
-
-
-<div class="sched-item__status">
-
-    <span class="status-badge">
-
-        Checking
-
-    </span>
-
-
-    <br>
-
-
-    <a
-        class="safe-btn watch-link"
-
-        href="https://www.youtube.com/@lolesports/live"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <i class="fas fa-play"></i>
-
-        Watch Live
-
-    </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- EMPTY -->
-
-<div
-    id="emptyMessage"
-    class="text-center"
-    style="
-    display:none;
-    padding:25px;
-    color:var(--muted);
-    "
->
-
-    No matches found for this filter.
-
-</div>
-
-
-</div>
-
-
-<!-- VIEW FULL SCHEDULE -->
-
-<div class="text-center mt-4">
-
-    <button
-        class="safe-btn"
-        id="fullScheduleBtn"
-        type="button"
-    >
-
-        <i class="far fa-calendar-alt"></i>
-
-        <span id="fullScheduleText">
-
-            View Full Schedule
-
-        </span>
-
-    </button>
-
-</div>
-
-
-</div>
-
-
-<!-- =========================================
-     RIGHT SIDE
-========================================== -->
-
-<div class="col-lg-4 mt-4 mt-lg-0">
-
-
-<!-- STREAM HUB -->
-
-<div class="side-box">
-
-    <h4>
-
-        <i
-            class="fas fa-play-circle"
-            style="color:var(--accent);"
-        ></i>
-
-        Stream Hub
-
-    </h4>
-
-
-    <p>
-
-        These links open major official or established esports
-        stream channels. The fictional assignment matches themselves
-        may not have a real broadcast.
-
-    </p>
-
-
-    <a
-        class="stream-link"
-
-        href="https://www.twitch.tv/valorant"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <div>
-
-            <i class="fab fa-twitch"></i>
-
-            VALORANT
-
-        </div>
-
-        <small>
-
-            Open
-
-        </small>
-
-    </a>
-
-
-    <a
-        class="stream-link"
-
-        href="https://www.twitch.tv/eslcs"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <div>
-
-            <i class="fab fa-twitch"></i>
-
-            Counter-Strike
-
-        </div>
-
-        <small>
-
-            Open
-
-        </small>
-
-    </a>
-
-
-    <a
-        class="stream-link"
-
-        href="https://www.twitch.tv/dota2ti"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <div>
-
-            <i class="fab fa-twitch"></i>
-
-            Dota 2
-
-        </div>
-
-        <small>
-
-            Open
-
-        </small>
-
-    </a>
-
-
-    <a
-        class="stream-link"
-
-        href="https://www.youtube.com/@lolesports/live"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <div>
-
-            <i class="fab fa-youtube"></i>
-
-            League of Legends
-
-        </div>
-
-        <small>
-
-            Open
-
-        </small>
-
-    </a>
-
-
-    <a
-        class="stream-link"
-
-        href="https://www.twitch.tv/playapex"
-
-        target="_blank"
-
-        rel="noopener"
-    >
-
-        <div>
-
-            <i class="fab fa-twitch"></i>
-
-            Apex Legends
-
-        </div>
-
-        <small>
-
-            Open
-
-        </small>
-
-    </a>
-
-
-</div>
-
-
-<!-- STORAGE -->
-
-<div class="side-box">
-
-    <h4>
-
-        <i
-            class="fas fa-database"
-            style="color:var(--accent);"
-        ></i>
-
-        Storage Technologies
-
-    </h4>
-
-
-    <p>
-
-        This page intentionally demonstrates all three storage
-        technologies required by the coursework.
-
-    </p>
-
-
-    <div class="tech-chip">
-
-        <i class="fas fa-save"></i>
-
-        localStorage: filter
-
-    </div>
-
-
-    <div class="tech-chip">
-
-        <i class="fas fa-layer-group"></i>
-
-        sessionStorage: expanded schedule
-
-    </div>
-
-
-    <div class="tech-chip">
-
-        <i class="fas fa-cookie-bite"></i>
-
-        Cookie: visit count
-
-    </div>
-
-
-    <p
-        style="
-        margin-top:12px;
-        margin-bottom:0;
-        "
-    >
-
-        Saved filter:
-
-        <strong
-            id="storageFilter"
-            style="color:#fff;"
-        >
-
-            all
-
-        </strong>
-
-
-        <br>
-
-
-        Visits on this browser:
-
-        <strong
-            id="visitCount"
-            style="color:#fff;"
-        >
-
-            1
-
-        </strong>
-
-
-    </p>
-
-
-</div>
-
-
-<!-- FACEBOOK -->
-
-<div class="side-box">
-
-    <h4>
-
-        <i
-            class="fab fa-facebook"
-            style="color:#4267B2;"
-        ></i>
-
-        Social Media Plugin
-
-    </h4>
-
-
-    <div id="fb-root"></div>
-
-
-    <div
-        class="fb-page"
-
-        data-href="https://www.facebook.com/facebook"
-
-        data-tabs="timeline"
-
-        data-width="300"
-
-        data-height="320"
-
-        data-small-header="true"
-
-        data-adapt-container-width="true"
-
-        data-hide-cover="false"
-
-        data-show-facepile="true"
-    >
-    </div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- =========================================
-     REST API SECTION
-========================================== -->
-
-<div class="api-section">
-
-
-<h3>
-
-    <i class="fas fa-code"></i>
-
-    RESTful API – Community Updates
-
-</h3>
-
-
-<p
-    style="
-    color:var(--muted);
-    font-size:13px;
-    "
->
-
-    Loaded dynamically with
-
-    <strong style="color:#fff;">
-
-        jQuery $.ajax()
-
-    </strong>
-
-    from JSONPlaceholder.
-
-    This section is intentionally labelled as API demo content,
-    not real esports news.
-
-</p>
-
-
-<div
-    class="row"
-    id="apiContainer"
->
-
-
-<div
-    class="col-12 text-center"
-    style="
-    padding:28px;
-    color:var(--muted);
-    "
->
-
-    <i class="fas fa-spinner fa-spin"></i>
-
-    Loading API data…
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     FOOTER
-========================================== -->
-
-<footer class="footer_part black">
-
-
-<div class="footer_top">
-
-<div class="container">
-
-<div class="row">
-
-
-<div class="col-sm-6 col-lg-3">
-
-<div class="single_footer_part">
-
-
-<a
-    href="index.html"
-    class="footer_logo_iner"
->
-
-    <img
-        src="img/logo.png"
-        alt="LEAGUE ESPORTS"
-    >
-
+<div class="col-lg-12">
+<nav class="navbar navbar-expand-lg navbar-light">
+<a class="navbar-brand d-flex align-items-center" href="index.html" >
+<img src="img/logo.png" alt="logo" >
+<span style=" color:#fff; font-weight:800; margin-left:10px; " >LEAGUE ESPORTS</span>
 </a>
-
-
-<p>
-
-    Competitive tournaments,
-    player communities and esports events.
-
-</p>
-
-
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+<span class="menu_icon">
+<i class="fas fa-bars"></i>
+</span>
+</button>
+<div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent" >
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="index.html" >Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html" >About Us</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navTournaments" role="button" data-toggle="dropdown" >Tournaments</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="tournaments.html" >Tournaments</a>
+<a class="dropdown-item" href="schedules.html" >Schedules & Results</a>
 </div>
-
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTeams" role="button" data-toggle="dropdown" >Teams</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownTeams" >
+<a class="dropdown-item" href="teams.html" >Our Teams</a>
+<a class="dropdown-item" href="players.html" >Player Profiles</a>
+<a class="dropdown-item" href="leaderboard.html" >Leaderboard</a>
 </div>
-
-
-<div class="col-sm-6 col-lg-3">
-
-<div class="single_footer_part">
-
-
-<h4>
-
-    Quick Links
-
-</h4>
-
-
-<ul class="list-unstyled">
-
-
-<li>
-
-    <a href="index.html">
-
-        Home
-
-    </a>
-
 </li>
-
-
-<li>
-
-    <a href="tournaments.html">
-
-        Tournaments
-
-    </a>
-
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navCommunity" role="button" data-toggle="dropdown" >Community</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="news.html" >News & Gallery</a>
+<a class="dropdown-item" href="register.html" >Join Us</a>
+</div>
 </li>
-
-
-<li>
-
-    <a href="schedules.html">
-
-        Schedules
-
-    </a>
-
-</li>
-
-
-<li>
-
-    <a href="players.html">
-
-        Players
-
-    </a>
-
-</li>
-
-
 </ul>
-
-
 </div>
-
+<a href="register.html" class="btn_1 d-none d-sm-block" >Join Us</a>
+</nav>
 </div>
-
-
-<div class="col-sm-6 col-lg-3">
-
-<div class="single_footer_part">
-
-
-<h4>
-
-    Community
-
-</h4>
-
-
-<ul class="list-unstyled">
-
-
-<li>
-
-    <a href="news.html">
-
-        News & Gallery
-
-    </a>
-
-</li>
-
-
-<li>
-
-    <a href="leaderboard.html">
-
-        Leaderboard
-
-    </a>
-
-</li>
-
-
-<li>
-
-    <a href="register.html">
-
-        Join Us
-
-    </a>
-
-</li>
-
-
-</ul>
-
-
 </div>
-
 </div>
-
-
-<div class="col-sm-6 col-lg-3">
-
-<div class="single_footer_part">
-
-
-<h4>
-
-    LEAGUE ESPORTS
-
-</h4>
-
-
-<p>
-
-    Malaysia
-
-</p>
-
-
-<p>
-
-    Email: leagueesports@example.com
-
-</p>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="copygight_text">
-
+</header>
+<section class="breadcrumb breadcrumb_bg">
 <div class="container">
-
 <div class="row">
-
-
-<div class="col-lg-12 text-center">
-
-
-<p>
-
-Copyright &copy;
-
-<script>
-
-document.write(
-    new Date().getFullYear()
-);
-
-</script>
-
-LEAGUE ESPORTS.
-
-All rights reserved.
-
+<div class="col-lg-12">
+<div class="breadcrumb_iner text-center">
+<div class="breadcrumb_iner_item">
+<h2>Schedule & Results</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section_padding sched-section">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="section_tittle text-center">
+<h2>Upcoming & Recent Matches</h2>
+<p>Follow match schedules, live status,
+results and competitive gaming broadcasts.</p>
+</div>
+</div>
+</div>
+<div class="row schedule-stats">
+<div class="col-6 col-md-3">
+<div class="schedule-stat">
+<i class="fas fa-calendar-check"></i>
+<strong id="statTotal">0</strong>
+<span>Total Matches</span>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="schedule-stat">
+<i class="fas fa-broadcast-tower"></i>
+<strong id="statLive">0</strong>
+<span>Live Now</span>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="schedule-stat">
+<i class="fas fa-hourglass-half"></i>
+<strong id="statUpcoming">0</strong>
+<span>Upcoming</span>
+</div>
+</div>
+<div class="col-6 col-md-3">
+<div class="schedule-stat">
+<i class="fas fa-check-circle"></i>
+<strong id="statFinished">0</strong>
+<span>Finished</span>
+</div>
+</div>
+</div>
+<div class="live-center">
+<div class="row align-items-center">
+<div class="col-lg-8">
+<div class="live-center__eyebrow">
+<i class="fas fa-satellite-dish"></i> Live Match Center
+</div>
+<h3 id="liveCenterTitle">Checking current schedule...</h3>
+<p id="liveCenterGame">Match status updates automatically
+according to the scheduled time.</p>
+<div class="live-center__teams" id="liveCenterTeams" >
+Please wait...
+</div>
+<div id="liveCenterAction"></div>
+</div>
+<div class="col-lg-4 mt-4 mt-lg-0">
+<div class="live-clock-card">
+<small>Malaysia Time (UTC+8)</small>
+<div class="clock" id="clockTime" >
+--:--:--
+</div>
+<div class="date" id="clockDate" >
+--
+</div>
+<div style=" color:var(--muted); font-size:11px; margin-top:10px; " >
+Last refresh:
+<span id="lastRefresh">--</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-8">
+<div class="sched-filter-group" id="filterGroup" >
+<button class="filter-btn active" data-filter="all" >All Matches</button>
+<button class="filter-btn" data-filter="live" >
+<span class="dot dot-live"></span>
+Live
+</button>
+<button class="filter-btn" data-filter="upcoming" >
+<span class="dot dot-upcoming"></span>
+Upcoming
+</button>
+<button class="filter-btn" data-filter="finished" >
+<span class="dot dot-finished"></span>
+Finished
+</button>
+<button class="filter-btn" data-filter="tbd" >
+<span class="dot dot-tbd"></span>
+TBD
+</button>
+</div>
+<div id="scheduleContainer">
+<div class="sched-day">
+<div class="sched-day__label">
+Tue, Aug 18 2026
+</div>
+<div class="sched-item" data-start="2026-08-18T15:00:00+08:00" data-end="2026-08-18T17:00:00+08:00" data-game="VALORANT" data-stream="https://www.twitch.tv/valorant" >
+<div class="sched-item__time">
+<strong>15:00</strong>
+<span>Aug 18</span>
+</div>
+<div class="sched-item__tourn">
+Summer Clash
+</div>
+<div class="sched-item__match">
+<span class="team">
+<span class="team-avatar" style="background:#ff2e63;" >A</span>
+Team A
+</span>
+<span class="score score--vs">VS</span>
+<span class="team">
+<span class="team-avatar" style="background:#4d8dff;" >B</span>
+Team B
+</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/valorant" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+<div class="sched-item" data-start="2026-08-18T17:30:00+08:00" data-end="2026-08-18T19:30:00+08:00" data-game="VALORANT" data-stream="https://www.twitch.tv/valorant" >
+<div class="sched-item__time">
+<strong>17:30</strong>
+<span>Aug 18</span>
+</div>
+<div class="sched-item__tourn">
+Summer Clash
+</div>
+<div class="sched-item__match">
+<span class="team">
+<span class="team-avatar" style="background:#2ecf7a;" >C</span>
+Team C
+</span>
+<span class="score score--vs">VS</span>
+<span class="team">
+<span class="team-avatar" style="background:#b78a12;" >D</span>
+Team D
+</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/valorant" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+</div>
+<div class="sched-day">
+<div class="sched-day__label">
+Wed, Aug 19 2026
+</div>
+<div class="sched-item" data-start="2026-08-19T14:00:00+08:00" data-end="2026-08-19T16:30:00+08:00" data-game="VALORANT" data-stream="https://www.twitch.tv/valorant" >
+<div class="sched-item__time">
+<strong>14:00</strong>
+<span>Aug 19</span>
+</div>
+<div class="sched-item__tourn">
+Summer Clash
+</div>
+<div class="sched-item__match">
+<span class="team">
+<span class="team-avatar" style="background:#ff7849;" >E</span>
+Team E
+</span>
+<span class="score score--vs">VS</span>
+<span class="team">
+<span class="team-avatar" style="background:#8e2626;" >F</span>
+Team F
+</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/valorant" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+<div class="sched-item" data-start="2026-08-19T18:00:00+08:00" data-end="2026-08-19T21:00:00+08:00" data-game="Multi-Game" data-stream="https://www.twitch.tv/esl" >
+<div class="sched-item__time">
+<strong>18:00</strong>
+<span>Aug 19</span>
+</div>
+<div class="sched-item__tourn">
+Global Esports Cup
+</div>
+<div class="sched-item__match">
+<span class="team">
+<span class="team-avatar" style="background:#315f9c;" >G</span>
+Team G
+</span>
+<span class="score score--vs">VS</span>
+<span class="team">
+<span class="team-avatar" style="background:#ba7617;" >H</span>
+Team H
+</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/esl" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+</div>
+<div class="sched-day">
+<div class="sched-day__label">
+Thu, Aug 20 2026
+</div>
+<div class="sched-item" data-start="2026-08-20T16:00:00+08:00" data-end="2026-08-20T19:00:00+08:00" data-game="Counter-Strike 2" data-stream="https://www.twitch.tv/eslcs" >
+<div class="sched-item__time">
+<strong>16:00</strong>
+<span>Aug 20</span>
+</div>
+<div class="sched-item__tourn">
+Global Esports Cup
+</div>
+<div class="sched-item__match">
+<span class="team">
+<span class="team-avatar" style="background:#e1583d;" >I</span>
+Team I
+</span>
+<span class="score score--vs">VS</span>
+<span class="team">
+<span class="team-avatar" style="background:#00a990;" >J</span>
+Team J
+</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/eslcs" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+</div>
+<div class="sched-day">
+<div class="sched-day__label">
+Fri, Aug 21 2026
+</div>
+<div class="sched-item" data-manual-status="tbd" data-game="VALORANT" >
+<div class="sched-item__time">
+<strong>13:00</strong>
+<span>Aug 21</span>
+</div>
+<div class="sched-item__tourn">
+Summer Clash
+</div>
+<div class="sched-item__match">
+<span class="team">Semifinal #1</span>
+<span class="score score--vs">VS</span>
+<span class="team">Semifinal #2</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge status-tbd">TBD</span>
+</div>
+</div>
+</div>
+<div class="sched-day">
+<div class="sched-day__label">
+Sat, Aug 22 2026
+</div>
+<div class="sched-item" data-start="2026-08-22T18:00:00+08:00" data-end="2026-08-22T21:00:00+08:00" data-game="VALORANT" data-stream="https://www.twitch.tv/valorant" >
+<div class="sched-item__time">
+<strong>18:00</strong>
+<span>Aug 22</span>
+</div>
+<div class="sched-item__tourn">
+<i class="fas fa-trophy" style="color:#ffcf5c;" ></i> Summer Clash
+</div>
+<div class="sched-item__match">
+<span class="team">Grand Finalist A</span>
+<span class="score score--vs">VS</span>
+<span class="team">Grand Finalist B</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/valorant" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+</div>
+<div class="extra-schedule" id="extraSchedule" style="display:none;" >
+<div class="sched-day">
+<div class="sched-day__label">
+Sat, Sep 05 2026
+</div>
+<div class="sched-item" data-start="2026-09-05T12:00:00+08:00" data-end="2026-09-05T15:00:00+08:00" data-game="Counter-Strike 2" data-stream="https://www.twitch.tv/eslcs" >
+<div class="sched-item__time">
+<strong>12:00</strong>
+<span>Sep 05</span>
+</div>
+<div class="sched-item__tourn">
+Pro League S7
+</div>
+<div class="sched-item__match">
+<span class="team">Team Alpha</span>
+<span class="score score--vs">VS</span>
+<span class="team">Team Bravo</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.twitch.tv/eslcs" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+</div>
+<div class="sched-day">
+<div class="sched-day__label">
+Fri, Oct 02 2026
+</div>
+<div class="sched-item" data-start="2026-10-02T11:00:00+08:00" data-end="2026-10-02T14:00:00+08:00" data-game="League of Legends" data-stream="https://www.youtube.com/@lolesports/live" >
+<div class="sched-item__time">
+<strong>11:00</strong>
+<span>Oct 02</span>
+</div>
+<div class="sched-item__tourn">
+Rookie Cup 2026
+</div>
+<div class="sched-item__match">
+<span class="team">Rookie Team 1</span>
+<span class="score score--vs">VS</span>
+<span class="team">Rookie Team 2</span>
+</div>
+<div class="sched-item__status">
+<span class="status-badge">Checking</span>
+<br>
+<a class="safe-btn watch-link" href="https://www.youtube.com/@lolesports/live" target="_blank" rel="noopener" >
+<i class="fas fa-play"></i> Watch Live
+</a>
+</div>
+</div>
+</div>
+</div>
+<div id="emptyMessage" class="text-center" style=" display:none; color:var(--muted); padding:25px; " >
+No matches found for this filter.
+</div>
+</div>
+<div class="text-center mt-4">
+<button type="button" class="safe-btn" id="fullScheduleBtn" >
+<i class="far fa-calendar-alt"></i>
+<span id="fullScheduleText">View Full Schedule</span>
+</button>
+</div>
+</div>
+<div class="col-lg-4 mt-4 mt-lg-0">
+<div class="side-box">
+<h4>
+<i class="fas fa-play-circle" style="color:var(--accent);" ></i> Stream Hub
+</h4>
+<p>Visit popular esports streaming channels
+and competitive gaming broadcasts.</p>
+<a class="stream-link" href="https://www.twitch.tv/valorant" target="_blank" rel="noopener" >
+<div>
+<i class="fab fa-twitch"></i> VALORANT
+</div>
+<small>Open</small>
+</a>
+<a class="stream-link" href="https://www.twitch.tv/eslcs" target="_blank" rel="noopener" >
+<div>
+<i class="fab fa-twitch"></i> Counter-Strike
+</div>
+<small>Open</small>
+</a>
+<a class="stream-link" href="https://www.twitch.tv/dota2ti" target="_blank" rel="noopener" >
+<div>
+<i class="fab fa-twitch"></i> Dota 2
+</div>
+<small>Open</small>
+</a>
+<a class="stream-link" href="https://www.youtube.com/@lolesports/live" target="_blank" rel="noopener" >
+<div>
+<i class="fab fa-youtube"></i> League of Legends
+</div>
+<small>Open</small>
+</a>
+<a class="stream-link" href="https://www.twitch.tv/playapex" target="_blank" rel="noopener" >
+<div>
+<i class="fab fa-twitch"></i> Apex Legends
+</div>
+<small>Open</small>
+</a>
+</div>
+<div class="side-box">
+<h4>
+<i class="fas fa-cog" style="color:var(--accent);" ></i> Match Preferences
+</h4>
+<p>Your preferred schedule view is remembered
+while browsing the website.</p>
+<div class="tech-chip">
+<i class="fas fa-filter"></i> Match Filter
+</div>
+<div class="tech-chip">
+<i class="fas fa-calendar"></i> Schedule View
+</div>
+<div class="tech-chip">
+<i class="fas fa-history"></i> Visit History
+</div>
+<p style=" margin-top:12px; margin-bottom:0; " >
+Current filter:
+<strong id="storageFilter" style="color:#fff;" >all</strong>
+<br>
+Visits:
+<strong id="visitCount" style="color:#fff;" >1</strong>
 </p>
-
-
 </div>
-
-
+<div class="side-box">
+<h4>
+<i class="fab fa-facebook" style="color:#4267B2;" ></i> Follow the Community
+</h4>
+<div id="fb-root"></div>
+<div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="300" data-height="320" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" >
 </div>
-
 </div>
-
 </div>
-
-
+</div>
+<div class="api-section">
+<h3>
+<i class="fas fa-globe-asia"></i> Global Esports Regions
+</h3>
+<p style=" color:var(--muted); font-size:13px; " >Explore major regions represented across
+international esports and competitive gaming communities.</p>
+<div class="row" id="apiContainer" >
+<div class="col-12 text-center" style=" padding:28px; color:var(--muted); " >
+<i class="fas fa-spinner fa-spin"></i> Loading global regions...
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="modal fade" id="regionModal" tabindex="-1" role="dialog" aria-hidden="true" >
+<div class="modal-dialog modal-dialog-centered" role="document" >
+<div class="modal-content region-modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="regionModalTitle" >Esports Region</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<img id="regionModalFlag" class="region-modal-flag" src="" alt="Region flag" >
+<div class="region-detail">
+<strong>Region:</strong>
+<span id="regionModalRegion"></span>
+</div>
+<div class="region-detail">
+<strong>Capital:</strong>
+<span id="regionModalCapital"></span>
+</div>
+<div class="region-detail">
+<strong>Country Code:</strong>
+<span id="regionModalCode"></span>
+</div>
+<p id="regionModalDescription" style=" color:#9aa0b4; margin-top:18px; line-height:1.8; " ></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="safe-btn" data-dismiss="modal" >Close</button>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer_part black">
+<div class="footer_top">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 col-lg-3">
+<div class="single_footer_part">
+<a href="index.html" class="footer_logo_iner" >
+<img src="img/logo.png" alt="LEAGUE ESPORTS" >
+</a>
+<p>Competitive tournaments,
+player communities and esports events.</p>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="single_footer_part">
+<h4>Quick Links</h4>
+<ul class="list-unstyled">
+<li>
+<a href="index.html">Home</a>
+</li>
+<li>
+<a href="tournaments.html">Tournaments</a>
+</li>
+<li>
+<a href="schedules.html">Schedules</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="single_footer_part">
+<h4>Teams</h4>
+<ul class="list-unstyled">
+<li>
+<a href="teams.html">Our Teams</a>
+</li>
+<li>
+<a href="players.html">Player Profiles</a>
+</li>
+<li>
+<a href="leaderboard.html">Leaderboard</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-sm-6 col-lg-3">
+<div class="single_footer_part">
+<h4>Community</h4>
+<ul class="list-unstyled">
+<li>
+<a href="news.html">News & Gallery</a>
+</li>
+<li>
+<a href="register.html">Join Us</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="copygight_text">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 text-center">
+<p>
+Copyright &copy;
+<script>
+document.write(
+new Date().getFullYear()
+);
+</script>
+LEAGUE ESPORTS.
+All rights reserved.
+</p>
+</div>
+</div>
+</div>
+</div>
 </footer>
-
-
-<!-- =========================================
-     JS FILES
-========================================== -->
-
 <script src="js/jquery-1.12.1.min.js"></script>
-
 <script src="js/popper.min.js"></script>
-
 <script src="js/bootstrap.min.js"></script>
-
 <script src="js/jquery.magnific-popup.js"></script>
-
 <script src="js/swiper.min.js"></script>
-
 <script src="js/masonry.pkgd.js"></script>
-
 <script src="js/owl.carousel.min.js"></script>
-
 <script src="js/jquery.nice-select.min.js"></script>
-
 <script src="js/slick.min.js"></script>
-
 <script src="js/jquery.counterup.min.js"></script>
-
 <script src="js/waypoints.min.js"></script>
-
 <script src="js/custom.js"></script>
-
-
-<!-- =========================================
-     FACEBOOK SOCIAL MEDIA PLUGIN
-========================================== -->
-
 <script
-    async
-    defer
-    crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
+async
+defer
+crossorigin="anonymous"
+src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
 >
 </script>
-
-
-<!-- =========================================
-     STORAGE + REAL-TIME MATCH FUNCTIONS
-========================================== -->
-
 <script>
-
 (function () {
-
-
-    var matches =
-        Array.prototype.slice.call(
-            document.querySelectorAll(
-                '.sched-item'
-            )
-        );
-
-
-    var filterButtons =
-        Array.prototype.slice.call(
-            document.querySelectorAll(
-                '.filter-btn'
-            )
-        );
-
-
-    var extraSchedule =
-        document.getElementById(
-            'extraSchedule'
-        );
-
-
-    var fullScheduleBtn =
-        document.getElementById(
-            'fullScheduleBtn'
-        );
-
-
-    var fullScheduleText =
-        document.getElementById(
-            'fullScheduleText'
-        );
-
-
-    var emptyMessage =
-        document.getElementById(
-            'emptyMessage'
-        );
-
-
-    var currentFilter =
-        localStorage.getItem(
-            'schedFilter'
-        )
-        ||
-        'all';
-
-
-    /* =========================================
-       COOKIE
-    ========================================== */
-
-    function setCookie(
-        name,
-        value,
-        days
-    )
-    {
-
-        var expires =
-            '';
-
-
-        if (days)
-        {
-
-            var d =
-                new Date();
-
-
-            d.setTime(
-                d.getTime()
-                +
-                days
-                *
-                24
-                *
-                60
-                *
-                60
-                *
-                1000
-            );
-
-
-            expires =
-                '; expires='
-                +
-                d.toUTCString();
-
-        }
-
-
-        document.cookie =
-            name
-            +
-            '='
-            +
-            encodeURIComponent(
-                value
-            )
-            +
-            expires
-            +
-            '; path=/; SameSite=Lax';
-
-    }
-
-
-    function getCookie(
-        name
-    )
-    {
-
-        var key =
-            name
-            +
-            '=';
-
-
-        var parts =
-            document.cookie.split(
-                ';'
-            );
-
-
-        for (
-            var i = 0;
-            i < parts.length;
-            i++
-        )
-        {
-
-            var c =
-                parts[i].trim();
-
-
-            if (
-                c.indexOf(
-                    key
-                )
-                ===
-                0
-            )
-            {
-
-                return decodeURIComponent(
-                    c.substring(
-                        key.length
-                    )
-                );
-
-            }
-
-        }
-
-
-        return null;
-
-    }
-
-
-    var visits =
-        parseInt(
-            getCookie(
-                'leagueScheduleVisits'
-            )
-            ||
-            '0',
-            10
-        )
-        +
-        1;
-
-
-    setCookie(
-        'leagueScheduleVisits',
-        visits,
-        30
-    );
-
-
-    document.getElementById(
-        'visitCount'
-    ).textContent =
-        visits;
-
-
-    /* =========================================
-       SESSION STORAGE
-    ========================================== */
-
-    var expanded =
-        sessionStorage.getItem(
-            'scheduleExpanded'
-        )
-        ===
-        '1';
-
-
-    extraSchedule.style.display =
-        expanded
-        ?
-        'block'
-        :
-        'none';
-
-
-    fullScheduleText.textContent =
-        expanded
-        ?
-        'Show Less'
-        :
-        'View Full Schedule';
-
-
-    /* =========================================
-       MALAYSIA TIME
-    ========================================== */
-
-    function malaysiaNow()
-    {
-
-        return new Date(
-
-            new Date()
-            .toLocaleString(
-                'en-US',
-                {
-                    timeZone:
-                        'Asia/Kuala_Lumpur'
-                }
-            )
-
-        );
-
-    }
-
-
-    function updateClock()
-    {
-
-        var now =
-            malaysiaNow();
-
-
-        document.getElementById(
-            'clockTime'
-        ).textContent =
-            now.toLocaleTimeString(
-                'en-GB',
-                {
-                    hour:
-                        '2-digit',
-
-                    minute:
-                        '2-digit',
-
-                    second:
-                        '2-digit'
-                }
-            );
-
-
-        document.getElementById(
-            'clockDate'
-        ).textContent =
-            now.toLocaleDateString(
-                'en-US',
-                {
-                    weekday:
-                        'long',
-
-                    year:
-                        'numeric',
-
-                    month:
-                        'long',
-
-                    day:
-                        'numeric'
-                }
-            );
-
-    }
-
-
-    /* =========================================
-       GET TEAM NAMES
-    ========================================== */
-
-    function teamNames(
-        match
-    )
-    {
-
-        var teams =
-            match.querySelectorAll(
-                '.team'
-            );
-
-
-        return [
-
-            teams[0]
-            ?
-            teams[0].textContent.trim()
-            :
-            'Team A',
-
-            teams[1]
-            ?
-            teams[1].textContent.trim()
-            :
-            'Team B'
-
-        ];
-
-    }
-
-
-    /* =========================================
-       CHANGE MATCH STATUS
-    ========================================== */
-
-    function setStatus(
-        match,
-        status
-    )
-    {
-
-        match.setAttribute(
-            'data-status',
-            status
-        );
-
-
-        match.classList.toggle(
-            'is-live',
-            status === 'live'
-        );
-
-
-        var badge =
-            match.querySelector(
-                '.status-badge'
-            );
-
-
-        if (!badge)
-        {
-
-            return;
-
-        }
-
-
-        if (
-            status === 'live'
-        )
-        {
-
-            badge.className =
-                'status-badge status-live';
-
-
-            badge.innerHTML =
-                '<span class="live-ping"></span>LIVE';
-
-        }
-
-
-        else if (
-            status === 'upcoming'
-        )
-        {
-
-            badge.className =
-                'status-badge status-upcoming';
-
-
-            badge.textContent =
-                'Upcoming';
-
-        }
-
-
-        else if (
-            status === 'finished'
-        )
-        {
-
-            badge.className =
-                'status-badge status-finished';
-
-
-            badge.textContent =
-                'Finished';
-
-        }
-
-
-        else
-        {
-
-            badge.className =
-                'status-badge status-tbd';
-
-
-            badge.textContent =
-                'TBD';
-
-        }
-
-    }
-
-
-    /* =========================================
-       UPDATE ALL MATCHES
-    ========================================== */
-
-    function updateStatuses()
-    {
-
-        var now =
-            malaysiaNow();
-
-
-        var liveMatch =
-            null;
-
-
-        var counts =
-        {
-
-            live:
-                0,
-
-            upcoming:
-                0,
-
-            finished:
-                0,
-
-            tbd:
-                0
-
-        };
-
-
-        matches.forEach(
-            function (
-                match
-            )
-            {
-
-                var manual =
-                    match.getAttribute(
-                        'data-manual-status'
-                    );
-
-
-                if (
-                    manual === 'tbd'
-                )
-                {
-
-                    setStatus(
-                        match,
-                        'tbd'
-                    );
-
-
-                    counts.tbd++;
-
-
-                    return;
-
-                }
-
-
-                var start =
-                    new Date(
-                        match.getAttribute(
-                            'data-start'
-                        )
-                    );
-
-
-                var end =
-                    new Date(
-                        match.getAttribute(
-                            'data-end'
-                        )
-                    );
-
-
-                var status =
-                    now < start
-                    ?
-                    'upcoming'
-                    :
-                    (
-                        now <= end
-                        ?
-                        'live'
-                        :
-                        'finished'
-                    );
-
-
-                setStatus(
-                    match,
-                    status
-                );
-
-
-                counts[status]++;
-
-
-                if (
-                    status === 'live'
-                    &&
-                    !liveMatch
-                )
-                {
-
-                    liveMatch =
-                        match;
-
-                }
-
-            }
-        );
-
-
-        document.getElementById(
-            'statTotal'
-        ).textContent =
-            matches.length;
-
-
-        document.getElementById(
-            'statLive'
-        ).textContent =
-            counts.live;
-
-
-        document.getElementById(
-            'statUpcoming'
-        ).textContent =
-            counts.upcoming;
-
-
-        document.getElementById(
-            'statFinished'
-        ).textContent =
-            counts.finished;
-
-
-        document.getElementById(
-            'lastRefresh'
-        ).textContent =
-            now.toLocaleTimeString(
-                'en-GB',
-                {
-                    hour:
-                        '2-digit',
-
-                    minute:
-                        '2-digit',
-
-                    second:
-                        '2-digit'
-                }
-            );
-
-
-        updateLiveCenter(
-            liveMatch,
-            now
-        );
-
-
-        applyFilter(
-            currentFilter
-        );
-
-    }
-
-
-    /* =========================================
-       LIVE CENTER
-    ========================================== */
-
-    function updateLiveCenter(
-        liveMatch,
-        now
-    )
-    {
-
-        var title =
-            document.getElementById(
-                'liveCenterTitle'
-            );
-
-
-        var game =
-            document.getElementById(
-                'liveCenterGame'
-            );
-
-
-        var teams =
-            document.getElementById(
-                'liveCenterTeams'
-            );
-
-
-        var action =
-            document.getElementById(
-                'liveCenterAction'
-            );
-
-
-        if (
-            liveMatch
-        )
-        {
-
-            var names =
-                teamNames(
-                    liveMatch
-                );
-
-
-            title.textContent =
-                'LIVE NOW';
-
-
-            game.textContent =
-                liveMatch.getAttribute(
-                    'data-game'
-                )
-                +
-                ' • '
-                +
-                liveMatch
-                .querySelector(
-                    '.sched-item__tourn'
-                )
-                .textContent
-                .trim();
-
-
-            teams.innerHTML =
-                '<span>'
-                +
-                names[0]
-                +
-                '</span>'
-                +
-                '<span class="vs">VS</span>'
-                +
-                '<span>'
-                +
-                names[1]
-                +
-                '</span>';
-
-
-            var stream =
-                liveMatch.getAttribute(
-                    'data-stream'
-                );
-
-
-            action.innerHTML =
-                stream
-                ?
-                '<a class="safe-btn live" target="_blank" rel="noopener" href="'
-                +
-                stream
-                +
-                '"><i class="fas fa-play"></i> Watch Live Channel</a>'
-                :
-                '';
-
-
-            return;
-
-        }
-
-
-        var upcoming =
-            matches
-
-            .filter(
-                function(m)
-                {
-
-                    return (
-                        m.getAttribute(
-                            'data-status'
-                        )
-                        ===
-                        'upcoming'
-                    );
-
-                }
-            )
-
-            .sort(
-                function(
-                    a,
-                    b
-                )
-                {
-
-                    return (
-
-                        new Date(
-                            a.getAttribute(
-                                'data-start'
-                            )
-                        )
-
-                        -
-
-                        new Date(
-                            b.getAttribute(
-                                'data-start'
-                            )
-                        )
-
-                    );
-
-                }
-            );
-
-
-        if (
-            upcoming.length
-        )
-        {
-
-            var next =
-                upcoming[0];
-
-
-            var names2 =
-                teamNames(
-                    next
-                );
-
-
-            var start =
-                new Date(
-                    next.getAttribute(
-                        'data-start'
-                    )
-                );
-
-
-            var diff =
-                Math.max(
-                    0,
-                    start - now
-                );
-
-
-            var hours =
-                Math.floor(
-                    diff
-                    /
-                    3600000
-                );
-
-
-            var mins =
-                Math.floor(
-
-                    (
-                        diff
-                        %
-                        3600000
-                    )
-
-                    /
-
-                    60000
-
-                );
-
-
-            title.textContent =
-                'Next Match';
-
-
-            game.textContent =
-                next.getAttribute(
-                    'data-game'
-                )
-                +
-                ' • starts in '
-                +
-                hours
-                +
-                'h '
-                +
-                mins
-                +
-                'm';
-
-
-            teams.innerHTML =
-                '<span>'
-                +
-                names2[0]
-                +
-                '</span>'
-                +
-                '<span class="vs">VS</span>'
-                +
-                '<span>'
-                +
-                names2[1]
-                +
-                '</span>';
-
-
-            action.innerHTML =
-                '<button type="button" class="safe-btn" id="jumpNext">'
-                +
-                '<i class="fas fa-arrow-down"></i>'
-                +
-                ' Jump to Match'
-                +
-                '</button>';
-
-
-            setTimeout(
-                function()
-                {
-
-                    var b =
-                        document.getElementById(
-                            'jumpNext'
-                        );
-
-
-                    if (b)
-                    {
-
-                        b.onclick =
-                            function()
-                            {
-
-                                next.scrollIntoView(
-                                    {
-
-                                        behavior:
-                                            'smooth',
-
-                                        block:
-                                            'center'
-
-                                    }
-                                );
-
-                            };
-
-                    }
-
-                },
-                0
-            );
-
-        }
-
-
-        else
-        {
-
-            title.textContent =
-                'No Live Match';
-
-
-            game.textContent =
-                'All currently listed scheduled matches are complete.';
-
-
-            teams.textContent =
-                'Check the Stream Hub for official esports channels.';
-
-
-            action.innerHTML =
-                '';
-
-        }
-
-    }
-
-
-    /* =========================================
-       FILTER
-    ========================================== */
-
-    function applyFilter(
-        filter
-    )
-    {
-
-        currentFilter =
-            filter;
-
-
-        localStorage.setItem(
-            'schedFilter',
-            filter
-        );
-
-
-        document.getElementById(
-            'storageFilter'
-        ).textContent =
-            filter;
-
-
-        filterButtons.forEach(
-            function(
-                btn
-            )
-            {
-
-                btn.classList.toggle(
-                    'active',
-
-                    btn.getAttribute(
-                        'data-filter'
-                    )
-                    ===
-                    filter
-                );
-
-            }
-        );
-
-
-        var visible =
-            0;
-
-
-        matches.forEach(
-            function(
-                match
-            )
-            {
-
-                var inExtra =
-                    !!match.closest(
-                        '#extraSchedule'
-                    );
-
-
-                var extraOpen =
-                    extraSchedule.style.display
-                    ===
-                    'block';
-
-
-                var status =
-                    match.getAttribute(
-                        'data-status'
-                    );
-
-
-                var show =
-                    (
-                        filter === 'all'
-                        ||
-                        filter === status
-                    )
-                    &&
-                    (
-                        !inExtra
-                        ||
-                        extraOpen
-                    );
-
-
-                match.style.display =
-                    show
-                    ?
-                    ''
-                    :
-                    'none';
-
-
-                if (show)
-                {
-
-                    visible++;
-
-                }
-
-            }
-        );
-
-
-        document
-        .querySelectorAll(
-            '.sched-day'
-        )
-        .forEach(
-            function(
-                day
-            )
-            {
-
-                var shown =
-                    Array.prototype
-                    .slice
-                    .call(
-                        day.querySelectorAll(
-                            '.sched-item'
-                        )
-                    )
-                    .some(
-                        function(
-                            m
-                        )
-                        {
-
-                            return (
-                                m.style.display
-                                !==
-                                'none'
-                            );
-
-                        }
-                    );
-
-
-                day.style.display =
-                    shown
-                    ?
-                    ''
-                    :
-                    'none';
-
-            }
-        );
-
-
-        emptyMessage.style.display =
-            visible
-            ?
-            'none'
-            :
-            'block';
-
-    }
-
-
-    /* =========================================
-       FILTER BUTTON EVENTS
-    ========================================== */
-
-    filterButtons.forEach(
-        function(
-            btn
-        )
-        {
-
-            btn.addEventListener(
-                'click',
-                function()
-                {
-
-                    applyFilter(
-                        btn.getAttribute(
-                            'data-filter'
-                        )
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =========================================
-       VIEW FULL SCHEDULE
-    ========================================== */
-
-    fullScheduleBtn.addEventListener(
-        'click',
-        function()
-        {
-
-            expanded =
-                !expanded;
-
-
-            sessionStorage.setItem(
-                'scheduleExpanded',
-                expanded
-                ?
-                '1'
-                :
-                '0'
-            );
-
-
-            extraSchedule.style.display =
-                expanded
-                ?
-                'block'
-                :
-                'none';
-
-
-            fullScheduleText.textContent =
-                expanded
-                ?
-                'Show Less'
-                :
-                'View Full Schedule';
-
-
-            applyFilter(
-                currentFilter
-            );
-
-
-            if (
-                expanded
-            )
-            {
-
-                extraSchedule.scrollIntoView(
-                    {
-
-                        behavior:
-                            'smooth',
-
-                        block:
-                            'start'
-
-                    }
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       INITIALISE
-    ========================================== */
-
-    updateClock();
-
-
-    updateStatuses();
-
-
-    setInterval(
-        updateClock,
-        1000
-    );
-
-
-    setInterval(
-        updateStatuses,
-        30000
-    );
-
-
-})();
-
-</script>
-
-
-<!-- =========================================
-     RESTFUL API WITH JQUERY
-========================================== -->
-
-<script>
-
-$(document).ready(
-    function()
-    {
-
-
-        $.ajax(
-            {
-
-                url:
-                    'https://jsonplaceholder.typicode.com/posts?_limit=6',
-
-
-                method:
-                    'GET',
-
-
-                dataType:
-                    'json',
-
-
-                timeout:
-                    8000,
-
-
-                success:
-                    function(
-                        data
-                    )
-                    {
-
-
-                        var labels =
-                        [
-
-                            'VALORANT',
-
-                            'COUNTER-STRIKE',
-
-                            'DOTA 2',
-
-                            'LEAGUE OF LEGENDS',
-
-                            'APEX LEGENDS',
-
-                            'ESPORTS CLUB'
-
-                        ];
-
-
-                        var html =
-                            '';
-
-
-                        $.each(
-                            data,
-                            function(
-                                index,
-                                item
-                            )
-                            {
-
-
-                                html +=
-
-                                    '<div class="col-md-4 col-sm-6 mb-3">'
-
-                                    +
-
-                                    '<div class="api-card">'
-
-                                    +
-
-                                    '<div class="api-tag">'
-
-                                    +
-
-                                    '<i class="fas fa-plug"></i> '
-
-                                    +
-
-                                    labels[index]
-
-                                    +
-
-                                    '</div>'
-
-                                    +
-
-                                    '<h5>'
-
-                                    +
-
-                                    $('<div>')
-                                    .text(
-                                        item.title
-                                    )
-                                    .html()
-
-                                    +
-
-                                    '</h5>'
-
-                                    +
-
-                                    '<p>'
-
-                                    +
-
-                                    $('<div>')
-                                    .text(
-                                        item.body.substring(
-                                            0,
-                                            110
-                                        )
-                                        +
-                                        '…'
-                                    )
-                                    .html()
-
-                                    +
-
-                                    '</p>'
-
-                                    +
-
-                                    '</div>'
-
-                                    +
-
-                                    '</div>';
-
-                            }
-                        );
-
-
-                        $('#apiContainer')
-                        .html(
-                            html
-                        );
-
-                    },
-
-
-                error:
-                    function()
-                    {
-
-
-                        $('#apiContainer')
-                        .html(
-
-                            '<div class="col-12">'
-
-                            +
-
-                            '<div class="api-card">'
-
-                            +
-
-                            '<div class="api-tag">'
-
-                            +
-
-                            'API STATUS'
-
-                            +
-
-                            '</div>'
-
-                            +
-
-                            '<h5>'
-
-                            +
-
-                            'REST API temporarily unavailable'
-
-                            +
-
-                            '</h5>'
-
-                            +
-
-                            '<p>'
-
-                            +
-
-                            'The page still demonstrates the jQuery AJAX implementation in the source code. Check internet access and try again.'
-
-                            +
-
-                            '</p>'
-
-                            +
-
-                            '</div>'
-
-                            +
-
-                            '</div>'
-
-                        );
-
-                    }
-
-
-            }
-        );
-
-
-    }
+var matches =
+Array.prototype.slice.call(
+document.querySelectorAll(
+'.sched-item'
+)
 );
-
+var filterButtons =
+Array.prototype.slice.call(
+document.querySelectorAll(
+'.filter-btn'
+)
+);
+var extraSchedule =
+document.getElementById(
+'extraSchedule'
+);
+var fullScheduleBtn =
+document.getElementById(
+'fullScheduleBtn'
+);
+var fullScheduleText =
+document.getElementById(
+'fullScheduleText'
+);
+var emptyMessage =
+document.getElementById(
+'emptyMessage'
+);
+var currentFilter =
+localStorage.getItem(
+'schedFilter'
+)
+||
+'all';
+function setCookie(
+name,
+value,
+days
+)
+{
+var expires = '';
+if (days)
+{
+var date =
+new Date();
+date.setTime(
+date.getTime()
++
+days
+*
+86400000
+);
+expires =
+'; expires='
++
+date.toUTCString();
+}
+document.cookie =
+name
++
+'='
++
+encodeURIComponent(
+value
+)
++
+expires
++
+'; path=/; SameSite=Lax';
+}
+function getCookie(name)
+{
+var search =
+name
++
+'=';
+var cookies =
+document.cookie.split(
+';'
+);
+for (
+var i = 0;
+i < cookies.length;
+i++
+)
+{
+var cookie =
+cookies[i].trim();
+if (
+cookie.indexOf(
+search
+)
+===
+0
+)
+{
+return decodeURIComponent(
+cookie.substring(
+search.length
+)
+);
+}
+}
+return null;
+}
+var visits =
+parseInt(
+getCookie(
+'scheduleVisits'
+)
+||
+'0',
+10
+)
++
+1;
+setCookie(
+'scheduleVisits',
+visits,
+30
+);
+document.getElementById(
+'visitCount'
+).textContent =
+visits;
+var expanded =
+sessionStorage.getItem(
+'scheduleExpanded'
+)
+===
+'1';
+extraSchedule.style.display =
+expanded
+?
+'block'
+:
+'none';
+fullScheduleText.textContent =
+expanded
+?
+'Show Less'
+:
+'View Full Schedule';
+function updateClock()
+{
+var now =
+new Date();
+var time =
+new Intl.DateTimeFormat(
+'en-GB',
+{
+timeZone:
+'Asia/Kuala_Lumpur',
+hour:
+'2-digit',
+minute:
+'2-digit',
+second:
+'2-digit',
+hour12:
+false
+}
+)
+.format(
+now
+);
+var date =
+new Intl.DateTimeFormat(
+'en-US',
+{
+timeZone:
+'Asia/Kuala_Lumpur',
+weekday:
+'long',
+year:
+'numeric',
+month:
+'long',
+day:
+'numeric'
+}
+)
+.format(
+now
+);
+document.getElementById(
+'clockTime'
+).textContent =
+time;
+document.getElementById(
+'clockDate'
+).textContent =
+date;
+}
+function getTeamNames(match)
+{
+var teams =
+match.querySelectorAll(
+'.team'
+);
+return [
+teams[0]
+?
+teams[0].textContent.trim()
+:
+'Team A',
+teams[1]
+?
+teams[1].textContent.trim()
+:
+'Team B'
+];
+}
+function setMatchStatus(
+match,
+status
+)
+{
+match.setAttribute(
+'data-status',
+status
+);
+match.classList.toggle(
+'is-live',
+status === 'live'
+);
+var badge =
+match.querySelector(
+'.status-badge'
+);
+if (!badge)
+{
+return;
+}
+if (
+status === 'live'
+)
+{
+badge.className =
+'status-badge status-live';
+badge.innerHTML =
+'<span class="live-ping"></span> LIVE';
+}
+else if (
+status === 'upcoming'
+)
+{
+badge.className =
+'status-badge status-upcoming';
+badge.textContent =
+'Upcoming';
+}
+else if (
+status === 'finished'
+)
+{
+badge.className =
+'status-badge status-finished';
+badge.textContent =
+'Finished';
+}
+else
+{
+badge.className =
+'status-badge status-tbd';
+badge.textContent =
+'TBD';
+}
+}
+function updateStatuses()
+{
+var now =
+new Date();
+var liveMatch =
+null;
+var live =
+0;
+var upcoming =
+0;
+var finished =
+0;
+matches.forEach(
+function(match)
+{
+var manual =
+match.getAttribute(
+'data-manual-status'
+);
+if (
+manual === 'tbd'
+)
+{
+setMatchStatus(
+match,
+'tbd'
+);
+return;
+}
+var startText =
+match.getAttribute(
+'data-start'
+);
+var endText =
+match.getAttribute(
+'data-end'
+);
+if (
+!startText
+||
+!endText
+)
+{
+return;
+}
+var start =
+new Date(
+startText
+);
+var end =
+new Date(
+endText
+);
+var status;
+if (
+now < start
+)
+{
+status =
+'upcoming';
+upcoming++;
+}
+else if (
+now >= start
+&&
+now <= end
+)
+{
+status =
+'live';
+live++;
+if (!liveMatch)
+{
+liveMatch =
+match;
+}
+}
+else
+{
+status =
+'finished';
+finished++;
+}
+setMatchStatus(
+match,
+status
+);
+}
+);
+document.getElementById(
+'statTotal'
+).textContent =
+matches.length;
+document.getElementById(
+'statLive'
+).textContent =
+live;
+document.getElementById(
+'statUpcoming'
+).textContent =
+upcoming;
+document.getElementById(
+'statFinished'
+).textContent =
+finished;
+document.getElementById(
+'lastRefresh'
+).textContent =
+new Intl.DateTimeFormat(
+'en-GB',
+{
+timeZone:
+'Asia/Kuala_Lumpur',
+hour:
+'2-digit',
+minute:
+'2-digit',
+second:
+'2-digit'
+}
+)
+.format(
+now
+);
+updateLiveCenter(
+liveMatch,
+now
+);
+applyFilter(
+currentFilter
+);
+}
+function updateLiveCenter(
+liveMatch,
+now
+)
+{
+var title =
+document.getElementById(
+'liveCenterTitle'
+);
+var game =
+document.getElementById(
+'liveCenterGame'
+);
+var teams =
+document.getElementById(
+'liveCenterTeams'
+);
+var action =
+document.getElementById(
+'liveCenterAction'
+);
+if (
+liveMatch
+)
+{
+var names =
+getTeamNames(
+liveMatch
+);
+title.textContent =
+'LIVE NOW';
+game.textContent =
+liveMatch.getAttribute(
+'data-game'
+)
++
+' • '
++
+liveMatch
+.querySelector(
+'.sched-item__tourn'
+)
+.textContent
+.trim();
+teams.innerHTML =
+'<span>'
++
+names[0]
++
+'</span>'
++
+'<span class="vs">VS</span>'
++
+'<span>'
++
+names[1]
++
+'</span>';
+var stream =
+liveMatch.getAttribute(
+'data-stream'
+);
+if (
+stream
+)
+{
+action.innerHTML =
+'<a '
++
+'href="'
++
+stream
++
+'" '
++
+'target="_blank" '
++
+'rel="noopener" '
++
+'class="safe-btn live">'
++
+'<i class="fas fa-play"></i> '
++
+' Watch Live'
++
+'</a>';
+}
+else
+{
+action.innerHTML =
+'';
+}
+return;
+}
+var upcomingMatches =
+matches
+.filter(
+function(match)
+{
+return (
+match.getAttribute(
+'data-status'
+)
+===
+'upcoming'
+);
+}
+)
+.sort(
+function(a, b)
+{
+return (
+new Date(
+a.getAttribute(
+'data-start'
+)
+)
+-
+new Date(
+b.getAttribute(
+'data-start'
+)
+)
+);
+}
+);
+if (
+upcomingMatches.length > 0
+)
+{
+var next =
+upcomingMatches[0];
+var nextNames =
+getTeamNames(
+next
+);
+var nextStart =
+new Date(
+next.getAttribute(
+'data-start'
+)
+);
+var difference =
+Math.max(
+0,
+nextStart - now
+);
+var hours =
+Math.floor(
+difference
+/
+3600000
+);
+var minutes =
+Math.floor(
+(
+difference
+%
+3600000
+)
+/
+60000
+);
+title.textContent =
+'Next Match';
+game.textContent =
+next.getAttribute(
+'data-game'
+)
++
+' • starts in '
++
+hours
++
+'h '
++
+minutes
++
+'m';
+teams.innerHTML =
+'<span>'
++
+nextNames[0]
++
+'</span>'
++
+'<span class="vs">VS</span>'
++
+'<span>'
++
+nextNames[1]
++
+'</span>';
+action.innerHTML =
+'<button '
++
+'type="button" '
++
+'class="safe-btn" '
++
+'id="jumpNext">'
++
+'<i class="fas fa-arrow-down"></i> '
++
+' View Next Match'
++
+'</button>';
+setTimeout(
+function()
+{
+var button =
+document.getElementById(
+'jumpNext'
+);
+if (
+button
+)
+{
+button.onclick =
+function()
+{
+next.scrollIntoView(
+{
+behavior:
+'smooth',
+block:
+'center'
+}
+);
+};
+}
+},
+0
+);
+return;
+}
+title.textContent =
+'No Live Match';
+game.textContent =
+'No upcoming match is available at the moment.';
+teams.textContent =
+'Check the Stream Hub for esports broadcasts.';
+action.innerHTML =
+'';
+}
+function applyFilter(filter)
+{
+currentFilter =
+filter;
+localStorage.setItem(
+'schedFilter',
+filter
+);
+document.getElementById(
+'storageFilter'
+).textContent =
+filter;
+filterButtons.forEach(
+function(button)
+{
+button.classList.toggle(
+'active',
+button.getAttribute(
+'data-filter'
+)
+===
+filter
+);
+}
+);
+var visible =
+0;
+matches.forEach(
+function(match)
+{
+var extra =
+match.closest(
+'#extraSchedule'
+);
+var extraOpen =
+extraSchedule.style.display
+===
+'block';
+var status =
+match.getAttribute(
+'data-status'
+);
+var matchesFilter =
+(
+filter === 'all'
+||
+filter === status
+);
+var show =
+matchesFilter
+&&
+(
+!extra
+||
+extraOpen
+);
+match.style.display =
+show
+?
+''
+:
+'none';
+if (
+show
+)
+{
+visible++;
+}
+}
+);
+document
+.querySelectorAll(
+'.sched-day'
+)
+.forEach(
+function(day)
+{
+var dayMatches =
+day.querySelectorAll(
+'.sched-item'
+);
+var hasVisible =
+Array.prototype
+.slice
+.call(
+dayMatches
+)
+.some(
+function(match)
+{
+return (
+match.style.display
+!==
+'none'
+);
+}
+);
+day.style.display =
+hasVisible
+?
+''
+:
+'none';
+}
+);
+emptyMessage.style.display =
+visible > 0
+?
+'none'
+:
+'block';
+}
+filterButtons.forEach(
+function(button)
+{
+button.addEventListener(
+'click',
+function()
+{
+applyFilter(
+button.getAttribute(
+'data-filter'
+)
+);
+}
+);
+}
+);
+fullScheduleBtn.addEventListener(
+'click',
+function()
+{
+expanded =
+!expanded;
+sessionStorage.setItem(
+'scheduleExpanded',
+expanded
+?
+'1'
+:
+'0'
+);
+extraSchedule.style.display =
+expanded
+?
+'block'
+:
+'none';
+fullScheduleText.textContent =
+expanded
+?
+'Show Less'
+:
+'View Full Schedule';
+applyFilter(
+currentFilter
+);
+if (
+expanded
+)
+{
+extraSchedule.scrollIntoView(
+{
+behavior:
+'smooth',
+block:
+'start'
+}
+);
+}
+}
+);
+updateClock();
+updateStatuses();
+setInterval(
+updateClock,
+1000
+);
+setInterval(
+updateStatuses,
+30000
+);
+})();
 </script>
-
-
+<script>
+$(document).ready(function(){
+const wanted=['MY','SG','KR','JP','US','DE'];
+const descriptions={
+MY:'Malaysia has a growing esports community with competitive players, university gaming clubs and major gaming events.',
+SG:'Singapore is an important Southeast Asian gaming hub that regularly hosts regional and international esports events.',
+KR:'South Korea is one of the world’s most established esports regions with a strong professional competitive gaming culture.',
+JP:'Japan continues to expand its competitive gaming scene across fighting games, FPS titles and international tournaments.',
+US:'The United States has a large esports ecosystem consisting of professional teams, leagues, events and competitive gaming communities.',
+DE:'Germany is one of Europe’s major esports markets and is well known for large gaming events and competitive communities.'
+};
+const fallback=[
+{name:'Malaysia',alpha2Code:'MY',capital:'Kuala Lumpur',region:'Asia',subregion:'Southeast Asia'},
+{name:'Singapore',alpha2Code:'SG',capital:'Singapore',region:'Asia',subregion:'Southeast Asia'},
+{name:'South Korea',alpha2Code:'KR',capital:'Seoul',region:'Asia',subregion:'East Asia'},
+{name:'Japan',alpha2Code:'JP',capital:'Tokyo',region:'Asia',subregion:'East Asia'},
+{name:'United States',alpha2Code:'US',capital:'Washington, D.C.',region:'Americas',subregion:'North America'},
+{name:'Germany',alpha2Code:'DE',capital:'Berlin',region:'Europe',subregion:'Western Europe'}
+];
+function esc(v){return $('<div>').text(v==null?'':v).html();}
+function normalize(c){
+const code=(c.alpha2Code||c.cca2||'').toUpperCase();
+return {
+name:c.name&&typeof c.name==='object'?(c.name.common||c.name.official):c.name,
+code:code,
+capital:Array.isArray(c.capital)?(c.capital[0]||'N/A'):(c.capital||'N/A'),
+region:c.region||'Global',
+subregion:c.subregion||c.region||'Global',
+flag:'https://flagcdn.com/w640/'+code.toLowerCase()+'.png',
+description:descriptions[code]||'A featured region in the international esports and competitive gaming community.'
+};
+}
+function render(list){
+const map={}; list.map(normalize).forEach(c=>{if(c.code)map[c.code]=c;});
+const regions=wanted.map(code=>map[code]).filter(Boolean);
+let html='';
+regions.forEach(r=>{
+const name=esc(r.name),code=esc(r.code),region=esc(r.subregion||r.region),capital=esc(r.capital),flag=esc(r.flag),description=esc(r.description);
+html+=`<div class="col-lg-4 col-md-6 mb-4"><div class="api-card region-card" data-name="${name}" data-code="${code}" data-region="${region}" data-capital="${capital}" data-flag="${flag}" data-description="${description}" tabindex="0" role="button" aria-label="View ${name} esports region details"><img class="region-flag" src="${flag}" alt="${name} flag" loading="lazy"><div class="api-tag"><i class="fas fa-globe-asia"></i> ${region}</div><h5>${name}</h5><p>${description}</p><div class="region-meta"><span><i class="fas fa-city"></i> ${capital}</span><span><i class="fas fa-flag"></i> ${code}</span></div></div></div>`;
+});
+$('#apiContainer').html(html);
+$('.region-card').on('click',function(){openRegionModal($(this));}).on('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openRegionModal($(this));}});
+}
+function openRegionModal(card){
+const name=card.attr('data-name');
+$('#regionModalTitle').text(name+' Esports Region');
+$('#regionModalRegion').text(card.attr('data-region'));
+$('#regionModalCapital').text(card.attr('data-capital'));
+$('#regionModalCode').text(card.attr('data-code'));
+$('#regionModalDescription').text(card.attr('data-description'));
+$('#regionModalFlag').attr('src',card.attr('data-flag')).attr('alt',name+' flag');
+$('#regionModal').modal('show');
+}
+$.ajax({
+url:'https://countries.dev/countries?fields=name,alpha2Code,capital,region,subregion&sort=name',
+method:'GET',
+dataType:'json',
+timeout:10000,
+success:function(data){
+const list=Array.isArray(data)?data:(data.data||data.countries||[]);
+const found=list.filter(c=>wanted.includes((c.alpha2Code||c.cca2||'').toUpperCase()));
+if(found.length===wanted.length){render(found);}else{render(fallback);}
+},
+error:function(){render(fallback);}
+});
+});
+</script>
 </body>
-
 </html>
