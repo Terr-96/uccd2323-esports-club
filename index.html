@@ -75,7 +75,6 @@
                                             Teams
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownTeams">
-                                            <a class="dropdown-item" href="teams.html">Our Teams</a>
                                             <a class="dropdown-item" href="players.html">Player Profiles</a>
                                             <a class="dropdown-item" href="leaderboard.html">Leaderboard</a>
                                         </div>
@@ -826,6 +825,44 @@
                 setInterval(updateCountdown, 1000);
             })();
         </script>
+
+<!-- Real Website Authentication State Tracker -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const activeSession = sessionStorage.getItem('activeSession');
+        const currentUser = sessionStorage.getItem('loggedInUser');
+
+        if (activeSession === 'true' && currentUser) {
+            const installBtn = document.querySelector('.btn_1');
+            const joinUsLink = document.querySelector('a[href="register.html"]');
+
+       
+            if (installBtn) {
+                installBtn.innerText = `Hi, ${currentUser}`;
+                installBtn.href = "javascript:void(0)"; 
+                installBtn.style.background = "#ff2e63"; 
+                installBtn.style.color = "#fff";
+                installBtn.style.boxShadow = "0 0 15px rgba(255,46,99,.4)";
+            }
+
+           
+            if (joinUsLink) {
+                joinUsLink.innerText = "Logout";
+                joinUsLink.href = "javascript:void(0)";
+                
+                
+                joinUsLink.addEventListener('click', function() {
+                    sessionStorage.removeItem('activeSession');
+                    sessionStorage.removeItem('loggedInUser');
+                    document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    
+                    alert("You have been successfully logged out.");
+                    window.location.reload(); 
+                });
+            }
+        }
+    });
+</script>
 
 </body>
 
