@@ -6568,3 +6568,100 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 !important;
     z-index: 10 !important;
 }
+
+
+/* ================= Modern Latest Matches  ================= */
+
+.Latest_War .Latest_War_text {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.6) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: 3px solid #ff0055 !important; 
+    border-radius: 12px !important;
+    padding: 35px 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+
+.Latest_War .single_war_text img {
+    max-height: 90px !important;
+    width: auto !important;
+    margin-bottom: 15px !important;
+}
+
+.Latest_War .single_war_text h4 {
+    font-size: 24px !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+}
+
+.Latest_War .single_war_text p {
+    color: #57ddff !important; 
+    font-size: 14px !important;
+}
+
+
+.Latest_War .latest_war_list .single_war_text {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-left: 4px solid #57ddff !important; 
+    border-radius: 8px !important;
+    margin-bottom: 16px !important;
+    padding: 15px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+
+.Latest_War .latest_war_list .single_war_text:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-left-color: #ff0055 !important;
+    transform: translateX(6px) !important; 
+}
+
+
+.Latest_War .war_text_item img {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+}
+
+.Latest_War .war_text_item h2 {
+    font-size: 22px !important;
+    color: #fff !important;
+    margin: 0 15px !important;
+}
+
+.Latest_War .war_text_item h2 span {
+    color: #ff0055 !important;
+    font-size: 14px !important;
+    margin: 0 4px !important;
+}
+
+.Latest_War .war_date a {
+    color: #fff !important;
+    font-weight: 500 !important;
+}
+
+.Latest_War .war_date p {
+    color: #a0a0a0 !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+/* ================= View Match Details  ================= */
+
+
+.Latest_War .Latest_War_text,
+.Latest_War .single_war_text {
+    pointer-events: auto !important;
+}
+
+
+.Latest_War a.btn_1,
+.Latest_War .single_war_text a.btn_1 {
+    position: relative !important;
+    z-index: 999 !important;             
+    pointer-events: auto !important;     
+    cursor: pointer !important;          
+    display: inline-block !important;
+}
