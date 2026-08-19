@@ -382,25 +382,21 @@
                         <div class="gallery_part_item">
                             <div class="grid">
 
-                                <!-- Item 1 -->
+
                                 <a href="img/gallery/gallery_item_1.jpg" class="grid-item img-gal">
-                                    <img src="img/gallery/gallery_item_1.jpg" alt="Gallery Image 1"
-                                        class="gallery-img">
+                                    <img src="img/gallery/gallery_item_1.jpg" alt="Gallery Image 1" class="gallery-img">
                                     <div class="single_gallery_item_iner">
                                         <i class="ti-zoom-in"></i>
                                     </div>
                                 </a>
 
-                                <!-- Item 2 -->
                                 <a href="img/gallery/gallery_item_2.jpg" class="grid-item img-gal">
-                                    <img src="img/gallery/gallery_item_2.jpg" alt="Gallery Image 2"
-                                        class="gallery-img">
+                                    <img src="img/gallery/gallery_item_2.jpg" alt="Gallery Image 2" class="gallery-img">
                                     <div class="single_gallery_item_iner">
                                         <i class="ti-zoom-in"></i>
                                     </div>
                                 </a>
 
-                                <!-- Item 3 -->
                                 <a href="img/gallery/gallery_item_3.jpeg" class="grid-item img-gal">
                                     <img src="img/gallery/gallery_item_3.jpeg" alt="Gallery Image 3"
                                         class="gallery-img">
@@ -409,32 +405,39 @@
                                     </div>
                                 </a>
 
-                                <!-- Item 4 -->
-                                <a href="img/gallery/gallery_item_5.webp" class="grid-item img-gal">
-                                    <img src="img/gallery/gallery_item_5.webp" alt="Gallery Image 5"
-                                        class="gallery-img">
-                                    <div class="single_gallery_item_iner">
-                                        <i class="ti-zoom-in"></i>
-                                    </div>
-                                </a>
-
-                                <!-- Item 5 -->
-                                <a href="img/gallery/gallery_item_7.jpg" class="grid-item img-gal">
-                                    <img src="img/gallery/gallery_item_7.jpg" alt="Gallery Image 7"
-                                        class="gallery-img">
-                                    <div class="single_gallery_item_iner">
-                                        <i class="ti-zoom-in"></i>
-                                    </div>
-                                </a>
-
-                                <!-- Item 6 -->
                                 <a href="img/gallery/gallery_item_6.jpg" class="grid-item img-gal">
-                                    <img src="img/gallery/gallery_item_6.jpg" alt="Gallery Image 6"
-                                        class="gallery-img">
+                                    <img src="img/gallery/gallery_item_6.jpg" alt="Gallery Image 5" class="gallery-img">
                                     <div class="single_gallery_item_iner">
                                         <i class="ti-zoom-in"></i>
                                     </div>
                                 </a>
+
+                                <a href="img/gallery/gallery_item_7.jpg" class="grid-item img-gal">
+                                    <img src="img/gallery/gallery_item_7.jpg" alt="Gallery Image 7" class="gallery-img">
+                                    <div class="single_gallery_item_iner">
+                                        <i class="ti-zoom-in"></i>
+                                    </div>
+                                </a>
+
+                                <a href="img/gallery/gallery_item_4.jpg" class="grid-item img-gal">
+                                    <img src="img/gallery/gallery_item_4.jpg" alt="Gallery Image 6" class="gallery-img">
+                                    <div class="single_gallery_item_iner">
+                                        <i class="ti-zoom-in"></i>
+                                    </div>
+                                </a>
+
+                                <a href="img/gallery/gallery_item_5.webp" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_7.avif" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_11.jpg" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_12.jpg" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_8.webp" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_9.webp" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_10.jpg" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_13.jpg" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_14.webp" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_15.jpg" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_16.jpg" class="img-gal" style="display: none;"></a>
+                                <a href="img/gallery/gallery_item_17.jpg" class="img-gal" style="display: none;"></a>
 
                             </div>
                         </div>
@@ -501,6 +504,12 @@
                     <!-- Gold Plan -->
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="single_pricing_part text-center active">
+                            <div class="mb-2">
+                                <span
+                                    style="background: #111; color: #ffcc00; border: 1px solid #ffcc00; font-size: 11px; font-weight: bold; letter-spacing: 1px; padding: 3px 12px; border-radius: 20px; display: inline-block;">
+                                    ★ MOST POPULAR
+                                </span>
+                            </div>
                             <p>Gold Pass</p>
                             <h3>$35.00 <span>/ mo</span></h3>
                             <ul>
@@ -741,6 +750,59 @@
                 }
             });
         </script>
+
+
+        <script>
+            $(document).ready(function () {
+
+                $('.img-gal').off('click');
+
+
+                $('.gallery_part').magnificPopup({
+                    delegate: 'a.img-gal',
+                    type: 'image',
+                    gallery: {
+                        enabled: true,
+                        navigateByImgClick: true,
+                        preload: [0, 1]
+                    }
+                });
+            });
+
+        </script>
+
+        <script>
+            (function () {
+
+                const targetDate = new Date('2026-12-31T20:00:00').getTime();
+
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const difference = targetDate - now;
+
+                    if (difference > 0) {
+                        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                        const daysEl = document.getElementById('days');
+                        const hoursEl = document.getElementById('hours');
+                        const minutesEl = document.getElementById('minutes');
+                        const secondsEl = document.getElementById('seconds');
+
+                        if (daysEl) daysEl.innerHTML = `<span>${days}</span><p>Days</p>`;
+                        if (hoursEl) hoursEl.innerHTML = `<span>${hours}</span><p>Hours</p>`;
+                        if (minutesEl) minutesEl.innerHTML = `<span>${minutes}</span><p>Minutes</p>`;
+                        if (secondsEl) secondsEl.innerHTML = `<span>${seconds}</span><p>Seconds</p>`;
+                    }
+                }
+
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            })();
+        </script>
+
 </body>
 
 </html>
