@@ -1,14 +1,10 @@
 <!doctype html>
 <html lang="zxx">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>LEAGUE ESPORTS – Tournaments</title>
-
     <link rel="icon" href="img/favicon.png">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -18,26 +14,21 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.css">
-
     <style>
-
         .main_menu.single_page_menu .navbar-brand img {
             height: 50px !important;
             max-height: 50px !important;
             width: auto !important;
         }
-
         .main_menu.single_page_menu {
             padding-top: 5px !important;
             padding-bottom: 5px !important;
             transition: none !important;
         }
-
         .main_menu.single_page_menu.header_fixed {
             background: #0c0e14 !important;
             box-shadow: none !important;
         }
-
         :root {
             --tourn-accent: #ff2e63;
             --tourn-accent-2: #ff7849;
@@ -47,11 +38,9 @@
             --tourn-border: rgba(255,46,99,.18);
             --tourn-text-dim: #9aa0b4;
         }
-
         body {
             background: #0c0e14;
         }
-
         .tourn_wrap {
             background:
                 radial-gradient(circle at 10% 10%, rgba(255,46,99,.10), transparent 40%),
@@ -59,11 +48,9 @@
                 var(--tourn-bg);
             position: relative;
         }
-
         .tourn-stats {
             margin: 35px 0 10px;
         }
-
         .tourn-stat {
             text-align: center;
             background: var(--tourn-card);
@@ -73,33 +60,28 @@
             margin-bottom: 20px;
             transition: .25s;
         }
-
         .tourn-stat:hover {
             transform: translateY(-4px);
             border-color: var(--tourn-accent);
         }
-
         .tourn-stat i {
             font-size: 22px;
             color: var(--tourn-accent);
             margin-bottom: 10px;
             display: inline-block;
         }
-
         .tourn-stat h4 {
             color: #fff;
             font-size: 22px;
             font-weight: 700;
             margin: 0 0 4px;
         }
-
         .tourn-stat span {
             color: var(--tourn-text-dim);
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: .5px;
         }
-
         .live-dot::before {
             content: '';
             display: inline-block;
@@ -110,23 +92,17 @@
             margin-right: 6px;
             animation: tournPulse 1.6s infinite;
         }
-
         @keyframes tournPulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(255,46,99,.6);
             }
-
             70% {
                 box-shadow: 0 0 0 8px rgba(255,46,99,0);
             }
-
             100% {
                 box-shadow: 0 0 0 0 rgba(255,46,99,0);
             }
         }
-
-        /* FILTERS */
-
         .tourn-filters {
             list-style: none;
             display: flex;
@@ -136,7 +112,6 @@
             padding: 0;
             margin: 10px 0 40px;
         }
-
         .tourn-filters li {
             cursor: pointer;
             padding: 9px 24px;
@@ -148,12 +123,10 @@
             text-transform: uppercase;
             transition: .2s;
         }
-
         .tourn-filters li:hover {
             color: white;
             border-color: var(--tourn-accent);
         }
-
         .tourn-filters li.active {
             background: linear-gradient(
                 135deg,
@@ -164,9 +137,6 @@
             border-color: transparent;
             box-shadow: 0 6px 18px rgba(255,46,99,.35);
         }
-
-        /* SPOTLIGHT */
-
         .tourn-spotlight {
             position: relative;
             overflow: hidden;
@@ -180,18 +150,15 @@
             padding: 45px 40px;
             margin-bottom: 50px;
         }
-
         .tourn-spotlight h3 {
             color: white;
             font-size: 32px;
             font-weight: 800;
         }
-
         .tourn-spotlight p {
             color: var(--tourn-text-dim);
             max-width: 500px;
         }
-
         .tourn-spotlight__tag {
             display: inline-block;
             color: var(--tourn-accent);
@@ -201,7 +168,6 @@
             letter-spacing: 1px;
             margin-bottom: 14px;
         }
-
         .tourn-spotlight__meta {
             list-style: none;
             padding: 0;
@@ -209,29 +175,24 @@
             flex-wrap: wrap;
             gap: 22px;
         }
-
         .tourn-spotlight__meta li {
             color: #dfe2ec;
             font-size: 14px;
         }
-
         .tourn-spotlight__meta i {
             color: var(--tourn-accent);
             margin-right: 8px;
         }
-
         .tourn-spotlight__prize span {
             color: var(--tourn-text-dim);
             font-size: 12px;
             text-transform: uppercase;
         }
-
         .tourn-spotlight__prize h2 {
             color: white;
             font-weight: 800;
             font-size: 46px;
         }
-
         .tourn-progress {
             background: #242637;
             border-radius: 20px;
@@ -239,7 +200,6 @@
             max-width: 480px;
             overflow: hidden;
         }
-
         .tourn-progress__bar {
             height: 100%;
             width: 65%;
@@ -249,16 +209,12 @@
                 var(--tourn-accent-2)
             );
         }
-
         .tourn-progress__label {
             display: block;
             margin-top: 8px;
             color: var(--tourn-text-dim);
             font-size: 12px;
         }
-
-        /* TOURNAMENT CARDS */
-
         .tourn-card {
             background: var(--tourn-card);
             border: 1px solid var(--tourn-border);
@@ -268,13 +224,11 @@
             padding-bottom: 28px;
             transition: .25s;
         }
-
         .tourn-card:hover {
             transform: translateY(-6px);
             border-color: var(--tourn-accent);
             box-shadow: 0 16px 34px rgba(0,0,0,.45);
         }
-
         .tourn-card__cover {
             height: 180px;
             background-size: cover !important;
@@ -285,7 +239,6 @@
             align-items: flex-end;
             padding: 18px 20px;
         }
-
         .tourn-card__cover::before {
             content: '';
             position: absolute;
@@ -296,7 +249,6 @@
                 rgba(0,0,0,.20)
             );
         }
-
         .tourn-card__icon {
             width: 42px;
             height: 42px;
@@ -311,7 +263,6 @@
             z-index: 2;
             margin-right: 12px;
         }
-
         .tourn-card__game {
             position: relative;
             z-index: 2;
@@ -321,7 +272,6 @@
             text-transform: uppercase;
             text-shadow: 0 2px 7px black;
         }
-
         .tournament-badge {
             display: inline-block;
             margin: 20px 0 0 26px;
@@ -337,7 +287,6 @@
             font-weight: 700;
             text-transform: uppercase;
         }
-
         .tournament-badge.upcoming {
             background: linear-gradient(
                 135deg,
@@ -345,83 +294,60 @@
                 #00e0c0
             );
         }
-
         .tournament-badge.ended {
             background: #65697b;
         }
-
         .tourn-card p {
             color: var(--tourn-text-dim);
             margin: 14px 26px 6px;
             text-transform: uppercase;
             font-size: 13px;
         }
-
         .tourn-card h3 {
             color: white;
             margin: 0 26px 18px;
             font-size: 25px;
             font-weight: 800;
         }
-
         .tourn-card ul {
             padding: 0;
             margin: 0 26px 24px;
             list-style: none;
         }
-
         .tourn-card ul li {
             color: #dfe2ec;
             font-size: 14px;
             padding: 6px 0;
         }
-
         .tourn-card ul li i {
             width: 22px;
             color: var(--tourn-accent);
         }
-
-        /* =========================================
-           FIXED VIEW DETAILS BUTTON
-           ========================================= */
-
         .tourn-card .btn_2 {
             display: block !important;
             box-sizing: border-box !important;
-
             width: calc(100% - 52px) !important;
             height: auto !important;
             min-height: 44px !important;
-
             margin: 0 26px !important;
             padding: 11px 20px !important;
-
             background: #0c0e14 !important;
             background-color: #0c0e14 !important;
             background-image: none !important;
-
             border: 1px solid #ff2e63 !important;
             border-radius: 6px !important;
-
             color: #ffffff !important;
-
             text-align: center !important;
             font-size: 13px !important;
             font-weight: 700 !important;
             line-height: 20px !important;
             text-transform: none !important;
             text-decoration: none !important;
-
             position: relative !important;
             z-index: 20 !important;
-
             overflow: hidden !important;
-
             transition: all .25s ease !important;
         }
-
-        /* Remove original template white button effects */
-
         .tourn-card .btn_2::before,
         .tourn-card .btn_2::after {
             content: none !important;
@@ -432,75 +358,54 @@
             background-color: transparent !important;
             background-image: none !important;
         }
-
         .tourn-card .btn_2:hover {
             background: #ff2e63 !important;
             background-color: #ff2e63 !important;
             background-image: none !important;
-
             border-color: #ff2e63 !important;
-
             color: #ffffff !important;
             text-decoration: none !important;
-
             box-shadow: 0 5px 18px rgba(255,46,99,.35) !important;
-
             transform: translateY(-2px);
         }
-
         .tourn-card .btn_2:focus {
             background: #0c0e14 !important;
             color: #ffffff !important;
             outline: none !important;
         }
-
         .tourn-card .btn_2:active {
             background: #ff2e63 !important;
             color: #ffffff !important;
             transform: translateY(0);
         }
-
-        /* SPOTLIGHT BUTTON */
-
         .tourn-spotlight .btn_1 {
             cursor: pointer;
         }
-
-        /* MODAL */
-
         .modal-content.tournament-modal {
             background: #151824;
             color: white;
             border: 1px solid var(--tourn-border);
             border-radius: 18px;
         }
-
         .tournament-modal .modal-header {
             border-bottom: 1px solid rgba(255,255,255,.08);
         }
-
         .tournament-modal .modal-footer {
             border-top: 1px solid rgba(255,255,255,.08);
         }
-
         .tournament-modal .close {
             color: white;
             opacity: 1;
         }
-
         .detail-row {
             background: #1b1f2e;
             padding: 13px 16px;
             border-radius: 10px;
             margin-bottom: 10px;
         }
-
         .detail-row strong {
             color: #ff2e63;
         }
-
-        /* BRACKET */
-
         .bracket-round {
             background: #1b1f2e;
             border: 1px solid rgba(255,46,99,.2);
@@ -508,12 +413,10 @@
             padding: 15px;
             margin-bottom: 15px;
         }
-
         .bracket-round h6 {
             color: #ff2e63;
             font-weight: 700;
         }
-
         .bracket-match {
             background: #10131c;
             padding: 10px 12px;
@@ -521,1445 +424,700 @@
             margin-top: 8px;
             color: white;
         }
-
         @media(max-width:767px) {
-
             .tourn-spotlight {
                 padding: 25px 20px;
             }
-
             .tourn-spotlight h3 {
                 font-size: 24px;
             }
-
             .tourn-card__cover {
                 height: 150px;
             }
-
             .tourn-card .btn_2 {
                 width: calc(100% - 30px) !important;
                 margin: 0 15px !important;
             }
         }
-
     </style>
-
 </head>
-
-
 <body>
-
-
-<!-- ================= HEADER ================= -->
-
 <header class="main_menu single_page_menu">
-
     <div class="container">
-
         <div class="row align-items-center">
-
             <div class="col-lg-12">
-
                 <nav class="navbar navbar-expand-lg navbar-light">
-
                     <a class="navbar-brand d-flex align-items-center" href="index.html">
-
                         <img src="img/logo.png" alt="logo">
-
-                        <span style="
-                            color:white;
-                            font-weight:800;
-                            margin-left:10px;
-                        ">
+<span style=" color:white; font-weight:800; margin-left:10px; ">
                             LEAGUE ESPORTS
                         </span>
-
                     </a>
-
-
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent">
-
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                         <span class="menu_icon">
                             <i class="fas fa-bars"></i>
                         </span>
-
                     </button>
-
-
-                    <div
-                        class="collapse navbar-collapse main-menu-item"
-                        id="navbarSupportedContent">
-
+<div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                         <ul class="navbar-nav">
-
                             <li class="nav-item">
                                 <a class="nav-link" href="index.html">
                                     Home
                                 </a>
                             </li>
-
-
                             <li class="nav-item">
                                 <a class="nav-link" href="about.html">
                                     About Us
                                 </a>
                             </li>
-
-
                             <li class="nav-item dropdown">
-
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    data-toggle="dropdown">
+<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                     Tournaments
                                 </a>
-
                                 <div class="dropdown-menu">
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="tournaments.html">
+<a class="dropdown-item" href="tournaments.html">
                                         Tournaments
                                     </a>
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="schedules.html">
+<a class="dropdown-item" href="schedules.html">
                                         Schedules & Results
                                     </a>
-
                                 </div>
-
                             </li>
-
-
                             <li class="nav-item dropdown">
-
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    data-toggle="dropdown">
+<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                     Teams
                                 </a>
-
                                 <div class="dropdown-menu">
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="teams.html">
+<a class="dropdown-item" href="teams.html">
                                         Our Teams
                                     </a>
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="players.html">
+<a class="dropdown-item" href="players.html">
                                         Player Profiles
                                     </a>
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="leaderboard.html">
+<a class="dropdown-item" href="leaderboard.html">
                                         Leaderboard
                                     </a>
-
                                 </div>
-
                             </li>
-
-
                             <li class="nav-item dropdown">
-
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    data-toggle="dropdown">
+<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                     Community
                                 </a>
-
                                 <div class="dropdown-menu">
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="news.html">
+<a class="dropdown-item" href="news.html">
                                         News & Gallery
                                     </a>
-
-                                    <a
-                                        class="dropdown-item"
-                                        href="register.html">
+<a class="dropdown-item" href="register.html">
                                         Join Us
                                     </a>
-
                                 </div>
-
                             </li>
-
                         </ul>
-
                     </div>
-
-
-                    <a
-                        href="register.html"
-                        class="btn_1 d-none d-sm-block">
+<a href="register.html" class="btn_1 d-none d-sm-block">
                         Join Us
                     </a>
-
                 </nav>
-
             </div>
-
         </div>
-
     </div>
-
 </header>
-
-
-<!-- ================= BREADCRUMB ================= -->
-
 <section class="breadcrumb breadcrumb_bg">
-
     <div class="container">
-
         <div class="row">
-
             <div class="col-lg-12">
-
                 <div class="breadcrumb_iner text-center">
-
                     <div class="breadcrumb_iner_item">
-
                         <h2>Tournaments</h2>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
-
-
-<!-- ================= TOURNAMENTS ================= -->
-
 <section class="pricing_part tourn_wrap section_padding">
-
 <div class="container">
-
-
 <div class="row justify-content-center">
-
     <div class="col-lg-7">
-
         <div class="section_tittle text-center">
-
             <h2 style="color:white;">
                 Featured Tournaments
             </h2>
-
             <p style="color:#9aa0b4;">
                 Check out our upcoming and ongoing gaming tournaments.
             </p>
-
         </div>
-
     </div>
-
 </div>
-
-
-<!-- STATISTICS -->
-
 <div class="row tourn-stats justify-content-center">
-
     <div class="col-6 col-md-3">
-
         <div class="tourn-stat">
-
             <i class="fas fa-coins"></i>
-
             <h4>$54,200+</h4>
-
             <span>Total Prize Pool</span>
-
         </div>
-
     </div>
-
-
     <div class="col-6 col-md-3">
-
         <div class="tourn-stat">
-
             <i class="fas fa-trophy"></i>
-
             <h4>6</h4>
-
             <span>Tournaments</span>
-
         </div>
-
     </div>
-
-
     <div class="col-6 col-md-3">
-
         <div class="tourn-stat">
-
             <i class="fas fa-users"></i>
-
             <h4>110+</h4>
-
             <span>Teams Competing</span>
-
         </div>
-
     </div>
-
-
     <div class="col-6 col-md-3">
-
         <div class="tourn-stat">
-
             <i class="fas fa-satellite-dish"></i>
-
             <h4 class="live-dot">
                 2 Live
             </h4>
-
             <span>Happening Now</span>
-
         </div>
-
     </div>
-
 </div>
-
-
-<!-- FILTER -->
-
 <ul class="tourn-filters" id="tournFilters">
-
     <li class="active" data-filter="all">
         All
     </li>
-
     <li data-filter="ongoing">
         Ongoing
     </li>
-
     <li data-filter="upcoming">
         Upcoming
     </li>
-
     <li data-filter="ended">
         Ended
     </li>
-
 </ul>
-
-
-<!-- ================= SPOTLIGHT ================= -->
-
 <div class="tourn-spotlight">
-
     <div class="tourn-spotlight__tag">
-
         <i class="fas fa-bolt"></i>
-
         World Finals · Live Now
-
     </div>
-
-
     <div class="row align-items-center">
-
         <div class="col-lg-7">
-
             <h3>
                 Global Esports Cup
             </h3>
-
             <p>
                 The biggest multi-game showdown of the year.
                 32 teams. One World Champion.
             </p>
-
-
             <ul class="tourn-spotlight__meta">
-
                 <li>
                     <i class="far fa-calendar-alt"></i>
                     Aug 10 – Sep 01, 2026
                 </li>
-
                 <li>
                     <i class="fas fa-gamepad"></i>
                     Multi-Game
                 </li>
-
                 <li>
                     <i class="fas fa-users"></i>
                     32 Teams
                 </li>
-
             </ul>
-
-
             <div class="tourn-progress">
-
                 <div class="tourn-progress__bar"></div>
-
             </div>
-
-
             <span class="tourn-progress__label">
                 Day 15 of 23 — Playoffs underway
             </span>
-
         </div>
-
-
         <div class="col-lg-5 text-lg-right">
-
             <div class="tourn-spotlight__prize">
-
                 <span>
                     Prize Pool
                 </span>
-
                 <h2>
                     $25,000
                 </h2>
-
             </div>
-
-
-            <a
-                href="#"
-                class="btn_1"
-                id="viewBracketBtn">
+<a href="#" class="btn_1" id="viewBracketBtn">
                 View Bracket
             </a>
-
         </div>
-
     </div>
-
 </div>
-
-
-<!-- ================= SIX TOURNAMENT CARDS ================= -->
-
 <div class="row tourn-grid" id="tournGrid">
-
-
-<!-- 1. VALORANT -->
-
-<div
-    class="col-lg-4 col-sm-6 tourn-item"
-    data-status="ongoing">
-
+<div class="col-lg-4 col-sm-6 tourn-item" data-status="ongoing">
     <div class="tourn-card">
-
-        <div
-            class="tourn-card__cover"
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=80');
-            ">
-
+<div class="tourn-card__cover" style=" background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=80'); ">
             <div class="tourn-card__icon">
                 <i class="fas fa-crosshairs"></i>
             </div>
-
             <span class="tourn-card__game">
                 Valorant
             </span>
-
         </div>
-
-
         <div class="tournament-badge">
             Ongoing
         </div>
-
-
         <p>
             Summer Clash 2026
         </p>
-
-
         <h3>
             Prize $5,000
         </h3>
-
-
         <ul>
-
             <li>
                 <i class="far fa-calendar-alt"></i>
                 Aug 18 - 22, 2026
             </li>
-
             <li>
                 <i class="fas fa-users"></i>
                 16 Teams
             </li>
-
             <li>
                 <i class="fas fa-gamepad"></i>
                 Valorant
             </li>
-
             <li>
                 <i class="fas fa-trophy"></i>
                 Grand Finals
             </li>
-
         </ul>
-
-
-        <a
-            href="#"
-            class="btn_2 tournament-detail-btn"
-            data-title="Summer Clash 2026"
-            data-game="Valorant"
-            data-prize="$5,000"
-            data-date="Aug 18 - 22, 2026"
-            data-teams="16 Teams"
-            data-format="Grand Finals"
-            data-status="Ongoing"
-            data-description="A competitive Valorant tournament featuring 16 esports teams battling through elimination rounds.">
-
+<a href="#" class="btn_2 tournament-detail-btn" data-title="Summer Clash 2026" data-game="Valorant" data-prize="$5,000" data-date="Aug 18 - 22, 2026" data-teams="16 Teams" data-format="Grand Finals" data-status="Ongoing" data-description="A competitive Valorant tournament featuring 16 esports teams battling through elimination rounds.">
             View Details
-
         </a>
-
     </div>
-
 </div>
-
-
-<!-- 2. CS GO -->
-
-<div
-    class="col-lg-4 col-sm-6 tourn-item"
-    data-status="upcoming">
-
+<div class="col-lg-4 col-sm-6 tourn-item" data-status="upcoming">
     <div class="tourn-card">
-
-        <div
-            class="tourn-card__cover"
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=1000&q=80');
-            ">
-
+<div class="tourn-card__cover" style=" background-image: url('https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=1000&q=80'); ">
             <div class="tourn-card__icon">
                 <i class="fas fa-bomb"></i>
             </div>
-
             <span class="tourn-card__game">
                 CS:GO
             </span>
-
         </div>
-
-
         <div class="tournament-badge upcoming">
             Upcoming
         </div>
-
-
         <p>
             Pro League Season 7
         </p>
-
-
         <h3>
             Prize $12,000
         </h3>
-
-
         <ul>
-
             <li>
                 <i class="far fa-calendar-alt"></i>
                 Sep 05 - 18, 2026
             </li>
-
             <li>
                 <i class="fas fa-users"></i>
                 24 Teams
             </li>
-
             <li>
                 <i class="fas fa-gamepad"></i>
                 CS:GO
             </li>
-
             <li>
                 <i class="fas fa-trophy"></i>
                 League Format
             </li>
-
         </ul>
-
-
-        <a
-            href="#"
-            class="btn_2 tournament-detail-btn"
-            data-title="Pro League Season 7"
-            data-game="CS:GO"
-            data-prize="$12,000"
-            data-date="Sep 05 - 18, 2026"
-            data-teams="24 Teams"
-            data-format="League Format"
-            data-status="Upcoming"
-            data-description="Twenty-four teams compete in group stages before advancing to the CS:GO championship playoffs.">
-
+<a href="#" class="btn_2 tournament-detail-btn" data-title="Pro League Season 7" data-game="CS:GO" data-prize="$12,000" data-date="Sep 05 - 18, 2026" data-teams="24 Teams" data-format="League Format" data-status="Upcoming" data-description="Twenty-four teams compete in group stages before advancing to the CS:GO championship playoffs.">
             View Details
-
         </a>
-
     </div>
-
 </div>
-
-
-<!-- 3. DOTA 2 -->
-
-<div
-    class="col-lg-4 col-sm-6 tourn-item"
-    data-status="ended">
-
+<div class="col-lg-4 col-sm-6 tourn-item" data-status="ended">
     <div class="tourn-card">
-
-        <div
-            class="tourn-card__cover"
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=80');
-            ">
-
+<div class="tourn-card__cover" style=" background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=80'); ">
             <div class="tourn-card__icon">
                 <i class="fas fa-shield-alt"></i>
             </div>
-
             <span class="tourn-card__game">
                 Dota 2
             </span>
-
         </div>
-
-
         <div class="tournament-badge ended">
             Ended
         </div>
-
-
         <p>
             Winter Showdown
         </p>
-
-
         <h3>
             Prize $3,200
         </h3>
-
-
         <ul>
-
             <li>
                 <i class="far fa-calendar-alt"></i>
                 Jul 10 - 14, 2026
             </li>
-
             <li>
                 <i class="fas fa-users"></i>
                 12 Teams
             </li>
-
             <li>
                 <i class="fas fa-gamepad"></i>
                 Dota 2
             </li>
-
             <li>
                 <i class="fas fa-trophy"></i>
                 Winner: Team Apex
             </li>
-
         </ul>
-
-
-        <a
-            href="#"
-            class="btn_2 tournament-detail-btn"
-            data-title="Winter Showdown"
-            data-game="Dota 2"
-            data-prize="$3,200"
-            data-date="Jul 10 - 14, 2026"
-            data-teams="12 Teams"
-            data-format="Knockout"
-            data-status="Ended"
-            data-description="A five-day Dota 2 knockout tournament. Team Apex claimed the championship title.">
-
+<a href="#" class="btn_2 tournament-detail-btn" data-title="Winter Showdown" data-game="Dota 2" data-prize="$3,200" data-date="Jul 10 - 14, 2026" data-teams="12 Teams" data-format="Knockout" data-status="Ended" data-description="A five-day Dota 2 knockout tournament. Team Apex claimed the championship title.">
             View Details
-
         </a>
-
     </div>
-
 </div>
-
-
-<!-- 4. LEAGUE OF LEGENDS -->
-
-<div
-    class="col-lg-4 col-sm-6 tourn-item"
-    data-status="upcoming">
-
+<div class="col-lg-4 col-sm-6 tourn-item" data-status="upcoming">
     <div class="tourn-card">
-
-        <div
-            class="tourn-card__cover"
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80');
-            ">
-
+<div class="tourn-card__cover" style=" background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80'); ">
             <div class="tourn-card__icon">
                 <i class="fas fa-chess-rook"></i>
             </div>
-
             <span class="tourn-card__game">
                 League of Legends
             </span>
-
         </div>
-
-
         <div class="tournament-badge upcoming">
             Upcoming
         </div>
-
-
         <p>
             Rookie Cup 2026
         </p>
-
-
         <h3>
             Prize $1,500
         </h3>
-
-
         <ul>
-
             <li>
                 <i class="far fa-calendar-alt"></i>
                 Oct 02 - 04, 2026
             </li>
-
             <li>
                 <i class="fas fa-users"></i>
                 8 Teams
             </li>
-
             <li>
                 <i class="fas fa-gamepad"></i>
                 League of Legends
             </li>
-
             <li>
                 <i class="fas fa-trophy"></i>
                 Rookie Only
             </li>
-
         </ul>
-
-
-        <a
-            href="#"
-            class="btn_2 tournament-detail-btn"
-            data-title="Rookie Cup 2026"
-            data-game="League of Legends"
-            data-prize="$1,500"
-            data-date="Oct 02 - 04, 2026"
-            data-teams="8 Teams"
-            data-format="Rookie Tournament"
-            data-status="Upcoming"
-            data-description="An entry-level League of Legends tournament created for new and developing competitive teams.">
-
+<a href="#" class="btn_2 tournament-detail-btn" data-title="Rookie Cup 2026" data-game="League of Legends" data-prize="$1,500" data-date="Oct 02 - 04, 2026" data-teams="8 Teams" data-format="Rookie Tournament" data-status="Upcoming" data-description="An entry-level League of Legends tournament created for new and developing competitive teams.">
             View Details
-
         </a>
-
     </div>
-
 </div>
-
-
-<!-- 5. GLOBAL ESPORTS CUP -->
-
-<div
-    class="col-lg-4 col-sm-6 tourn-item"
-    data-status="ongoing">
-
+<div class="col-lg-4 col-sm-6 tourn-item" data-status="ongoing">
     <div class="tourn-card">
-
-        <div
-            class="tourn-card__cover"
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?auto=format&fit=crop&w=1000&q=80');
-            ">
-
+<div class="tourn-card__cover" style=" background-image: url('https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?auto=format&fit=crop&w=1000&q=80'); ">
             <div class="tourn-card__icon">
                 <i class="fas fa-globe-americas"></i>
             </div>
-
             <span class="tourn-card__game">
                 Multi-Game
             </span>
-
         </div>
-
-
         <div class="tournament-badge">
             Ongoing
         </div>
-
-
         <p>
             Global Esports Cup
         </p>
-
-
         <h3>
             Prize $25,000
         </h3>
-
-
         <ul>
-
             <li>
                 <i class="far fa-calendar-alt"></i>
                 Aug 10 - Sep 01, 2026
             </li>
-
             <li>
                 <i class="fas fa-users"></i>
                 32 Teams
             </li>
-
             <li>
                 <i class="fas fa-gamepad"></i>
                 Multi-Game
             </li>
-
             <li>
                 <i class="fas fa-trophy"></i>
                 World Finals
             </li>
-
         </ul>
-
-
-        <a
-            href="#"
-            class="btn_2 tournament-detail-btn"
-            data-title="Global Esports Cup"
-            data-game="Multi-Game"
-            data-prize="$25,000"
-            data-date="Aug 10 - Sep 01, 2026"
-            data-teams="32 Teams"
-            data-format="World Finals"
-            data-status="Ongoing"
-            data-description="The biggest event of the season featuring multiple esports titles and 32 teams competing for the world championship.">
-
+<a href="#" class="btn_2 tournament-detail-btn" data-title="Global Esports Cup" data-game="Multi-Game" data-prize="$25,000" data-date="Aug 10 - Sep 01, 2026" data-teams="32 Teams" data-format="World Finals" data-status="Ongoing" data-description="The biggest event of the season featuring multiple esports titles and 32 teams competing for the world championship.">
             View Details
-
         </a>
-
     </div>
-
 </div>
-
-
-<!-- 6. APEX LEGENDS -->
-
-<div
-    class="col-lg-4 col-sm-6 tourn-item"
-    data-status="ended">
-
+<div class="col-lg-4 col-sm-6 tourn-item" data-status="ended">
     <div class="tourn-card">
-
-        <div
-            class="tourn-card__cover"
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1000&q=80');
-            ">
-
+<div class="tourn-card__cover" style=" background-image: url('https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1000&q=80'); ">
             <div class="tourn-card__icon">
                 <i class="fas fa-parachute-box"></i>
             </div>
-
             <span class="tourn-card__game">
                 Apex Legends
             </span>
-
         </div>
-
-
         <div class="tournament-badge ended">
             Ended
         </div>
-
-
         <p>
             Spring Masters
         </p>
-
-
         <h3>
             Prize $7,500
         </h3>
-
-
         <ul>
-
             <li>
                 <i class="far fa-calendar-alt"></i>
                 Jun 05 - 12, 2026
             </li>
-
             <li>
                 <i class="fas fa-users"></i>
                 18 Teams
             </li>
-
             <li>
                 <i class="fas fa-gamepad"></i>
                 Apex Legends
             </li>
-
             <li>
                 <i class="fas fa-trophy"></i>
                 Winner: NOVA
             </li>
-
         </ul>
-
-
-        <a
-            href="#"
-            class="btn_2 tournament-detail-btn"
-            data-title="Spring Masters"
-            data-game="Apex Legends"
-            data-prize="$7,500"
-            data-date="Jun 05 - 12, 2026"
-            data-teams="18 Teams"
-            data-format="Battle Royale"
-            data-status="Ended"
-            data-description="An Apex Legends championship featuring eighteen squads. NOVA finished the event as tournament champions.">
-
+<a href="#" class="btn_2 tournament-detail-btn" data-title="Spring Masters" data-game="Apex Legends" data-prize="$7,500" data-date="Jun 05 - 12, 2026" data-teams="18 Teams" data-format="Battle Royale" data-status="Ended" data-description="An Apex Legends championship featuring eighteen squads. NOVA finished the event as tournament champions.">
             View Details
-
         </a>
-
     </div>
-
 </div>
-
-
 </div>
-
-
-<div
-    id="tournEmpty"
-    class="text-center"
-    style="
-        display:none;
-        color:#9aa0b4;
-        padding:30px;
-    ">
-
+<div id="tournEmpty" class="text-center" style=" display:none; color:#9aa0b4; padding:30px; ">
     No tournaments available in this category.
-
 </div>
-
-
 </div>
-
 </section>
-
-
-<!-- ================= TOURNAMENT DETAILS MODAL ================= -->
-
-<div
-    class="modal fade"
-    id="tournamentDetailsModal"
-    tabindex="-1">
-
+<div class="modal fade" id="tournamentDetailsModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-
         <div class="modal-content tournament-modal">
-
-
             <div class="modal-header">
-
-                <h5
-                    class="modal-title"
-                    id="detailTitle">
-
+<h5 class="modal-title" id="detailTitle">
                     Tournament Details
-
                 </h5>
-
-
-                <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal">
-
+<button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
-
                 </button>
-
             </div>
-
-
             <div class="modal-body">
-
-
                 <div class="detail-row">
-
                     <strong>Game:</strong>
-
                     <span id="detailGame"></span>
-
                 </div>
-
-
                 <div class="detail-row">
-
                     <strong>Prize Pool:</strong>
-
                     <span id="detailPrize"></span>
-
                 </div>
-
-
                 <div class="detail-row">
-
                     <strong>Date:</strong>
-
                     <span id="detailDate"></span>
-
                 </div>
-
-
                 <div class="detail-row">
-
                     <strong>Teams:</strong>
-
                     <span id="detailTeams"></span>
-
                 </div>
-
-
                 <div class="detail-row">
-
                     <strong>Format:</strong>
-
                     <span id="detailFormat"></span>
-
                 </div>
-
-
                 <div class="detail-row">
-
                     <strong>Status:</strong>
-
                     <span id="detailStatus"></span>
-
                 </div>
-
-
-                <div
-                    class="detail-row"
-                    style="color:#c8ccda;">
-
+<div class="detail-row" style="color:#c8ccda;">
                     <span id="detailDescription"></span>
-
                 </div>
-
-
             </div>
-
-
             <div class="modal-footer">
-
-
-                <a
-                    href="schedules.html"
-                    class="btn_1">
-
+<a href="schedules.html" class="btn_1">
                     View Schedule
-
                 </a>
-
-
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal">
-
+<button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Close
-
                 </button>
-
-
             </div>
-
-
         </div>
-
     </div>
-
 </div>
-
-
-<!-- ================= BRACKET MODAL ================= -->
-
-<div
-    class="modal fade"
-    id="bracketModal"
-    tabindex="-1">
-
+<div class="modal fade" id="bracketModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-
         <div class="modal-content tournament-modal">
-
-
             <div class="modal-header">
-
                 <h5 class="modal-title">
-
-                    <i
-                        class="fas fa-trophy"
-                        style="color:#ff2e63;">
+<i class="fas fa-trophy" style="color:#ff2e63;">
                     </i>
-
                     Global Esports Cup Bracket
-
                 </h5>
-
-
-                <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal">
-
+<button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
-
                 </button>
-
             </div>
-
-
             <div class="modal-body">
-
-
                 <div class="row">
-
-
                     <div class="col-md-4">
-
                         <div class="bracket-round">
-
                             <h6>
                                 Quarter Finals
                             </h6>
-
                             <div class="bracket-match">
                                 Team Nova 2 - 1 Team Blaze
                             </div>
-
                             <div class="bracket-match">
                                 Team Apex 2 - 0 Team Titan
                             </div>
-
                             <div class="bracket-match">
                                 Team Phoenix 2 - 1 Team Shadow
                             </div>
-
                             <div class="bracket-match">
                                 Team Galaxy 2 - 0 Team Storm
                             </div>
-
                         </div>
-
                     </div>
-
-
                     <div class="col-md-4">
-
                         <div class="bracket-round">
-
                             <h6>
                                 Semi Finals
                             </h6>
-
                             <div class="bracket-match">
                                 Team Nova vs Team Apex
                             </div>
-
                             <div class="bracket-match">
                                 Team Phoenix vs Team Galaxy
                             </div>
-
                         </div>
-
                     </div>
-
-
                     <div class="col-md-4">
-
                         <div class="bracket-round">
-
                             <h6>
                                 Grand Final
                             </h6>
-
                             <div class="bracket-match">
                                 TBD vs TBD
                             </div>
-
                         </div>
-
                     </div>
-
-
                 </div>
-
-
             </div>
-
-
             <div class="modal-footer">
-
-
-                <a
-                    href="schedules.html"
-                    class="btn_1">
-
+<a href="schedules.html" class="btn_1">
                     View Full Schedule
-
                 </a>
-
-
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal">
-
+<button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Close
-
                 </button>
-
-
             </div>
-
-
         </div>
-
     </div>
-
 </div>
-
-
-<!-- ================= FOOTER ================= -->
-
 <footer class="footer_part black">
-
     <div class="footer_top">
-
         <div class="container">
-
             <div class="row">
-
-
                 <div class="col-sm-6 col-lg-3">
-
                     <div class="single_footer_part">
-
-                        <a
-                            href="index.html"
-                            class="footer_logo_iner">
-
-                            <img
-                                src="img/logo.png"
-                                alt="LEAGUE ESPORTS">
-
+<a href="index.html" class="footer_logo_iner">
+<img src="img/logo.png" alt="LEAGUE ESPORTS">
                         </a>
-
                         <p>
                             LEAGUE ESPORTS brings gamers together through
                             competitive tournaments, community events and
                             esports competition.
                         </p>
-
                     </div>
-
                 </div>
-
-
                 <div class="col-sm-6 col-lg-3">
-
                     <div class="single_footer_part">
-
                         <h4>
                             Contact Info
                         </h4>
-
                         <p>
                             LEAGUE ESPORTS
                         </p>
-
                         <p>
                             Malaysia
                         </p>
-
                         <p>
                             Email: leagueesports@example.com
                         </p>
-
                     </div>
-
                 </div>
-
-
                 <div class="col-sm-6 col-lg-3">
-
                     <div class="single_footer_part">
-
                         <h4>
                             Important Links
                         </h4>
-
                         <ul class="list-unstyled">
-
                             <li>
                                 <a href="tournaments.html">
                                     Tournaments
                                 </a>
                             </li>
-
                             <li>
                                 <a href="schedules.html">
                                     Schedules
                                 </a>
                             </li>
-
                             <li>
                                 <a href="players.html">
                                     Players
                                 </a>
                             </li>
-
                             <li>
                                 <a href="news.html">
                                     News
                                 </a>
                             </li>
-
                         </ul>
-
                     </div>
-
                 </div>
-
-
                 <div class="col-sm-6 col-lg-3">
-
                     <div class="single_footer_part">
-
                         <h4>
                             Join The Community
                         </h4>
-
                         <p>
                             Register and become part of our esports community.
                         </p>
-
-                        <a
-                            href="register.html"
-                            class="btn_1">
-
+<a href="register.html" class="btn_1">
                             Join Us
-
                         </a>
-
                     </div>
-
                 </div>
-
-
             </div>
-
         </div>
-
     </div>
-
-
     <div class="copygight_text">
-
         <div class="container">
-
             <div class="row align-items-center">
-
                 <div class="col-lg-12 text-center">
-
                     <p>
-
                         Copyright &copy;
-
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-
                         LEAGUE ESPORTS. All rights reserved.
-
                     </p>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </footer>
-
-
-<!-- ================= JAVASCRIPT ================= -->
-
 <script src="js/jquery-1.12.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -1972,273 +1130,170 @@
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/waypoints.min.js"></script>
 <script src="js/custom.js"></script>
-
-
 <script>
-
 document.addEventListener(
     'DOMContentLoaded',
     function()
     {
-
-        /* =========================================
-           TOURNAMENT FILTER
-        ========================================= */
-
         var filters =
             document.querySelectorAll(
                 '#tournFilters li'
             );
-
         var items =
             document.querySelectorAll(
                 '#tournGrid .tourn-item'
             );
-
         var empty =
             document.getElementById(
                 'tournEmpty'
             );
-
-
         var savedFilter =
             sessionStorage.getItem(
                 'tournFilter'
             ) || 'all';
-
-
         function applyFilter(filter)
         {
-
             var visibleCount = 0;
-
-
             filters.forEach(
                 function(button)
                 {
-
                     if (
                         button.getAttribute(
                             'data-filter'
                         ) === filter
                     )
                     {
-
                         button.classList.add(
                             'active'
                         );
-
                     }
-
                     else
                     {
-
                         button.classList.remove(
                             'active'
                         );
-
                     }
-
                 }
             );
-
-
             items.forEach(
                 function(item)
                 {
-
                     var status =
                         item.getAttribute(
                             'data-status'
                         );
-
-
                     if (
                         filter === 'all'
                         ||
                         status === filter
                     )
                     {
-
                         item.style.display = '';
-
                         visibleCount++;
-
                     }
-
                     else
                     {
-
                         item.style.display = 'none';
-
                     }
-
                 }
             );
-
-
             if (empty)
             {
-
                 empty.style.display =
                     visibleCount === 0
                     ? 'block'
                     : 'none';
-
             }
-
         }
-
-
         applyFilter(savedFilter);
-
-
         filters.forEach(
             function(button)
             {
-
                 button.addEventListener(
                     'click',
                     function()
                     {
-
                         var filter =
                             this.getAttribute(
                                 'data-filter'
                             );
-
-
                         sessionStorage.setItem(
                             'tournFilter',
                             filter
                         );
-
-
                         applyFilter(filter);
-
                     }
                 );
-
             }
         );
-
-
-        /* =========================================
-           VIEW DETAILS
-        ========================================= */
-
         var detailButtons =
             document.querySelectorAll(
                 '.tournament-detail-btn'
             );
-
-
         detailButtons.forEach(
             function(button)
             {
-
                 button.addEventListener(
                     'click',
                     function(event)
                     {
-
                         event.preventDefault();
-
-
                         document.getElementById(
                             'detailTitle'
                         ).textContent =
                             this.dataset.title;
-
-
                         document.getElementById(
                             'detailGame'
                         ).textContent =
                             this.dataset.game;
-
-
                         document.getElementById(
                             'detailPrize'
                         ).textContent =
                             this.dataset.prize;
-
-
                         document.getElementById(
                             'detailDate'
                         ).textContent =
                             this.dataset.date;
-
-
                         document.getElementById(
                             'detailTeams'
                         ).textContent =
                             this.dataset.teams;
-
-
                         document.getElementById(
                             'detailFormat'
                         ).textContent =
                             this.dataset.format;
-
-
                         document.getElementById(
                             'detailStatus'
                         ).textContent =
                             this.dataset.status;
-
-
                         document.getElementById(
                             'detailDescription'
                         ).textContent =
                             this.dataset.description;
-
-
                         $('#tournamentDetailsModal')
                             .modal('show');
-
                     }
                 );
-
             }
         );
-
-
-        /* =========================================
-           VIEW BRACKET
-        ========================================= */
-
         var bracketButton =
             document.getElementById(
                 'viewBracketBtn'
             );
-
-
         if (bracketButton)
         {
-
             bracketButton.addEventListener(
                 'click',
                 function(event)
                 {
-
                     event.preventDefault();
-
-
                     $('#bracketModal')
                         .modal('show');
-
                 }
             );
-
         }
-
-
     }
 );
-
 </script>
-
-
 </body>
-
 </html>
