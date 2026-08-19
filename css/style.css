@@ -6665,3 +6665,61 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer !important;          
     display: inline-block !important;
 }
+
+/* ================= Badge ================= */
+.team-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+}
+
+/* color */
+.team-badge.red { background-color: #e63946 !important; }
+.team-badge.blue { background-color: #0077b6 !important; }
+.team-badge.green { background-color: #2a9d8f !important; }
+.team-badge.yellow { background-color: #e9c46a !important; color: #000 !important; }
+.team-badge.orange { background-color: #f4a261 !important; }
+
+
+/* =================  Gallery  ================= */
+
+.gallery_part_item .grid {
+    position: relative !important;
+    width: 100% !important;
+}
+
+
+.gallery_part_item .grid-sizer,
+.gallery_part_item .grid-item {
+    width: 33.333% !important;
+    float: left !important;
+}
+
+
+.gallery_part_item .bg_img {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    display: block !important;
+}
+
+.gallery_part_item .grid-item {
+    height: 250px !important;
+}
+
+.gallery_part_item .grid-item--height-2 {
+    height: 512px !important;
+}
+
+.gallery_part_item .grid::after {
+    content: '' !important;
+    display: block !important;
+    clear: both !important;
+}
