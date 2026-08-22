@@ -723,12 +723,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeSession = sessionStorage.getItem('activeSession');
     const currentUser = sessionStorage.getItem('loggedInUser');
 
-    // 检查用户是否已登录
+    // Check if the user is logged in
     if (activeSession === 'true' && currentUser) {
         const installBtn = document.querySelector('.btn_1');
         const joinUsLink = document.querySelector('a[href="register.html"]');
 
-        // 1. 改变右上角按钮，显示用户名与高亮样式
+        // 1. Modify the button in the upper-right corner to display the username and apply a highlight style
         if (installBtn) {
             installBtn.innerText = `Hi, ${currentUser}`;
             installBtn.href = "javascript:void(0)"; 
@@ -737,19 +737,19 @@ document.addEventListener("DOMContentLoaded", function () {
             installBtn.style.boxShadow = "0 0 15px rgba(255,46,99,.4)";
         }
 
-        // 2. 将导航栏的 Join Us 变成 Logout 按钮，并绑定登出事件
+        // 2. Change the “Join Us” button in the navigation bar to a “Logout” button and bind the logout event to it
         if (joinUsLink) {
             joinUsLink.innerText = "Logout";
             joinUsLink.href = "javascript:void(0)";
             
             joinUsLink.addEventListener('click', function() {
-                // 清除登录 Session 及 Cookie
+                // Clear the login session and cookies
                 sessionStorage.removeItem('activeSession');
                 sessionStorage.removeItem('loggedInUser');
                 document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 
                 alert("You have been successfully logged out.");
-                window.location.reload(); // 刷新页面恢复未登录状态
+                window.location.reload(); // Refresh the page to return to the logged-out state
             });
         }
     }
@@ -849,3 +849,5 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 
 </html>
+
+
